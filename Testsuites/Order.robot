@@ -1,6 +1,6 @@
 *** Settings ***
 Test Setup        before test
-Test Teardown     after test
+Test Teardown
 Library           SeleniumLibrary
 Resource          ../Core/Common.robot
 Library           OperatingSystem
@@ -42,6 +42,14 @@ TC002
     [Template]    Tao don hang voi san pham moi nhat
     phuong    0987666555    434 TKC    phuong2610@gmail.com    as soon as possible    5
 
+TC003
+    [Template]    Add first product to cart and order
+    Huong Ha    0902100500    2
+
+TC008
+
+TC009
+
 *** Keywords ***
 Them san pham noi bat vao cart va thanh toan
     [Arguments]    ${username}    ${mobilephone}    ${sl}
@@ -77,3 +85,17 @@ Tao don hang voi san pham moi nhat
     sleep    ${sl}
     Thanh toan nhan hang tai dia chi nguoi nhan    ${ten}    ${sdt}    ${diachi}    ${email}    ${ghichu}    ${thanhtien}
     ...    ${gia}
+
+Add first product to cart and order
+    [Arguments]    ${user_name}    ${user_sdt}    ${sl}
+    ${thanhtien}    ${gia}    Add first product to cart    ${sl}
+    sleep    3
+    Thanh toan nhan hang tai chi nhanh    ${user_name}    ${user_sdt}    ${thanhtien}    ${gia}
+
+Add products to cart
+    [Arguments]    ${sl}    ${user_name}    ${user_sdt}
+    ${thanhtien}    ${gia}    Add first product to cart    ${sl}
+    sleep    3
+    Thanh toan nhan hang tai chi nhanh    ${user_name}    ${user_sdt}    ${thanhtien}    ${gia}
+
+Detail product and order
