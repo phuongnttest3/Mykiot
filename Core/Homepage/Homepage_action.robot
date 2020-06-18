@@ -4,6 +4,7 @@ Resource          Homepage_locator.robot
 Resource          Quickcart_locator.robot
 Resource          ../Share/Computation.robot
 Resource          ../Share/Javascript.robot
+Resource          ../OrderPage/Orderpage_Locator.robot
 
 *** Keywords ***
 Them san pham noi bat vao cart
@@ -58,9 +59,11 @@ Add first product to cart
     Return from keyword    ${total}    ${price}
 
 Detail product
+    [Arguments]    ${sl}
     execute javascript    window.scrollTo(0,1400)
-    Click link    ${detail}
-    wait until page contains element    //input[@class='form-control form-control-lg quantity-value']
-    Input text    //input[@class='form-control form-control-lg quantity-value']    2
-    Click button    ${mua_ngay}
-    wait until page contains element    //*[contains(text(),'Giỏ hàng của tôi')]
+    Click element    ${detail}
+    input text    ${txt_soluong}    3
+    Click button    ${quick_order}
+    ${price}    convert price to number    ${gia_sp}
+    ${total}    Multiplication    ${price}    ${sl}
+    Return from keyword    ${total}    ${price}

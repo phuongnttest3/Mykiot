@@ -8,4 +8,6 @@ ${lbl_gia_spyeuthich}    //div[@class='kv-category-list custom'][1]//div[@class=
 ${lbl_tongtienhang_cart}    //span[@id='total-amount']
 ${btn_addtocart_sp_hot}    //div[@id='custom-layout-slider-1']//div[@class='swiper-slide swiper-slide-active']//i[@class='far fa-shopping-bag']
 ${ctg_quick_cart}    //div[@class='col-12 kv-category-list main']//div[@class='kv-product-list-item product-item'][1]//div[@class='kv-product-list-item-top'][1]//div[@class='kv-product-list-item--content'][1]//div[@class='kv-product-action'][1]//div[@class='kv-product-addToCart'][1]
-${detail}         //*[contains(@href,'mykiot.vn/testz17/gel-mong-tay.p8306633.html')]
+${detail}         //div[@class='col-12 kv-category-list main']//div[@id='kv-products product'][1]//div[@class='col-item col-item-6 col-6 col-sm-4 col-md-3 col-lg-2'][1]//div[@class='kv-product-list-item product-item'][1]//div[@class='kv-product-list-item-top'][1]//div[@class='kv-product-list-item--media'][1]
+${quick_order}    //button[@id='quick-order']
+${gia_sp}         //div[@class='kv-product-price kv-product-price--detail-price']//p[@class='regular']

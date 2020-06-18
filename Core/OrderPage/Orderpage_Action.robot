@@ -8,7 +8,8 @@ Resource          ../Share/Computation.robot
 *** Keywords ***
 Thanh toan nhan hang tai chi nhanh
     [Arguments]    ${username}    ${mobilephone}    ${thanhtien}    ${gia}
-    wait until element is visible    ${title_searchpage}
+    #wait until element is visible    ${title_searchpage}
+    Sleep    3
     ${giasp}    convert price to number    ${lbl_giasp_order}
     should be equal    ${giasp}    ${gia}
     scroll element into view    ${txt_name}

@@ -49,6 +49,8 @@ TC003
 TC008
 
 TC009
+    [Template]    Detail product and order
+    3    Huong    0902100200
 
 *** Keywords ***
 Them san pham noi bat vao cart va thanh toan
@@ -99,3 +101,7 @@ Add products to cart
     Thanh toan nhan hang tai chi nhanh    ${user_name}    ${user_sdt}    ${thanhtien}    ${gia}
 
 Detail product and order
+    [Arguments]    ${sl}    ${user_name}    ${user_sdt}
+    ${thanhtien}    ${gia}    Detail product    ${sl}
+    sleep    3
+    Thanh toan nhan hang tai chi nhanh    ${user_name}    ${user_sdt}    ${thanhtien}    ${gia}
