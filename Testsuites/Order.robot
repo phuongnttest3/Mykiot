@@ -54,7 +54,7 @@ TC009
 
 TC011
     [Template]    Loc sp theo danh muc tu menu va dat hang
-    3    Huong anh    09213654879
+    1    Huong anh    09213654879
 
 *** Keywords ***
 Them san pham noi bat vao cart va thanh toan

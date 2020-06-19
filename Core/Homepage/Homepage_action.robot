@@ -73,10 +73,12 @@ Loc sp loc trong danh muc vao quickcart
     Click element    //*[@id='btn-menu-desktop-no-sticky']
     Click element    //*[@id='kv-e-main-menu']//*[contains(text(),'1 Danh mục')]
     Click element    ${quickcart_dm}
-    #wait until page contains element    ${btn_addtocart}
-    Click button    ${btn_addtocart}
+    wait until page contains element    ${btn_addtocart}
     input text    ${txt_soluong}    ${sl}
-    click element    //button[@id='addtocart']
-    click element    ${btn_close}
     ${price}    convert price to number    ${lbl_giasp}
     ${total}    Multiplication    ${price}    ${sl}
+    click element    ${btn_addtocart}
+    click element    ${btn_close}
+    wait until page contains element    ${btn_orderincart}
+    click element    ${btn_orderincart}
+    Return from keyword    ${total}    ${price}
