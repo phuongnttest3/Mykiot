@@ -52,6 +52,10 @@ TC009
     [Template]    Detail product and order
     3    Huong    0902100200
 
+TC011
+    [Template]    Loc sp theo danh muc tu menu va dat hang
+    3    Huong anh    09213654879
+
 *** Keywords ***
 Them san pham noi bat vao cart va thanh toan
     [Arguments]    ${username}    ${mobilephone}    ${sl}
@@ -103,5 +107,11 @@ Add products to cart
 Detail product and order
     [Arguments]    ${sl}    ${user_name}    ${user_sdt}
     ${thanhtien}    ${gia}    Detail product    ${sl}
+    sleep    3
+    Thanh toan nhan hang tai chi nhanh    ${user_name}    ${user_sdt}    ${thanhtien}    ${gia}
+
+Loc sp theo danh muc tu menu va dat hang
+    [Arguments]    ${sl}    ${user_name}    ${user_sdt}
+    ${thanhtien}    ${gia}    Loc sp loc trong danh muc vao quickcart    ${sl}
     sleep    3
     Thanh toan nhan hang tai chi nhanh    ${user_name}    ${user_sdt}    ${thanhtien}    ${gia}
