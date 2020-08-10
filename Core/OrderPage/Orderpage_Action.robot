@@ -4,11 +4,12 @@ Library           SeleniumLibrary
 Library           StringFormat
 Resource          ../Share/Javascript.robot
 Resource          ../Share/Computation.robot
+Resource          ../Share/Dictionary.robot
 
 *** Keywords ***
 Thanh toan nhan hang tai chi nhanh
     [Arguments]    ${username}    ${mobilephone}    ${thanhtien}    ${gia}
-    wait until element is visible    ${title_searchpage}
+    wait until element is visible    ${title_orderpage}
     ${giasp}    convert price to number    ${lbl_giasp_order}
     should be equal    ${giasp}    ${gia}
     scroll element into view    ${txt_name}
@@ -20,20 +21,23 @@ Thanh toan nhan hang tai chi nhanh
     \    input text    ${txt_mobilephone}    ${mobilephone}
     \    scroll element into view    ${lbl_footer}
     \    Click element    ${btn_thanhtoan}
-    \    wait until element is visible    ${popup_msg}    10
-    \    ${messege}    get text    ${btn_tieptucmuahang}
-    \    Exit For Loop If    '${messege}'=='TIẾP TỤC MUA HÀNG'
-    click element    ${btn_tieptucmuahang}
+    \    ${present}=    run keyword and return status    wait until element is visible    ${popup_msg}    5
+    \    Exit for loop if    '${present}'=='True'
+    ${messege}    get text    ${btn_tieptucmuahang}
+    Should be equal as strings    ${messege}    TIẾP TỤC MUA HÀNG
+    click element js    ${btn_tieptucmuahang}
 
 Thanh toan nhan hang tai dia chi nguoi nhan
     [Arguments]    ${ten}    ${sdt}    ${email}    ${diachi}    ${ghichu}    ${thanhtien}
     ...    ${gia}
-    wait until element is visible    ${title_searchpage}
+    wait until element is visible    ${title_orderpage}
     ${giasp}    convert price to number    ${lbl_giasp_order}
     should be equal    ${giasp}    ${gia}
-    scroll element into view    ${lb_giaohangtaidcnguoinhan}
-    click element    ${lb_giaohangtaidcnguoinhan}
+    set selenium speed    1 s
+    scroll element into view    ${lbl_texttongtienhang}
+    click element js    ${lb_giaohangtaidcnguoinhan}
     scroll element into view    ${txt_ten}
+    set selenium speed    0.1 s
     input text    ${txt_ten}    ${ten}
     input text    ${txt_sdt}    ${sdt}
     input text    ${txt_email}    ${email}
@@ -59,7 +63,7 @@ Thanh toan nhan hang tai dia chi nguoi nhan
 
 Cap nhat gio hang va thanh toan nhan hang tai chi nhanh
     [Arguments]    ${username}    ${mobilephone}    ${thanhtien}    ${gia}    ${sl_update}
-    wait until element is visible    ${title_searchpage}
+    wait until element is visible    ${title_orderpage}
     ${giasp}    convert price to number    ${lbl_giasp_order}
     should be equal    ${giasp}    ${gia}
     input text    ${txt_sl}    ${sl_update}
@@ -77,3 +81,21 @@ Cap nhat gio hang va thanh toan nhan hang tai chi nhanh
     \    ${messege}    get text    ${btn_tieptucmuahang}
     \    Exit For Loop If    '${messege}'=='TIẾP TỤC MUA HÀNG'
     click element    ${btn_tieptucmuahang}
+
+Thanh toan nhieu san pham nhan hang tai chi nhanh
+    [Arguments]    ${ten}    ${sdt}    ${list_thanhtien}    ${tongtienhang}
+    wait until element is visible    ${title_orderpage}
+    scroll element into view    ${txt_name}
+    wait until element is visible    ${txt_name}
+    ${tongtien}    convert price to number    ${lbl_tongtienhang}
+    Should be equal    ${tongtien}    ${tongtienhang}
+    : FOR    ${time}    IN RANGE    5
+    \    input text    ${txt_name}    ${ten}
+    \    input text    ${txt_mobilephone}    ${sdt}
+    \    scroll element into view    ${lbl_footer}
+    \    Click element    ${btn_thanhtoan}
+    \    ${present}=    run keyword and return status    wait until element is visible    ${popup_msg}    5
+    \    Exit for loop if    '${present}'=='True'
+    ${messege}    get text    ${btn_tieptucmuahang}
+    Should be equal as strings    ${messege}    TIẾP TỤC MUA HÀNG
+    click element js    ${btn_tieptucmuahang}

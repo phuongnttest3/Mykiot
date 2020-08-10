@@ -57,3 +57,22 @@
 [0529/161426.076:ERROR:exception_snapshot_win.cc(98)] thread ID 9948 not found in process
 [0603/145001.250:ERROR:file_io_win.cc(179)] CreateFile C:\Users\PHUONG~1\AppData\Local\Temp\scoped_dir9700_680676770\Crashpad\settings.dat: The process cannot access the file because it is being used by another process. (0x20)
 [0604/083758.367:ERROR:file_io_win.cc(179)] CreateFile C:\Users\PHUONG~1\AppData\Local\Temp\scoped_dir25612_509845365\Crashpad\settings.dat: The process cannot access the file because it is being used by another process. (0x20)
+[0619/140241.314:ERROR:file_io_win.cc(179)] CreateFile C:\Users\PHUONG~1\AppData\Local\Temp\scoped_dir10152_656840847\Crashpad\settings.dat: The process cannot access the file because it is being used by another process. (0x20)
+[0622/090317.679:ERROR:file_io_win.cc(179)] CreateFile C:\Users\PHUONG~1\AppData\Local\Temp\scoped_dir12384_1288167733\Crashpad\settings.dat: The process cannot access the file because it is being used by another process. (0x20)
+[0623/145306.604:ERROR:file_io_win.cc(179)] CreateFile C:\Users\PHUONG~1\AppData\Local\Temp\scoped_dir10560_726095946\Crashpad\settings.dat: The process cannot access the file because it is being used by another process. (0x20)
+[0623/151028.529:ERROR:file_io_win.cc(179)] CreateFile C:\Users\PHUONG~1\AppData\Local\Temp\scoped_dir5160_1396162306\Crashpad\settings.dat: The process cannot access the file because it is being used by another process. (0x20)
+[0624/093252.167:ERROR:file_io_win.cc(179)] CreateFile C:\Users\PHUONG~1\AppData\Local\Temp\scoped_dir16192_1417889371\Crashpad\settings.dat: The process cannot access the file because it is being used by another process. (0x20)
+[0625/110135.705:ERROR:file_io_win.cc(179)] CreateFile C:\Users\PHUONG~1\AppData\Local\Temp\scoped_dir13092_1940932824\Crashpad\settings.dat: The process cannot access the file because it is being used by another process. (0x20)
+[0721/183507.140:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0721/183507.271:ERROR:exception_snapshot_win.cc(98)] thread ID 12932 not found in process
+[0721/183508.032:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0721/183508.032:ERROR:exception_snapshot_win.cc(98)] thread ID 22524 not found in process
+[0722/202216.714:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0722/202217.835:ERROR:exception_snapshot_win.cc(98)] thread ID 9836 not found in process
+[0722/202218.121:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0722/202218.121:ERROR:exception_snapshot_win.cc(98)] thread ID 16052 not found in process
+[0729/172957.922:ERROR:file_io_win.cc(179)] CreateFile C:\Users\PHUONG~1\AppData\Local\Temp\scoped_dir27268_2141119207\Crashpad\settings.dat: The process cannot access the file because it is being used by another process. (0x20)
+[0805/180312.415:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[0805/180312.878:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[0805/180312.878:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0805/180313.346:ERROR:exception_snapshot_win.cc(98)] thread ID 33608 not found in process
