@@ -25,6 +25,21 @@ Them san pham noi bat vao cart
     click element js    ${btn_orderincart}
     Return from keyword    ${total}    ${price}
 
+Them san pham moi nhat vao cart
+    [Arguments]    ${sl}
+    click element    ${btn_addtocart_spmoi}
+    wait until page contains element    ${btn_addtocart}
+    input text    ${txt_soluong}    ${sl}
+    ${price}    convert price to number    ${lbl_giasp}
+    ${total}    Multiplication    ${price}    ${sl}
+    click element    ${btn_addtocart}
+    click element    ${btn_close}
+    wait until page contains element    ${btn_orderincart}
+    ${tongtien}    convert price to number    ${lbl_tongtienhang_cart}
+    should be equal    ${total}    ${tongtien}
+    click element js    ${btn_orderincart}
+    Return from keyword    ${total}    ${price}
+
 Tim kiem san pham
     [Arguments]    ${input_text}
     wait until element is visible    ${txt_timkiem}
@@ -119,7 +134,8 @@ Xem chi tiet va add hang hoa cung loai vao gio hang
 
 Xem chi tiet sp dau va them vao cart
     [Arguments]    ${sl}
-    execute javascript    window.scrollTo(0,1400)
+    #execute javascript    window.scrollTo(0,1400)
+    scroll element into view    ${detail}
     Click element    ${detail}
     sleep    3
     input text    ${txt_soluong_detail}    3

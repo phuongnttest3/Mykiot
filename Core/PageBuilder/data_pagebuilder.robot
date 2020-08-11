@@ -18,4 +18,4 @@ ${data_016}       {"productDetail":{"displayComment":1}}    #update product deta
 ${data_017}       {"productDetail":{"displayComment":0}}    #update product detail to not display Comment
 ${data_018}       {"productDetail":{"displayProductRelate":1}}    #update product detail to display Related Product
 ${data_019}       {"productDetail":{"displayProductRelate":0}}    #update product detail to not display Related Product
-${data_reset}     {"category":{"layoutProduct":5,"autoLoad":1,"visibleSidebar":1},"productDetail":{"displayDescription":1,"displayComment":1,"displayProductRelate":1,"displayWareHouse":1}}    #update config to default
+${data_reset}     {"menu":{"main_menu":1,"sub_menu":1},"layoutProduct":3,"category":{"layoutProduct":5,"autoLoad":1,"visibleSidebar":1},"productDetail":{"displayDescription":1,"displayComment":1,"displayProductRelate":1,"displayWareHouse":1}}    #update config to default

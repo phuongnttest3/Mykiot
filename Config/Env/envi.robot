@@ -7,14 +7,14 @@ Library           RequestsLibrary
 fill env
     [Arguments]    ${env}
     Log    ${env}
-    ${dic_api_url}    Create Dictionary    staging=https://admin.staging.citigo.dev/api    live=https://admin.mykiot.vn/api
-    ${dic_url}    Create Dictionary    staging=https://admin.staging.citigo.dev    live=https://admin.mykiot.vn
-    ${dic_clientid}    Create Dictionary    staging=1f36fe67-a0f2-453b-bea5-9d778218279c    live=1f36fe67-a0f2-453b-bea5-9d778218279c
-    ${dic_secretkey}    Create Dictionary    staging=5F16AD6044795B917F2F9E640F572EF835B71254    live=5F16AD6044795B917F2F9E640F572EF835B71254
-    ${dic_retailercode}    Create Dictionary    staging=testautomykiot    live=testautomykiot
-    ${dic_retailerid}    Create Dictionary    staging=737280    live=737280
-    ${dic_accessurl}    Create Dictionary    staging=https://admin.staging.citigo.dev/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&retailer_code=testautomykiot&retailer_id=737280    live=https://admin.mykiot.vn/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&retailer_code=testautomykiot&retailer_id=737280
-    ${dic_storefronturl}    Create Dictionary    staging=https://staging.citigo.dev//testautomykiot    live=https://www.mykiot.vn/testautomykiot
+    ${dic_api_url}    Create Dictionary    staging=https://admin.staging.citigo.dev/api    live=https://admin.mykiot.vn/api    prelive=https://admin.prelive.citigo.dev/api
+    ${dic_url}    Create Dictionary    staging=https://admin.staging.citigo.dev    live=https://admin.mykiot.vn    prelive=https://admin.prelive.citigo.dev
+    ${dic_clientid}    Create Dictionary    staging=1f36fe67-a0f2-453b-bea5-9d778218279c    live=1f36fe67-a0f2-453b-bea5-9d778218279c    prelive=1f36fe67-a0f2-453b-bea5-9d778218279c
+    ${dic_secretkey}    Create Dictionary    staging=5F16AD6044795B917F2F9E640F572EF835B71254    live=5F16AD6044795B917F2F9E640F572EF835B71254    prelive=5F16AD6044795B917F2F9E640F572EF835B71254
+    ${dic_retailercode}    Create Dictionary    staging=testautomykiot    live=testautomykiot    prelive=testautomykiot
+    ${dic_retailerid}    Create Dictionary    staging=737280    live=737280    prelive=737280
+    ${dic_accessurl}    Create Dictionary    staging=https://admin.staging.citigo.dev/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&retailer_code=testautomykiot&retailer_id=737280    live=https://admin.mykiot.vn/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&retailer_code=testautomykiot&retailer_id=737280    prelive=https://admin.prelive.citigo.dev/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&retailer_code=testautomykiot&retailer_id=737280
+    ${dic_storefronturl}    Create Dictionary    staging=https://staging.citigo.dev/testautomykiot    live=https://www.mykiot.vn/testautomykiot    prelive=https://prelive.citigo.dev/testautomykiot
     ${api_url}    Get From Dictionary    ${dic_api_url}    ${env}
     ${url}    Get From Dictionary    ${dic_url}    ${env}
     ${client_id}    Get From Dictionary    ${dic_clientid}    ${env}

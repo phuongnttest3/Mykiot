@@ -19,3 +19,4 @@ ${detail_hot}     //div[@class='kv-category-list custom'][1]//div[@class='kv-pro
 ${logo}           //a[@class='kv-e-logo d-none d-md-block']//img
 ${icon_view}      //li[@id='icon-view']//a
 ${link_danhmuc}    //div[@class='col-12 kv-category-list main'][1]//div[@id='kv-categories-loop'][1]//div//h3
+${btn_addtocart_spmoi}    //div[@id='custom-layout-slider-1']//div[@class='swiper-slide swiper-slide-active']//i[@class='far fa-shopping-bag']

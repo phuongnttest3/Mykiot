@@ -33,11 +33,13 @@ Thanh toan nhan hang tai dia chi nguoi nhan
     wait until element is visible    ${title_orderpage}
     ${giasp}    convert price to number    ${lbl_giasp_order}
     should be equal    ${giasp}    ${gia}
-    set selenium speed    1 s
-    scroll element into view    ${lbl_texttongtienhang}
+    set selenium speed    1s
+    scroll element into view    ${lbl_footer}
+    click element    ${cb_chinhanh}
+    sleep    3s
     click element js    ${lb_giaohangtaidcnguoinhan}
     scroll element into view    ${txt_ten}
-    set selenium speed    0.1 s
+    set selenium speed    0.1s
     input text    ${txt_ten}    ${ten}
     input text    ${txt_sdt}    ${sdt}
     input text    ${txt_email}    ${email}
@@ -77,10 +79,11 @@ Cap nhat gio hang va thanh toan nhan hang tai chi nhanh
     \    input text    ${txt_mobilephone}    0339678855
     \    scroll element into view    ${lbl_footer}
     \    Click element    ${btn_thanhtoan}
-    \    wait until element is visible    ${popup_msg}    10
-    \    ${messege}    get text    ${btn_tieptucmuahang}
-    \    Exit For Loop If    '${messege}'=='TIẾP TỤC MUA HÀNG'
-    click element    ${btn_tieptucmuahang}
+    \    ${present}=    run keyword and return status    wait until element is visible    ${popup_msg}    5
+    \    Exit for loop if    '${present}'=='True'
+    ${messege}    get text    ${btn_tieptucmuahang}
+    Should be equal as strings    ${messege}    TIẾP TỤC MUA HÀNG
+    click element js    ${btn_tieptucmuahang}
 
 Thanh toan nhieu san pham nhan hang tai chi nhanh
     [Arguments]    ${ten}    ${sdt}    ${list_thanhtien}    ${tongtienhang}

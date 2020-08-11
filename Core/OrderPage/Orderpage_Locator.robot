@@ -3,7 +3,7 @@ ${txt_name}       //input[@id='inplace-userName']
 ${txt_mobilephone}    //input[@id='inplace-phoneNumber']
 ${btn_thanhtoan}    //button[contains(@class,'btn-submit')]
 ${btn_tieptucmuahang}    //a[@class='btn btn-secondary']
-${lb_giaohangtaidcnguoinhan}    //div[@class='custom-control tab']//label[contains(text(),'Giao hàng tại')]
+${lb_giaohangtaidcnguoinhan}    //*[contains(@class,'CoD card')]//div[contains(@class,'cod')]//label
 ${txt_ten}        //input[@id='order-userName']
 ${txt_sdt}        //input[@id='order-phoneNumber']
 ${txt_email}      //input[@id='order-email']
@@ -23,3 +23,4 @@ ${lbl_footer}     //p[@class='text-right']
 ${txt_sl}         //*[@class='card-body cart-content']//*[@class='cart-content-item'][1]//input[contains(@class, 'quantity-value')]
 ${lbl_giasp_order}    //*[@class= 'cart-content-item'][1]//div[@class='e-cart-price']//h6
 ${lbl_texttongtienhang}    //*[contains(text(),'Tổng tiền hàng')]
+${cb_chinhanh}    //label[@class='custom-control-label branch-name']

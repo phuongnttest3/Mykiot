@@ -1,5 +1,5 @@
 *** Settings ***
-Test Setup        before test    staging
+Test Setup        before test    prelive
 Test Teardown     after test
 Library           SeleniumLibrary
 Library           RequestsLibrary
@@ -42,7 +42,7 @@ TC003
 
 TC004
     [Tags]    All    Order
-    [Template]    them san pham noi bat vao cart thanh toan tai dia chi nguoi nhan
+    [Template]    Them san pham noi bat vao cart thanh toan tai dia chi nguoi nhan
     phuong    0987666555    434 TKC    phuong2610@gmail.com    as soon as possible    6
 
 TC005
@@ -142,7 +142,7 @@ Them sp vao cart, cap nhat sl va thanh toan
 
 Tao don hang voi san pham moi nhat
     [Arguments]    ${ten}    ${sdt}    ${email}    ${diachi}    ${ghichu}    ${sl}
-    ${thanhtien}    ${gia}    Them san pham hot vao cart    ${sl}
+    ${thanhtien}    ${gia}    Them san pham moi nhat vao cart    ${sl}
     sleep    3
     Thanh toan nhan hang tai dia chi nguoi nhan    ${ten}    ${sdt}    ${diachi}    ${email}    ${ghichu}    ${thanhtien}
     ...    ${gia}

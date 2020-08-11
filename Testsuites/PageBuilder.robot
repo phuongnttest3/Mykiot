@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       init test env    staging
+Suite Setup       init test env    prelive
 Suite Teardown    after test page builder
 Test Teardown     after test
 Library           SeleniumLibrary
