@@ -111,9 +111,6 @@ TC017
     [Template]    Bam yeu thich va cho vao gio hang
     phuong    0974544304    phuongtran27111994@gmail.com    1B    giao ban ngày    4
 
-TCXXXX
-    open browser    http    gc
-
 *** Keywords ***
 Them san pham noi bat vao cart va thanh toan
     [Arguments]    ${username}    ${mobilephone}    ${sl}

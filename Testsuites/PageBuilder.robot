@@ -44,7 +44,6 @@ TC024
 TC025
     [Template]    Update product list to display 6 columns
     ${data_007}
-    +
 
 TC026
     [Template]    Update product list to manual load

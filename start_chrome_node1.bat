@@ -1,0 +1,1 @@
+java -Dwebdriver.chrome.driver=E:\Robot Framework\Mykiot\chromedriver.exe -jar selenium-server-standalone-3.14.0.jar -role node -nodeConfig node.json 
