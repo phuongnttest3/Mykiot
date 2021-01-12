@@ -24,7 +24,7 @@ Get BearerToken from API
     Log    ${resp.cookies}
     ${bearertoken}    Get Value From Json    ${resp.json()}    $..BearerToken
     Log    ${bearertoken}
-    ${bearertoken}=    Evaluate    ${bearertoken}[0] if ${bearertoken} else 0    modules=random, sys
+    ${bearertoken}=    Evaluate    $bearertoken[0] if $bearertoken else 0    modules=random, sys
     ${bearertoken}=    Catenate    Bearer    ${bearertoken}
     Log    ${bearertoken}
     Return From Keyword    ${bearertoken}    ${resp.cookies}
@@ -49,7 +49,7 @@ Get data from KV API
     \    ${resp1}    ${resp1.status_code}    Get KV Request and validate status code    ${END_POINT}
     \    Exit For Loop If    '${resp1.status_code}'=='200'
     ${get_raw_data}    Get Value From Json    ${resp1.json()}    ${json_path}
-    ${result} =    Evaluate    ${get_raw_data}[0] if ${get_raw_data} else 0
+    ${result} =    Evaluate    $get_raw_data[0] if $get_raw_data else 0
     ${result} =    Evaluate    $result or 0
     Return From Keyword    ${result}
 
@@ -66,7 +66,7 @@ Get data from response json
     [Arguments]    ${resp1.json}    ${json_path}
     [Timeout]    5 minutes
     ${get_raw_data}    Get Value From Json    ${resp1.json}    ${json_path}
-    ${result} =    Evaluate    ${get_raw_data}[0] if ${get_raw_data} else 0
+    ${result} =    Evaluate    $get_raw_data[0] if $get_raw_data else 0
     ${result} =    Evaluate    $result or 0
     Return From Keyword    ${result}
 
@@ -78,7 +78,7 @@ Get data from API by BranchID
     \    Exit For Loop If    '${resp1.status_code}'=='200'
     Should Be Equal As Strings    ${resp1.status_code}    200
     ${get_raw_data}    Get Value From Json    ${resp1.json()}    ${json_path}
-    ${result} =    Evaluate    ${get_raw_data}[0] if ${get_raw_data} else 0
+    ${result} =    Evaluate    $get_raw_data[0] if $get_raw_data else 0
     ${result} =    Evaluate    $result or 0
     Return From Keyword    ${result}
 

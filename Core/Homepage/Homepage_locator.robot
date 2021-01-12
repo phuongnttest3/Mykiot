@@ -17,7 +17,7 @@ ${lbl_tensp_love}    //div[@class='row kv-product-details product-detail-js row-
 ${icon_love_list}    //li[@id='icon-favourite']//i[@class='fas fa-heart']
 ${detail_hot}     //div[@class='kv-category-list custom'][1]//div[@class='kv-product-list custom row desktop']//div[@class='swiper-wrapper list']//div[@class='swiper-slide swiper-slide-active']//div[@class='kv-product-list-item product-item']//div[@class='kv-product-list-item-top']//div[@class='kv-product-list-item--media']
 ${logo}           //a[@class='kv-e-logo d-none d-md-block']//img
-${icon_view}      //li[@id='icon-view']//a
+${icon_view}       //li[@id='icon-view']
 ${link_danhmuc}    //div[@class='col-12 kv-category-list main'][1]//div[@id='kv-categories-loop'][1]//div//h3
 ${btn_addtocart_spmoi}    //div[@id='custom-layout-slider-1']//div[@class='swiper-slide swiper-slide-active']//i[@class='far fa-shopping-bag']
 ${ten_list_viewlove}    //div[@class='kv-product-list row row-eq-height']//div[@class='kv-product-list-item product-item']//div[@class='kv-product-list-item-top']//div[@class='kv-product-list-item--content']//div[@class='product-wrap']//div[@class='kv-product-name']

@@ -132,13 +132,14 @@ TCxxxx
     sleep    5s
     go to    https://testautomykiot.kiotviet.com/#/PosParameter#tab-mykiot
     sleep    5s
-    click element    //*[@id='btnCancel']
+    click element    //a[@class='popup-close']
     sleep    5s
     select frame    //iframe[contains(@src,'iframe')]
     click element    //button[@id='btn-redirect-ecatalog']
     sleep    5s
     Select Window    NEW
-    title should be    Danh sách danh mục
+    title should be    Dashboard
+    close all browsers
 
 *** Keywords ***
 Them san pham noi bat vao cart va thanh toan

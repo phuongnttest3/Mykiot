@@ -18,7 +18,7 @@ get access token from api
     Log    ${resp.cookies}
     ${token}    Get Value From Json    ${resp.json()}    $..data
     Log    ${token}
-    ${token}=    Evaluate    ${token}[0] if ${token} else 0    modules=random, sys
+    ${token}=    Evaluate    $token[0]    modules=random, sys
     ${bearertoken}=    Catenate    Bearer    ${token}
     Log    ${token}
     Log    ${bearertoken}

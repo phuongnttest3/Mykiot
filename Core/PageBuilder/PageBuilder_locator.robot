@@ -1,7 +1,8 @@
 *** Variables ***
 ${btn_tuybienhinhthuc}    //a[contains(string(),'Tùy biến hình thức')]
-${menu_thietlaptrangchu}    //a[contains(text(),'Trang Chủ')]
-${ifr_pagebuilder}    //iframe[contains(@iframe-src,'?preview_page_builder=true')]
+${menu_thietlaptrangchu}    //a[contains(text(),'Thiết lập Trang Chủ')]
+${btn_bannerads}       //button[contains(text(),'Thiết lập Nhóm Banners')]
+${ifr_pagebuilder}      //iframe[contains(@iframe-src,'preview_page_builder=true')]
 ${img_banner_slider}    //div[@class='swiper-slide swiper-slide-active']//img[@class='img-fluid']
 ${img_banner_grid}    //body[@class='kv-e-theme-basic home']//div[@class='row']//div[@class='row']//div[1]//figure[1]//img[@class='img-fluid']
 ${menu_thietlapdanhsachsp}    //a[contains(text(),'Danh sách sản phẩm')]    #menu item thiet lap danh sach san pham

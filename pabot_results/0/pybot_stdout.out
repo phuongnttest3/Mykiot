@@ -3,15 +3,26 @@ Testsuites
 ==============================================================================
 Testsuites.Synchronization                                                    
 ==============================================================================
-MTC-001                                                               {'Message': 'Hàng hóa ?ã ???c t?o thành công', 'Data': [{'IdOld': 0, 'CrudGuid': '00000000000000000000000000000000', 'CategoryOld': 0, 'Id': 11083298, 'Code': 'MYKcddda3', 'Name': 'Test ?o time', 'CategoryId': 69752, 'AllowsSale': True, 'BasePrice': 135000, 'Tax': 0, 'RetailerId': 737280, 'isActive': True, 'CreatedDate': '2021-01-11T12:39:52.6927884+07:00', 'ProductType': 2, 'HasVariants': False, 'Unit': '', 'ConversionValue': 1, 'OrderTemplate': '', 'FullName': 'Test ?o time', 'IsLotSerialControl': False, 'IsRewardPoint': False, 'isDeleted': False, 'MasterCode': 'SPC000532', 'Revision': 'AAAAABAz9ck=', 'Formula': [], 'ProductImages': [], 'PurchaseReturnDetails': [], 'ProductChild': [], 'ProductAttributes': [], 'ProductChildUnit': [], 'PriceBookDetails': [], 'ProductBranches': [], 'TableAndRooms': [], 'Manufacturings': [], 'ManufacturingDetails': [], 'DamageDetails': [], 'ProductSerials': [], 'ProductFormulaHistories': [], 'OrderSupplierDetails': [], 'ProductShelves': [], 'PrescriptionDetails': [], 'SamplePrescriptionDetails': []}]}
-| PASS |
+STC001                                                                {'Message': 'Hàng hóa ?ã ???c t?o thành công', 'Data': [{'IdOld': 0, 'CrudGuid': '00000000000000000000000000000000', 'CategoryOld': 0, 'Id': 10718010, 'Code': 'MYK92512f', 'Name': 'Test thêm m?i', 'CategoryId': 69752, 'AllowsSale': True, 'BasePrice': 135000, 'Tax': 0, 'RetailerId': 737280, 'isActive': True, 'CreatedDate': '2020-12-22T16:42:07.3623512+07:00', 'ProductType': 2, 'HasVariants': False, 'Unit': '', 'ConversionValue': 1, 'OrderTemplate': '', 'FullName': 'Test thêm m?i', 'IsLotSerialControl': False, 'IsRewardPoint': False, 'isDeleted': False, 'MasterCode': 'SPC000443', 'Revision': 'AAAAAA5wog4=', 'Formula': [], 'ProductImages': [], 'PurchaseReturnDetails': [], 'ProductChild': [], 'ProductAttributes': [], 'ProductChildUnit': [], 'PriceBookDetails': [], 'ProductBranches': [], 'TableAndRooms': [], 'Manufacturings': [], 'ManufacturingDetails': [], 'DamageDetails': [], 'ProductSerials': [], 'ProductFormulaHistories': [], 'OrderSupplierDetails': [], 'ProductShelves': [], 'PrescriptionDetails': [], 'SamplePrescriptionDetails': []}]}
+| FAIL |
+Element with locator '//button[@class='btn btn-success btn-filter']' not found.
 ------------------------------------------------------------------------------
-Testsuites.Synchronization                                            | PASS |
-1 critical test, 1 passed, 0 failed
-1 test total, 1 passed, 0 failed
+STC002                                                                | FAIL |
+Element with locator '//button[@class='btn btn-success btn-filter']' not found.
+------------------------------------------------------------------------------
+STC003                                                                {'Message': 'C?p nh?t d? li?u thành công', 'successItems': 1, 'totalItems': 1, 'PriceBookDependency': {'PriceBookId': 0, 'RetailerId': 0, 'ParentId': 0, 'IsAuto': False}, 'TimeWait': 0}
+| FAIL |
+Element with locator '//button[@class='btn btn-success btn-filter']' not found.
+------------------------------------------------------------------------------
+STC004                                                                | FAIL |
+Element with locator '//button[@class='btn btn-success btn-filter']' not found.
+------------------------------------------------------------------------------
+Testsuites.Synchronization                                            | FAIL |
+4 critical tests, 0 passed, 4 failed
+4 tests total, 0 passed, 4 failed
 ==============================================================================
-Testsuites                                                            | PASS |
-1 critical test, 1 passed, 0 failed
-1 test total, 1 passed, 0 failed
+Testsuites                                                            | FAIL |
+4 critical tests, 0 passed, 4 failed
+4 tests total, 0 passed, 4 failed
 ==============================================================================
 Output:  E:\Robot Framework\Mykiot\pabot_results\0\output.xml

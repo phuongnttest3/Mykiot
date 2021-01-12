@@ -7,6 +7,14 @@ Library           SeleniumLibrary
 Resource          Javascript.robot
 
 *** Keywords ***
+Click To Element
+    [Arguments]  ${locator}
+    wait until element is visible  ${locator}   5s
+    click element  ${locator}
+Sendkey To Element
+    [Arguments]  ${locator}   ${value}
+    wait until element is visible  ${locator}   5s
+    input text  ${locator}  ${value}
 Multiplication
     [Arguments]    ${num1}    ${num2}
     [Timeout]    15 seconds
@@ -76,13 +84,6 @@ Convert price to number
     ${price_number}    get text    ${locator}
     ${mystring}    remove string    ${price_number}    ,    đ    ${EMPTY}
     ${real_price}    convert to number    ${mystring}
-    Return from keyword    ${real_price}
-
-Convert price to string
-    [Arguments]    ${locator}
-    ${price_number}    get text    ${locator}
-    ${mystring}    remove string    ${price_number}    ,    đ    ${EMPTY}
-    ${real_price}    convert to string    ${mystring}
     Return from keyword    ${real_price}
 
 Divide

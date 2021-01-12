@@ -1,11 +1,12 @@
 *** Settings ***
-Suite Setup       init test env    prelivenew
+Suite Setup       init test env    live
 Suite Teardown    after test pagebuilder
 Test Teardown     after test
 Library           SeleniumLibrary
 Library           Collections
 Library           RequestsLibrary
 Library           JSONLibrary
+Library           StringFormat
 Resource          ../Config/Env/envi.robot
 Resource          ../Core/API/api_access.robot
 Resource          ../Core/PageBuilder/PageBuilder_locator.robot
@@ -116,34 +117,36 @@ TC037
 *** Keywords ***
 Update banner display to slider
     [Arguments]    ${data}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlaptrangchu}    5s
-    click element    ${menu_thietlaptrangchu}
+    click to element    ${menu_thietlaptrangchu}
+    click to element   ${btn_bannerads}
     select frame    ${ifr_pagebuilder}
     page should contain element    ${img_banner_slider}    #dang truot
     go to    ${storefront_url}
-    sleep    10s
+    sleep    2s
     page should contain element    ${img_banner_slider}
 
 Update banner display to grid
     [Arguments]    ${data}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlaptrangchu}    5s
-    click element    ${menu_thietlaptrangchu}
+    click to element    ${menu_thietlaptrangchu}
+    click to element   ${btn_bannerads}
     select frame    ${ifr_pagebuilder}
     page should contain element    ${img_banner_grid}    #dang luoi
     go to    ${storefront_url}
     page should contain element    ${img_banner_grid}
 
 Update product list to display 2 columns
-    [Arguments]    ${data_003}
-    post request and validate request success    /config/save    ${data_003}
+    [Arguments]    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapdanhsachsp}    5s
-    click element    ${menu_thietlapdanhsachsp}
-    sleep    5s
+    click to element    ${menu_thietlapdanhsachsp}
+    sleep    2s
     select frame    ${ifr_pagebuilder}
     wait until element is visible    ${item_sp_2column}    5s
     page should contain element    ${item_sp_2column}
@@ -154,9 +157,9 @@ Update product list to display 2 columns
 
 Update product list to display 3 columns
     [Arguments]    ${data}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapdanhsachsp}    5s
     click element    ${menu_thietlapdanhsachsp}
     sleep    5s
     select frame    ${ifr_pagebuilder}
@@ -169,10 +172,10 @@ Update product list to display 3 columns
 
 Update product list to display 4 columns
     [Arguments]    ${data}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapdanhsachsp}    5s
-    click element    ${menu_thietlapdanhsachsp}
+    click to element    ${menu_thietlapdanhsachsp}
     sleep    5s
     select frame    ${ifr_pagebuilder}
     wait until element is visible    ${item_sp_4column}    5s
@@ -184,10 +187,10 @@ Update product list to display 4 columns
 
 Update product list to display 5 columns
     [Arguments]    ${data}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapdanhsachsp}    5s
-    click element    ${menu_thietlapdanhsachsp}
+    click to element    ${menu_thietlapdanhsachsp}
     sleep    5s
     select frame    ${ifr_pagebuilder}
     wait until element is visible    ${item_sp_5column}    5s
@@ -199,11 +202,11 @@ Update product list to display 5 columns
 
 Update product list to display 6 columns
     [Arguments]    ${data}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapdanhsachsp}    5s
-    click element    ${menu_thietlapdanhsachsp}
-    sleep    5s
+    click to element    ${menu_thietlapdanhsachsp}
+    sleep    2s
     select frame    ${ifr_pagebuilder}
     wait until element is visible    ${item_sp_6column}    5s
     page should contain element    ${item_sp_6column}
@@ -214,10 +217,10 @@ Update product list to display 6 columns
 
 Update product list to manual load
     [Arguments]    ${data}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapdanhsachsp}    5s
-    click element    ${menu_thietlapdanhsachsp}
+    click to element    ${menu_thietlapdanhsachsp}
     sleep    5s
     select frame    ${ifr_pagebuilder}
     scroll element into view    ${lblfooter}
@@ -230,11 +233,11 @@ Update product list to manual load
 
 Update product list to autoload
     [Arguments]    ${data}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapdanhsachsp}    5s
-    click element    ${menu_thietlapdanhsachsp}
-    sleep    5s
+    click to element    ${menu_thietlapdanhsachsp}
+    sleep    2s
     select frame    ${ifr_pagebuilder}
     #scroll element into view    ${lblfooter}
     page should not contain element    ${btn_taithucong}
@@ -245,11 +248,11 @@ Update product list to autoload
 
 Update product list to have sidebar
     [Arguments]    ${data}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapdanhsachsp}    5s
-    click element    ${menu_thietlapdanhsachsp}
-    sleep    5s
+    click to element    ${menu_thietlapdanhsachsp}
+    sleep    2s
     select frame    ${ifr_pagebuilder}
     #scroll element into view    ${lblfooter}
     page should contain element    ${item_sidebar}
@@ -260,13 +263,12 @@ Update product list to have sidebar
 
 Update product list to have no sidebar
     [Arguments]    ${data}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapdanhsachsp}    5s
-    click element    ${menu_thietlapdanhsachsp}
-    sleep    5s
+    click to element    ${menu_thietlapdanhsachsp}
+    sleep    2s
     select frame    ${ifr_pagebuilder}
-    #scroll element into view    ${lblfooter}
     page should not contain element    ${item_sidebar}
     go to    ${storefront_url}
     sleep    3s
@@ -276,10 +278,10 @@ Update product list to have no sidebar
 Update product detail to display Warehouse
     [Arguments]    ${data}    ${input_text}
     [Tags]    all    pagebuilder
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapchitietsp}    5s
-    click element    ${menu_thietlapchitietsp}
+    click to element    ${menu_thietlapchitietsp}
     #sleep    5s
     #select frame    ${ifr_pagebuilder}
     #page should contain element    ${lbl_thongtinkhohang}
@@ -292,11 +294,11 @@ Update product detail to display Warehouse
 
 Update product detail to not display Warehouse
     [Arguments]    ${data}    ${input_text}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapchitietsp}    5s
-    click element    ${menu_thietlapchitietsp}
-    sleep    5s
+    click to element    ${menu_thietlapchitietsp}
+    sleep    2s
     select frame    ${ifr_pagebuilder}
     page should not contain element    ${lbl_thongtinkhohang}
     go to    ${storefront_url}
@@ -308,96 +310,96 @@ Update product detail to not display Warehouse
 
 Update product detail to display Product Description
     [Arguments]    ${data}    ${input_text}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapchitietsp}    5s
-    click element    ${menu_thietlapchitietsp}
-    sleep    5s
+    click to element    ${menu_thietlapchitietsp}
+    sleep    2s
     select frame    ${ifr_pagebuilder}
     page should contain element    ${lbl_motasp}
     go to    ${storefront_url}
     sleep    3s
     Tim kiem san pham    ${input_text}
-    Click element    ${link_sp}
+    click to element    ${link_sp}
     wait until element is visible    ${lbl_motasp}
     page should contain element    ${lbl_motasp}
 
 Update product detail to not display Product Description
     [Arguments]    ${data}    ${input_text}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapchitietsp}    5s
-    click element    ${menu_thietlapchitietsp}
-    sleep    5s
+    click to element    ${menu_thietlapchitietsp}
+    sleep    2s
     select frame    ${ifr_pagebuilder}
     page should not contain element    ${lbl_motasp}
     go to    ${storefront_url}
     sleep    3s
     Tim kiem san pham    ${input_text}
-    Click element    ${link_sp}
+    click to element    ${link_sp}
     sleep    3s
     page should not contain element    ${lbl_motasp}
 
 Update product detail to display comment
     [Arguments]    ${data}    ${input_text}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapchitietsp}    5s
-    click element    ${menu_thietlapchitietsp}
-    sleep    5s
+    click to element    ${menu_thietlapchitietsp}
+    sleep    2s
     select frame    ${ifr_pagebuilder}
     page should contain element    ${lbl_danhgiasp}
     go to    ${storefront_url}
     sleep    3s
     Tim kiem san pham    ${input_text}
-    Click element    ${link_sp}
+    Click to element    ${link_sp}
     wait until element is visible    ${lbl_thongtinkhohang}
     page should contain element    ${lbl_danhgiasp}
 
 Update product detail to not display comment
     [Arguments]    ${data}    ${input_text}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapchitietsp}    5s
-    click element    ${menu_thietlapchitietsp}
-    sleep    5s
+    click to element    ${menu_thietlapchitietsp}
+    sleep    2s
     select frame    ${ifr_pagebuilder}
     page should not contain element    ${lbl_danhgiasp}
     go to    ${storefront_url}
     sleep    3s
     Tim kiem san pham    ${input_text}
-    Click element    ${link_sp}
+    click to element    ${link_sp}
     wait until element is visible    ${lbl_thongtinkhohang}
     page should not contain element    ${lbl_danhgiasp}
 
 Update product detail to display related product
     [Arguments]    ${data}    ${input_text}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapchitietsp}    5s
-    click element    ${menu_thietlapchitietsp}
-    sleep    5s
+    click to element    ${menu_thietlapchitietsp}
+    sleep   2s
     select frame    ${ifr_pagebuilder}
     page should contain element    ${lbl_hanghoacungloai}
     go to    ${storefront_url}
     sleep    3s
     Tim kiem san pham    ${input_text}
-    Click element    ${link_sp}
+    click to element    ${link_sp}
     wait until element is visible    ${lbl_thongtinkhohang}
     page should contain element    ${lbl_hanghoacungloai}
 
 Update product detail to not display related product
     [Arguments]    ${data}    ${input_text}
-    post request and validate request success    /config/save    ${data}
+    ${datanew}    Format string    ${data}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
-    wait until element is visible    ${menu_thietlapchitietsp}    5s
-    click element    ${menu_thietlapchitietsp}
-    sleep    5s
+    click to element    ${menu_thietlapchitietsp}
+    sleep    2s
     select frame    ${ifr_pagebuilder}
     page should not contain element    ${lbl_hanghoacungloai}
     go to    ${storefront_url}
     sleep    3s
     Tim kiem san pham    ${input_text}
-    Click element    ${link_sp}
+    click to element    ${link_sp}
     wait until element is visible    ${lbl_thongtinkhohang}
     page should not contain element    ${lbl_hanghoacungloai}

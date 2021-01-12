@@ -14,7 +14,7 @@ Them san pham tim kiem vao cart
     Should contain any    ${mes}    ${input_text}
     Click Element JS    ${btn_addtocart_kqtk}
     wait until element is visible    ${btn_addtocart}
-    input text    ${txt_soluong}    ${sl}
+    sendkey to element    ${txt_soluong}    ${sl}
     ${price}    convert price to number    ${lbl_giasp}
     ${total}    Multiplication    ${price}    ${sl}
     Click element    ${btn_addtocart}

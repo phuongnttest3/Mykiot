@@ -6,4 +6,4 @@ Resource          PageBuilder_locator.robot
 go to pagebuilder
     open browser    ${access_url}    gc
     Maximize browser window
-    click element    ${btn_tuybienhinhthuc}
+    click to element    ${btn_tuybienhinhthuc}

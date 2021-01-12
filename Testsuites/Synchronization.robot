@@ -105,9 +105,9 @@ Check sync name, baseprice, stock of new product
     ${productstock_locator}    Format string    ${firstproduct_stock}    ${product_code}
     ${productbaseprice_locator}    Format string    ${firstproduct_baseprice}    ${product_code}
     : FOR    ${time}    IN RANGE    10
-    \    sleep    20s
-    \    input text    ${txt_mahanghoa}    ${product_code}
-    \    click element    ${btn_loctimkiem}
+    \    sleep    5s
+    \    sendkey to element    ${txt_mahanghoa}    ${product_code}
+    \    click to element    ${btn_loctimkiem}
     \    ${present}=    Run keyword and return status    wait until element is visible    ${productcode_locator}
     \    Exit for loop if    '${present}'=='True'
     ${ma_sp}    get text    ${productcode_locator}
@@ -155,9 +155,8 @@ Check sync update name, baseprice, stock
     ${ma_sp}    get text    ${productcode_locator}
     #${ten_sp}    get text    ${productname_locator}
     ${ten_sp}    get element attribute    ${productname_locator}    data-original-title
-    ${ton}    convert price to string    ${productstock_locator}
-    ${ton_sp}    convert to string    ${ton}
-    #${ton_sp}    get text    ${productstock_locator}
+    ${ton_sp}    get text    ${productstock_locator}
+    ${ton_sp}    remove string      ${ton_sp}  ,    ${EMPTY}
     ${baseprice_sp}    convert price to number    ${productbaseprice_locator}
     Should be equal as strings    ${product_code}    ${ma_sp}
     Should be equal as strings    ${name_update}    ${ten_sp}
@@ -229,7 +228,7 @@ Check sync prod and measure time
     [Arguments]    ${product_name}    ${category_name}    ${base_price}    ${cost}    ${stock}
     ${product_code}    Generate code automatically    MYK
     Add kv product thr api    ${product_code}    ${product_name}    ${category_name}    ${base_price}    ${cost}    ${stock}
-    Create Session    lolo    http://webhook.mykiot.vn
+    Create Session     lolo    http://webhook.mykiot.vn
     ${resp1}=    RequestsLibrary.Get Request    lolo    /job/current_job
     Should Be Equal As Strings    ${resp1.status_code}    200
     Log    ${resp1.json()}
