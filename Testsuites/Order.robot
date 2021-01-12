@@ -1,5 +1,5 @@
 *** Settings ***
-Test Setup        before test    prelive
+Test Setup        before test    live
 Test Teardown     after test
 Library           SeleniumLibrary
 Library           RequestsLibrary
@@ -19,6 +19,7 @@ Resource          ../Core/Share/Dictionary.robot
 Resource          ../Core/SearchResult_Page/Searchpage_action.robot
 Resource          ../Core/Share/Javascript.robot
 Resource          ../Core/OrderPage/Orderpage_Locator.robot
+Resource          ../Core/Share/Computation.robot
 Resource          ../Core/ProductCategoryList_Page/ProductCategoryList_action.robot
 
 *** Variables ***
@@ -31,7 +32,7 @@ TC001
     phuong    0339786605    4
 
 TC002
-    [Tags]    All    Order
+    [Tags]    All    Order    test
     [Template]    Tao don hang voi san pham moi nhat
     phuong    0987666555    434 TKC    phuong2610@gmail.com    as soon as possible    5
 
@@ -111,8 +112,33 @@ TC017
     [Template]    Bam yeu thich va cho vao gio hang
     phuong    0974544304    phuongtran27111994@gmail.com    1B    giao ban ngày    4
 
-TCXXXX
-    open browser    http    gc
+test
+    init test env    live
+    init test env sync    live
+    ${productid_1}    Get product ID    @{list_sp_noibat_hot}[0]
+    ${productid_2}    Get product ID    @{list_sp_noibat_hot}[1]
+    ${productid_3}    Get product ID    @{list_sp_noibat_hot}[2]
+    ${productid_4}    Get product ID    @{list_sp_noibat_hot}[3]
+    ${data_forstart}    Format String    ${data_start}    ${productid_1}    ${productid_2}    ${productid_3}    ${productid_4}
+    #post request and validate request success    /config/save    {"theme":{"color":"#45A6AF","second_color":"#2C334D","backgroundColor":"#F9F9F9","backgroundColorHeader":"#fff","topMenuBackgroundColor":"#fff","verticalMenuBackgroundColor":"#fff","footerMenuBackgroundColor":"#fff","font":"'Roboto', sans-serif","headerBackgroundMode":"light-mode","topMenuBackgroundMode":"light-mode","verticalMenuBackgroundMode":"light-mode","horizontalMenuBackgroundMode":"dark-mode","footerMenuBackgroundMode":"light-mode"},"menu":{"main_menu":1,"sub_menu":1},"layoutProduct":3,"layoutFooter":4,"widthBanner":"boxed","bannerDisplay":"slider","profile":{"logo":"https://staging.citigo.dev:40001/assets/images/kiotvietLogo.jpg"},"category":{"layoutProduct":5,"autoLoad":1,"visibleSidebar":1},"defaultCategory":{"isShow":true,"displayType":"list"},"productDetail":{"displayDescription":1,"displayComment":1,"displayProductRelate":1,"displayWareHouse":1},"testimonial":{"isShow":false,"info":[],"items":[]},"customLayouts":[{"title":"Sản phẩm nổi bật","productIds":[11021617,11021609],"numberItem":4},{"title":"Sản phẩm mới","productIds":[11021617,11021609],"numberItem":4}],"quickEnableStatus":{"footerCopyright":true},"priceBook":{"regularPrice":-1},"branch":{"branchInventory":[20363],"branchOrder":20363},"listBranches":[{"id":20363,"branchName":"Chi nhánh trung tâm","address":"testautomykiot","locationName":"Hà Nội - Quận Hoàn Kiếm","wardName":"Phường Trần Hưng Đạo","retailerId":736403,"createdDate":"2020-09-07T17:20:46.4500000"}],"syncCategoryCompleted":true,"settingKV":{"ManagerCustomerByBranch":false,"AllowOrderWhenOutStock":true,"AllowSellWhenOrderOutStock":true,"SellAllowOrder":true},"isReady":true,"lastModifiedFromNodeSync":"2020-09-08T02:15:00.000000Z","banner":[{"alt":null,"index":0,"link":null,"url":"https://cdn.mykiot.vn/2020/09/159953204678a014b537db41dd0c20d9b410407a7a.png"}]}
+    post request and validate request success    /config/save    {"theme":{"color":"#45A6AF","second_color":"#2C334D","backgroundColor":"#F9F9F9","backgroundColorHeader":"#fff","topMenuBackgroundColor":"#fff","verticalMenuBackgroundColor":"#fff","footerMenuBackgroundColor":"#fff","font":"'Roboto', sans-serif","headerBackgroundMode":"light-mode","topMenuBackgroundMode":"light-mode","verticalMenuBackgroundMode":"light-mode","horizontalMenuBackgroundMode":"dark-mode","footerMenuBackgroundMode":"light-mode"},"menu":{"main_menu":1,"sub_menu":1},"layoutProduct":3,"layoutFooter":4,"widthBanner":"boxed","bannerDisplay":"slider","profile":{"logo":"https://staging.citigo.dev:40001/assets/images/kiotvietLogo.jpg"},"category":{"layoutProduct":5,"autoLoad":1,"visibleSidebar":1},"defaultCategory":{"isShow":true,"displayType":"list"},"productDetail":{"displayDescription":1,"displayComment":1,"displayProductRelate":1,"displayWareHouse":1},"testimonial":{"isShow":false,"info":[],"items":[]},"customLayouts":[{"title":"Sản phẩm nổi bật","productIds":[1427904,1427908],"numberItem":4},{"title":"Sản phẩm mới","productIds":[1427873,1428008],"numberItem":4}],"quickEnableStatus":{"footerCopyright":true},"priceBook":{"regularPrice":-1},"branch":{"branchInventory":[20363],"branchOrder":20363},"listBranches":[{"id":20363,"branchName":"Chi nhánh trung tâm","address":"testautomykiot","locationName":"Hà Nội - Quận Hoàn Kiếm","wardName":"Phường Trần Hưng Đạo","retailerId":736403,"createdDate":"2020-09-07T17:20:46.4500000"}],"syncCategoryCompleted":true,"settingKV":{"ManagerCustomerByBranch":false,"AllowOrderWhenOutStock":true,"AllowSellWhenOrderOutStock":true,"SellAllowOrder":true},"isReady":true,"lastModifiedFromNodeSync":"2020-09-08T02:15:00.000000Z","banner":[{"alt":null,"index":0,"link":null,"url":"https://cdn.mykiot.vn/2020/09/159953204678a014b537db41dd0c20d9b410407a7a.png"}]}
+
+TCxxxx
+    open browser    https://testautomykiot.kiotviet.com/    gc
+    Maximize browser window
+    input text    //input[@id='UserName']    admin
+    input text    //input[@id='Password']    123
+    click button    //input[@name='quan-ly']
+    sleep    5s
+    go to    https://testautomykiot.kiotviet.com/#/PosParameter#tab-mykiot
+    sleep    5s
+    click element    //*[@id='btnCancel']
+    sleep    5s
+    select frame    //iframe[contains(@src,'iframe')]
+    click element    //button[@id='btn-redirect-ecatalog']
+    sleep    5s
+    Select Window    NEW
+    title should be    Danh sách danh mục
 
 *** Keywords ***
 Them san pham noi bat vao cart va thanh toan

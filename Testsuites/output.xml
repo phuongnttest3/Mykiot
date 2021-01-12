@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.4 (Python 3.7.6 on win32)" generated="20200831 17:05:42.552">
+<suite id="s1" name="Order" source="E:\Robot Framework\Mykiot\Testsuites\Order.robot">
+<test id="s1-t1" name="TC001">
+<kw name="before test" library="Common" type="setup">
+<arguments>
+<arg>live</arg>
+</arguments>
+<kw name="fill env" library="envi">
+<arguments>
+<arg>${env}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${env}</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.317" level="INFO">live</msg>
+<status status="PASS" starttime="20200831 17:05:43.317" endtime="20200831 17:05:43.317"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>staging=https://admin.staging.citigo.dev/api</arg>
+<arg>live=https://admin.mykiot.vn/api</arg>
+<arg>prelive=https://admin.prelive.citigo.dev/api</arg>
+</arguments>
+<assign>
+<var>${dic_api_url}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.318" level="INFO">${dic_api_url} = {'staging': 'https://admin.staging.citigo.dev/api', 'live': 'https://admin.mykiot.vn/api', 'prelive': 'https://admin.prelive.citigo.dev/api'}</msg>
+<status status="PASS" starttime="20200831 17:05:43.317" endtime="20200831 17:05:43.318"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>staging=https://admin.staging.citigo.dev</arg>
+<arg>live=https://admin.mykiot.vn</arg>
+<arg>prelive=https://admin.prelive.citigo.dev</arg>
+</arguments>
+<assign>
+<var>${dic_url}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.318" level="INFO">${dic_url} = {'staging': 'https://admin.staging.citigo.dev', 'live': 'https://admin.mykiot.vn', 'prelive': 'https://admin.prelive.citigo.dev'}</msg>
+<status status="PASS" starttime="20200831 17:05:43.318" endtime="20200831 17:05:43.318"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>staging=1f36fe67-a0f2-453b-bea5-9d778218279c</arg>
+<arg>live=1f36fe67-a0f2-453b-bea5-9d778218279c</arg>
+<arg>prelive=1f36fe67-a0f2-453b-bea5-9d778218279c</arg>
+</arguments>
+<assign>
+<var>${dic_clientid}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.319" level="INFO">${dic_clientid} = {'staging': '1f36fe67-a0f2-453b-bea5-9d778218279c', 'live': '1f36fe67-a0f2-453b-bea5-9d778218279c', 'prelive': '1f36fe67-a0f2-453b-bea5-9d778218279c'}</msg>
+<status status="PASS" starttime="20200831 17:05:43.318" endtime="20200831 17:05:43.319"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>staging=5F16AD6044795B917F2F9E640F572EF835B71254</arg>
+<arg>live=5F16AD6044795B917F2F9E640F572EF835B71254</arg>
+<arg>prelive=5F16AD6044795B917F2F9E640F572EF835B71254</arg>
+</arguments>
+<assign>
+<var>${dic_secretkey}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.319" level="INFO">${dic_secretkey} = {'staging': '5F16AD6044795B917F2F9E640F572EF835B71254', 'live': '5F16AD6044795B917F2F9E640F572EF835B71254', 'prelive': '5F16AD6044795B917F2F9E640F572EF835B71254'}</msg>
+<status status="PASS" starttime="20200831 17:05:43.319" endtime="20200831 17:05:43.319"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>staging=testautomykiot</arg>
+<arg>live=testautomykiot</arg>
+<arg>prelive=testautomykiot</arg>
+</arguments>
+<assign>
+<var>${dic_retailercode}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.320" level="INFO">${dic_retailercode} = {'staging': 'testautomykiot', 'live': 'testautomykiot', 'prelive': 'testautomykiot'}</msg>
+<status status="PASS" starttime="20200831 17:05:43.320" endtime="20200831 17:05:43.320"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>staging=737280</arg>
+<arg>live=737280</arg>
+<arg>prelive=737280</arg>
+</arguments>
+<assign>
+<var>${dic_retailerid}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.320" level="INFO">${dic_retailerid} = {'staging': '737280', 'live': '737280', 'prelive': '737280'}</msg>
+<status status="PASS" starttime="20200831 17:05:43.320" endtime="20200831 17:05:43.320"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>staging=https://admin.staging.citigo.dev/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&amp;secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&amp;retailer_code=testautomykiot&amp;retailer_id=737280</arg>
+<arg>live=https://admin.mykiot.vn/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&amp;secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&amp;retailer_code=testautomykiot&amp;retailer_id=737280</arg>
+<arg>prelive=https://admin.prelive.citigo.dev/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&amp;secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&amp;retailer_code=testautomykiot&amp;retailer_id=737280</arg>
+</arguments>
+<assign>
+<var>${dic_accessurl}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.321" level="INFO">${dic_accessurl} = {'staging': 'https://admin.staging.citigo.dev/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&amp;secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&amp;retailer_code=testautomykiot&amp;retailer_id=737280...</msg>
+<status status="PASS" starttime="20200831 17:05:43.321" endtime="20200831 17:05:43.321"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>staging=https://staging.citigo.dev/testautomykiot</arg>
+<arg>live=https://mykiot.vn/testautomykiot</arg>
+<arg>prelive=https://prelive.citigo.dev/testautomykiot</arg>
+</arguments>
+<assign>
+<var>${dic_storefronturl}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.321" level="INFO">${dic_storefronturl} = {'staging': 'https://staging.citigo.dev/testautomykiot', 'live': 'https://mykiot.vn/testautomykiot', 'prelive': 'https://prelive.citigo.dev/testautomykiot'}</msg>
+<status status="PASS" starttime="20200831 17:05:43.321" endtime="20200831 17:05:43.321"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>staging=https://testautomykiot.kiotviet.com/</arg>
+<arg>live=https://testautomykiot.kiotviet.com/</arg>
+<arg>prelive=https://testautomykiot.kiotviet.com/</arg>
+</arguments>
+<assign>
+<var>${dict_kvurl}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.322" level="INFO">${dict_kvurl} = {'staging': 'https://testautomykiot.kiotviet.com/', 'live': 'https://testautomykiot.kiotviet.com/', 'prelive': 'https://testautomykiot.kiotviet.com/'}</msg>
+<status status="PASS" starttime="20200831 17:05:43.322" endtime="20200831 17:05:43.322"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>staging=admin</arg>
+<arg>live=admin</arg>
+<arg>prelive=admin</arg>
+</arguments>
+<assign>
+<var>${dict_username}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.322" level="INFO">${dict_username} = {'staging': 'admin', 'live': 'admin', 'prelive': 'admin'}</msg>
+<status status="PASS" starttime="20200831 17:05:43.322" endtime="20200831 17:05:43.322"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>staging=123</arg>
+<arg>live=123</arg>
+<arg>prelive=123</arg>
+</arguments>
+<assign>
+<var>${dict_password}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.323" level="INFO">${dict_password} = {'staging': '123', 'live': '123', 'prelive': '123'}</msg>
+<status status="PASS" starttime="20200831 17:05:43.323" endtime="20200831 17:05:43.323"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>staging=https://testautomykiot.kiotviet.com/api</arg>
+<arg>live=https://testautomykiot.kiotviet.com/api</arg>
+<arg>prelive=https://testautomykiot.kiotviet.com//api</arg>
+</arguments>
+<assign>
+<var>${dic_kv_apiurl}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.324" level="INFO">${dic_kv_apiurl} = {'staging': 'https://testautomykiot.kiotviet.com/api', 'live': 'https://testautomykiot.kiotviet.com/api', 'prelive': 'https://testautomykiot.kiotviet.com//api'}</msg>
+<status status="PASS" starttime="20200831 17:05:43.323" endtime="20200831 17:05:43.324"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>staging=9113</arg>
+<arg>live=9113</arg>
+<arg>prelive=9113</arg>
+</arguments>
+<assign>
+<var>${dic_branchid}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.324" level="INFO">${dic_branchid} = {'staging': '9113', 'live': '9113', 'prelive': '9113'}</msg>
+<status status="PASS" starttime="20200831 17:05:43.324" endtime="20200831 17:05:43.324"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${dic_api_url}</arg>
+<arg>${env}</arg>
+</arguments>
+<assign>
+<var>${api_url}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.325" level="INFO">${api_url} = https://admin.mykiot.vn/api</msg>
+<status status="PASS" starttime="20200831 17:05:43.325" endtime="20200831 17:05:43.325"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${dic_url}</arg>
+<arg>${env}</arg>
+</arguments>
+<assign>
+<var>${url}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.325" level="INFO">${url} = https://admin.mykiot.vn</msg>
+<status status="PASS" starttime="20200831 17:05:43.325" endtime="20200831 17:05:43.325"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${dic_clientid}</arg>
+<arg>${env}</arg>
+</arguments>
+<assign>
+<var>${client_id}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.326" level="INFO">${client_id} = 1f36fe67-a0f2-453b-bea5-9d778218279c</msg>
+<status status="PASS" starttime="20200831 17:05:43.326" endtime="20200831 17:05:43.326"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${dic_secretkey}</arg>
+<arg>${env}</arg>
+</arguments>
+<assign>
+<var>${secret_key}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.326" level="INFO">${secret_key} = 5F16AD6044795B917F2F9E640F572EF835B71254</msg>
+<status status="PASS" starttime="20200831 17:05:43.326" endtime="20200831 17:05:43.326"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${dic_retailercode}</arg>
+<arg>${env}</arg>
+</arguments>
+<assign>
+<var>${retailer_code}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.327" level="INFO">${retailer_code} = testautomykiot</msg>
+<status status="PASS" starttime="20200831 17:05:43.326" endtime="20200831 17:05:43.327"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${dic_retailerid}</arg>
+<arg>${env}</arg>
+</arguments>
+<assign>
+<var>${retailer_id}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.327" level="INFO">${retailer_id} = 737280</msg>
+<status status="PASS" starttime="20200831 17:05:43.327" endtime="20200831 17:05:43.327"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${dic_accessurl}</arg>
+<arg>${env}</arg>
+</arguments>
+<assign>
+<var>${access_url}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.328" level="INFO">${access_url} = https://admin.mykiot.vn/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&amp;secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&amp;retailer_code=testautomykiot&amp;retailer_id=737280</msg>
+<status status="PASS" starttime="20200831 17:05:43.327" endtime="20200831 17:05:43.328"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${dic_storefronturl}</arg>
+<arg>${env}</arg>
+</arguments>
+<assign>
+<var>${storefront_url}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.328" level="INFO">${storefront_url} = https://mykiot.vn/testautomykiot</msg>
+<status status="PASS" starttime="20200831 17:05:43.328" endtime="20200831 17:05:43.328"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${dict_kvurl}</arg>
+<arg>${env}</arg>
+</arguments>
+<assign>
+<var>${kv_url}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.329" level="INFO">${kv_url} = https://testautomykiot.kiotviet.com/</msg>
+<status status="PASS" starttime="20200831 17:05:43.328" endtime="20200831 17:05:43.329"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${dict_username}</arg>
+<arg>${env}</arg>
+</arguments>
+<assign>
+<var>${user_name}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.329" level="INFO">${user_name} = admin</msg>
+<status status="PASS" starttime="20200831 17:05:43.329" endtime="20200831 17:05:43.329"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${dict_password}</arg>
+<arg>${env}</arg>
+</arguments>
+<assign>
+<var>${password}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.329" level="INFO">${password} = 123</msg>
+<status status="PASS" starttime="20200831 17:05:43.329" endtime="20200831 17:05:43.329"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${dic_kv_apiurl}</arg>
+<arg>${env}</arg>
+</arguments>
+<assign>
+<var>${kvapi_url}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.330" level="INFO">${kvapi_url} = https://testautomykiot.kiotviet.com/api</msg>
+<status status="PASS" starttime="20200831 17:05:43.330" endtime="20200831 17:05:43.330"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${dic_branchid}</arg>
+<arg>${env}</arg>
+</arguments>
+<assign>
+<var>${branch_id}</var>
+</assign>
+<msg timestamp="20200831 17:05:43.330" level="INFO">${branch_id} = 9113</msg>
+<status status="PASS" starttime="20200831 17:05:43.330" endtime="20200831 17:05:43.330"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>\${api_url}</arg>
+<arg>${api_url}</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.331" level="INFO">${api_url} = https://admin.mykiot.vn/api</msg>
+<status status="PASS" starttime="20200831 17:05:43.331" endtime="20200831 17:05:43.331"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>\${url}</arg>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.332" level="INFO">${url} = https://admin.mykiot.vn</msg>
+<status status="PASS" starttime="20200831 17:05:43.331" endtime="20200831 17:05:43.332"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>\${client_id}</arg>
+<arg>${client_id}</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.332" level="INFO">${client_id} = 1f36fe67-a0f2-453b-bea5-9d778218279c</msg>
+<status status="PASS" starttime="20200831 17:05:43.332" endtime="20200831 17:05:43.332"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>\${secret_key}</arg>
+<arg>${secret_key}</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.333" level="INFO">${secret_key} = 5F16AD6044795B917F2F9E640F572EF835B71254</msg>
+<status status="PASS" starttime="20200831 17:05:43.333" endtime="20200831 17:05:43.333"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>\${retailer_code}</arg>
+<arg>${retailer_code}</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.333" level="INFO">${retailer_code} = testautomykiot</msg>
+<status status="PASS" starttime="20200831 17:05:43.333" endtime="20200831 17:05:43.333"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>\${retailer_id}</arg>
+<arg>${retailer_id}</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.334" level="INFO">${retailer_id} = 737280</msg>
+<status status="PASS" starttime="20200831 17:05:43.334" endtime="20200831 17:05:43.334"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>\${access_url}</arg>
+<arg>${access_url}</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.335" level="INFO">${access_url} = https://admin.mykiot.vn/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&amp;secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&amp;retailer_code=testautomykiot&amp;retailer_id=737280</msg>
+<status status="PASS" starttime="20200831 17:05:43.334" endtime="20200831 17:05:43.335"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>\${storefront_url}</arg>
+<arg>${storefront_url}</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.335" level="INFO">${storefront_url} = https://mykiot.vn/testautomykiot</msg>
+<status status="PASS" starttime="20200831 17:05:43.335" endtime="20200831 17:05:43.335"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>\${kv_url}</arg>
+<arg>${kv_url}</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.336" level="INFO">${kv_url} = https://testautomykiot.kiotviet.com/</msg>
+<status status="PASS" starttime="20200831 17:05:43.335" endtime="20200831 17:05:43.336"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>\${user_name}</arg>
+<arg>${user_name}</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.336" level="INFO">${user_name} = admin</msg>
+<status status="PASS" starttime="20200831 17:05:43.336" endtime="20200831 17:05:43.336"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>\${password}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.337" level="INFO">${password} = 123</msg>
+<status status="PASS" starttime="20200831 17:05:43.336" endtime="20200831 17:05:43.337"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>\${kvapi_url}</arg>
+<arg>${kvapi_url}</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.337" level="INFO">${kvapi_url} = https://testautomykiot.kiotviet.com/api</msg>
+<status status="PASS" starttime="20200831 17:05:43.337" endtime="20200831 17:05:43.337"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>\${branch_id}</arg>
+<arg>${branch_id}</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.338" level="INFO">${branch_id} = 9113</msg>
+<status status="PASS" starttime="20200831 17:05:43.338" endtime="20200831 17:05:43.338"></status>
+</kw>
+<status status="PASS" starttime="20200831 17:05:43.316" endtime="20200831 17:05:43.338"></status>
+</kw>
+<kw name="Append To Environment Variable" library="OperatingSystem">
+<doc>Appends given ``values`` to environment variable ``name``.</doc>
+<arguments>
+<arg>PATH</arg>
+<arg>${EXECDIR}${/}Drivers</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.339" level="INFO">Environment variable 'PATH' set to value 'c:\users\phuong-test1\python\lib\site-packages\pywin32_system32;C:\Users\Phuong-test1\AppData\Local\Programs\Python\Python37;C:\Users\Phuong-test1\AppData\Local\Programs\Python\Python37\Scripts;C:\WINDOWS;C:\WINDOWS\system32;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Phuong-test1\Python\Scripts\;C:\Users\Phuong-test1\Python\;C:\Users\Phuong-test1\Scripts\;C:\Users\Phuong-test1\;C:\Users\Phuong-test1\AppData\Local\Microsoft\WindowsApps;C:\Users\Phuong-test1\AppData\Local\atom\bin;C:\Users\Phuong-test1\AppData\Local\Programs\Fiddler;C:\Users\Phuong-test1\AppData\Local\GitHubDesktop\bin;E:\Robot Framework\Mykiot\Testsuites\Drivers'.</msg>
+<status status="PASS" starttime="20200831 17:05:43.339" endtime="20200831 17:05:43.339"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<doc>Sets the directory for captured screenshots.</doc>
+<arguments>
+<arg>${EXECDIR}${/}Out${/}Failures</arg>
+</arguments>
+<status status="PASS" starttime="20200831 17:05:43.339" endtime="20200831 17:05:43.340"></status>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${storefront_url}</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20200831 17:05:43.340" level="INFO">Opening browser 'chrome' to base url 'https://mykiot.vn/testautomykiot'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200831 17:05:43.344" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20200831 17:05:43.343" endtime="20200831 17:05:43.344"></status>
+</kw>
+<msg timestamp="20200831 17:05:43.346" level="FAIL">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+</msg>
+<status status="FAIL" starttime="20200831 17:05:43.340" endtime="20200831 17:05:43.346"></status>
+</kw>
+<status status="FAIL" starttime="20200831 17:05:43.316" endtime="20200831 17:05:43.347"></status>
+</kw>
+<kw name="after test" library="Common" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200831 17:05:43.349" endtime="20200831 17:05:43.349"></status>
+</kw>
+<status status="PASS" starttime="20200831 17:05:43.348" endtime="20200831 17:05:43.349"></status>
+</kw>
+<tags>
+<tag>All</tag>
+<tag>Order</tag>
+</tags>
+<status status="FAIL" starttime="20200831 17:05:43.315" endtime="20200831 17:05:43.349" critical="yes">Setup failed:
+WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+</status>
+</test>
+<status status="FAIL" starttime="20200831 17:05:42.554" endtime="20200831 17:05:43.351"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1">All</stat>
+<stat pass="0" fail="1">Order</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="Order">Order</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200831 17:05:43.353" level="ERROR">Calling method '_close' of listener 'PabotLib' failed: RobotNotRunningError: Cannot access execution context</msg>
+</errors>
+</robot>

@@ -74,6 +74,37 @@ Get text and convert to number
 Convert price to number
     [Arguments]    ${locator}
     ${price_number}    get text    ${locator}
-    ${mystring}    remove string    ${price_number}    ,    đ
+    ${mystring}    remove string    ${price_number}    ,    đ    ${EMPTY}
     ${real_price}    convert to number    ${mystring}
     Return from keyword    ${real_price}
+
+Convert price to string
+    [Arguments]    ${locator}
+    ${price_number}    get text    ${locator}
+    ${mystring}    remove string    ${price_number}    ,    đ    ${EMPTY}
+    ${real_price}    convert to string    ${mystring}
+    Return from keyword    ${real_price}
+
+Divide
+    [Arguments]    ${num1}    ${num2}
+    ${num1}    Convert To Number    ${num1}
+    ${num2}    Convert To Number    ${num2}
+    ${result_ns}    Create Dictionary    x=${num1}    y=${num2}
+    ${result}    Evaluate    x/y    namespace=${result_ns}
+    Return From Keyword    ${result}
+
+Generate code automatically
+    [Arguments]    ${prefix_code}
+    ${hex} =    Generate Random String    6    [NUMBERS]abcdef
+    ${code}    Catenate    SEPARATOR=    ${prefix_code}    ${hex}
+    Return From Keyword    ${code}
+
+Multiplication and round
+    [Arguments]    ${num1}    ${num2}
+    [Timeout]    15 seconds
+    ${num1}    Convert To Number    ${num1}    #sl
+    ${num2}    Convert To Number    ${num2}    #gia
+    ${result_ns}    Create Dictionary    x=${num1}    y=${num2}
+    ${result_bf_replace}    Evaluate    x*y    namespace=${result_ns}
+    ${result}    Convert To Number    ${result_bf_replace}    0
+    Return From Keyword    ${result}

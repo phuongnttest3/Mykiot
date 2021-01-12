@@ -1,6 +1,6 @@
 *** Settings ***
-Suite Setup       init test env    prelive
-Suite Teardown    after test page builder
+Suite Setup       init test env    prelivenew
+Suite Teardown    after test pagebuilder
 Test Teardown     after test
 Library           SeleniumLibrary
 Library           Collections
@@ -15,84 +15,103 @@ Resource          ../Core/Common.robot
 Resource          ../Core/SearchResult_Page/Searchpage_locator.robot
 Resource          ../Core/OrderPage/Orderpage_Locator.robot
 Resource          ../Core/Homepage/Homepage_action.robot
+Resource          ../Core/Homepage/Homepage_locator.robot
 
 *** Test Cases ***
 TC019
+    [Tags]    all    pagebuilder
     [Template]    Update banner display to slider
     ${data_001}
 
 TC020
+    [Tags]    all    pagebuilder    test
     [Template]    Update banner display to grid
     ${data_002}
 
 TC021
+    [Tags]    all    pagebuilder
     [Template]    Update product list to display 2 columns
     ${data_003}
 
 TC022
+    [Tags]    all    pagebuilder
     [Template]    Update product list to display 3 columns
     ${data_004}
 
 TC023
+    [Tags]    all    pagebuilder
     [Template]    Update product list to display 4 columns
     ${data_005}
 
 TC024
+    [Tags]    all    pagebuilder
     [Template]    Update product list to display 5 columns
     ${data_006}
 
 TC025
+    [Tags]    all    pagebuilder
     [Template]    Update product list to display 6 columns
     ${data_007}
-    +
 
 TC026
+    [Tags]    all    pagebuilder
     [Template]    Update product list to manual load
     ${data008}
 
 TC027
+    [Tags]    all    pagebuilder
     [Template]    Update product list to autoload
     ${data_009}
 
 TC028
+    [Tags]    all    pagebuilder
     [Template]    Update product list to have sidebar
     ${data010}
 
 TC029
+    [Tags]    all    pagebuilder
     [Template]    Update product list to have no sidebar
     ${data011}
 
 TC030
+    [Tags]    all    pagebuilder
     [Template]    Update product detail to display Warehouse
-    ${data_012}
+    ${data_012}    SP000144
 
 TC031
+    [Tags]    all    pagebuilder
     [Template]    Update product detail to not display Warehouse
-    ${data_013}
+    ${data_013}    SP000144
 
 TC032
+    [Tags]    all    pagebuilder
     [Template]    Update product detail to display Product Description
-    ${data_014}
+    ${data_014}    SP000144
 
 TC033
+    [Tags]    all    pagebuilder
     [Template]    Update product detail to not display Product Description
-    ${data_015}
+    ${data_015}    SP000144
 
 TC034
+    [Tags]    all    pagebuilder
     [Template]    Update product detail to display comment
-    ${data_016}
+    ${data_016}    SP000144
 
 TC035
+    [Tags]    all    pagebuilder
     [Template]    Update product detail to not display comment
-    ${data_017}
+    ${data_017}    SP000144
 
 TC036
+    [Tags]    all    pagebuilder
     [Template]    Update product detail to display related product
-    ${data_018}
+    ${data_018}    SP000144
 
 TC037
+    [Tags]    all    pagebuilder
     [Template]    Update product detail to not display related product
-    ${data_019}
+    ${data_019}    SP000144
 
 *** Keywords ***
 Update banner display to slider
@@ -104,6 +123,7 @@ Update banner display to slider
     select frame    ${ifr_pagebuilder}
     page should contain element    ${img_banner_slider}    #dang truot
     go to    ${storefront_url}
+    sleep    10s
     page should contain element    ${img_banner_slider}
 
 Update banner display to grid
@@ -142,6 +162,10 @@ Update product list to display 3 columns
     select frame    ${ifr_pagebuilder}
     wait until element is visible    ${item_sp_3column}    5s
     page should contain element    ${item_sp_3column}
+    go to    ${storefront_url}
+    sleep    3s
+    Chon category tu menu
+    page should contain element    ${item_sp_3column}
 
 Update product list to display 4 columns
     [Arguments]    ${data}
@@ -152,6 +176,10 @@ Update product list to display 4 columns
     sleep    5s
     select frame    ${ifr_pagebuilder}
     wait until element is visible    ${item_sp_4column}    5s
+    page should contain element    ${item_sp_4column}
+    go to    ${storefront_url}
+    sleep    3s
+    Chon category tu menu
     page should contain element    ${item_sp_4column}
 
 Update product list to display 5 columns
@@ -164,6 +192,10 @@ Update product list to display 5 columns
     select frame    ${ifr_pagebuilder}
     wait until element is visible    ${item_sp_5column}    5s
     page should contain element    ${item_sp_5column}
+    go to    ${storefront_url}
+    sleep    3s
+    Chon category tu menu
+    page should contain element    ${item_sp_5column}
 
 Update product list to display 6 columns
     [Arguments]    ${data}
@@ -175,6 +207,10 @@ Update product list to display 6 columns
     select frame    ${ifr_pagebuilder}
     wait until element is visible    ${item_sp_6column}    5s
     page should contain element    ${item_sp_6column}
+    go to    ${storefront_url}
+    sleep    3s
+    Chon category tu menu
+    page should contain element    ${item_sp_6column}
 
 Update product list to manual load
     [Arguments]    ${data}
@@ -184,6 +220,11 @@ Update product list to manual load
     click element    ${menu_thietlapdanhsachsp}
     sleep    5s
     select frame    ${ifr_pagebuilder}
+    scroll element into view    ${lblfooter}
+    page should contain element    ${btn_taithucong}
+    go to    ${storefront_url}
+    sleep    3s
+    Chon category tu menu
     scroll element into view    ${lblfooter}
     page should contain element    ${btn_taithucong}
 
@@ -197,6 +238,10 @@ Update product list to autoload
     select frame    ${ifr_pagebuilder}
     #scroll element into view    ${lblfooter}
     page should not contain element    ${btn_taithucong}
+    go to    ${storefront_url}
+    sleep    3s
+    Chon category tu menu
+    page should not contain element    ${btn_taithucong}
 
 Update product list to have sidebar
     [Arguments]    ${data}
@@ -207,6 +252,10 @@ Update product list to have sidebar
     sleep    5s
     select frame    ${ifr_pagebuilder}
     #scroll element into view    ${lblfooter}
+    page should contain element    ${item_sidebar}
+    go to    ${storefront_url}
+    sleep    3s
+    Chon category tu menu
     page should contain element    ${item_sidebar}
 
 Update product list to have no sidebar
@@ -219,19 +268,30 @@ Update product list to have no sidebar
     select frame    ${ifr_pagebuilder}
     #scroll element into view    ${lblfooter}
     page should not contain element    ${item_sidebar}
+    go to    ${storefront_url}
+    sleep    3s
+    Chon category tu menu
+    page should not contain element    ${item_sidebar}
 
 Update product detail to display Warehouse
-    [Arguments]    ${data}
+    [Arguments]    ${data}    ${input_text}
+    [Tags]    all    pagebuilder
     post request and validate request success    /config/save    ${data}
     go to pagebuilder
     wait until element is visible    ${menu_thietlapchitietsp}    5s
     click element    ${menu_thietlapchitietsp}
-    sleep    5s
-    select frame    ${ifr_pagebuilder}
+    #sleep    5s
+    #select frame    ${ifr_pagebuilder}
+    #page should contain element    ${lbl_thongtinkhohang}
+    go to    ${storefront_url}
+    sleep    3s
+    Tim kiem san pham    ${input_text}
+    Click element    ${link_sp}
+    wait until element is visible    ${lbl_thongtinkhohang}
     page should contain element    ${lbl_thongtinkhohang}
 
 Update product detail to not display Warehouse
-    [Arguments]    ${data}
+    [Arguments]    ${data}    ${input_text}
     post request and validate request success    /config/save    ${data}
     go to pagebuilder
     wait until element is visible    ${menu_thietlapchitietsp}    5s
@@ -239,9 +299,15 @@ Update product detail to not display Warehouse
     sleep    5s
     select frame    ${ifr_pagebuilder}
     page should not contain element    ${lbl_thongtinkhohang}
+    go to    ${storefront_url}
+    sleep    3s
+    Tim kiem san pham    ${input_text}
+    Click element    ${link_sp}
+    Sleep    3s
+    page should not contain element    ${lbl_thongtinkhohang}
 
 Update product detail to display Product Description
-    [Arguments]    ${data}
+    [Arguments]    ${data}    ${input_text}
     post request and validate request success    /config/save    ${data}
     go to pagebuilder
     wait until element is visible    ${menu_thietlapchitietsp}    5s
@@ -249,9 +315,15 @@ Update product detail to display Product Description
     sleep    5s
     select frame    ${ifr_pagebuilder}
     page should contain element    ${lbl_motasp}
+    go to    ${storefront_url}
+    sleep    3s
+    Tim kiem san pham    ${input_text}
+    Click element    ${link_sp}
+    wait until element is visible    ${lbl_motasp}
+    page should contain element    ${lbl_motasp}
 
 Update product detail to not display Product Description
-    [Arguments]    ${data}
+    [Arguments]    ${data}    ${input_text}
     post request and validate request success    /config/save    ${data}
     go to pagebuilder
     wait until element is visible    ${menu_thietlapchitietsp}    5s
@@ -259,9 +331,15 @@ Update product detail to not display Product Description
     sleep    5s
     select frame    ${ifr_pagebuilder}
     page should not contain element    ${lbl_motasp}
+    go to    ${storefront_url}
+    sleep    3s
+    Tim kiem san pham    ${input_text}
+    Click element    ${link_sp}
+    sleep    3s
+    page should not contain element    ${lbl_motasp}
 
 Update product detail to display comment
-    [Arguments]    ${data}
+    [Arguments]    ${data}    ${input_text}
     post request and validate request success    /config/save    ${data}
     go to pagebuilder
     wait until element is visible    ${menu_thietlapchitietsp}    5s
@@ -269,9 +347,15 @@ Update product detail to display comment
     sleep    5s
     select frame    ${ifr_pagebuilder}
     page should contain element    ${lbl_danhgiasp}
+    go to    ${storefront_url}
+    sleep    3s
+    Tim kiem san pham    ${input_text}
+    Click element    ${link_sp}
+    wait until element is visible    ${lbl_thongtinkhohang}
+    page should contain element    ${lbl_danhgiasp}
 
 Update product detail to not display comment
-    [Arguments]    ${data}
+    [Arguments]    ${data}    ${input_text}
     post request and validate request success    /config/save    ${data}
     go to pagebuilder
     wait until element is visible    ${menu_thietlapchitietsp}    5s
@@ -279,9 +363,15 @@ Update product detail to not display comment
     sleep    5s
     select frame    ${ifr_pagebuilder}
     page should not contain element    ${lbl_danhgiasp}
+    go to    ${storefront_url}
+    sleep    3s
+    Tim kiem san pham    ${input_text}
+    Click element    ${link_sp}
+    wait until element is visible    ${lbl_thongtinkhohang}
+    page should not contain element    ${lbl_danhgiasp}
 
 Update product detail to display related product
-    [Arguments]    ${data}
+    [Arguments]    ${data}    ${input_text}
     post request and validate request success    /config/save    ${data}
     go to pagebuilder
     wait until element is visible    ${menu_thietlapchitietsp}    5s
@@ -289,13 +379,25 @@ Update product detail to display related product
     sleep    5s
     select frame    ${ifr_pagebuilder}
     page should contain element    ${lbl_hanghoacungloai}
+    go to    ${storefront_url}
+    sleep    3s
+    Tim kiem san pham    ${input_text}
+    Click element    ${link_sp}
+    wait until element is visible    ${lbl_thongtinkhohang}
+    page should contain element    ${lbl_hanghoacungloai}
 
 Update product detail to not display related product
-    [Arguments]    ${data}
+    [Arguments]    ${data}    ${input_text}
     post request and validate request success    /config/save    ${data}
     go to pagebuilder
     wait until element is visible    ${menu_thietlapchitietsp}    5s
     click element    ${menu_thietlapchitietsp}
     sleep    5s
     select frame    ${ifr_pagebuilder}
+    page should not contain element    ${lbl_hanghoacungloai}
+    go to    ${storefront_url}
+    sleep    3s
+    Tim kiem san pham    ${input_text}
+    Click element    ${link_sp}
+    wait until element is visible    ${lbl_thongtinkhohang}
     page should not contain element    ${lbl_hanghoacungloai}

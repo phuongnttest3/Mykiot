@@ -17,6 +17,7 @@ Thanh toan nhan hang tai chi nhanh
     ${tongtien}    convert price to number    ${lbl_tongtienhang}
     Should be equal    ${tongtien}    ${thanhtien}
     : FOR    ${time}    IN RANGE    5
+    \    set selenium speed    0.3s
     \    input text    ${txt_name}    ${username}
     \    input text    ${txt_mobilephone}    ${mobilephone}
     \    scroll element into view    ${lbl_footer}
@@ -58,7 +59,7 @@ Thanh toan nhan hang tai dia chi nguoi nhan
     ${tongtien}    convert price to number    ${lbl_tongtienhang}
     Should be equal    ${tongtien}    ${thanhtien}
     click element js    ${btn_thanhtoan}
-    wait until element is visible    ${popup_msg}
+    wait until element is visible    ${popup_msg}    10
     ${messege}    get text    ${btn_tieptucmuahang}
     Should contain    ${messege}    TIẾP TỤC MUA HÀNG
     click element    ${btn_tieptucmuahang}

@@ -1,5 +1,5 @@
 *** Variables ***
-${btn_tuybienhinhthuc}    //a[contains(text(),'Tùy biến hình thức')]
+${btn_tuybienhinhthuc}    //a[contains(string(),'Tùy biến hình thức')]
 ${menu_thietlaptrangchu}    //a[contains(text(),'Trang Chủ')]
 ${ifr_pagebuilder}    //iframe[contains(@iframe-src,'?preview_page_builder=true')]
 ${img_banner_slider}    //div[@class='swiper-slide swiper-slide-active']//img[@class='img-fluid']

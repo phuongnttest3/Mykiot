@@ -77,7 +77,7 @@ get response json from api
 
 post request and validate request success
     [Arguments]    ${END_POINT}    ${data}
-    ${headers}=    Create Dictionary    Content-Type=application/json    Authorization=${bearertoken}
+    ${headers}=    Create Dictionary    Content-Type=application/json    Authorization=${bearer_token_mykiot}
     Create Session    lolo    ${url}    verify=True    debug=1
     ${resp1}=    post request    lolo    config/save    data=${data}    headers=${headers}
     log    ${resp1.request.body}

@@ -12,6 +12,7 @@ Resource          ../Product Detail Page/Detail_locator.robot
 *** Keywords ***
 Them san pham noi bat vao cart
     [Arguments]    ${sl}
+    #click element    //body/div[6]/div[3]/div[2]/a[1]
     click element    ${btn_addtocart_spyeuthich}
     wait until page contains element    ${btn_addtocart}
     input text    ${txt_soluong}    ${sl}
@@ -147,11 +148,12 @@ Xem chi tiet sp dau va them vao cart
 Bam yeu thich va add vao cart
     [Arguments]    ${sl}
     click element    ${icon_love}
-    ${get_text}    Get text    ${lbl_tensp_hot}
+    click element    ${detail}
+    ${get_text}    Get text    ${lbl_tensp_love}
     click element    ${icon_love_list}
     wait until page contains element    ${link_xemthem}
     click element    ${link_xemthem}
-    ${get_text2}    Get text    ${lbl_tensp_love}
+    ${get_text2}    Get text    ${ten_list_viewlove}
     should be equal    ${get_text}    ${get_text2}
     click element    ${icon_muahang_love}
     wait until page contains element    ${btn_addtocart}
@@ -168,15 +170,15 @@ Bam yeu thich va add vao cart
 
 Bam da xem va add cart
     [Arguments]    ${sl}
-    wait until element isvisible    ${lbl_tensp_hot}
-    ${get_text}    Get text    ${lbl_tensp_hot}
-    click element    ${detail_hot}
+    scroll element into view    ${detail}
+    click element    ${detail}
+    ${get_text}    Get text    ${lbl_tensp_love}
     click element    ${logo}
     wait until element is visible    ${icon_view}
     click element    ${icon_view}
     wait until page contains element    ${link_xemthem}
     click element    ${link_xemthem}
-    ${get_text2}    Get text    ${lbl_tensp_love}
+    ${get_text2}    Get text    ${ten_list_viewlove}
     should be equal    ${get_text}    ${get_text2}
     click element    ${icon_muahang_love}
     wait until page contains element    ${btn_addtocart}
