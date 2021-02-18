@@ -20,10 +20,10 @@ Thanh toan nhan hang tai chi nhanh
     sendkey to element    ${txt_mobilephone}    ${mobilephone}
     scroll element into view    ${lbl_footer}
     click to element    ${btn_thanhtoan}
-    wait until element is visible    ${popup_msg}    10
+    wait until element is visible    ${btn_tieptucmuahang}    10
     ${messege}    get text    ${btn_tieptucmuahang}
     Should be equal as strings    ${messege}    TIẾP TỤC MUA HÀNG
-    click element js    ${btn_tieptucmuahang}
+    click element    ${btn_tieptucmuahang}
 
 Thanh toan nhan hang tai dia chi nguoi nhan
     [Arguments]    ${ten}    ${sdt}    ${email}    ${diachi}    ${ghichu}    ${thanhtien}
@@ -33,11 +33,11 @@ Thanh toan nhan hang tai dia chi nguoi nhan
     should be equal    ${giasp}    ${gia}
     scroll element into view    ${lbl_footer}
     click to element    ${cb_chinhanh}
-    wait until element is visible   ${lb_giaohangtaidcnguoinhan}
+    wait until element is visible    ${lb_giaohangtaidcnguoinhan}
     click element js    ${lb_giaohangtaidcnguoinhan}
     scroll element into view    ${txt_ten}
     sendkey to element    ${txt_ten}    ${ten}
-    sendkey to element   ${txt_sdt}    ${sdt}
+    sendkey to element    ${txt_sdt}    ${sdt}
     sendkey to element    ${txt_email}    ${email}
     sendkey to element    ${txt_diachi}    ${diachi}
     click to element    ${cbb_thanhpho}
@@ -49,13 +49,13 @@ Thanh toan nhan hang tai dia chi nguoi nhan
     #Click element    ${quanhuyen}
     click to element    ${cbb_phuongxa}
     click to element    ${phuongxa}
-    sendkey to element  ${txa_ghichu}    ${ghichu}
+    sendkey to element    ${txa_ghichu}    ${ghichu}
     scroll element into view    ${btn_thanhtoan}
     ${tongtien}    convert price to number    ${lbl_tongtienhang}
     Should be equal    ${tongtien}    ${thanhtien}
-    wait until element is visible  ${btn_thanhtoan}  5s
+    wait until element is visible    ${btn_thanhtoan}    5s
     click element js    ${btn_thanhtoan}
-    wait until element is visible    ${popup_msg}    5s
+    wait until element is visible    ${btn_tieptucmuahang}    5s
     ${messege}    get text    ${btn_tieptucmuahang}
     Should contain    ${messege}    TIẾP TỤC MUA HÀNG
     click to element    ${btn_tieptucmuahang}
@@ -74,10 +74,10 @@ Cap nhat gio hang va thanh toan nhan hang tai chi nhanh
     sendkey to element    ${txt_mobilephone}    0339678855
     scroll element into view    ${lbl_footer}
     click to element    ${btn_thanhtoan}
-    wait until element is visible    ${popup_msg}    10s
+    wait until element is visible    ${btn_tieptucmuahang}    10s
     ${messege}    get text    ${btn_tieptucmuahang}
     Should be equal as strings    ${messege}    TIẾP TỤC MUA HÀNG
-    click to element   ${btn_tieptucmuahang}
+    click to element    ${btn_tieptucmuahang}
 
 Thanh toan nhieu san pham nhan hang tai chi nhanh
     [Arguments]    ${ten}    ${sdt}    ${list_thanhtien}    ${tongtienhang}
@@ -85,12 +85,12 @@ Thanh toan nhieu san pham nhan hang tai chi nhanh
     scroll element into view    ${txt_name}
     ${tongtien}    convert price to number    ${lbl_tongtienhang}
     Should be equal    ${tongtien}    ${tongtienhang}
-    sleep  1s
+    sleep    1s
     sendkey to element    ${txt_name}    ${ten}
-    sendkey to element   ${txt_mobilephone}    ${sdt}
+    sendkey to element    ${txt_mobilephone}    ${sdt}
     scroll element into view    ${lbl_footer}
     Click to element    ${btn_thanhtoan}
-    wait until element is visible    ${popup_msg}    10s
+    wait until element is visible    ${btn_tieptucmuahang}    10s
     ${messege}    get text    ${btn_tieptucmuahang}
     Should be equal as strings    ${messege}    TIẾP TỤC MUA HÀNG
     click to element    ${btn_tieptucmuahang}

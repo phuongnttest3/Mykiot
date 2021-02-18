@@ -1,14 +1,14 @@
 *** Variables ***
 ${txt_name}       //input[@id='inplace-userName']
 ${txt_mobilephone}    //input[@id='inplace-phoneNumber']
-${btn_thanhtoan}    //button[contains(@class,'btn-submit')]
-${btn_tieptucmuahang}    //a[@class='btn btn-secondary']
+${btn_thanhtoan}    //button[@id='checkout-kvbtn']
+${btn_tieptucmuahang}    //a[@class="btn btn-secondary"]
 ${lb_giaohangtaidcnguoinhan}    //*[contains(@class,'CoD card')]//div[contains(@class,'cod')]//label
 ${txt_ten}        //input[@id='order-userName']
 ${txt_sdt}        //input[@id='order-phoneNumber']
 ${txt_email}      //input[@id='order-email']
 ${txt_diachi}     //input[@id='order-address']
-${cbb_thanhpho}     //span[@class='select2-selection select2-selection--single' and @aria-labelledby='select2-order-city-container']
+${cbb_thanhpho}    //span[@class='select2-selection select2-selection--single' and @aria-labelledby='select2-order-city-container']
 ${cbb_quanhuyen}    //select[@id='order-district']
 ${cbb_phuongxa}    //span[@class='select2-selection select2-selection--single' and @aria-labelledby='select2-order-ward-container']
 ${txa_ghichu}     //textarea[@id='order-note']
