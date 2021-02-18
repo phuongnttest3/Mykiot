@@ -69,3 +69,4 @@ Chon san pham thuoc tinh vao cart
     wait until page contains element    ${btn_orderincart}
     click element js    ${btn_orderincart}
     Return from keyword    ${total}    ${price}
+tim kiem san pham va kiem tra
