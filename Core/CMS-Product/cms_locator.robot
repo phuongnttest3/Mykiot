@@ -1,6 +1,5 @@
 *** Variables ***
 
-
 ${menu_hanghoa}  //span[contains(text(),'Hàng hóa')]
 ${menu_danhmuchanghoa}   //span[contains(text(),'Danh mục')]
 ${menu_danhgiahanghoa}  //span[contains(text(),'Đánh giá')]
