@@ -10,6 +10,16 @@ Resource          ../Product Detail Page/Detail_locator.robot
 Resource          ../Product Detail Page/Detail_locator.robot
 
 *** Keywords ***
+Dang nhap account
+    [Arguments]    ${email}   ${pass}
+    click to element  ${btn_taikhoan}
+    click to element  ${link_dangnhap}
+    sendkey to element  ${txt_mailaccount}    ${email}
+    click element js    ${btn_next}
+    sendkey to element  ${txt_passaccount}    ${pass}
+    click element js     ${btn_next}
+
+
 Them san pham noi bat vao cart
     [Arguments]    ${sl}
     click to element    ${btn_addtocart_spyeuthich}

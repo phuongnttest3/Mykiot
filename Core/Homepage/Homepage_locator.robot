@@ -21,3 +21,8 @@ ${icon_view}       //li[@id='icon-view']
 ${link_danhmuc}    //div[@class='col-12 kv-category-list main'][1]//div[@id='kv-categories-loop'][1]//div//h3
 ${btn_addtocart_spmoi}    //div[@id='custom-layout-slider-1']//div[@class='swiper-slide swiper-slide-active']//i[@class='far fa-shopping-bag']
 ${ten_list_viewlove}    //div[@class='kv-product-list row row-eq-height']//div[@class='kv-product-list-item product-item']//div[@class='kv-product-list-item-top']//div[@class='kv-product-list-item--content']//div[@class='product-wrap']//div[@class='kv-product-name']
+${btn_taikhoan}    //button[contains(@class,'btn btn-circle')]
+${link_dangnhap}   //div[@class='acc-infor']//a[contains(string(),'Đăng nhập bằng Google')]
+${txt_mailaccount}   //input[@type="email"]
+${btn_next}        //button[@type='button']//span[contains(text(),'Tiếp theo')]
+${txt_passaccount}    //input[@type='password']

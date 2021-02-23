@@ -1,6 +1,6 @@
 *** Settings ***
 Test Setup        before test    live
-Test Teardown     after test
+#Test Teardown     after test
 Library           SeleniumLibrary
 Library           RequestsLibrary
 Library           Collections
@@ -111,6 +111,15 @@ TC017
     [Tags]    All    Order
     [Template]    Bam yeu thich va cho vao gio hang
     phuong    0974544304    phuongtran27111994@gmail.com    1B    giao ban ngày    4
+TC045
+    [Tags]    All    Order
+    [Template]  Them san pham noi bat vao cart thanh toan va nhan hang tai chi nhanh khi dang nhap account
+    testautomation113@gmail.com   test@123456   0972641413     3
+TC046
+    [Tags]    All    Order
+    [Template]  Them san pham noi bat vao cart thanh toan va nhan hang tai dia chi nguoi nhan khi dang nhap account
+    testautomaiton@gmail.com   test@123456   Kenvin  0972641413   1A yet kieu   As soon as possible   3
+
 
 test
     init test env    live
@@ -148,6 +157,20 @@ Them san pham noi bat vao cart va thanh toan
     sleep    3
     Thanh toan nhan hang tai chi nhanh    ${username}    ${mobilephone}    ${thanhtien}    ${gia}
 
+Them san pham noi bat vao cart thanh toan va nhan hang tai chi nhanh khi dang nhap account
+    [Arguments]    ${email}    ${pass}    ${phone}    ${sl}
+    Dang nhap account    ${email}     ${pass}
+    ${thanhtien}    ${gia}    Them san pham noi bat vao cart    ${sl}
+    sleep    3
+    Thanh toan nhan hang tai chi nhanh khi dang nhap account    ${email}    ${phone}    ${thanhtien}    ${gia}
+
+Them san pham noi bat vao cart thanh toan va nhan hang tai dia chi nguoi nhan khi dang nhap account
+    [Arguments]     ${email}   ${pass}   ${ten}   ${sdt}    ${diachi}    ${ghichu}    ${sl}
+    Dang nhap account    ${email}     ${pass}
+    ${thanhtien}    ${gia}    Them san pham noi bat vao cart    ${sl}
+    sleep    3
+    Thanh toan nhan hang tai dia chi nguoi nhan khi dang nhap account   ${ten}   ${email}    ${sdt}    ${diachi}     ${ghichu}    ${thanhtien}
+    ...    ${gia}
 Them san pham noi bat vao cart thanh toan tai dia chi nguoi nhan
     [Arguments]    ${ten}    ${sdt}    ${email}    ${diachi}    ${ghichu}    ${sl}
     ${thanhtien}    ${gia}    Them san pham noi bat vao cart    ${sl}
