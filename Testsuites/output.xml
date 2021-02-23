@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.7.6 on win32)" generated="20210219 16:32:34.573" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.7.6 on win32)" generated="20210223 11:46:10.510" rpa="false">
 <suite id="s1" name="Order" source="C:\Users\quannt\Documents\GitHub\Mykiot\Testsuites\Order.robot">
 <test id="s1-t1" name="TC046">
 <kw name="before test" library="Common" type="setup">
@@ -15,8 +15,8 @@
 <arguments>
 <arg>${env}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.058" level="INFO">live</msg>
-<status status="PASS" starttime="20210219 16:32:35.058" endtime="20210219 16:32:35.058"></status>
+<msg timestamp="20210223 11:46:13.661" level="INFO">live</msg>
+<status status="PASS" starttime="20210223 11:46:13.661" endtime="20210223 11:46:13.661"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -28,8 +28,8 @@
 <assign>
 <var>${dic_api_url}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.058" level="INFO">${dic_api_url} = {'live': 'https://admin.mykiot.vn/api', 'stagingnew': 'https://admin-staging.citigo.dev:40001/api', 'prelivenew': 'https://admin-prelive.citigo.dev:40003/api'}</msg>
-<status status="PASS" starttime="20210219 16:32:35.058" endtime="20210219 16:32:35.058"></status>
+<msg timestamp="20210223 11:46:13.662" level="INFO">${dic_api_url} = {'live': 'https://admin.mykiot.vn/api', 'stagingnew': 'https://admin-staging.citigo.dev:40001/api', 'prelivenew': 'https://admin-prelive.citigo.dev:40003/api'}</msg>
+<status status="PASS" starttime="20210223 11:46:13.661" endtime="20210223 11:46:13.662"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -41,8 +41,8 @@
 <assign>
 <var>${dic_url}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.059" level="INFO">${dic_url} = {'live': 'https://admin.mykiot.vn', 'stagingnew': 'https://admin-staging.citigo.dev:40001', 'prelivenew': 'https://admin-prelive.citigo.dev:40003'}</msg>
-<status status="PASS" starttime="20210219 16:32:35.059" endtime="20210219 16:32:35.059"></status>
+<msg timestamp="20210223 11:46:13.662" level="INFO">${dic_url} = {'live': 'https://admin.mykiot.vn', 'stagingnew': 'https://admin-staging.citigo.dev:40001', 'prelivenew': 'https://admin-prelive.citigo.dev:40003'}</msg>
+<status status="PASS" starttime="20210223 11:46:13.662" endtime="20210223 11:46:13.662"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -54,8 +54,8 @@
 <assign>
 <var>${dic_clientid}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.059" level="INFO">${dic_clientid} = {'live': '1f36fe67-a0f2-453b-bea5-9d778218279c', 'stagingnew': '36971e98-89ac-4e77-884c-14772fe558ed', 'prelivenew': '36971e98-89ac-4e77-884c-14772fe558ed'}</msg>
-<status status="PASS" starttime="20210219 16:32:35.059" endtime="20210219 16:32:35.059"></status>
+<msg timestamp="20210223 11:46:13.663" level="INFO">${dic_clientid} = {'live': '1f36fe67-a0f2-453b-bea5-9d778218279c', 'stagingnew': '36971e98-89ac-4e77-884c-14772fe558ed', 'prelivenew': '36971e98-89ac-4e77-884c-14772fe558ed'}</msg>
+<status status="PASS" starttime="20210223 11:46:13.662" endtime="20210223 11:46:13.663"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -67,8 +67,8 @@
 <assign>
 <var>${dic_secretkey}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.060" level="INFO">${dic_secretkey} = {'live': '5F16AD6044795B917F2F9E640F572EF835B71254', 'stagingnew': '201103C87111A3E74A41951C166A99B6068EB6A2', 'prelivenew': '201103C87111A3E74A41951C166A99B6068EB6A2'}</msg>
-<status status="PASS" starttime="20210219 16:32:35.060" endtime="20210219 16:32:35.060"></status>
+<msg timestamp="20210223 11:46:13.663" level="INFO">${dic_secretkey} = {'live': '5F16AD6044795B917F2F9E640F572EF835B71254', 'stagingnew': '201103C87111A3E74A41951C166A99B6068EB6A2', 'prelivenew': '201103C87111A3E74A41951C166A99B6068EB6A2'}</msg>
+<status status="PASS" starttime="20210223 11:46:13.663" endtime="20210223 11:46:13.663"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -80,8 +80,8 @@
 <assign>
 <var>${dic_retailercode}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.060" level="INFO">${dic_retailercode} = {'live': 'testautomykiot', 'stagingnew': 'testautomykiot', 'prelivenew': 'testautomykiot'}</msg>
-<status status="PASS" starttime="20210219 16:32:35.060" endtime="20210219 16:32:35.060"></status>
+<msg timestamp="20210223 11:46:13.663" level="INFO">${dic_retailercode} = {'live': 'testautomykiot', 'stagingnew': 'testautomykiot', 'prelivenew': 'testautomykiot'}</msg>
+<status status="PASS" starttime="20210223 11:46:13.663" endtime="20210223 11:46:13.664"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -93,8 +93,8 @@
 <assign>
 <var>${dic_retailerid}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.061" level="INFO">${dic_retailerid} = {'live': '737280', 'stagingnew': '736403', 'prelivenew': '736403'}</msg>
-<status status="PASS" starttime="20210219 16:32:35.060" endtime="20210219 16:32:35.061"></status>
+<msg timestamp="20210223 11:46:13.664" level="INFO">${dic_retailerid} = {'live': '737280', 'stagingnew': '736403', 'prelivenew': '736403'}</msg>
+<status status="PASS" starttime="20210223 11:46:13.664" endtime="20210223 11:46:13.664"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -106,8 +106,8 @@
 <assign>
 <var>${dic_accessurl}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.061" level="INFO">${dic_accessurl} = {'live': 'https://admin.mykiot.vn/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&amp;secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&amp;retailer_code=testautomykiot&amp;retailer_id=737280', 'stagingn...</msg>
-<status status="PASS" starttime="20210219 16:32:35.061" endtime="20210219 16:32:35.061"></status>
+<msg timestamp="20210223 11:46:13.664" level="INFO">${dic_accessurl} = {'live': 'https://admin.mykiot.vn/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&amp;secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&amp;retailer_code=testautomykiot&amp;retailer_id=737280', 'stagingn...</msg>
+<status status="PASS" starttime="20210223 11:46:13.664" endtime="20210223 11:46:13.664"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -119,8 +119,8 @@
 <assign>
 <var>${dic_storefronturl}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.062" level="INFO">${dic_storefronturl} = {'live': 'https://mykiot.vn/testautomykiot', 'stagingnew': 'https://staging.citigo.dev:40001/testautomykiot', 'prelivenew': 'https://prelive.citigo.dev:40003/testautomykiot'}</msg>
-<status status="PASS" starttime="20210219 16:32:35.061" endtime="20210219 16:32:35.062"></status>
+<msg timestamp="20210223 11:46:13.665" level="INFO">${dic_storefronturl} = {'live': 'https://mykiot.vn/testautomykiot', 'stagingnew': 'https://staging.citigo.dev:40001/testautomykiot', 'prelivenew': 'https://prelive.citigo.dev:40003/testautomykiot'}</msg>
+<status status="PASS" starttime="20210223 11:46:13.665" endtime="20210223 11:46:13.665"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -132,8 +132,8 @@
 <assign>
 <var>${dict_kvurl}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.062" level="INFO">${dict_kvurl} = {'live': 'https://testautomykiot.kiotviet.com/', 'stagingnew': 'https://testautomykiot.kvpos.com:59909/', 'prelivenew': 'https://testautomykiot.kvpos.com:59909/'}</msg>
-<status status="PASS" starttime="20210219 16:32:35.062" endtime="20210219 16:32:35.062"></status>
+<msg timestamp="20210223 11:46:13.665" level="INFO">${dict_kvurl} = {'live': 'https://testautomykiot.kiotviet.com/', 'stagingnew': 'https://testautomykiot.kvpos.com:59909/', 'prelivenew': 'https://testautomykiot.kvpos.com:59909/'}</msg>
+<status status="PASS" starttime="20210223 11:46:13.665" endtime="20210223 11:46:13.665"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -145,8 +145,8 @@
 <assign>
 <var>${dict_username}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.063" level="INFO">${dict_username} = {'live': 'admin', 'stagingnew': 'admin', 'prelivenew': 'admin'}</msg>
-<status status="PASS" starttime="20210219 16:32:35.062" endtime="20210219 16:32:35.063"></status>
+<msg timestamp="20210223 11:46:13.666" level="INFO">${dict_username} = {'live': 'admin', 'stagingnew': 'admin', 'prelivenew': 'admin'}</msg>
+<status status="PASS" starttime="20210223 11:46:13.666" endtime="20210223 11:46:13.666"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -158,8 +158,8 @@
 <assign>
 <var>${dict_password}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.063" level="INFO">${dict_password} = {'live': '123', 'stagingnew': '123', 'prelivenew': '123'}</msg>
-<status status="PASS" starttime="20210219 16:32:35.063" endtime="20210219 16:32:35.063"></status>
+<msg timestamp="20210223 11:46:13.666" level="INFO">${dict_password} = {'live': '123', 'stagingnew': '123', 'prelivenew': '123'}</msg>
+<status status="PASS" starttime="20210223 11:46:13.666" endtime="20210223 11:46:13.666"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -171,8 +171,8 @@
 <assign>
 <var>${dic_kv_apiurl}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.064" level="INFO">${dic_kv_apiurl} = {'live': 'https://testautomykiot.kiotviet.com/api', 'stagingnew': 'https://testautomykiot.kvpos.com:59909/api', 'prelivenew': 'https://testautomykiot.kvpos.com:59909/api'}</msg>
-<status status="PASS" starttime="20210219 16:32:35.063" endtime="20210219 16:32:35.064"></status>
+<msg timestamp="20210223 11:46:13.667" level="INFO">${dic_kv_apiurl} = {'live': 'https://testautomykiot.kiotviet.com/api', 'stagingnew': 'https://testautomykiot.kvpos.com:59909/api', 'prelivenew': 'https://testautomykiot.kvpos.com:59909/api'}</msg>
+<status status="PASS" starttime="20210223 11:46:13.667" endtime="20210223 11:46:13.667"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -184,8 +184,8 @@
 <assign>
 <var>${dic_branchid}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.064" level="INFO">${dic_branchid} = {'live': '9113', 'stagingnew': '20363', 'prelivenew': '20363'}</msg>
-<status status="PASS" starttime="20210219 16:32:35.064" endtime="20210219 16:32:35.064"></status>
+<msg timestamp="20210223 11:46:13.667" level="INFO">${dic_branchid} = {'live': '9113', 'stagingnew': '20363', 'prelivenew': '20363'}</msg>
+<status status="PASS" starttime="20210223 11:46:13.667" endtime="20210223 11:46:13.667"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -197,8 +197,8 @@
 <assign>
 <var>${dic_zone}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.064" level="INFO">${dic_zone} = {'live': '26', 'stagingnew': '1', 'prelivenew': '1'}</msg>
-<status status="PASS" starttime="20210219 16:32:35.064" endtime="20210219 16:32:35.065"></status>
+<msg timestamp="20210223 11:46:13.668" level="INFO">${dic_zone} = {'live': '26', 'stagingnew': '1', 'prelivenew': '1'}</msg>
+<status status="PASS" starttime="20210223 11:46:13.668" endtime="20210223 11:46:13.668"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -210,8 +210,8 @@
 <assign>
 <var>${dic_salekvapi}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.065" level="INFO">${dic_salekvapi} = {'live': 'https://sale.kiotapi.com/api', 'stagingnew': 'https://kvpos.com:59309/api', 'prelivenew': 'https://kvpos.com:59309/api'}</msg>
-<status status="PASS" starttime="20210219 16:32:35.065" endtime="20210219 16:32:35.065"></status>
+<msg timestamp="20210223 11:46:13.668" level="INFO">${dic_salekvapi} = {'live': 'https://sale.kiotapi.com/api', 'stagingnew': 'https://kvpos.com:59309/api', 'prelivenew': 'https://kvpos.com:59309/api'}</msg>
+<status status="PASS" starttime="20210223 11:46:13.668" endtime="20210223 11:46:13.668"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -222,8 +222,8 @@
 <assign>
 <var>${api_url}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.065" level="INFO">${api_url} = https://admin.mykiot.vn/api</msg>
-<status status="PASS" starttime="20210219 16:32:35.065" endtime="20210219 16:32:35.065"></status>
+<msg timestamp="20210223 11:46:13.669" level="INFO">${api_url} = https://admin.mykiot.vn/api</msg>
+<status status="PASS" starttime="20210223 11:46:13.669" endtime="20210223 11:46:13.669"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -234,8 +234,8 @@
 <assign>
 <var>${url}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.066" level="INFO">${url} = https://admin.mykiot.vn</msg>
-<status status="PASS" starttime="20210219 16:32:35.066" endtime="20210219 16:32:35.066"></status>
+<msg timestamp="20210223 11:46:13.669" level="INFO">${url} = https://admin.mykiot.vn</msg>
+<status status="PASS" starttime="20210223 11:46:13.669" endtime="20210223 11:46:13.669"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -246,8 +246,8 @@
 <assign>
 <var>${client_id}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.066" level="INFO">${client_id} = 1f36fe67-a0f2-453b-bea5-9d778218279c</msg>
-<status status="PASS" starttime="20210219 16:32:35.066" endtime="20210219 16:32:35.066"></status>
+<msg timestamp="20210223 11:46:13.670" level="INFO">${client_id} = 1f36fe67-a0f2-453b-bea5-9d778218279c</msg>
+<status status="PASS" starttime="20210223 11:46:13.669" endtime="20210223 11:46:13.670"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -258,8 +258,8 @@
 <assign>
 <var>${secret_key}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.067" level="INFO">${secret_key} = 5F16AD6044795B917F2F9E640F572EF835B71254</msg>
-<status status="PASS" starttime="20210219 16:32:35.066" endtime="20210219 16:32:35.067"></status>
+<msg timestamp="20210223 11:46:13.670" level="INFO">${secret_key} = 5F16AD6044795B917F2F9E640F572EF835B71254</msg>
+<status status="PASS" starttime="20210223 11:46:13.670" endtime="20210223 11:46:13.670"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -270,8 +270,8 @@
 <assign>
 <var>${retailer_code}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.067" level="INFO">${retailer_code} = testautomykiot</msg>
-<status status="PASS" starttime="20210219 16:32:35.067" endtime="20210219 16:32:35.067"></status>
+<msg timestamp="20210223 11:46:13.671" level="INFO">${retailer_code} = testautomykiot</msg>
+<status status="PASS" starttime="20210223 11:46:13.670" endtime="20210223 11:46:13.671"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -282,8 +282,8 @@
 <assign>
 <var>${retailer_id}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.068" level="INFO">${retailer_id} = 737280</msg>
-<status status="PASS" starttime="20210219 16:32:35.068" endtime="20210219 16:32:35.068"></status>
+<msg timestamp="20210223 11:46:13.671" level="INFO">${retailer_id} = 737280</msg>
+<status status="PASS" starttime="20210223 11:46:13.671" endtime="20210223 11:46:13.671"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -294,8 +294,8 @@
 <assign>
 <var>${access_url}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.068" level="INFO">${access_url} = https://admin.mykiot.vn/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&amp;secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&amp;retailer_code=testautomykiot&amp;retailer_id=737280</msg>
-<status status="PASS" starttime="20210219 16:32:35.068" endtime="20210219 16:32:35.068"></status>
+<msg timestamp="20210223 11:46:13.672" level="INFO">${access_url} = https://admin.mykiot.vn/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&amp;secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&amp;retailer_code=testautomykiot&amp;retailer_id=737280</msg>
+<status status="PASS" starttime="20210223 11:46:13.671" endtime="20210223 11:46:13.672"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -306,8 +306,8 @@
 <assign>
 <var>${storefront_url}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.069" level="INFO">${storefront_url} = https://mykiot.vn/testautomykiot</msg>
-<status status="PASS" starttime="20210219 16:32:35.069" endtime="20210219 16:32:35.069"></status>
+<msg timestamp="20210223 11:46:13.672" level="INFO">${storefront_url} = https://mykiot.vn/testautomykiot</msg>
+<status status="PASS" starttime="20210223 11:46:13.672" endtime="20210223 11:46:13.672"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -318,8 +318,8 @@
 <assign>
 <var>${kv_url}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.069" level="INFO">${kv_url} = https://testautomykiot.kiotviet.com/</msg>
-<status status="PASS" starttime="20210219 16:32:35.069" endtime="20210219 16:32:35.069"></status>
+<msg timestamp="20210223 11:46:13.672" level="INFO">${kv_url} = https://testautomykiot.kiotviet.com/</msg>
+<status status="PASS" starttime="20210223 11:46:13.672" endtime="20210223 11:46:13.672"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -330,8 +330,8 @@
 <assign>
 <var>${user_name}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.070" level="INFO">${user_name} = admin</msg>
-<status status="PASS" starttime="20210219 16:32:35.069" endtime="20210219 16:32:35.070"></status>
+<msg timestamp="20210223 11:46:13.673" level="INFO">${user_name} = admin</msg>
+<status status="PASS" starttime="20210223 11:46:13.673" endtime="20210223 11:46:13.673"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -342,8 +342,8 @@
 <assign>
 <var>${password}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.070" level="INFO">${password} = 123</msg>
-<status status="PASS" starttime="20210219 16:32:35.070" endtime="20210219 16:32:35.070"></status>
+<msg timestamp="20210223 11:46:13.673" level="INFO">${password} = 123</msg>
+<status status="PASS" starttime="20210223 11:46:13.673" endtime="20210223 11:46:13.673"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -354,8 +354,8 @@
 <assign>
 <var>${kvapi_url}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.071" level="INFO">${kvapi_url} = https://testautomykiot.kiotviet.com/api</msg>
-<status status="PASS" starttime="20210219 16:32:35.070" endtime="20210219 16:32:35.071"></status>
+<msg timestamp="20210223 11:46:13.674" level="INFO">${kvapi_url} = https://testautomykiot.kiotviet.com/api</msg>
+<status status="PASS" starttime="20210223 11:46:13.673" endtime="20210223 11:46:13.674"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -366,8 +366,8 @@
 <assign>
 <var>${branch_id}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.071" level="INFO">${branch_id} = 9113</msg>
-<status status="PASS" starttime="20210219 16:32:35.071" endtime="20210219 16:32:35.071"></status>
+<msg timestamp="20210223 11:46:13.674" level="INFO">${branch_id} = 9113</msg>
+<status status="PASS" starttime="20210223 11:46:13.674" endtime="20210223 11:46:13.674"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -378,8 +378,8 @@
 <assign>
 <var>${zone}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.071" level="INFO">${zone} = 26</msg>
-<status status="PASS" starttime="20210219 16:32:35.071" endtime="20210219 16:32:35.071"></status>
+<msg timestamp="20210223 11:46:13.675" level="INFO">${zone} = 26</msg>
+<status status="PASS" starttime="20210223 11:46:13.674" endtime="20210223 11:46:13.675"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -390,8 +390,8 @@
 <assign>
 <var>${salekvapi}</var>
 </assign>
-<msg timestamp="20210219 16:32:35.072" level="INFO">${salekvapi} = https://sale.kiotapi.com/api</msg>
-<status status="PASS" starttime="20210219 16:32:35.072" endtime="20210219 16:32:35.072"></status>
+<msg timestamp="20210223 11:46:13.675" level="INFO">${salekvapi} = https://sale.kiotapi.com/api</msg>
+<status status="PASS" starttime="20210223 11:46:13.675" endtime="20210223 11:46:13.675"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -399,8 +399,8 @@
 <arg>\${api_url}</arg>
 <arg>${api_url}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.072" level="INFO">${api_url} = https://admin.mykiot.vn/api</msg>
-<status status="PASS" starttime="20210219 16:32:35.072" endtime="20210219 16:32:35.072"></status>
+<msg timestamp="20210223 11:46:13.676" level="INFO">${api_url} = https://admin.mykiot.vn/api</msg>
+<status status="PASS" starttime="20210223 11:46:13.675" endtime="20210223 11:46:13.676"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -408,8 +408,8 @@
 <arg>\${url}</arg>
 <arg>${url}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.073" level="INFO">${url} = https://admin.mykiot.vn</msg>
-<status status="PASS" starttime="20210219 16:32:35.073" endtime="20210219 16:32:35.073"></status>
+<msg timestamp="20210223 11:46:13.676" level="INFO">${url} = https://admin.mykiot.vn</msg>
+<status status="PASS" starttime="20210223 11:46:13.676" endtime="20210223 11:46:13.676"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -417,8 +417,8 @@
 <arg>\${client_id}</arg>
 <arg>${client_id}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.073" level="INFO">${client_id} = 1f36fe67-a0f2-453b-bea5-9d778218279c</msg>
-<status status="PASS" starttime="20210219 16:32:35.073" endtime="20210219 16:32:35.073"></status>
+<msg timestamp="20210223 11:46:13.677" level="INFO">${client_id} = 1f36fe67-a0f2-453b-bea5-9d778218279c</msg>
+<status status="PASS" starttime="20210223 11:46:13.676" endtime="20210223 11:46:13.677"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -426,8 +426,8 @@
 <arg>\${secret_key}</arg>
 <arg>${secret_key}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.074" level="INFO">${secret_key} = 5F16AD6044795B917F2F9E640F572EF835B71254</msg>
-<status status="PASS" starttime="20210219 16:32:35.074" endtime="20210219 16:32:35.074"></status>
+<msg timestamp="20210223 11:46:13.677" level="INFO">${secret_key} = 5F16AD6044795B917F2F9E640F572EF835B71254</msg>
+<status status="PASS" starttime="20210223 11:46:13.677" endtime="20210223 11:46:13.677"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -435,8 +435,8 @@
 <arg>\${retailer_code}</arg>
 <arg>${retailer_code}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.074" level="INFO">${retailer_code} = testautomykiot</msg>
-<status status="PASS" starttime="20210219 16:32:35.074" endtime="20210219 16:32:35.074"></status>
+<msg timestamp="20210223 11:46:13.678" level="INFO">${retailer_code} = testautomykiot</msg>
+<status status="PASS" starttime="20210223 11:46:13.677" endtime="20210223 11:46:13.678"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -444,8 +444,8 @@
 <arg>\${retailer_id}</arg>
 <arg>${retailer_id}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.075" level="INFO">${retailer_id} = 737280</msg>
-<status status="PASS" starttime="20210219 16:32:35.075" endtime="20210219 16:32:35.075"></status>
+<msg timestamp="20210223 11:46:13.678" level="INFO">${retailer_id} = 737280</msg>
+<status status="PASS" starttime="20210223 11:46:13.678" endtime="20210223 11:46:13.678"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -453,8 +453,8 @@
 <arg>\${access_url}</arg>
 <arg>${access_url}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.075" level="INFO">${access_url} = https://admin.mykiot.vn/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&amp;secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&amp;retailer_code=testautomykiot&amp;retailer_id=737280</msg>
-<status status="PASS" starttime="20210219 16:32:35.075" endtime="20210219 16:32:35.075"></status>
+<msg timestamp="20210223 11:46:13.679" level="INFO">${access_url} = https://admin.mykiot.vn/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&amp;secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&amp;retailer_code=testautomykiot&amp;retailer_id=737280</msg>
+<status status="PASS" starttime="20210223 11:46:13.678" endtime="20210223 11:46:13.679"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -462,8 +462,8 @@
 <arg>\${storefront_url}</arg>
 <arg>${storefront_url}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.076" level="INFO">${storefront_url} = https://mykiot.vn/testautomykiot</msg>
-<status status="PASS" starttime="20210219 16:32:35.076" endtime="20210219 16:32:35.076"></status>
+<msg timestamp="20210223 11:46:13.679" level="INFO">${storefront_url} = https://mykiot.vn/testautomykiot</msg>
+<status status="PASS" starttime="20210223 11:46:13.679" endtime="20210223 11:46:13.679"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -471,8 +471,8 @@
 <arg>\${kv_url}</arg>
 <arg>${kv_url}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.076" level="INFO">${kv_url} = https://testautomykiot.kiotviet.com/</msg>
-<status status="PASS" starttime="20210219 16:32:35.076" endtime="20210219 16:32:35.076"></status>
+<msg timestamp="20210223 11:46:13.680" level="INFO">${kv_url} = https://testautomykiot.kiotviet.com/</msg>
+<status status="PASS" starttime="20210223 11:46:13.680" endtime="20210223 11:46:13.680"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -480,8 +480,8 @@
 <arg>\${user_name}</arg>
 <arg>${user_name}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.077" level="INFO">${user_name} = admin</msg>
-<status status="PASS" starttime="20210219 16:32:35.077" endtime="20210219 16:32:35.077"></status>
+<msg timestamp="20210223 11:46:13.680" level="INFO">${user_name} = admin</msg>
+<status status="PASS" starttime="20210223 11:46:13.680" endtime="20210223 11:46:13.680"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -489,8 +489,8 @@
 <arg>\${password}</arg>
 <arg>${password}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.077" level="INFO">${password} = 123</msg>
-<status status="PASS" starttime="20210219 16:32:35.077" endtime="20210219 16:32:35.077"></status>
+<msg timestamp="20210223 11:46:13.681" level="INFO">${password} = 123</msg>
+<status status="PASS" starttime="20210223 11:46:13.681" endtime="20210223 11:46:13.681"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -498,8 +498,8 @@
 <arg>\${kvapi_url}</arg>
 <arg>${kvapi_url}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.078" level="INFO">${kvapi_url} = https://testautomykiot.kiotviet.com/api</msg>
-<status status="PASS" starttime="20210219 16:32:35.078" endtime="20210219 16:32:35.078"></status>
+<msg timestamp="20210223 11:46:13.681" level="INFO">${kvapi_url} = https://testautomykiot.kiotviet.com/api</msg>
+<status status="PASS" starttime="20210223 11:46:13.681" endtime="20210223 11:46:13.681"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -507,8 +507,8 @@
 <arg>\${branch_id}</arg>
 <arg>${branch_id}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.078" level="INFO">${branch_id} = 9113</msg>
-<status status="PASS" starttime="20210219 16:32:35.078" endtime="20210219 16:32:35.078"></status>
+<msg timestamp="20210223 11:46:13.682" level="INFO">${branch_id} = 9113</msg>
+<status status="PASS" starttime="20210223 11:46:13.682" endtime="20210223 11:46:13.682"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -516,8 +516,8 @@
 <arg>\${zone}</arg>
 <arg>${zone}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.079" level="INFO">${zone} = 26</msg>
-<status status="PASS" starttime="20210219 16:32:35.079" endtime="20210219 16:32:35.079"></status>
+<msg timestamp="20210223 11:46:13.683" level="INFO">${zone} = 26</msg>
+<status status="PASS" starttime="20210223 11:46:13.682" endtime="20210223 11:46:13.683"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -525,10 +525,10 @@
 <arg>\${salekvapi}</arg>
 <arg>${salekvapi}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.079" level="INFO">${salekvapi} = https://sale.kiotapi.com/api</msg>
-<status status="PASS" starttime="20210219 16:32:35.079" endtime="20210219 16:32:35.079"></status>
+<msg timestamp="20210223 11:46:13.683" level="INFO">${salekvapi} = https://sale.kiotapi.com/api</msg>
+<status status="PASS" starttime="20210223 11:46:13.683" endtime="20210223 11:46:13.683"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:32:35.057" endtime="20210219 16:32:35.080"></status>
+<status status="PASS" starttime="20210223 11:46:13.660" endtime="20210223 11:46:13.683"></status>
 </kw>
 <kw name="Append To Environment Variable" library="OperatingSystem">
 <doc>Appends given ``values`` to environment variable ``name``.</doc>
@@ -536,15 +536,15 @@
 <arg>PATH</arg>
 <arg>${EXECDIR}${/}Drivers</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.080" level="INFO">Environment variable 'PATH' set to value 'c:\users\quannt\appdata\local\programs\python\python37\lib\site-packages\pywin32_system32;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\quannt\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\quannt\PycharmProjects\Automationpython\venv\Scripts;C:\Program Files\Java\jdk1.8.0_211;C:\Users\quannt\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\quannt\AppData\Local\Programs\Python\Python37\;C:\Users\quannt\AppData\Local\Microsoft\WindowsApps;C:\Users\quannt\AppData\Local\GitHubDesktop\bin;C:\Users\quannt\Documents\GitHub\Mykiot\Testsuites\Drivers'.</msg>
-<status status="PASS" starttime="20210219 16:32:35.080" endtime="20210219 16:32:35.080"></status>
+<msg timestamp="20210223 11:46:13.684" level="INFO">Environment variable 'PATH' set to value 'c:\users\quannt\appdata\local\programs\python\python37\lib\site-packages\pywin32_system32;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\quannt\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\quannt\PycharmProjects\Automationpython\venv\Scripts;C:\Program Files\Java\jdk1.8.0_211;C:\Users\quannt\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\quannt\AppData\Local\Programs\Python\Python37\;C:\Users\quannt\AppData\Local\Microsoft\WindowsApps;C:\Users\quannt\AppData\Local\GitHubDesktop\bin;C:\Users\quannt\Documents\GitHub\Mykiot\Testsuites\Drivers'.</msg>
+<status status="PASS" starttime="20210223 11:46:13.683" endtime="20210223 11:46:13.684"></status>
 </kw>
 <kw name="Set Screenshot Directory" library="SeleniumLibrary">
 <doc>Sets the directory for captured screenshots.</doc>
 <arguments>
 <arg>${EXECDIR}${/}Out${/}Failures</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:32:35.080" endtime="20210219 16:32:35.081"></status>
+<status status="PASS" starttime="20210223 11:46:13.684" endtime="20210223 11:46:13.685"></status>
 </kw>
 <kw name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the given ``url``.</doc>
@@ -552,14 +552,14 @@
 <arg>${storefront_url}</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20210219 16:32:35.081" level="INFO">Opening browser 'chrome' to base url 'https://mykiot.vn/testautomykiot'.</msg>
-<status status="PASS" starttime="20210219 16:32:35.081" endtime="20210219 16:32:53.565"></status>
+<msg timestamp="20210223 11:46:13.686" level="INFO">Opening browser 'chrome' to base url 'https://mykiot.vn/testautomykiot'.</msg>
+<status status="PASS" starttime="20210223 11:46:13.686" endtime="20210223 11:46:20.255"></status>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20210219 16:32:53.565" endtime="20210219 16:32:54.015"></status>
+<status status="PASS" starttime="20210223 11:46:20.255" endtime="20210223 11:46:20.380"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:32:35.057" endtime="20210219 16:32:54.015"></status>
+<status status="PASS" starttime="20210223 11:46:13.660" endtime="20210223 11:46:20.380"></status>
 </kw>
 <kw name="Them san pham noi bat vao cart thanh toan va nhan hang tai dia chi nguoi nhan khi dang nhap account">
 <arguments>
@@ -586,17 +586,17 @@
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:32:54.018" endtime="20210219 16:32:54.042"></status>
+<status status="PASS" starttime="20210223 11:46:20.382" endtime="20210223 11:46:20.401"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click element identified by ``locator``.</doc>
 <arguments>
 <arg>${locator}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:54.042" level="INFO">Clicking element '//button[contains(@class,'btn btn-circle')]'.</msg>
-<status status="PASS" starttime="20210219 16:32:54.042" endtime="20210219 16:32:54.099"></status>
+<msg timestamp="20210223 11:46:20.402" level="INFO">Clicking element '//button[contains(@class,'btn btn-circle')]'.</msg>
+<status status="PASS" starttime="20210223 11:46:20.402" endtime="20210223 11:46:20.440"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:32:54.017" endtime="20210219 16:32:54.100"></status>
+<status status="PASS" starttime="20210223 11:46:20.382" endtime="20210223 11:46:20.440"></status>
 </kw>
 <kw name="Click To Element" library="Computation">
 <arguments>
@@ -608,17 +608,17 @@
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:32:54.101" endtime="20210219 16:32:54.125"></status>
+<status status="PASS" starttime="20210223 11:46:20.441" endtime="20210223 11:46:20.477"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click element identified by ``locator``.</doc>
 <arguments>
 <arg>${locator}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:54.125" level="INFO">Clicking element '//div[@class='acc-infor']//a[contains(string(),'Đăng nhập bằng Google')]'.</msg>
-<status status="PASS" starttime="20210219 16:32:54.125" endtime="20210219 16:32:55.742"></status>
+<msg timestamp="20210223 11:46:20.477" level="INFO">Clicking element '//div[@class='acc-infor']//a[contains(string(),'Đăng nhập bằng Google')]'.</msg>
+<status status="PASS" starttime="20210223 11:46:20.477" endtime="20210223 11:46:25.218"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:32:54.100" endtime="20210219 16:32:55.742"></status>
+<status status="PASS" starttime="20210223 11:46:20.441" endtime="20210223 11:46:25.218"></status>
 </kw>
 <kw name="Sendkey To Element" library="Computation">
 <arguments>
@@ -631,7 +631,7 @@
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:32:55.742" endtime="20210219 16:32:55.764"></status>
+<status status="PASS" starttime="20210223 11:46:25.219" endtime="20210223 11:46:25.240"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into text field identified by ``locator``.</doc>
@@ -639,10 +639,10 @@
 <arg>${locator}</arg>
 <arg>${value}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:55.764" level="INFO">Typing text 'testautomaiton@gmail.com' into text field '//input[@type="email"]'.</msg>
-<status status="PASS" starttime="20210219 16:32:55.764" endtime="20210219 16:32:55.871"></status>
+<msg timestamp="20210223 11:46:25.240" level="INFO">Typing text 'testautomaiton@gmail.com' into text field '//input[@type="email"]'.</msg>
+<status status="PASS" starttime="20210223 11:46:25.240" endtime="20210223 11:46:25.347"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:32:55.742" endtime="20210219 16:32:55.871"></status>
+<status status="PASS" starttime="20210223 11:46:25.219" endtime="20210223 11:46:25.347"></status>
 </kw>
 <kw name="Click Element JS" library="Javascript">
 <arguments>
@@ -656,22 +656,22 @@
 <assign>
 <var>${xpath}</var>
 </assign>
-<msg timestamp="20210219 16:32:55.872" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
-<msg timestamp="20210219 16:32:55.874" level="INFO">${xpath} = document.evaluate("//button[@type='button']//span[contains(text(),'Tiếp theo')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()</msg>
-<status status="PASS" starttime="20210219 16:32:55.872" endtime="20210219 16:32:55.874"></status>
+<msg timestamp="20210223 11:46:25.347" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
+<msg timestamp="20210223 11:46:25.349" level="INFO">${xpath} = document.evaluate("//button[@type='button']//span[contains(text(),'Tiếp theo')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()</msg>
+<status status="PASS" starttime="20210223 11:46:25.347" endtime="20210223 11:46:25.349"></status>
 </kw>
 <kw name="Execute Javascript" library="SeleniumLibrary">
 <doc>Executes the given JavaScript code with possible arguments.</doc>
 <arguments>
 <arg>${xpath}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:55.874" level="INFO">Executing JavaScript:
+<msg timestamp="20210223 11:46:25.366" level="INFO">Executing JavaScript:
 document.evaluate("//button[@type='button']//span[contains(text(),'Tiếp theo')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()
 Without any arguments.</msg>
-<status status="PASS" starttime="20210219 16:32:55.874" endtime="20210219 16:32:55.890"></status>
+<status status="PASS" starttime="20210223 11:46:25.349" endtime="20210223 11:46:25.380"></status>
 </kw>
 <timeout value="15 seconds"></timeout>
-<status status="PASS" starttime="20210219 16:32:55.872" endtime="20210219 16:32:55.890"></status>
+<status status="PASS" starttime="20210223 11:46:25.347" endtime="20210223 11:46:25.380"></status>
 </kw>
 <kw name="Sendkey To Element" library="Computation">
 <arguments>
@@ -684,7 +684,7 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:32:55.891" endtime="20210219 16:32:57.195"></status>
+<status status="PASS" starttime="20210223 11:46:25.381" endtime="20210223 11:46:26.686"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into text field identified by ``locator``.</doc>
@@ -692,10 +692,10 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>${value}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:57.196" level="INFO">Typing text 'test@123456' into text field '//input[@type='password']'.</msg>
-<status status="PASS" starttime="20210219 16:32:57.195" endtime="20210219 16:32:57.261"></status>
+<msg timestamp="20210223 11:46:26.687" level="INFO">Typing text 'test@123456' into text field '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20210223 11:46:26.686" endtime="20210223 11:46:26.752"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:32:55.890" endtime="20210219 16:32:57.261"></status>
+<status status="PASS" starttime="20210223 11:46:25.380" endtime="20210223 11:46:26.752"></status>
 </kw>
 <kw name="Click Element JS" library="Javascript">
 <arguments>
@@ -709,24 +709,24 @@ Without any arguments.</msg>
 <assign>
 <var>${xpath}</var>
 </assign>
-<msg timestamp="20210219 16:32:57.262" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
-<msg timestamp="20210219 16:32:57.263" level="INFO">${xpath} = document.evaluate("//button[@type='button']//span[contains(text(),'Tiếp theo')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()</msg>
-<status status="PASS" starttime="20210219 16:32:57.262" endtime="20210219 16:32:57.263"></status>
+<msg timestamp="20210223 11:46:26.752" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
+<msg timestamp="20210223 11:46:26.754" level="INFO">${xpath} = document.evaluate("//button[@type='button']//span[contains(text(),'Tiếp theo')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()</msg>
+<status status="PASS" starttime="20210223 11:46:26.752" endtime="20210223 11:46:26.754"></status>
 </kw>
 <kw name="Execute Javascript" library="SeleniumLibrary">
 <doc>Executes the given JavaScript code with possible arguments.</doc>
 <arguments>
 <arg>${xpath}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:57.264" level="INFO">Executing JavaScript:
+<msg timestamp="20210223 11:46:26.755" level="INFO">Executing JavaScript:
 document.evaluate("//button[@type='button']//span[contains(text(),'Tiếp theo')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()
 Without any arguments.</msg>
-<status status="PASS" starttime="20210219 16:32:57.263" endtime="20210219 16:32:57.277"></status>
+<status status="PASS" starttime="20210223 11:46:26.754" endtime="20210223 11:46:26.764"></status>
 </kw>
 <timeout value="15 seconds"></timeout>
-<status status="PASS" starttime="20210219 16:32:57.261" endtime="20210219 16:32:57.277"></status>
+<status status="PASS" starttime="20210223 11:46:26.752" endtime="20210223 11:46:26.764"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:32:54.016" endtime="20210219 16:32:57.277"></status>
+<status status="PASS" starttime="20210223 11:46:20.381" endtime="20210223 11:46:26.764"></status>
 </kw>
 <kw name="Them san pham noi bat vao cart" library="Homepage_action">
 <arguments>
@@ -746,17 +746,17 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:32:57.278" endtime="20210219 16:32:59.927"></status>
+<status status="PASS" starttime="20210223 11:46:26.766" endtime="20210223 11:46:30.214"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click element identified by ``locator``.</doc>
 <arguments>
 <arg>${locator}</arg>
 </arguments>
-<msg timestamp="20210219 16:32:59.927" level="INFO">Clicking element '//div[@class='kv-category-list custom'][1]//div[@class='swiper-slide swiper-slide-active'][1]//button[@class='add-to-cart btn-quick-cart']'.</msg>
-<status status="PASS" starttime="20210219 16:32:59.927" endtime="20210219 16:32:59.983"></status>
+<msg timestamp="20210223 11:46:30.215" level="INFO">Clicking element '//div[@class='kv-category-list custom'][1]//div[@class='swiper-slide swiper-slide-active'][1]//button[@class='add-to-cart btn-quick-cart']'.</msg>
+<status status="PASS" starttime="20210223 11:46:30.214" endtime="20210223 11:46:30.273"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:32:57.278" endtime="20210219 16:32:59.983"></status>
+<status status="PASS" starttime="20210223 11:46:26.765" endtime="20210223 11:46:30.273"></status>
 </kw>
 <kw name="Sendkey To Element" library="Computation">
 <arguments>
@@ -769,7 +769,7 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:32:59.984" endtime="20210219 16:33:00.210"></status>
+<status status="PASS" starttime="20210223 11:46:30.274" endtime="20210223 11:46:30.504"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into text field identified by ``locator``.</doc>
@@ -777,10 +777,10 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>${value}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:00.211" level="INFO">Typing text '3' into text field '//div[@class='kv-product-cart']//div[@class='summary-content spinner ']//input[@class='form-control form-control-lg quantity-value']'.</msg>
-<status status="PASS" starttime="20210219 16:33:00.210" endtime="20210219 16:33:00.274"></status>
+<msg timestamp="20210223 11:46:30.504" level="INFO">Typing text '3' into text field '//div[@class='kv-product-cart']//div[@class='summary-content spinner ']//input[@class='form-control form-control-lg quantity-value']'.</msg>
+<status status="PASS" starttime="20210223 11:46:30.504" endtime="20210223 11:46:30.602"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:32:59.983" endtime="20210219 16:33:00.274"></status>
+<status status="PASS" starttime="20210223 11:46:30.274" endtime="20210223 11:46:30.603"></status>
 </kw>
 <kw name="Convert price to number" library="Computation">
 <arguments>
@@ -797,8 +797,8 @@ Without any arguments.</msg>
 <assign>
 <var>${price_number}</var>
 </assign>
-<msg timestamp="20210219 16:33:00.294" level="INFO">${price_number} = 2,032,470đ</msg>
-<status status="PASS" starttime="20210219 16:33:00.275" endtime="20210219 16:33:00.294"></status>
+<msg timestamp="20210223 11:46:30.624" level="INFO">${price_number} = 2,032,470đ</msg>
+<status status="PASS" starttime="20210223 11:46:30.604" endtime="20210223 11:46:30.624"></status>
 </kw>
 <kw name="Remove String" library="String">
 <doc>Removes all ``removables`` from the given ``string``.</doc>
@@ -811,8 +811,8 @@ Without any arguments.</msg>
 <assign>
 <var>${mystring}</var>
 </assign>
-<msg timestamp="20210219 16:33:00.295" level="INFO">${mystring} = 2032470</msg>
-<status status="PASS" starttime="20210219 16:33:00.294" endtime="20210219 16:33:00.295"></status>
+<msg timestamp="20210223 11:46:30.625" level="INFO">${mystring} = 2032470</msg>
+<status status="PASS" starttime="20210223 11:46:30.625" endtime="20210223 11:46:30.625"></status>
 </kw>
 <kw name="Convert To Number" library="BuiltIn">
 <doc>Converts the given item to a floating point number.</doc>
@@ -822,19 +822,19 @@ Without any arguments.</msg>
 <assign>
 <var>${real_price}</var>
 </assign>
-<msg timestamp="20210219 16:33:00.295" level="INFO">${real_price} = 2032470.0</msg>
-<status status="PASS" starttime="20210219 16:33:00.295" endtime="20210219 16:33:00.295"></status>
+<msg timestamp="20210223 11:46:30.625" level="INFO">${real_price} = 2032470.0</msg>
+<status status="PASS" starttime="20210223 11:46:30.625" endtime="20210223 11:46:30.625"></status>
 </kw>
 <kw name="Return From Keyword" library="BuiltIn">
 <doc>Returns from the enclosing user keyword.</doc>
 <arguments>
 <arg>${real_price}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:00.295" level="INFO">Returning from the enclosing user keyword.</msg>
-<status status="PASS" starttime="20210219 16:33:00.295" endtime="20210219 16:33:00.295"></status>
+<msg timestamp="20210223 11:46:30.626" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20210223 11:46:30.626" endtime="20210223 11:46:30.626"></status>
 </kw>
-<msg timestamp="20210219 16:33:00.296" level="INFO">${price} = 2032470.0</msg>
-<status status="PASS" starttime="20210219 16:33:00.274" endtime="20210219 16:33:00.296"></status>
+<msg timestamp="20210223 11:46:30.626" level="INFO">${price} = 2032470.0</msg>
+<status status="PASS" starttime="20210223 11:46:30.603" endtime="20210223 11:46:30.626"></status>
 </kw>
 <kw name="Multiplication" library="Computation">
 <arguments>
@@ -852,8 +852,8 @@ Without any arguments.</msg>
 <assign>
 <var>${num1}</var>
 </assign>
-<msg timestamp="20210219 16:33:00.297" level="INFO">${num1} = 2032470.0</msg>
-<status status="PASS" starttime="20210219 16:33:00.296" endtime="20210219 16:33:00.297"></status>
+<msg timestamp="20210223 11:46:30.627" level="INFO">${num1} = 2032470.0</msg>
+<status status="PASS" starttime="20210223 11:46:30.627" endtime="20210223 11:46:30.627"></status>
 </kw>
 <kw name="Convert To Number" library="BuiltIn">
 <doc>Converts the given item to a floating point number.</doc>
@@ -863,8 +863,8 @@ Without any arguments.</msg>
 <assign>
 <var>${num2}</var>
 </assign>
-<msg timestamp="20210219 16:33:00.298" level="INFO">${num2} = 3.0</msg>
-<status status="PASS" starttime="20210219 16:33:00.297" endtime="20210219 16:33:00.298"></status>
+<msg timestamp="20210223 11:46:30.628" level="INFO">${num2} = 3.0</msg>
+<status status="PASS" starttime="20210223 11:46:30.627" endtime="20210223 11:46:30.628"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -875,8 +875,8 @@ Without any arguments.</msg>
 <assign>
 <var>${result_ns}</var>
 </assign>
-<msg timestamp="20210219 16:33:00.299" level="INFO">${result_ns} = {'x': 2032470.0, 'y': 3.0}</msg>
-<status status="PASS" starttime="20210219 16:33:00.298" endtime="20210219 16:33:00.299"></status>
+<msg timestamp="20210223 11:46:30.629" level="INFO">${result_ns} = {'x': 2032470.0, 'y': 3.0}</msg>
+<status status="PASS" starttime="20210223 11:46:30.628" endtime="20210223 11:46:30.629"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <doc>Evaluates the given expression in Python and returns the result.</doc>
@@ -887,20 +887,20 @@ Without any arguments.</msg>
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20210219 16:33:00.299" level="INFO">${result} = 6097410.0</msg>
-<status status="PASS" starttime="20210219 16:33:00.299" endtime="20210219 16:33:00.299"></status>
+<msg timestamp="20210223 11:46:30.630" level="INFO">${result} = 6097410.0</msg>
+<status status="PASS" starttime="20210223 11:46:30.629" endtime="20210223 11:46:30.630"></status>
 </kw>
 <kw name="Return From Keyword" library="BuiltIn">
 <doc>Returns from the enclosing user keyword.</doc>
 <arguments>
 <arg>${result}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:00.300" level="INFO">Returning from the enclosing user keyword.</msg>
-<status status="PASS" starttime="20210219 16:33:00.300" endtime="20210219 16:33:00.300"></status>
+<msg timestamp="20210223 11:46:30.630" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20210223 11:46:30.630" endtime="20210223 11:46:30.630"></status>
 </kw>
-<msg timestamp="20210219 16:33:00.300" level="INFO">${total} = 6097410.0</msg>
+<msg timestamp="20210223 11:46:30.630" level="INFO">${total} = 6097410.0</msg>
 <timeout value="15 seconds"></timeout>
-<status status="PASS" starttime="20210219 16:33:00.296" endtime="20210219 16:33:00.300"></status>
+<status status="PASS" starttime="20210223 11:46:30.626" endtime="20210223 11:46:30.630"></status>
 </kw>
 <kw name="Click To Element" library="Computation">
 <arguments>
@@ -912,17 +912,17 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:00.301" endtime="20210219 16:33:00.317"></status>
+<status status="PASS" starttime="20210223 11:46:30.631" endtime="20210223 11:46:30.649"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click element identified by ``locator``.</doc>
 <arguments>
 <arg>${locator}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:00.318" level="INFO">Clicking element '//button[@id='addtocart']'.</msg>
-<status status="PASS" starttime="20210219 16:33:00.318" endtime="20210219 16:33:00.578"></status>
+<msg timestamp="20210223 11:46:30.649" level="INFO">Clicking element '//button[@id='addtocart']'.</msg>
+<status status="PASS" starttime="20210223 11:46:30.649" endtime="20210223 11:46:30.871"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:33:00.300" endtime="20210219 16:33:00.578"></status>
+<status status="PASS" starttime="20210223 11:46:30.630" endtime="20210223 11:46:30.871"></status>
 </kw>
 <kw name="Click To Element" library="Computation">
 <arguments>
@@ -934,17 +934,17 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:00.579" endtime="20210219 16:33:00.624"></status>
+<status status="PASS" starttime="20210223 11:46:30.872" endtime="20210223 11:46:30.895"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click element identified by ``locator``.</doc>
 <arguments>
 <arg>${locator}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:00.625" level="INFO">Clicking element '//div[@class='x-close']'.</msg>
-<status status="PASS" starttime="20210219 16:33:00.625" endtime="20210219 16:33:00.669"></status>
+<msg timestamp="20210223 11:46:30.895" level="INFO">Clicking element '//div[@class='x-close']'.</msg>
+<status status="PASS" starttime="20210223 11:46:30.895" endtime="20210223 11:46:30.931"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:33:00.578" endtime="20210219 16:33:00.669"></status>
+<status status="PASS" starttime="20210223 11:46:30.871" endtime="20210223 11:46:30.931"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until element ``locator`` is visible.</doc>
@@ -952,7 +952,7 @@ Without any arguments.</msg>
 <arg>${lbl_tongtienhang_cart}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:00.669" endtime="20210219 16:33:01.326"></status>
+<status status="PASS" starttime="20210223 11:46:30.931" endtime="20210223 11:46:31.367"></status>
 </kw>
 <kw name="Convert price to number" library="Computation">
 <arguments>
@@ -969,8 +969,8 @@ Without any arguments.</msg>
 <assign>
 <var>${price_number}</var>
 </assign>
-<msg timestamp="20210219 16:33:01.343" level="INFO">${price_number} = 6,097,410 đ</msg>
-<status status="PASS" starttime="20210219 16:33:01.327" endtime="20210219 16:33:01.343"></status>
+<msg timestamp="20210223 11:46:31.383" level="INFO">${price_number} = 6,097,410 đ</msg>
+<status status="PASS" starttime="20210223 11:46:31.367" endtime="20210223 11:46:31.383"></status>
 </kw>
 <kw name="Remove String" library="String">
 <doc>Removes all ``removables`` from the given ``string``.</doc>
@@ -983,8 +983,8 @@ Without any arguments.</msg>
 <assign>
 <var>${mystring}</var>
 </assign>
-<msg timestamp="20210219 16:33:01.344" level="INFO">${mystring} = 6097410 </msg>
-<status status="PASS" starttime="20210219 16:33:01.343" endtime="20210219 16:33:01.344"></status>
+<msg timestamp="20210223 11:46:31.383" level="INFO">${mystring} = 6097410 </msg>
+<status status="PASS" starttime="20210223 11:46:31.383" endtime="20210223 11:46:31.383"></status>
 </kw>
 <kw name="Convert To Number" library="BuiltIn">
 <doc>Converts the given item to a floating point number.</doc>
@@ -994,19 +994,19 @@ Without any arguments.</msg>
 <assign>
 <var>${real_price}</var>
 </assign>
-<msg timestamp="20210219 16:33:01.344" level="INFO">${real_price} = 6097410.0</msg>
-<status status="PASS" starttime="20210219 16:33:01.344" endtime="20210219 16:33:01.344"></status>
+<msg timestamp="20210223 11:46:31.384" level="INFO">${real_price} = 6097410.0</msg>
+<status status="PASS" starttime="20210223 11:46:31.383" endtime="20210223 11:46:31.384"></status>
 </kw>
 <kw name="Return From Keyword" library="BuiltIn">
 <doc>Returns from the enclosing user keyword.</doc>
 <arguments>
 <arg>${real_price}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:01.344" level="INFO">Returning from the enclosing user keyword.</msg>
-<status status="PASS" starttime="20210219 16:33:01.344" endtime="20210219 16:33:01.345"></status>
+<msg timestamp="20210223 11:46:31.384" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20210223 11:46:31.384" endtime="20210223 11:46:31.384"></status>
 </kw>
-<msg timestamp="20210219 16:33:01.345" level="INFO">${tongtien} = 6097410.0</msg>
-<status status="PASS" starttime="20210219 16:33:01.327" endtime="20210219 16:33:01.345"></status>
+<msg timestamp="20210223 11:46:31.384" level="INFO">${tongtien} = 6097410.0</msg>
+<status status="PASS" starttime="20210223 11:46:31.367" endtime="20210223 11:46:31.384"></status>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <doc>Fails if the given objects are unequal.</doc>
@@ -1014,7 +1014,7 @@ Without any arguments.</msg>
 <arg>${total}</arg>
 <arg>${tongtien}</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:01.345" endtime="20210219 16:33:01.345"></status>
+<status status="PASS" starttime="20210223 11:46:31.384" endtime="20210223 11:46:31.385"></status>
 </kw>
 <kw name="Click To Element" library="Computation">
 <arguments>
@@ -1026,17 +1026,17 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:01.346" endtime="20210219 16:33:01.363"></status>
+<status status="PASS" starttime="20210223 11:46:31.385" endtime="20210223 11:46:31.403"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click element identified by ``locator``.</doc>
 <arguments>
 <arg>${locator}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:01.363" level="INFO">Clicking element '//a[@class='btn btn-primary btn-checkout']'.</msg>
-<status status="PASS" starttime="20210219 16:33:01.363" endtime="20210219 16:33:01.952"></status>
+<msg timestamp="20210223 11:46:31.404" level="INFO">Clicking element '//a[@class='btn btn-primary btn-checkout']'.</msg>
+<status status="PASS" starttime="20210223 11:46:31.403" endtime="20210223 11:46:32.353"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:33:01.345" endtime="20210219 16:33:01.953"></status>
+<status status="PASS" starttime="20210223 11:46:31.385" endtime="20210223 11:46:32.354"></status>
 </kw>
 <kw name="Return From Keyword" library="BuiltIn">
 <doc>Returns from the enclosing user keyword.</doc>
@@ -1044,20 +1044,20 @@ Without any arguments.</msg>
 <arg>${total}</arg>
 <arg>${price}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:01.953" level="INFO">Returning from the enclosing user keyword.</msg>
-<status status="PASS" starttime="20210219 16:33:01.953" endtime="20210219 16:33:01.953"></status>
+<msg timestamp="20210223 11:46:32.355" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20210223 11:46:32.354" endtime="20210223 11:46:32.355"></status>
 </kw>
-<msg timestamp="20210219 16:33:01.953" level="INFO">${thanhtien} = 6097410.0</msg>
-<msg timestamp="20210219 16:33:01.953" level="INFO">${gia} = 2032470.0</msg>
-<status status="PASS" starttime="20210219 16:32:57.277" endtime="20210219 16:33:01.953"></status>
+<msg timestamp="20210223 11:46:32.355" level="INFO">${thanhtien} = 6097410.0</msg>
+<msg timestamp="20210223 11:46:32.355" level="INFO">${gia} = 2032470.0</msg>
+<status status="PASS" starttime="20210223 11:46:26.765" endtime="20210223 11:46:32.355"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>3</arg>
 </arguments>
-<msg timestamp="20210219 16:33:04.955" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20210219 16:33:01.954" endtime="20210219 16:33:04.955"></status>
+<msg timestamp="20210223 11:46:35.357" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210223 11:46:32.356" endtime="20210223 11:46:35.357"></status>
 </kw>
 <kw name="Thanh toan nhan hang tai dia chi nguoi nhan khi dang nhap account" library="Orderpage_Action">
 <arguments>
@@ -1074,7 +1074,7 @@ Without any arguments.</msg>
 <arguments>
 <arg>${title_orderpage}</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:04.956" endtime="20210219 16:33:04.973"></status>
+<status status="PASS" starttime="20210223 11:46:35.358" endtime="20210223 11:46:35.375"></status>
 </kw>
 <kw name="Convert price to number" library="Computation">
 <arguments>
@@ -1091,8 +1091,8 @@ Without any arguments.</msg>
 <assign>
 <var>${price_number}</var>
 </assign>
-<msg timestamp="20210219 16:33:04.993" level="INFO">${price_number} = 2,032,470 đ</msg>
-<status status="PASS" starttime="20210219 16:33:04.973" endtime="20210219 16:33:04.993"></status>
+<msg timestamp="20210223 11:46:35.395" level="INFO">${price_number} = 2,032,470 đ</msg>
+<status status="PASS" starttime="20210223 11:46:35.375" endtime="20210223 11:46:35.395"></status>
 </kw>
 <kw name="Remove String" library="String">
 <doc>Removes all ``removables`` from the given ``string``.</doc>
@@ -1105,8 +1105,8 @@ Without any arguments.</msg>
 <assign>
 <var>${mystring}</var>
 </assign>
-<msg timestamp="20210219 16:33:04.993" level="INFO">${mystring} = 2032470 </msg>
-<status status="PASS" starttime="20210219 16:33:04.993" endtime="20210219 16:33:04.993"></status>
+<msg timestamp="20210223 11:46:35.395" level="INFO">${mystring} = 2032470 </msg>
+<status status="PASS" starttime="20210223 11:46:35.395" endtime="20210223 11:46:35.395"></status>
 </kw>
 <kw name="Convert To Number" library="BuiltIn">
 <doc>Converts the given item to a floating point number.</doc>
@@ -1116,19 +1116,19 @@ Without any arguments.</msg>
 <assign>
 <var>${real_price}</var>
 </assign>
-<msg timestamp="20210219 16:33:04.994" level="INFO">${real_price} = 2032470.0</msg>
-<status status="PASS" starttime="20210219 16:33:04.994" endtime="20210219 16:33:04.994"></status>
+<msg timestamp="20210223 11:46:35.396" level="INFO">${real_price} = 2032470.0</msg>
+<status status="PASS" starttime="20210223 11:46:35.396" endtime="20210223 11:46:35.396"></status>
 </kw>
 <kw name="Return From Keyword" library="BuiltIn">
 <doc>Returns from the enclosing user keyword.</doc>
 <arguments>
 <arg>${real_price}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:04.994" level="INFO">Returning from the enclosing user keyword.</msg>
-<status status="PASS" starttime="20210219 16:33:04.994" endtime="20210219 16:33:04.994"></status>
+<msg timestamp="20210223 11:46:35.396" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20210223 11:46:35.396" endtime="20210223 11:46:35.396"></status>
 </kw>
-<msg timestamp="20210219 16:33:04.995" level="INFO">${giasp} = 2032470.0</msg>
-<status status="PASS" starttime="20210219 16:33:04.973" endtime="20210219 16:33:04.995"></status>
+<msg timestamp="20210223 11:46:35.397" level="INFO">${giasp} = 2032470.0</msg>
+<status status="PASS" starttime="20210223 11:46:35.375" endtime="20210223 11:46:35.397"></status>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <doc>Fails if the given objects are unequal.</doc>
@@ -1136,7 +1136,7 @@ Without any arguments.</msg>
 <arg>${giasp}</arg>
 <arg>${gia}</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:04.995" endtime="20210219 16:33:04.995"></status>
+<status status="PASS" starttime="20210223 11:46:35.397" endtime="20210223 11:46:35.397"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until element ``locator`` is visible.</doc>
@@ -1144,7 +1144,7 @@ Without any arguments.</msg>
 <arg>${lb_giaohangtaidcnguoinhan}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:04.995" endtime="20210219 16:33:05.012"></status>
+<status status="PASS" starttime="20210223 11:46:35.397" endtime="20210223 11:46:35.414"></status>
 </kw>
 <kw name="Click Element JS" library="Javascript">
 <arguments>
@@ -1158,29 +1158,29 @@ Without any arguments.</msg>
 <assign>
 <var>${xpath}</var>
 </assign>
-<msg timestamp="20210219 16:33:05.013" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
-<msg timestamp="20210219 16:33:05.014" level="INFO">${xpath} = document.evaluate("//*[contains(@class,'CoD card')]//div[contains(@class,'cod')]//label", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()</msg>
-<status status="PASS" starttime="20210219 16:33:05.013" endtime="20210219 16:33:05.014"></status>
+<msg timestamp="20210223 11:46:35.415" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
+<msg timestamp="20210223 11:46:35.503" level="INFO">${xpath} = document.evaluate("//*[contains(@class,'CoD card')]//div[contains(@class,'cod')]//label", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()</msg>
+<status status="PASS" starttime="20210223 11:46:35.415" endtime="20210223 11:46:35.503"></status>
 </kw>
 <kw name="Execute Javascript" library="SeleniumLibrary">
 <doc>Executes the given JavaScript code with possible arguments.</doc>
 <arguments>
 <arg>${xpath}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:05.015" level="INFO">Executing JavaScript:
+<msg timestamp="20210223 11:46:35.504" level="INFO">Executing JavaScript:
 document.evaluate("//*[contains(@class,'CoD card')]//div[contains(@class,'cod')]//label", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()
 Without any arguments.</msg>
-<status status="PASS" starttime="20210219 16:33:05.014" endtime="20210219 16:33:05.033"></status>
+<status status="PASS" starttime="20210223 11:46:35.503" endtime="20210223 11:46:35.521"></status>
 </kw>
 <timeout value="15 seconds"></timeout>
-<status status="PASS" starttime="20210219 16:33:05.012" endtime="20210219 16:33:05.033"></status>
+<status status="PASS" starttime="20210223 11:46:35.414" endtime="20210223 11:46:35.521"></status>
 </kw>
 <kw name="Scroll Element Into View" library="SeleniumLibrary">
 <doc>Scrolls an element identified by ``locator`` into view.</doc>
 <arguments>
 <arg>${lbl_footer}</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:05.033" endtime="20210219 16:33:05.330"></status>
+<status status="PASS" starttime="20210223 11:46:35.521" endtime="20210223 11:46:35.808"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
@@ -1198,14 +1198,14 @@ Without any arguments.</msg>
 </arguments>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20210219 16:33:05.678" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Out/Failures/selenium-screenshot-83.png"&gt;&lt;img src="Out/Failures/selenium-screenshot-83.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20210219 16:33:05.346" endtime="20210219 16:33:05.678"></status>
+<msg timestamp="20210223 11:46:36.174" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Out/Failures/selenium-screenshot-3.png"&gt;&lt;img src="Out/Failures/selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210223 11:46:35.825" endtime="20210223 11:46:36.174"></status>
 </kw>
-<msg timestamp="20210219 16:33:05.713" level="FAIL">The element '//button[contains(text(),'TẠO NGAY')]' should be visible, but it is not.</msg>
-<status status="FAIL" starttime="20210219 16:33:05.330" endtime="20210219 16:33:05.713"></status>
+<msg timestamp="20210223 11:46:36.221" level="FAIL">The element '//button[contains(text(),'TẠO NGAY')]' should be visible, but it is not.</msg>
+<status status="FAIL" starttime="20210223 11:46:35.808" endtime="20210223 11:46:36.221"></status>
 </kw>
-<msg timestamp="20210219 16:33:05.713" level="INFO">${Status} = False</msg>
-<status status="PASS" starttime="20210219 16:33:05.330" endtime="20210219 16:33:05.713"></status>
+<msg timestamp="20210223 11:46:36.221" level="INFO">${Status} = False</msg>
+<status status="PASS" starttime="20210223 11:46:35.808" endtime="20210223 11:46:36.221"></status>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
@@ -1246,17 +1246,17 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:05.715" endtime="20210219 16:33:05.731"></status>
+<status status="PASS" starttime="20210223 11:46:36.223" endtime="20210223 11:46:36.239"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click element identified by ``locator``.</doc>
 <arguments>
 <arg>${locator}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:05.731" level="INFO">Clicking element '//button[contains(text(),'THAY ĐỔI')]'.</msg>
-<status status="PASS" starttime="20210219 16:33:05.731" endtime="20210219 16:33:05.769"></status>
+<msg timestamp="20210223 11:46:36.240" level="INFO">Clicking element '//button[contains(text(),'THAY ĐỔI')]'.</msg>
+<status status="PASS" starttime="20210223 11:46:36.240" endtime="20210223 11:46:36.278"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:33:05.715" endtime="20210219 16:33:05.770"></status>
+<status status="PASS" starttime="20210223 11:46:36.222" endtime="20210223 11:46:36.278"></status>
 </kw>
 <kw name="Click To Element" library="Computation">
 <arguments>
@@ -1268,17 +1268,17 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:05.771" endtime="20210219 16:33:06.006"></status>
+<status status="PASS" starttime="20210223 11:46:36.280" endtime="20210223 11:46:36.516"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click element identified by ``locator``.</doc>
 <arguments>
 <arg>${locator}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:06.007" level="INFO">Clicking element '//button[@id='add-new-address']'.</msg>
-<status status="PASS" starttime="20210219 16:33:06.007" endtime="20210219 16:33:06.070"></status>
+<msg timestamp="20210223 11:46:36.517" level="INFO">Clicking element '//button[@id='add-new-address']'.</msg>
+<status status="PASS" starttime="20210223 11:46:36.517" endtime="20210223 11:46:36.591"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:33:05.770" endtime="20210219 16:33:06.070"></status>
+<status status="PASS" starttime="20210223 11:46:36.279" endtime="20210223 11:46:36.592"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until element ``locator`` is visible.</doc>
@@ -1286,7 +1286,7 @@ Without any arguments.</msg>
 <arg>${popup_themdiachi}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:06.071" endtime="20210219 16:33:06.090"></status>
+<status status="PASS" starttime="20210223 11:46:36.592" endtime="20210223 11:46:36.610"></status>
 </kw>
 <kw name="Sendkey To Element" library="Computation">
 <arguments>
@@ -1299,7 +1299,7 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:06.090" endtime="20210219 16:33:06.106"></status>
+<status status="PASS" starttime="20210223 11:46:36.611" endtime="20210223 11:46:36.627"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into text field identified by ``locator``.</doc>
@@ -1307,10 +1307,10 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>${value}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:06.107" level="INFO">Typing text 'Kenvin' into text field '//input[@name='full_name']'.</msg>
-<status status="PASS" starttime="20210219 16:33:06.107" endtime="20210219 16:33:06.175"></status>
+<msg timestamp="20210223 11:46:36.627" level="INFO">Typing text 'Kenvin' into text field '//input[@name='full_name']'.</msg>
+<status status="PASS" starttime="20210223 11:46:36.627" endtime="20210223 11:46:36.724"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:33:06.090" endtime="20210219 16:33:06.175"></status>
+<status status="PASS" starttime="20210223 11:46:36.611" endtime="20210223 11:46:36.724"></status>
 </kw>
 <kw name="Sendkey To Element" library="Computation">
 <arguments>
@@ -1323,7 +1323,7 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:06.176" endtime="20210219 16:33:06.192"></status>
+<status status="PASS" starttime="20210223 11:46:36.725" endtime="20210223 11:46:36.741"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into text field identified by ``locator``.</doc>
@@ -1331,10 +1331,10 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>${value}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:06.193" level="INFO">Typing text '0972641413' into text field '//input[@name='phone']'.</msg>
-<status status="PASS" starttime="20210219 16:33:06.193" endtime="20210219 16:33:06.275"></status>
+<msg timestamp="20210223 11:46:36.742" level="INFO">Typing text '0972641413' into text field '//input[@name='phone']'.</msg>
+<status status="PASS" starttime="20210223 11:46:36.742" endtime="20210223 11:46:36.810"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:33:06.175" endtime="20210219 16:33:06.275"></status>
+<status status="PASS" starttime="20210223 11:46:36.724" endtime="20210223 11:46:36.810"></status>
 </kw>
 <kw name="Sendkey To Element" library="Computation">
 <arguments>
@@ -1347,7 +1347,7 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:06.276" endtime="20210219 16:33:06.292"></status>
+<status status="PASS" starttime="20210223 11:46:36.811" endtime="20210223 11:46:36.827"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into text field identified by ``locator``.</doc>
@@ -1355,10 +1355,10 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>${value}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:06.293" level="INFO">Typing text '1A yet kieu' into text field '//input[@name='address']'.</msg>
-<status status="PASS" starttime="20210219 16:33:06.292" endtime="20210219 16:33:06.361"></status>
+<msg timestamp="20210223 11:46:36.828" level="INFO">Typing text '1A yet kieu' into text field '//input[@name='address']'.</msg>
+<status status="PASS" starttime="20210223 11:46:36.828" endtime="20210223 11:46:36.896"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:33:06.275" endtime="20210219 16:33:06.361"></status>
+<status status="PASS" starttime="20210223 11:46:36.810" endtime="20210223 11:46:36.896"></status>
 </kw>
 <kw name="Select From List By Label" library="SeleniumLibrary">
 <doc>Selects options from selection list ``locator`` by ``labels``.</doc>
@@ -1366,16 +1366,16 @@ Without any arguments.</msg>
 <arg>${dd_thanhpho}</arg>
 <arg>An Giang - Huyện An Phú</arg>
 </arguments>
-<msg timestamp="20210219 16:33:06.361" level="INFO">Selecting options from selection list '//select[@name='location_id']' by label An Giang - Huyện An Phú.</msg>
-<status status="PASS" starttime="20210219 16:33:06.361" endtime="20210219 16:33:06.447"></status>
+<msg timestamp="20210223 11:46:36.896" level="INFO">Selecting options from selection list '//select[@name='location_id']' by label An Giang - Huyện An Phú.</msg>
+<status status="PASS" starttime="20210223 11:46:36.896" endtime="20210223 11:46:37.051"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>1s</arg>
 </arguments>
-<msg timestamp="20210219 16:33:07.449" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20210219 16:33:06.447" endtime="20210219 16:33:07.449"></status>
+<msg timestamp="20210223 11:46:38.054" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20210223 11:46:37.051" endtime="20210223 11:46:38.054"></status>
 </kw>
 <kw name="Select From List By Label" library="SeleniumLibrary">
 <doc>Selects options from selection list ``locator`` by ``labels``.</doc>
@@ -1383,8 +1383,8 @@ Without any arguments.</msg>
 <arg>${dd_phuongxa}</arg>
 <arg>Thị trấn An Phú</arg>
 </arguments>
-<msg timestamp="20210219 16:33:07.449" level="INFO">Selecting options from selection list '//select[@name='ward_id']' by label Thị trấn An Phú.</msg>
-<status status="PASS" starttime="20210219 16:33:07.449" endtime="20210219 16:33:07.502"></status>
+<msg timestamp="20210223 11:46:38.054" level="INFO">Selecting options from selection list '//select[@name='ward_id']' by label Thị trấn An Phú.</msg>
+<status status="PASS" starttime="20210223 11:46:38.054" endtime="20210223 11:46:38.109"></status>
 </kw>
 <kw name="Click Element JS" library="Javascript">
 <arguments>
@@ -1398,22 +1398,22 @@ Without any arguments.</msg>
 <assign>
 <var>${xpath}</var>
 </assign>
-<msg timestamp="20210219 16:33:07.502" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
-<msg timestamp="20210219 16:33:07.504" level="INFO">${xpath} = document.evaluate("//input[@id='customCheck']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()</msg>
-<status status="PASS" starttime="20210219 16:33:07.502" endtime="20210219 16:33:07.504"></status>
+<msg timestamp="20210223 11:46:38.110" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
+<msg timestamp="20210223 11:46:38.112" level="INFO">${xpath} = document.evaluate("//input[@id='customCheck']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()</msg>
+<status status="PASS" starttime="20210223 11:46:38.110" endtime="20210223 11:46:38.112"></status>
 </kw>
 <kw name="Execute Javascript" library="SeleniumLibrary">
 <doc>Executes the given JavaScript code with possible arguments.</doc>
 <arguments>
 <arg>${xpath}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:07.505" level="INFO">Executing JavaScript:
+<msg timestamp="20210223 11:46:38.113" level="INFO">Executing JavaScript:
 document.evaluate("//input[@id='customCheck']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()
 Without any arguments.</msg>
-<status status="PASS" starttime="20210219 16:33:07.504" endtime="20210219 16:33:07.512"></status>
+<status status="PASS" starttime="20210223 11:46:38.112" endtime="20210223 11:46:38.120"></status>
 </kw>
 <timeout value="15 seconds"></timeout>
-<status status="PASS" starttime="20210219 16:33:07.502" endtime="20210219 16:33:07.512"></status>
+<status status="PASS" starttime="20210223 11:46:38.109" endtime="20210223 11:46:38.120"></status>
 </kw>
 <kw name="Click To Element" library="Computation">
 <arguments>
@@ -1425,17 +1425,17 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:07.513" endtime="20210219 16:33:07.531"></status>
+<status status="PASS" starttime="20210223 11:46:38.120" endtime="20210223 11:46:38.140"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click element identified by ``locator``.</doc>
 <arguments>
 <arg>${locator}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:07.532" level="INFO">Clicking element '//button[contains(text(),'LƯU THÔNG TIN')]'.</msg>
-<status status="PASS" starttime="20210219 16:33:07.532" endtime="20210219 16:33:07.565"></status>
+<msg timestamp="20210223 11:46:38.141" level="INFO">Clicking element '//button[contains(text(),'LƯU THÔNG TIN')]'.</msg>
+<status status="PASS" starttime="20210223 11:46:38.141" endtime="20210223 11:46:38.174"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:33:07.513" endtime="20210219 16:33:07.565"></status>
+<status status="PASS" starttime="20210223 11:46:38.120" endtime="20210223 11:46:38.174"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until element ``locator`` is visible.</doc>
@@ -1443,46 +1443,46 @@ Without any arguments.</msg>
 <arg>${msg_success}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:07.565" endtime="20210219 16:33:07.790"></status>
+<status status="PASS" starttime="20210223 11:46:38.175" endtime="20210223 11:46:38.397"></status>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <doc>Verifies that current page contains ``text``.</doc>
 <arguments>
 <arg>${email}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:07.811" level="INFO">Current page contains text 'testautomaiton@gmail.com'.</msg>
-<status status="PASS" starttime="20210219 16:33:07.790" endtime="20210219 16:33:07.811"></status>
+<msg timestamp="20210223 11:46:38.421" level="INFO">Current page contains text 'testautomaiton@gmail.com'.</msg>
+<status status="PASS" starttime="20210223 11:46:38.397" endtime="20210223 11:46:38.422"></status>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <doc>Verifies that current page contains ``text``.</doc>
 <arguments>
 <arg>${ten}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:07.835" level="INFO">Current page contains text 'Kenvin'.</msg>
-<status status="PASS" starttime="20210219 16:33:07.812" endtime="20210219 16:33:07.835"></status>
+<msg timestamp="20210223 11:46:38.449" level="INFO">Current page contains text 'Kenvin'.</msg>
+<status status="PASS" starttime="20210223 11:46:38.422" endtime="20210223 11:46:38.449"></status>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <doc>Verifies that current page contains ``text``.</doc>
 <arguments>
 <arg>${sdt}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:07.858" level="INFO">Current page contains text '0972641413'.</msg>
-<status status="PASS" starttime="20210219 16:33:07.835" endtime="20210219 16:33:07.858"></status>
+<msg timestamp="20210223 11:46:38.474" level="INFO">Current page contains text '0972641413'.</msg>
+<status status="PASS" starttime="20210223 11:46:38.450" endtime="20210223 11:46:38.474"></status>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <doc>Verifies that current page contains ``text``.</doc>
 <arguments>
 <arg>${diachi}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:07.881" level="INFO">Current page contains text '1A yet kieu'.</msg>
-<status status="PASS" starttime="20210219 16:33:07.858" endtime="20210219 16:33:07.881"></status>
+<msg timestamp="20210223 11:46:38.498" level="INFO">Current page contains text '1A yet kieu'.</msg>
+<status status="PASS" starttime="20210223 11:46:38.475" endtime="20210223 11:46:38.499"></status>
 </kw>
 <kw name="Scroll Element Into View" library="SeleniumLibrary">
 <doc>Scrolls an element identified by ``locator`` into view.</doc>
 <arguments>
 <arg>${btn_thanhtoan}</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:07.881" endtime="20210219 16:33:08.149"></status>
+<status status="PASS" starttime="20210223 11:46:38.499" endtime="20210223 11:46:38.783"></status>
 </kw>
 <kw name="Convert price to number" library="Computation">
 <arguments>
@@ -1499,8 +1499,8 @@ Without any arguments.</msg>
 <assign>
 <var>${price_number}</var>
 </assign>
-<msg timestamp="20210219 16:33:08.177" level="INFO">${price_number} = 6,097,410 đ</msg>
-<status status="PASS" starttime="20210219 16:33:08.150" endtime="20210219 16:33:08.177"></status>
+<msg timestamp="20210223 11:46:38.798" level="INFO">${price_number} = 6,097,410 đ</msg>
+<status status="PASS" starttime="20210223 11:46:38.783" endtime="20210223 11:46:38.798"></status>
 </kw>
 <kw name="Remove String" library="String">
 <doc>Removes all ``removables`` from the given ``string``.</doc>
@@ -1513,8 +1513,8 @@ Without any arguments.</msg>
 <assign>
 <var>${mystring}</var>
 </assign>
-<msg timestamp="20210219 16:33:08.177" level="INFO">${mystring} = 6097410 </msg>
-<status status="PASS" starttime="20210219 16:33:08.177" endtime="20210219 16:33:08.177"></status>
+<msg timestamp="20210223 11:46:38.798" level="INFO">${mystring} = 6097410 </msg>
+<status status="PASS" starttime="20210223 11:46:38.798" endtime="20210223 11:46:38.798"></status>
 </kw>
 <kw name="Convert To Number" library="BuiltIn">
 <doc>Converts the given item to a floating point number.</doc>
@@ -1524,19 +1524,19 @@ Without any arguments.</msg>
 <assign>
 <var>${real_price}</var>
 </assign>
-<msg timestamp="20210219 16:33:08.178" level="INFO">${real_price} = 6097410.0</msg>
-<status status="PASS" starttime="20210219 16:33:08.178" endtime="20210219 16:33:08.178"></status>
+<msg timestamp="20210223 11:46:38.798" level="INFO">${real_price} = 6097410.0</msg>
+<status status="PASS" starttime="20210223 11:46:38.798" endtime="20210223 11:46:38.798"></status>
 </kw>
 <kw name="Return From Keyword" library="BuiltIn">
 <doc>Returns from the enclosing user keyword.</doc>
 <arguments>
 <arg>${real_price}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:08.178" level="INFO">Returning from the enclosing user keyword.</msg>
-<status status="PASS" starttime="20210219 16:33:08.178" endtime="20210219 16:33:08.178"></status>
+<msg timestamp="20210223 11:46:38.798" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20210223 11:46:38.798" endtime="20210223 11:46:38.798"></status>
 </kw>
-<msg timestamp="20210219 16:33:08.178" level="INFO">${tongtien} = 6097410.0</msg>
-<status status="PASS" starttime="20210219 16:33:08.149" endtime="20210219 16:33:08.179"></status>
+<msg timestamp="20210223 11:46:38.798" level="INFO">${tongtien} = 6097410.0</msg>
+<status status="PASS" starttime="20210223 11:46:38.783" endtime="20210223 11:46:38.798"></status>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <doc>Fails if the given objects are unequal.</doc>
@@ -1544,7 +1544,7 @@ Without any arguments.</msg>
 <arg>${tongtien}</arg>
 <arg>${thanhtien}</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:08.179" endtime="20210219 16:33:08.179"></status>
+<status status="PASS" starttime="20210223 11:46:38.798" endtime="20210223 11:46:38.798"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until element ``locator`` is visible.</doc>
@@ -1552,7 +1552,7 @@ Without any arguments.</msg>
 <arg>${btn_thanhtoan}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:08.179" endtime="20210219 16:33:08.193"></status>
+<status status="PASS" starttime="20210223 11:46:38.798" endtime="20210223 11:46:38.814"></status>
 </kw>
 <kw name="Click Element JS" library="Javascript">
 <arguments>
@@ -1566,30 +1566,53 @@ Without any arguments.</msg>
 <assign>
 <var>${xpath}</var>
 </assign>
-<msg timestamp="20210219 16:33:08.193" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
-<msg timestamp="20210219 16:33:08.195" level="INFO">${xpath} = document.evaluate("//button[@id='checkout-kvbtn']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()</msg>
-<status status="PASS" starttime="20210219 16:33:08.193" endtime="20210219 16:33:08.195"></status>
+<msg timestamp="20210223 11:46:38.814" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
+<msg timestamp="20210223 11:46:38.814" level="INFO">${xpath} = document.evaluate("//button[@id='checkout-kvbtn']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()</msg>
+<status status="PASS" starttime="20210223 11:46:38.814" endtime="20210223 11:46:38.814"></status>
 </kw>
 <kw name="Execute Javascript" library="SeleniumLibrary">
 <doc>Executes the given JavaScript code with possible arguments.</doc>
 <arguments>
 <arg>${xpath}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:08.196" level="INFO">Executing JavaScript:
+<msg timestamp="20210223 11:46:38.814" level="INFO">Executing JavaScript:
 document.evaluate("//button[@id='checkout-kvbtn']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()
 Without any arguments.</msg>
-<status status="PASS" starttime="20210219 16:33:08.195" endtime="20210219 16:33:08.204"></status>
+<status status="PASS" starttime="20210223 11:46:38.814" endtime="20210223 11:46:38.830"></status>
 </kw>
 <timeout value="15 seconds"></timeout>
-<status status="PASS" starttime="20210219 16:33:08.193" endtime="20210219 16:33:08.204"></status>
+<status status="PASS" starttime="20210223 11:46:38.814" endtime="20210223 11:46:38.830"></status>
+</kw>
+<status status="PASS" starttime="20210223 11:46:36.222" endtime="20210223 11:46:38.830"></status>
+</kw>
+<status status="PASS" starttime="20210223 11:46:36.221" endtime="20210223 11:46:38.830"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${order_code}</arg>
+<arg>5s</arg>
+</arguments>
+<status status="PASS" starttime="20210223 11:46:38.831" endtime="20210223 11:46:40.574"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${order_code}</arg>
+</arguments>
+<assign>
+<var>${ma_dh}</var>
+</assign>
+<msg timestamp="20210223 11:46:40.590" level="INFO">${ma_dh} = DHMK001425</msg>
+<status status="PASS" starttime="20210223 11:46:40.575" endtime="20210223 11:46:40.590"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until element ``locator`` is visible.</doc>
 <arguments>
 <arg>${btn_tieptucmuahang}</arg>
-<arg>5s</arg>
+<arg>10</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:08.204" endtime="20210219 16:33:10.354"></status>
+<status status="PASS" starttime="20210223 11:46:40.590" endtime="20210223 11:46:40.607"></status>
 </kw>
 <kw name="Get Text" library="SeleniumLibrary">
 <doc>Returns the text value of element identified by ``locator``.</doc>
@@ -1599,16 +1622,16 @@ Without any arguments.</msg>
 <assign>
 <var>${messege}</var>
 </assign>
-<msg timestamp="20210219 16:33:10.369" level="INFO">${messege} = TIẾP TỤC MUA HÀNG</msg>
-<status status="PASS" starttime="20210219 16:33:10.355" endtime="20210219 16:33:10.369"></status>
+<msg timestamp="20210223 11:46:40.623" level="INFO">${messege} = TIẾP TỤC MUA HÀNG</msg>
+<status status="PASS" starttime="20210223 11:46:40.607" endtime="20210223 11:46:40.623"></status>
 </kw>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${messege}</arg>
 <arg>TIẾP TỤC MUA HÀNG</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:10.370" endtime="20210219 16:33:10.370"></status>
+<status status="PASS" starttime="20210223 11:46:40.623" endtime="20210223 11:46:40.623"></status>
 </kw>
 <kw name="Click To Element" library="Computation">
 <arguments>
@@ -1620,33 +1643,37 @@ Without any arguments.</msg>
 <arg>${locator}</arg>
 <arg>5s</arg>
 </arguments>
-<status status="PASS" starttime="20210219 16:33:10.370" endtime="20210219 16:33:10.384"></status>
+<status status="PASS" starttime="20210223 11:46:40.624" endtime="20210223 11:46:40.638"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click element identified by ``locator``.</doc>
 <arguments>
 <arg>${locator}</arg>
 </arguments>
-<msg timestamp="20210219 16:33:10.384" level="INFO">Clicking element '//a[@class="btn btn-secondary"]'.</msg>
-<status status="PASS" starttime="20210219 16:33:10.384" endtime="20210219 16:33:10.931"></status>
+<msg timestamp="20210223 11:46:40.638" level="INFO">Clicking element '//a[@class="btn btn-secondary"]'.</msg>
+<status status="PASS" starttime="20210223 11:46:40.638" endtime="20210223 11:46:41.535"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:33:10.370" endtime="20210219 16:33:10.931"></status>
+<status status="PASS" starttime="20210223 11:46:40.624" endtime="20210223 11:46:41.535"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:33:05.714" endtime="20210219 16:33:10.931"></status>
+<kw name="Return From Keyword" library="BuiltIn">
+<doc>Returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${ma_dh}</arg>
+</arguments>
+<msg timestamp="20210223 11:46:41.537" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20210223 11:46:41.535" endtime="20210223 11:46:41.537"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:33:05.714" endtime="20210219 16:33:10.931"></status>
+<status status="PASS" starttime="20210223 11:46:35.357" endtime="20210223 11:46:41.537"></status>
 </kw>
-<status status="PASS" starttime="20210219 16:33:04.955" endtime="20210219 16:33:10.931"></status>
-</kw>
-<status status="PASS" starttime="20210219 16:32:54.016" endtime="20210219 16:33:10.931"></status>
+<status status="PASS" starttime="20210223 11:46:20.381" endtime="20210223 11:46:41.537"></status>
 </kw>
 <tags>
 <tag>All</tag>
 <tag>Order</tag>
 </tags>
-<status status="PASS" starttime="20210219 16:32:35.056" endtime="20210219 16:33:10.932" critical="yes"></status>
+<status status="PASS" starttime="20210223 11:46:13.659" endtime="20210223 11:46:41.538" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20210219 16:32:34.575" endtime="20210219 16:33:10.934"></status>
+<status status="PASS" starttime="20210223 11:46:10.516" endtime="20210223 11:46:41.538"></status>
 </suite>
 <statistics>
 <total>
@@ -1662,10 +1689,10 @@ Without any arguments.</msg>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20210219 16:32:55.872" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
-<msg timestamp="20210219 16:32:57.262" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
-<msg timestamp="20210219 16:33:05.013" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
-<msg timestamp="20210219 16:33:07.502" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
-<msg timestamp="20210219 16:33:08.193" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
+<msg timestamp="20210223 11:46:25.347" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
+<msg timestamp="20210223 11:46:26.752" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
+<msg timestamp="20210223 11:46:35.415" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
+<msg timestamp="20210223 11:46:38.110" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
+<msg timestamp="20210223 11:46:38.814" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
 </errors>
 </robot>

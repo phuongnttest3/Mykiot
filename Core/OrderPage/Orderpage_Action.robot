@@ -29,7 +29,7 @@ Thanh toan nhan hang tai chi nhanh
 
 Thanh toan nhan hang tai chi nhanh khi dang nhap account
     [Arguments]    ${email}    ${phone}    ${thanhtien}    ${gia}
-    wait until element is visible    ${title_orderpage}
+    wait until element is visible    ${title_orderpage}   5s
     ${giasp}    convert price to number    ${lbl_giasp_order}
     should be equal    ${giasp}    ${gia}
     ${tongtien}    convert price to number    ${lbl_tongtienhang}
@@ -37,6 +37,13 @@ Thanh toan nhan hang tai chi nhanh khi dang nhap account
     ${Status}=    Run Keyword And Return Status    Element Should Be Visible    ${link_updatephone}
     Run Keyword If    '${Status}'=='True'      Update phone number   ${email}    ${phone}
      ...    ELSE    Tiep tuc dat hang    ${email}    ${phone}
+    wait until element is visible   ${order_code}   5s
+    ${ma_dh}  get text     ${order_code}
+    wait until element is visible    ${btn_tieptucmuahang}    10
+    ${messege}    get text    ${btn_tieptucmuahang}
+    Should be equal as strings    ${messege}    TIẾP TỤC MUA HÀNG
+    click element    ${btn_tieptucmuahang}
+    return from keyword    ${ma_dh}
 
 Tiep tuc dat hang
     [Arguments]    ${email}    ${phone}
@@ -44,10 +51,7 @@ Tiep tuc dat hang
     #page should contain    ${mobilephone}
     scroll element into view    ${lbl_footer}
     click to element    ${btn_thanhtoan}
-    wait until element is visible    ${btn_tieptucmuahang}    10
-    ${messege}    get text    ${btn_tieptucmuahang}
-    Should be equal as strings    ${messege}    TIẾP TỤC MUA HÀNG
-    click element    ${btn_tieptucmuahang}
+
 
 Update phone number
     [Arguments]    ${email}   ${phone}
@@ -62,10 +66,6 @@ Update phone number
     page should contain    ${phone}
     scroll element into view    ${lbl_footer}
     click to element    ${btn_thanhtoan}
-    wait until element is visible    ${btn_tieptucmuahang}    10
-    ${messege}    get text    ${btn_tieptucmuahang}
-    Should be equal as strings    ${messege}    TIẾP TỤC MUA HÀNG
-    click element    ${btn_tieptucmuahang}
 
 
 Thanh toan nhan hang tai dia chi nguoi nhan
@@ -115,6 +115,14 @@ Thanh toan nhan hang tai dia chi nguoi nhan khi dang nhap account
     ${Status}=    Run Keyword And Return Status    Element Should Be Visible    ${btn_taodiachi}
     Run Keyword If    '${Status}'=='True'      Tao dia chi nhan va dat hang   ${ten}    ${sdt}    ${diachi}      ${ghichu}   ${thanhtien}  ${email}
      ...    ELSE    Them dia chi nhan va dat hang   ${ten}    ${sdt}    ${diachi}    ${ghichu}   ${thanhtien}   ${email}
+    wait until element is visible   ${order_code}   5s
+    ${ma_dh}  get text     ${order_code}
+    wait until element is visible    ${btn_tieptucmuahang}    10
+    ${messege}    get text    ${btn_tieptucmuahang}
+    Should be equal as strings    ${messege}    TIẾP TỤC MUA HÀNG
+    click to element    ${btn_tieptucmuahang}
+    return from keyword    ${ma_dh}
+
 Tao dia chi nhan va dat hang
     [Arguments]     ${ten}    ${sdt}    ${diachi}  ${ghichu}    ${thanhtien}  ${email}
     click to element   ${btn_taodiachi}
@@ -138,10 +146,6 @@ Tao dia chi nhan va dat hang
     Should be equal    ${tongtien}    ${thanhtien}
     wait until element is visible    ${btn_thanhtoan}    5s
     click element js    ${btn_thanhtoan}
-    wait until element is visible    ${btn_tieptucmuahang}    5s
-    ${messege}    get text    ${btn_tieptucmuahang}
-    Should contain    ${messege}    TIẾP TỤC MUA HÀNG
-    click to element    ${btn_tieptucmuahang}
 
 Them dia chi nhan va dat hang
     [Arguments]     ${ten}    ${sdt}    ${diachi}   ${ghichu}   ${thanhtien}   ${email}
@@ -166,10 +170,6 @@ Them dia chi nhan va dat hang
     Should be equal    ${tongtien}    ${thanhtien}
     wait until element is visible    ${btn_thanhtoan}    5s
     click element js    ${btn_thanhtoan}
-    wait until element is visible    ${btn_tieptucmuahang}    5s
-    ${messege}    get text    ${btn_tieptucmuahang}
-    Should contain    ${messege}    TIẾP TỤC MUA HÀNG
-    click to element    ${btn_tieptucmuahang}
 
 Cap nhat gio hang va thanh toan nhan hang tai chi nhanh
     [Arguments]    ${username}    ${mobilephone}    ${thanhtien}    ${gia}    ${sl_update}
