@@ -27,6 +27,9 @@ fill env
     ${dic_branchid}    Create Dictionary    live=9113    stagingnew=20363    prelivenew=20363
     ${dic_zone}    Create Dictionary    live=26    stagingnew=1    prelivenew=1
     ${dic_salekvapi}    Create Dictionary    live=https://sale.kiotapi.com/api    stagingnew=https://kvpos.com:59309/api    prelivenew=https://kvpos.com:59309/api
+    ${dic_google_account}    Create Dictionary    live=testautomation113@gmail.com    stagingnew=testautomation113@gmail.com    prelivenew=testautomation113@gmail.com
+    ${dic_google_pass}    Create Dictionary    live=test@123456    stagingnew=test@123456    prelivenew=test@123456
+    ${dic_customer_code_google_account}    Create Dictionary    live=KH2B36D
     ${api_url}    Get From Dictionary    ${dic_api_url}    ${env}
     ${url}    Get From Dictionary    ${dic_url}    ${env}
     ${client_id}    Get From Dictionary    ${dic_clientid}    ${env}
@@ -42,6 +45,9 @@ fill env
     ${branch_id}    Get From Dictionary    ${dic_branchid}    ${env}
     ${zone}    Get From Dictionary    ${dic_zone}    ${env}
     ${salekvapi}    Get From Dictionary    ${dic_salekvapi}    ${env}
+    ${google_account}    Get From Dictionary    ${dic_google_account}    ${env}
+    ${google_pass}    Get From Dictionary    ${dic_google_pass}    ${env}
+    ${customer_code_google_account}    Get From Dictionary    ${dic_customer_code_google_account}    ${env}
     Set Global Variable    \${api_url}    ${api_url}
     Set Global Variable    \${url}    ${url}
     Set Global Variable    \${client_id}    ${client_id}
@@ -57,6 +63,9 @@ fill env
     Set Global Variable    \${branch_id}    ${branch_id}
     Set Global Variable    \${zone}    ${zone}
     Set Global Variable    \${salekvapi}    ${salekvapi}
+    Set Global Variable    \${google_account}    ${google_account}
+    Set Global Variable    \${google_pass}    ${google_pass}
+    Set Global Variable    \${customer_code_google_account}    ${customer_code_google_account}
 
 init test env
     [Arguments]    ${env}

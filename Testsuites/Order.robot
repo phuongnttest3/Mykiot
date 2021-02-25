@@ -1,7 +1,7 @@
 *** Settings ***
+Suite Setup       init test env sync    live
 Test Setup        before test    live
-#Test Teardown     after test
-Library           SeleniumLibrary
+Library           SeleniumLibrary    #Test Teardown    after test
 Library           RequestsLibrary
 Library           Collections
 Library           JSONLibrary
@@ -21,6 +21,8 @@ Resource          ../Core/Share/Javascript.robot
 Resource          ../Core/OrderPage/Orderpage_Locator.robot
 Resource          ../Core/Share/Computation.robot
 Resource          ../Core/ProductCategoryList_Page/ProductCategoryList_action.robot
+Resource          ../Core/API-KV/api_hoadon.robot
+Resource          ../Core/API-KV/api_order_kv.robot
 
 *** Variables ***
 &{order_1}        SP000006=3    SP000007=4    SP000009=3
@@ -111,15 +113,24 @@ TC017
     [Tags]    All    Order
     [Template]    Bam yeu thich va cho vao gio hang
     phuong    0974544304    phuongtran27111994@gmail.com    1B    giao ban ngày    4
+
 TC045
     [Tags]    All    Order
-    [Template]  Them san pham noi bat vao cart thanh toan va nhan hang tai chi nhanh khi dang nhap account
-    testautomation113@gmail.com   test@123456   0972641413     3
+    [Template]    Them san pham noi bat vao cart thanh toan va nhan hang tai chi nhanh khi dang nhap account
+    SP000049    0972641413    3    1
+
 TC046
     [Tags]    All    Order
-    [Template]  Them san pham noi bat vao cart thanh toan va nhan hang tai dia chi nguoi nhan khi dang nhap account
-    testautomaiton@gmail.com   test@123456   Kenvin  0972641413   1A yet kieu   As soon as possible   3
+    [Template]    Them san pham noi bat vao cart thanh toan va nhan hang tai dia chi nguoi nhan khi dang nhap account
+    testautomaiton@gmail.com    test@123456    Kenvin    0972641413    1A yet kieu    As soon as possible    3
 
+TC047
+    [Template]    Them san pham noi bat vao cart thanh toan va nhan hang tai chi nhanh khi dang nhap account
+    SP000049    0972641413    3    3
+
+TC048
+    [Template]    Tao don hang ben mykiot va huy don hang ben kv
+    SP000049    3    0972641413
 
 test
     init test env    live
@@ -158,19 +169,24 @@ Them san pham noi bat vao cart va thanh toan
     Thanh toan nhan hang tai chi nhanh    ${username}    ${mobilephone}    ${thanhtien}    ${gia}
 
 Them san pham noi bat vao cart thanh toan va nhan hang tai chi nhanh khi dang nhap account
-    [Arguments]    ${email}    ${pass}    ${phone}    ${sl}
-    Dang nhap account    ${email}     ${pass}
-    ${thanhtien}    ${gia}    Them san pham noi bat vao cart    ${sl}
+    [Arguments]    ${product_code}    ${phone}    ${sl}    ${sl_lay}
+    Dang nhap account    ${google_account}    ${google_pass}
+    Tim kiem san pham    ${product_code}
+    ${thanhtien}    ${gia}    Them san pham tim kiem vao cart    ${product_code}    ${sl}
     sleep    3
-    Thanh toan nhan hang tai chi nhanh khi dang nhap account    ${email}    ${phone}    ${thanhtien}    ${gia}
+    ${order_code}    Thanh toan nhan hang tai chi nhanh khi dang nhap account    ${google_account}    ${phone}    ${thanhtien}    ${gia}
+    ${order_id}    Get orderid    ${order_code}
+    Create invoice of order incl one product frm api    ${product_code}    ${sl_lay}    ${customer_code_google_account}    10000    ${order_id}
 
 Them san pham noi bat vao cart thanh toan va nhan hang tai dia chi nguoi nhan khi dang nhap account
-    [Arguments]     ${email}   ${pass}   ${ten}   ${sdt}    ${diachi}    ${ghichu}    ${sl}
-    Dang nhap account    ${email}     ${pass}
+    [Arguments]    ${email}    ${pass}    ${ten}    ${sdt}    ${diachi}    ${ghichu}
+    ...    ${sl}
+    Dang nhap account    ${email}    ${pass}
     ${thanhtien}    ${gia}    Them san pham noi bat vao cart    ${sl}
     sleep    3
-    Thanh toan nhan hang tai dia chi nguoi nhan khi dang nhap account   ${ten}   ${email}    ${sdt}    ${diachi}     ${ghichu}    ${thanhtien}
+    Thanh toan nhan hang tai dia chi nguoi nhan khi dang nhap account    ${ten}    ${email}    ${sdt}    ${diachi}    ${ghichu}    ${thanhtien}
     ...    ${gia}
+
 Them san pham noi bat vao cart thanh toan tai dia chi nguoi nhan
     [Arguments]    ${ten}    ${sdt}    ${email}    ${diachi}    ${ghichu}    ${sl}
     ${thanhtien}    ${gia}    Them san pham noi bat vao cart    ${sl}
@@ -281,3 +297,12 @@ Bam da xem va cho vao gio
     sleep    3
     Thanh toan nhan hang tai dia chi nguoi nhan    ${ten}    ${sdt}    ${diachi}    ${email}    ${ghichu}    ${thanhtien}
     ...    ${gia}
+
+Tao don hang ben mykiot va huy don hang ben kv
+    [Arguments]    ${product_code}    ${sl}    ${phone}
+    Dang nhap account    ${google_account}    ${google_pass}
+    Tim kiem san pham    ${product_code}
+    ${thanhtien}    ${gia}    Them san pham tim kiem vao cart    ${product_code}    ${sl}
+    sleep    3
+    ${order_code}    Thanh toan nhan hang tai chi nhanh khi dang nhap account    ${google_account}    ${phone}    ${thanhtien}    ${gia}
+    Delete order by order code    ${order_code}
