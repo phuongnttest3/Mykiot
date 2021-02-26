@@ -47,7 +47,7 @@ STC004
 test
     ${invoice_code}    create invoice incl one product frm API    SP000015    2    KH000001    100000
     ${stock}    ${baseprice}    Get onhand and baseprice frm KV api    SP000015
-    Delete invoice by invoice code    ${invoice_code}
+    #Delete invoice by invoice code    ${invoice_code}
 
 test thu ti
     open excel document    testthuti.xlsx    test1
@@ -156,7 +156,7 @@ Check sync update name, baseprice, stock
     #${ten_sp}    get text    ${productname_locator}
     ${ten_sp}    get element attribute    ${productname_locator}    data-original-title
     ${ton_sp}    get text    ${productstock_locator}
-    ${ton_sp}    remove string      ${ton_sp}  ,    ${EMPTY}
+    ${ton_sp}    remove string    ${ton_sp}    ,    ${EMPTY}
     ${baseprice_sp}    convert price to number    ${productbaseprice_locator}
     Should be equal as strings    ${product_code}    ${ma_sp}
     Should be equal as strings    ${name_update}    ${ten_sp}
@@ -228,7 +228,7 @@ Check sync prod and measure time
     [Arguments]    ${product_name}    ${category_name}    ${base_price}    ${cost}    ${stock}
     ${product_code}    Generate code automatically    MYK
     Add kv product thr api    ${product_code}    ${product_name}    ${category_name}    ${base_price}    ${cost}    ${stock}
-    Create Session     lolo    http://webhook.mykiot.vn
+    Create Session    lolo    http://webhook.mykiot.vn
     ${resp1}=    RequestsLibrary.Get Request    lolo    /job/current_job
     Should Be Equal As Strings    ${resp1.status_code}    200
     Log    ${resp1.json()}

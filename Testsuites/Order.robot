@@ -1,7 +1,8 @@
 *** Settings ***
-Suite Setup       init test env sync    live
-Test Setup        before test    live
-Library           SeleniumLibrary    #Test Teardown    after test
+Suite Setup       init test env sync    stagingnew
+Test Setup        before test    stagingnew
+Test Teardown     after test
+Library           SeleniumLibrary
 Library           RequestsLibrary
 Library           Collections
 Library           JSONLibrary
@@ -23,6 +24,8 @@ Resource          ../Core/Share/Computation.robot
 Resource          ../Core/ProductCategoryList_Page/ProductCategoryList_action.robot
 Resource          ../Core/API-KV/api_hoadon.robot
 Resource          ../Core/API-KV/api_order_kv.robot
+Resource          ../Core/Customer/Orderhistory_action.robot
+
 
 *** Variables ***
 &{order_1}        SP000006=3    SP000007=4    SP000009=3
@@ -116,21 +119,21 @@ TC017
 
 TC045
     [Tags]    All    Order
-    [Template]    Them san pham noi bat vao cart thanh toan va nhan hang tai chi nhanh khi dang nhap account
-    SP000049    0972641413    3    1
+    [Template]    Tim kiem san pham thanh toan va nhan hang tai chi nhanh khi dang nhap account
+    SP000049    0972641413    3    1    Đang xử lý
 
 TC046
     [Tags]    All    Order
     [Template]    Them san pham noi bat vao cart thanh toan va nhan hang tai dia chi nguoi nhan khi dang nhap account
-    testautomaiton@gmail.com    test@123456    Kenvin    0972641413    1A yet kieu    As soon as possible    3
+    testautomation113@gmail.com    test@123456    Kenvin    0972641413    1A yet kieu    As soon as possible    3
 
 TC047
-    [Template]    Them san pham noi bat vao cart thanh toan va nhan hang tai chi nhanh khi dang nhap account
-    SP000049    0972641413    3    3
+    [Template]    Tim kiem san pham thanh toan va nhan hang tai chi nhanh khi dang nhap account
+    SP000049    0972641413    3    3   Hoàn thành
 
 TC048
     [Template]    Tao don hang ben mykiot va huy don hang ben kv
-    SP000049    3    0972641413
+    SP000049    3    0972641413   Đã hủy
 
 test
     init test env    live
@@ -168,22 +171,25 @@ Them san pham noi bat vao cart va thanh toan
     sleep    3
     Thanh toan nhan hang tai chi nhanh    ${username}    ${mobilephone}    ${thanhtien}    ${gia}
 
-Them san pham noi bat vao cart thanh toan va nhan hang tai chi nhanh khi dang nhap account
-    [Arguments]    ${product_code}    ${phone}    ${sl}    ${sl_lay}
+Tim kiem san pham thanh toan va nhan hang tai chi nhanh khi dang nhap account
+    [Arguments]    ${product_code}    ${phone}    ${sl}    ${sl_lay}    ${status_order}
     Dang nhap account    ${google_account}    ${google_pass}
+    kiem tra gio hang
     Tim kiem san pham    ${product_code}
     ${thanhtien}    ${gia}    Them san pham tim kiem vao cart    ${product_code}    ${sl}
-    sleep    3
+    sleep    2s
     ${order_code}    Thanh toan nhan hang tai chi nhanh khi dang nhap account    ${google_account}    ${phone}    ${thanhtien}    ${gia}
     ${order_id}    Get orderid    ${order_code}
     Create invoice of order incl one product frm api    ${product_code}    ${sl_lay}    ${customer_code_google_account}    10000    ${order_id}
+    Validate status orders in order history  ${order_code}   ${thanhtien}   ${status_order}
 
 Them san pham noi bat vao cart thanh toan va nhan hang tai dia chi nguoi nhan khi dang nhap account
     [Arguments]    ${email}    ${pass}    ${ten}    ${sdt}    ${diachi}    ${ghichu}
     ...    ${sl}
     Dang nhap account    ${email}    ${pass}
+    kiem tra gio hang
     ${thanhtien}    ${gia}    Them san pham noi bat vao cart    ${sl}
-    sleep    3
+    sleep    2s
     Thanh toan nhan hang tai dia chi nguoi nhan khi dang nhap account    ${ten}    ${email}    ${sdt}    ${diachi}    ${ghichu}    ${thanhtien}
     ...    ${gia}
 
@@ -299,10 +305,11 @@ Bam da xem va cho vao gio
     ...    ${gia}
 
 Tao don hang ben mykiot va huy don hang ben kv
-    [Arguments]    ${product_code}    ${sl}    ${phone}
+    [Arguments]    ${product_code}    ${sl}    ${phone}    ${status_order}
     Dang nhap account    ${google_account}    ${google_pass}
     Tim kiem san pham    ${product_code}
     ${thanhtien}    ${gia}    Them san pham tim kiem vao cart    ${product_code}    ${sl}
     sleep    3
     ${order_code}    Thanh toan nhan hang tai chi nhanh khi dang nhap account    ${google_account}    ${phone}    ${thanhtien}    ${gia}
     Delete order by order code    ${order_code}
+    Validate status orders in order history  ${order_code}   ${thanhtien}   ${status_order}

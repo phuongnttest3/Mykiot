@@ -26,3 +26,8 @@ ${link_dangnhap}   //div[@class='acc-infor']//a[contains(string(),'Đăng nhập
 ${txt_mailaccount}   //input[@type="email"]
 ${btn_next}        //button[@type='button']//span[contains(text(),'Tiếp theo')]
 ${txt_passaccount}    //input[@type='password']
+${acc_infor}    //div[@id='acc-infor']//img
+${ordershistory_link}  //div[@class='acc-infor__menu']//a[contains(@href,'customer/order.html')]
+${slhh_incart}   //div[@id='icon-cart']//span[text()='0']
+${cart_button}   //div[@id='icon-cart']//button[@class='btn-circle']
+${btn_xoacart}   //div[@class='kv-product-list-item product-item'][1]//div[@class='shopping-cart-remove-item']

@@ -19,7 +19,6 @@ Dang nhap account
     sendkey to element  ${txt_passaccount}    ${pass}
     click element js     ${btn_next}
 
-
 Them san pham noi bat vao cart
     [Arguments]    ${sl}
     click to element    ${btn_addtocart_spyeuthich}
@@ -211,3 +210,11 @@ Cho sp vao gio hang
     should be equal    ${total}    ${tongtien}
     click to element    ${btn_orderincart}
     Return from keyword    ${total}    ${price}
+
+kiem tra gio hang
+     ${Status}=    Run Keyword And Return Status    wait until element is visible    ${slhh_incart}   10s
+     Run Keyword If    '${Status}'=='False'      Xoa gio hang
+
+Xoa gio hang
+     click to element   ${cart_button}
+     click to element   ${btn_xoacart}

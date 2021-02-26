@@ -29,7 +29,7 @@ fill env
     ${dic_salekvapi}    Create Dictionary    live=https://sale.kiotapi.com/api    stagingnew=https://kvpos.com:59309/api    prelivenew=https://kvpos.com:59309/api
     ${dic_google_account}    Create Dictionary    live=testautomation113@gmail.com    stagingnew=testautomation113@gmail.com    prelivenew=testautomation113@gmail.com
     ${dic_google_pass}    Create Dictionary    live=test@123456    stagingnew=test@123456    prelivenew=test@123456
-    ${dic_customer_code_google_account}    Create Dictionary    live=KH2B36D
+    ${dic_customer_code_google_account}    Create Dictionary    live=KH2B36D      stagingnew=KH368B823D1
     ${api_url}    Get From Dictionary    ${dic_api_url}    ${env}
     ${url}    Get From Dictionary    ${dic_url}    ${env}
     ${client_id}    Get From Dictionary    ${dic_clientid}    ${env}
@@ -74,7 +74,7 @@ init test env
     Set global variable    \${bearer_token_mykiot}    ${token_value}
     Append To Environment Variable    PATH    ${EXECDIR}${/}Drivers
     Set Screenshot Directory    ${EXECDIR}${/}Out${/}Failures
-    Set Selenium Speed    0.6s
+    #Set Selenium Speed    0.6s
 
 init test env sync
     [Arguments]    ${env}
@@ -84,4 +84,4 @@ init test env sync
     Set global variable    \${resp.cookies}    ${resp.cookies}
     Append To Environment Variable    PATH    ${EXECDIR}${/}Drivers
     Set Screenshot Directory    ${EXECDIR}${/}Out${/}Failures
-    Set Selenium Speed    0.6s
+    #Set Selenium Speed    0.6s
