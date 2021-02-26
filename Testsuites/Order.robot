@@ -3,6 +3,7 @@ Suite Setup       init test env sync    stagingnew
 Test Setup        before test    stagingnew
 Test Teardown     after test
 Library           SeleniumLibrary
+Library           SeleniumLibrary    #Test Teardown    after test
 Library           RequestsLibrary
 Library           Collections
 Library           JSONLibrary
