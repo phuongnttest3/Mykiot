@@ -1,6 +1,6 @@
 *** Settings ***
-Suite Setup       init test env sync    live
-Test Setup        before test    live
+Suite Setup       init test env sync    stagingnew
+Test Setup        before test    stagingnew
 Library           SeleniumLibrary    #Test Teardown    after test
 Library           RequestsLibrary
 Library           Collections
