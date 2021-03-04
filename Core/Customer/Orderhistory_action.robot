@@ -1,7 +1,7 @@
 *** Settings ***
 Library           SeleniumLibrary
-Resource          /Homepage/Homepage_locator.robot
-Resource          /Homepage/Quickcart_locator.robot
+Resource          ../Homepage/Homepage_locator.robot
+Resource          ../Homepage/Quickcart_locator.robot
 Resource          ../Share/Computation.robot
 Resource          ../Share/Javascript.robot
 Resource          Orderhistory_locator.robot

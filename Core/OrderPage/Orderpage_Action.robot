@@ -81,7 +81,7 @@ Thanh toan nhan hang tai dia chi nguoi nhan
     scroll element into view    ${txt_ten}
     sendkey to element    ${txt_ten}    ${ten}
     sendkey to element    ${txt_sdt}    ${sdt}
-    sendkey to element    ${txt_email}    ${email}
+    #sendkey to element    ${txt_email}    ${email}
     sendkey to element    ${txt_diachi}    ${diachi}
     click to element    ${cbb_thanhpho}
     ${thanhpho}    Format string    ${obj_thanhpho}    An Giang - Huyện An Phú
