@@ -26,7 +26,6 @@ Resource          ../Core/API-KV/api_hoadon.robot
 Resource          ../Core/API-KV/api_order_kv.robot
 Resource          ../Core/Customer/Orderhistory_action.robot
 
-
 *** Variables ***
 &{order_1}        SP000006=3    SP000007=4    SP000009=3
 
@@ -118,22 +117,24 @@ TC017
     phuong    0974544304    phuongtran27111994@gmail.com    1B    giao ban ngày    4
 
 TC045
-    [Tags]    All    Order
+    [Tags]    All    Order    Account
     [Template]    Tim kiem san pham thanh toan va nhan hang tai chi nhanh khi dang nhap account
     SP000049    0972641413    3    1    Đang xử lý
 
 TC046
-    [Tags]    All    Order
+    [Tags]    All    Order    Account
     [Template]    Them san pham noi bat vao cart thanh toan va nhan hang tai dia chi nguoi nhan khi dang nhap account
     testautomation113@gmail.com    test@123456    Kenvin    0972641413    1A yet kieu    As soon as possible    3
 
 TC047
+    [Tags]    All    Order    Account
     [Template]    Tim kiem san pham thanh toan va nhan hang tai chi nhanh khi dang nhap account
-    SP000049    0972641413    3    3   Hoàn thành
+    SP000049    0972641413    3    3    Hoàn thành
 
 TC048
+    [Tags]    All    Order    Account
     [Template]    Tao don hang ben mykiot va huy don hang ben kv
-    SP000049    3    0972641413   Đã hủy
+    SP000049    3    0972641413    Đã hủy
 
 test
     init test env    live
@@ -181,7 +182,7 @@ Tim kiem san pham thanh toan va nhan hang tai chi nhanh khi dang nhap account
     ${order_code}    Thanh toan nhan hang tai chi nhanh khi dang nhap account    ${google_account}    ${phone}    ${thanhtien}    ${gia}
     ${order_id}    Get orderid    ${order_code}
     Create invoice of order incl one product frm api    ${product_code}    ${sl_lay}    ${customer_code_google_account}    10000    ${order_id}
-    Validate status orders in order history  ${order_code}   ${thanhtien}   ${status_order}
+    Validate status orders in order history    ${order_code}    ${thanhtien}    ${status_order}
 
 Them san pham noi bat vao cart thanh toan va nhan hang tai dia chi nguoi nhan khi dang nhap account
     [Arguments]    ${email}    ${pass}    ${ten}    ${sdt}    ${diachi}    ${ghichu}
@@ -312,4 +313,4 @@ Tao don hang ben mykiot va huy don hang ben kv
     sleep    3
     ${order_code}    Thanh toan nhan hang tai chi nhanh khi dang nhap account    ${google_account}    ${phone}    ${thanhtien}    ${gia}
     Delete order by order code    ${order_code}
-    Validate status orders in order history  ${order_code}   ${thanhtien}   ${status_order}
+    Validate status orders in order history    ${order_code}    ${thanhtien}    ${status_order}

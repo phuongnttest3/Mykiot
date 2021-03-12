@@ -21,7 +21,8 @@ after test
 
 after test page builder
     #post request and validate request success    /config/save    ${data_reset}
-    post request and validate request success    /config/save    ${data_start}
+    ${datanew}    Format string    ${data_reset}    ${retailer_id}
+    post request and validate request success    /config/save    ${datanew}
 
 before test pagebuilder
     [Arguments]    ${env}

@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       init test env sync    live
+Suite Setup       init test env sync    prelivenew
 Library           JSONLibrary
 Library           RequestsLibrary
 Library           String
@@ -44,47 +44,6 @@ STC004
     test bảng giá    SP001448
     [Teardown]    after test
 
-test
-    ${invoice_code}    create invoice incl one product frm API    SP000015    2    KH000001    100000
-    ${stock}    ${baseprice}    Get onhand and baseprice frm KV api    SP000015
-    #Delete invoice by invoice code    ${invoice_code}
-
-test thu ti
-    open excel document    testthuti.xlsx    test1
-    Create Session    lolo    https://queue-staging.citigo.dev:40001
-    ${resp1}=    RequestsLibrary.Get Request    lolo    /job/current_job
-    Should Be Equal As Strings    ${resp1.status_code}    200
-    Log    ${resp1.json()}
-    ${get_raw_data}    Get Value From Json    ${resp1.json()}    $..data.webhook_queue
-    ${result} =    Evaluate    ${get_raw_data}[0] if ${get_raw_data} else 0
-    ${result} =    Evaluate    $result or 0
-    log    ${result}
-    Create Session    lolo    https://queue-staging.citigo.dev:40001
-    ${resp1}=    RequestsLibrary.Get Request    lolo    /product/get-time-sync/2440156/259596
-    Should Be Equal As Strings    ${resp1.status_code}    200
-    Log    ${resp1.json()}
-    ${get_update_at_kv}    Get Value From Json    ${resp1.json()}    $..data.updated_at_kv
-    ${time_update_at_kv} =    Evaluate    ${get_update_at_kv}[0] if ${get_update_at_kv} else 0
-    ${time_update_at_kv} =    Evaluate    $time_update_at_kv or 0
-    ${get_receive}    Get Value From Json    ${resp1.json()}    $..data.receive
-    ${time_recieve} =    Evaluate    ${get_receive}[0] if ${get_receive} else 0
-    ${time_recieve} =    Evaluate    $time_recieve or 0
-    ${get_updated_at}    Get Value From Json    ${resp1.json()}    $..data.updated_at
-    ${time_get_update_at} =    Evaluate    ${get_updated_at}[0] if ${get_updated_at} else 0
-    ${time_get_update_at} =    Evaluate    $time_get_update_at or 0
-    log    ${time_update_at_kv}
-    log    ${time_recieve}
-    log    ${time_get_update_at}
-    ${item_cell}    set variable    0
-    : FOR    ${index}    IN RANGE    100
-    \    ${item_cell}    Sum    ${item_cell}    1
-    \    ${get_data_col}    Read excel cell    ${item_cell}    1
-    \    ${data_col}    convert to string    ${get_data_col}
-    \    log    ${data_col}
-    \    Run keyword if    '${data_col}'=='${None}'    write excel    ${item_cell}    ${result}    ${time_update_at_kv}
-    \    ...    ${time_recieve}    ${time_get_update_at}
-    save excel document    testthuti.xlsx
-
 MTC-001
     [Template]    Check sync prod and measure time
     Test đo time    Hàng Anh    135000    62000    17
@@ -97,7 +56,8 @@ Check sync name, baseprice, stock of new product
     Add kv product thr api    ${product_code}    ${product_name}    ${category_name}    ${base_price}    ${cost}    ${stock}
     open browser    ${access_url}    gc
     Maximize browser window
-    go to    https://admin.mykiot.vn/product
+    ${url_productlist}    Format string    {0}/product    ${url}
+    go to    ${url_productlist}
     wait until element is visible    ${txt_mahanghoa}
     set selenium speed    1s
     ${productcode_locator}    Format string    ${firstproduct_code}    ${product_code}
@@ -139,7 +99,8 @@ Check sync update name, baseprice, stock
     ...    ${stock_update}    ${name_update}
     open browser    ${access_url}    gc
     Maximize browser window
-    go to    https://admin.mykiot.vn/product
+    ${url_productlist}    Format string    {0}/product    ${url}
+    go to    ${url_productlist}
     wait until element is visible    ${txt_mahanghoa}
     set selenium speed    1s
     ${productcode_locator}    Format string    ${firstproduct_code}    ${product_code}
@@ -148,7 +109,7 @@ Check sync update name, baseprice, stock
     ${productbaseprice_locator}    Format string    ${firstproduct_baseprice}    ${product_code}
     : FOR    ${time}    IN RANGE    10
     \    sleep    20s
-    \    input text    ${txt_mahanghoa}    ${name_update}
+    \    input text    ${txt_mahanghoa}    ${product_code}
     \    click element    ${btn_loctimkiem}
     \    ${present}=    Run keyword and return status    wait until element is visible    ${productcode_locator}
     \    Exit for loop if    '${present}'=='True'
@@ -171,7 +132,8 @@ Check sync update pricebook detail
     Changing price in price book thr API    ${pricebook_name}    ${product_code}    ${saleprice_update}
     open browser    ${access_url}    gc
     Maximize browser window
-    go to    https://admin.mykiot.vn/product
+    ${url_productlist}    Format string    {0}/product    ${url}
+    go to    ${url_productlist}
     wait until element is visible    ${txt_mahanghoa}
     set selenium speed    1s
     ${locator_saleprice}    Format String    ${firstproduct_saleprice}    ${product_code}
@@ -196,7 +158,8 @@ Check sync remove and add product in pricebook
     delete product of price book thr api    ${pricebook_name}    ${product_code}
     open browser    ${access_url}    gc
     Maximize browser window
-    go to    https://admin.mykiot.vn/product
+    ${url_productlist}    Format string    {0}/product    ${url}
+    go to    ${url_productlist}
     wait until element is visible    ${txt_mahanghoa}
     set selenium speed    1s
     ${locator_saleprice}    Format String    ${firstproduct_saleprice}    ${product_code}
@@ -228,7 +191,7 @@ Check sync prod and measure time
     [Arguments]    ${product_name}    ${category_name}    ${base_price}    ${cost}    ${stock}
     ${product_code}    Generate code automatically    MYK
     Add kv product thr api    ${product_code}    ${product_name}    ${category_name}    ${base_price}    ${cost}    ${stock}
-    Create Session    lolo    http://webhook.mykiot.vn
+    Create Session    lolo    ${webhook_url}
     ${resp1}=    RequestsLibrary.Get Request    lolo    /job/current_job
     Should Be Equal As Strings    ${resp1.status_code}    200
     Log    ${resp1.json()}
@@ -239,7 +202,8 @@ Check sync prod and measure time
     ${product_id}    Get product id    ${product_code}
     open browser    ${access_url}    gc
     Maximize browser window
-    go to    https://admin.mykiot.vn/product
+    ${url_productlist}    Format string    {0}/product    ${url}
+    go to    ${url_productlist}
     wait until element is visible    ${txt_mahanghoa}
     set selenium speed    1s
     ${productcode_locator}    Format string    ${firstproduct_code}    ${product_code}
@@ -264,7 +228,7 @@ Check sync prod and measure time
     Should be equal as strings    ${base_price_cv}    ${baseprice_sp}
     open excel document    testthuti.xlsx    test1
     ${uri}    Format string    /product/get-time-sync/{0}/{1}    ${product_id}    ${retailer_id}
-    Create Session    lolo    http://webhook.mykiot.vn
+    Create Session    lolo    ${webhook_url}
     ${resp1}=    RequestsLibrary.Get Request    lolo    ${uri}
     Should Be Equal As Strings    ${resp1.status_code}    200
     Log    ${resp1.json()}

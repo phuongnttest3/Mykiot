@@ -1,6 +1,6 @@
 *** Settings ***
-Suite Setup       init test env    live
-Suite Teardown    after test pagebuilder
+Suite Setup       init test env    prelivenew
+Suite Teardown
 Test Teardown     after test
 Library           SeleniumLibrary
 Library           Collections
@@ -121,7 +121,7 @@ Update banner display to slider
     post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
     click to element    ${menu_thietlaptrangchu}
-    click to element   ${btn_bannerads}
+    click to element    ${btn_bannerads}
     select frame    ${ifr_pagebuilder}
     page should contain element    ${img_banner_slider}    #dang truot
     go to    ${storefront_url}
@@ -134,7 +134,7 @@ Update banner display to grid
     post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
     click to element    ${menu_thietlaptrangchu}
-    click to element   ${btn_bannerads}
+    click to element    ${btn_bannerads}
     select frame    ${ifr_pagebuilder}
     page should contain element    ${img_banner_grid}    #dang luoi
     go to    ${storefront_url}
@@ -378,7 +378,7 @@ Update product detail to display related product
     post request and validate request success    /config/save    ${datanew}
     go to pagebuilder
     click to element    ${menu_thietlapchitietsp}
-    sleep   2s
+    sleep    2s
     select frame    ${ifr_pagebuilder}
     page should contain element    ${lbl_hanghoacungloai}
     go to    ${storefront_url}
