@@ -77,7 +77,7 @@ init test env
     Set global variable    \${bearer_token_mykiot}    ${token_value}
     Append To Environment Variable    PATH    ${EXECDIR}${/}Drivers
     Set Screenshot Directory    ${EXECDIR}${/}Out${/}Failures
-    #Set Selenium Speed    0.6s
+    Set Selenium Speed    0.1s
 
 init test env sync
     [Arguments]    ${env}
@@ -87,4 +87,4 @@ init test env sync
     Set global variable    \${resp.cookies}    ${resp.cookies}
     Append To Environment Variable    PATH    ${EXECDIR}${/}Drivers
     Set Screenshot Directory    ${EXECDIR}${/}Out${/}Failures
-    #Set Selenium Speed    0.6s
+    Set Selenium Speed    0.1s

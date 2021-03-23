@@ -177,6 +177,7 @@ Cap nhat gio hang va thanh toan nhan hang tai chi nhanh
     ${giasp}    convert price to number    ${lbl_giasp_order}
     should be equal    ${giasp}    ${gia}
     sendkey to element    ${txt_sl}    ${sl_update}
+    press keys    ${txt_sl}   ENTER
     ${thanhtien1}    Multiplication    ${giasp}    ${sl_update}
     scroll element into view    ${txt_name}
     ${tongtien}    convert price to number    ${lbl_tongtienhang}

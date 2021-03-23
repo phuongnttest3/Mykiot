@@ -14,6 +14,7 @@ Click To Element
 Sendkey To Element
     [Arguments]  ${locator}   ${value}
     wait until element is visible  ${locator}   5s
+    press keys  ${locator}   CTRL+a+BACKSPACE
     input text  ${locator}  ${value}
 Multiplication
     [Arguments]    ${num1}    ${num2}
