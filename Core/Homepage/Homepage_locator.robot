@@ -31,3 +31,4 @@ ${ordershistory_link}  //div[@class='acc-infor__menu']//a[contains(@href,'custom
 ${slhh_incart}   //div[@id='icon-cart']//span[text()='0']
 ${cart_button}   //div[@id='icon-cart']//button[@class='btn-circle']
 ${btn_xoacart}   //div[@class='kv-product-list-item product-item'][1]//div[@class='shopping-cart-remove-item']
+${link_profile}  //div[@class='acc-infor__menu']//a[contains(@href,'customer/profile.html')]

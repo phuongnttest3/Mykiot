@@ -20,7 +20,7 @@ ${title_orderpage}    //h6[contains(text(),'Giỏ hàng')]
 ${popup_msg}      //div[@class='modal-body']
 ${lbl_tongtienhang}    //div[contains(@class,'e-sub-total')]//div[@class='totals-content']
 ${lbl_footer}     //p[@class='text-right']
-${txt_sl}         //input[@data-type = 'currency']
+${txt_sl}         //input[@class='form-control form-control-sm quantity-value']
 ${lbl_giasp_order}    //*[@class= 'cart-content-item'][1]//div[contains(@class,'e-cart-price text')]//h6
 ${lbl_texttongtienhang}    //*[contains(text(),'Tổng tiền hàng')]
 ${cb_chinhanh}    //label[@class='custom-control-label branch-name']

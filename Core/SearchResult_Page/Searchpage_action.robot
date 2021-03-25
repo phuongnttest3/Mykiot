@@ -37,7 +37,7 @@ Tim kiem va add nhieu san pham vao cart
     \    Should contain any    ${mes}    ${item_product}
     \    Click Element JS    ${btn_addtocart_kqtk}
     \    wait until element is visible    ${btn_addtocart}
-    \    input text    ${txt_soluong}    ${item_num}
+    \    sendkey to element    ${txt_soluong}    ${item_num}
     \    ${price}    convert price to number    ${lbl_giasp}
     \    ${total}    Multiplication    ${price}    ${item_num}
     \    append to list    ${list_thanhtien}    ${total}
@@ -61,7 +61,7 @@ Chon san pham thuoc tinh vao cart
     sleep    3
     click element    ${thuoctinh2}
     sleep    3
-    input text    ${txt_soluong}    ${sl}
+    sendkey to element    ${txt_soluong}    ${sl}
     ${price}    convert price to number    ${lbl_giasp}
     ${total}    Multiplication    ${price}    ${sl}
     Click element    ${btn_addtocart}
