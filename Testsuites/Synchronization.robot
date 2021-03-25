@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       init test env sync    prelivenew
+Suite Setup       init test env sync    live
 Library           JSONLibrary
 Library           RequestsLibrary
 Library           String
@@ -245,7 +245,7 @@ Check sync prod and measure time
     log    ${time_recieve}
     log    ${time_get_update_at}
     ${item_cell}    set variable    0
-    : FOR    ${index}    IN RANGE    100
+    : FOR    ${index}    IN RANGE    1000
     \    ${item_cell}    Sum    ${item_cell}    1
     \    ${get_data_col}    Read excel cell    ${item_cell}    1
     \    ${data_col}    convert to string    ${get_data_col}
