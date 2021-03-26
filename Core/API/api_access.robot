@@ -84,3 +84,6 @@ post request and validate request success
     log    ${resp1.json()}
     log    ${resp1.status_code}
     Should be equal as strings    ${resp1.status_code}    200
+
+
+*** Test Cases ***
