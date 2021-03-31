@@ -7,6 +7,7 @@ Library           OperatingSystem
 Library           pabot.PabotLib
 Library           ArchiveLibrary
 Resource          ../../Core/API-KV/api_access_kv.robot
+Resource          ../../Core/API/api_core_customer.robot
 
 *** Keywords ***
 fill env
@@ -85,6 +86,14 @@ init test env sync
     ${token_value}    ${resp.cookies}    Get BearerToken from api
     Set global variable    \${bearertoken}    ${token_value}
     Set global variable    \${resp.cookies}    ${resp.cookies}
+    Append To Environment Variable    PATH    ${EXECDIR}${/}Drivers
+    Set Screenshot Directory    ${EXECDIR}${/}Out${/}Failures
+    Set Selenium Speed    0.1s
+
+init test core api
+    #fill env    ${env}
+    ${token_value}    Login customer get token from api    259596
+    Set global variable    \${bearer_token}    ${token_value}
     Append To Environment Variable    PATH    ${EXECDIR}${/}Drivers
     Set Screenshot Directory    ${EXECDIR}${/}Out${/}Failures
     Set Selenium Speed    0.1s

@@ -42,4 +42,8 @@ Update profile customer thr api
     create session    lolo    https://api-staging.citigo.dev:40001/api
     ${resp1}=    post request    lolo    /v1/customers/profile    headers=${heades1}    data=${data}
     log    ${resp1.json()}
+    #${token}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $..data
+    #${token}=    evaluate    $token[0]
+    #log    ${token}
     Should be equal as strings    ${resp1.status_code}    200
+    #return from keyword    ${token}

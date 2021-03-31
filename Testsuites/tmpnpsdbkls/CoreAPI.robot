@@ -7,7 +7,6 @@ Resource          ../Core/API/api_core_menu.robot
 Resource          ../Core/API/api_core_customer.robot
 Resource          ../Core/API/api_core_page.robot
 Resource          ../Core/API/api_core_category.robot
-Resource          ../Config/Env/envi.robot
 
 *** Test Cases ***
 TCA001
