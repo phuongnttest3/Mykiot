@@ -33,37 +33,37 @@ TCA005
 
 TCA006
     [Template]    Login customer get token from api
-    785673
+    259596
 
 TCA007
     [Template]    Get profile customer from api
-    785673
+    259596
 
 TCA008
     [Template]    Get data page from api
-    785673
+    259596
 
 TCA009
     [Template]    Get data category from api
-    785673
+    259596
 
 TCA010
      [Template]   Get customer cart from api
-     785673
+     259596
 TCA011
      [Template]   update customer cart from api
-     785673
+     259596
 TCA012
+     [Template]   detele customer cart from api
+     259596
+TCA013
     [Template]    Update profile customer thr api
     phuongphuong
-TCA013
-     [Template]   detele customer cart from api
-     785673
 TCA014
      [Template]   get Customer favorite products from api
-     785673
+     259596
 TCA015
      [Template]   Get customer address from api
-     785673
+     259596
 
 
