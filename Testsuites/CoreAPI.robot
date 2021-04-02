@@ -47,6 +47,23 @@ TCA009
     [Template]    Get data category from api
     785673
 
+TCA010
+     [Template]   Get customer cart from api
+     785673
+TCA011
+     [Template]   update customer cart from api
+     785673
 TCA012
     [Template]    Update profile customer thr api
     phuongphuong
+TCA013
+     [Template]   detele customer cart from api
+     785673
+TCA014
+     [Template]   get Customer favorite products from api
+     785673
+TCA015
+     [Template]   Get customer address from api
+     785673
+
+
