@@ -60,10 +60,15 @@ TCA013
     [Template]    Update profile customer thr api
     phuongphuong
 TCA014
-     [Template]   get Customer favorite products from api
+     [Template]   Get customer favorite products from api
      259596
 TCA015
      [Template]   Get customer address from api
      259596
+
+TCA016
+     [Template]   Get customer products viewed from api
+     259596
+
 
 
