@@ -11,7 +11,7 @@ Library           RequestsLibrary
 Login customer get token from api
     [Arguments]    ${store-id}
     ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded
-    ${data}=    create dictionary    id=100593806776420832037    provider=google    name=Test Automaiton    email=testautomaiton@gmail.com
+    ${data}=    create dictionary    id=107151798064347196088    provider=google    name=Automation Test    email=testautomation113@gmail.com
     create session    lolo    https://api-staging.citigo.dev:40001/api
     ${resp1}=    post request    lolo    v1/customers    headers=${heades1}    data=${data}
     log    ${resp1.json()}
@@ -44,49 +44,71 @@ Update profile customer thr api
     Should be equal as strings    ${resp1.status_code}    200
 
 Get customer address from api
-    [Arguments]   ${store-id}
-    ${heades1}=  create dictionary      store-id=${store-id}  Content-Type=application/x-www-form-urlencoded   Authorization=${bearer_token}
-    create session   lolo   https://api-staging.citigo.dev:40001/api
-    ${resp1}=  get request   lolo   v1/customers/address   headers=${heades1}
-    log  ${resp1.json()}
+    [Arguments]    ${store-id}
+    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    create session    lolo    https://api-staging.citigo.dev:40001/api
+    ${resp1}=    get request    lolo    v1/customers/address    headers=${heades1}
+    log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
 
 Get customer cart from api
-    [Arguments]   ${store-id}
-    ${heades1}=  create dictionary      store-id=${store-id}  Content-Type=application/x-www-form-urlencoded   Authorization=${bearer_token}
-    create session   lolo   https://api-staging.citigo.dev:40001/api
-    ${resp1}=  get request   lolo   v1/customers/carts   headers=${heades1}
-    log  ${resp1.json()}
+    [Arguments]    ${store-id}
+    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    create session    lolo    https://api-staging.citigo.dev:40001/api
+    ${resp1}=    get request    lolo    v1/customers/carts    headers=${heades1}
+    log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
-    ${product_id}=    JSONLibrary.Get Value From Json   ${resp1.json()}    $..data.data[0].product_id
+    ${product_id}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $..data.data[0].product_id
     ${product_id}=    evaluate    $product_id[0] if $product_id else 0    modules=random, sys
-    log  ${product_id}
-    return from keyword   ${product_id}
+    log    ${product_id}
+    return from keyword    ${product_id}
 
 update customer cart from api
-    [Arguments]   ${store-id}
-    ${product_id}      Get customer cart from api    ${store-id}
-    ${data}=  create dictionary   product_id=${product_id}      quantity=150
-    ${heades1}=  create dictionary      store-id=${store-id}  Content-Type=application/x-www-form-urlencoded   Authorization=${bearer_token}
-    create session   lolo   https://api-staging.citigo.dev:40001/api   headers=${heades1}
-    ${resp1}=  post request   lolo   v1/customers/carts  headers=${heades1}   data=${data}
-    log  ${resp1.json()}
+    [Arguments]    ${store-id}
+    ${product_id}    Get customer cart from api    ${store-id}
+    ${data}=    create dictionary    product_id=${product_id}    quantity=150
+    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    create session    lolo    https://api-staging.citigo.dev:40001/api    headers=${heades1}
+    ${resp1}=    post request    lolo    v1/customers/carts    headers=${heades1}    data=${data}
+    log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
 
 detele customer cart from api
-    [Arguments]   ${store-id}
-    ${product_id}      Get customer cart from api    ${store-id}
-    ${data}=  create dictionary   product_id=${product_id}
-    ${heades1}=  create dictionary      store-id=${store-id}  Content-Type=application/x-www-form-urlencoded   Authorization=${bearer_token}
-    create session   lolo   https://api-staging.citigo.dev:40001/api   headers=${heades1}
-    ${resp1}=  delete request   lolo   v1/customers/carts  headers=${heades1}   data=${data}
-    log  ${resp1.json()}
+    [Arguments]    ${store-id}
+    ${product_id}    Get customer cart from api    ${store-id}
+    ${data}=    create dictionary    product_id=${product_id}
+    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    create session    lolo    https://api-staging.citigo.dev:40001/api    headers=${heades1}
+    ${resp1}=    delete request    lolo    v1/customers/carts    headers=${heades1}    data=${data}
+    log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
 
 get Customer favorite products from api
-    [Arguments]   ${store-id}
-    ${heades1}=  create dictionary      store-id=${store-id}  Content-Type=application/x-www-form-urlencoded   Authorization=${bearer_token}
-    create session   lolo   https://api-staging.citigo.dev:40001/api
-    ${resp1}=  get request   lolo   v1/customers/favorites  headers=${heades1}
-    log  ${resp1.json()}
+    [Arguments]    ${store-id}
+    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    create session    lolo    https://api-staging.citigo.dev:40001/api
+    ${resp1}=    get request    lolo    v1/customers/favorites    headers=${heades1}
+    log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
+
+Update favourite product thr api
+    [Arguments]    ${product_id}
+    ${heades1}=    create dictionary    store-id=259596    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${data}=    create dictionary    product_id=${product_id}
+    create session    lolo    https://api-staging.citigo.dev:40001/api
+    ${resp1}=    post request    lolo    /v1/customers/favorites    headers=${heades1}    data=${data}
+    log    ${resp1.json()}
+    Should be equal as strings    ${resp1.status_code}    200
+
+Get customer order list
+    [Arguments]    ${order_code}
+    ${heades1}=    create dictionary    store-id=259596    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${endpoint}=    Format string    /v1/customers/orders?keyword={0}    ${order_code}
+    create session    lolo    https://api-staging.citigo.dev:40001/api
+    ${resp1}=    get request    lolo    ${endpoint}    headers=${heades1}
+    log    ${resp1.json()}
+    Should be equal as strings    ${resp1.status_code}    200
+    ${get_raw_data}    Get Value From Json    ${resp1.json()}    $..data.total_orders
+    ${result} =    Evaluate    ${get_raw_data}[0] if ${get_raw_data} else 0
+    ${result} =    Evaluate    $result or 0
+    Return From Keyword    ${result}

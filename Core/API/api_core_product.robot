@@ -32,3 +32,12 @@ Get Product Detail
     ${resp}=    Get Request    ali    ${uri}    headers=${headers1}
     Should Be Equal As Strings    ${resp.status_code}    200
     Log    ${resp.json()}
+
+Search product through api
+    [Arguments]    ${key}
+    ${params}=    Create Dictionary    key=${key}
+    ${headers1}=    Create Dictionary    store-id=259596
+    Create Session    ali    https://api-staging.citigo.dev:40001/api/v1    verify=True
+    ${resp}=    Get Request    ali    /products/search    headers=${headers1}    params=${params}
+    Should Be Equal As Strings    ${resp.status_code}    200
+    Log    ${resp.json()}
