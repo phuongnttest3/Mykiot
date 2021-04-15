@@ -192,7 +192,7 @@ Chon sp mua ngay
     ${price}    convert price to number    ${lbl_giasp}
     ${total}    Multiplication    ${price}    ${sl}
     click to element    ${quick_order}
-    click to element    ${btn_close}
+    #click to element    ${btn_close}
     Return from keyword    ${total}    ${price}
 
 Cho sp vao gio hang

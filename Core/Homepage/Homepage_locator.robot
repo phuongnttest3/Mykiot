@@ -32,3 +32,7 @@ ${slhh_incart}   //div[@id='icon-cart']//span[text()='0']
 ${cart_button}   //div[@id='icon-cart']//button[@class='btn-circle']
 ${btn_xoacart}   //div[@class='kv-product-list-item product-item'][1]//div[@class='shopping-cart-remove-item']
 ${link_profile}  //div[@class='acc-infor__menu']//a[contains(@href,'customer/profile.html')]
+${btn_iconlove}   //div[@class='wrap-loop-category-home '][1]//div[contains(@class,'col-item col-item')][{0}]//div[@class='kv-product-list-item--content']//div[@class='kv-product-action']//div[contains(@class,'kv-product-favourite')]//i
+${txt_tensplove}  //div[@class='wrap-loop-category-home '][1]//div[contains(@class,'col-item col-item')][{0}]//div[@class='kv-product-list-item--content']//div[@class='product-wrap']//h6
+${btn_activeiconlove}   //div[@class='wrap-loop-category-home '][1]//div[contains(@class,'col-item col-item')][1]//div[@class='kv-product-list-item--content']//div[@class='kv-product-action']//div[contains(@class,'kv-product-favourite active')]//i
+

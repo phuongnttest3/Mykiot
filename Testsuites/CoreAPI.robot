@@ -7,6 +7,7 @@ Resource          ../Core/API/api_core_menu.robot
 Resource          ../Core/API/api_core_customer.robot
 Resource          ../Core/API/api_core_page.robot
 Resource          ../Core/API/api_core_category.robot
+Resource          ../Core/API/api_core_order.robot
 Resource          ../Config/Env/envi.robot
 Resource          ../Core/API/api_core_comment.robot
 
@@ -95,3 +96,16 @@ TCA020
 TCA021
     [Template]    Create comment through api
     340371066    Bình luận sản phẩm
+TCA022
+        [Template]    Update Comment Through API
+        340371066    617
+
+TCA023
+        [Template]    Delete comment
+        340371066    Thêm mới bình \ luận
+
+*** Keywords ***
+Delete comment
+        [Arguments]    ${product_id}    ${content}
+        ${comment_id}    Create comment through api    ${product_id}    ${content}
+        Delete comment through api    ${product_id}    ${comment_id}
