@@ -96,6 +96,8 @@ TCA020
 TCA021
     [Template]    Create comment through api
     340371066    Bình luận sản phẩm
+
+
 TCA022
         [Template]    Update Comment Through API
         340371066    617
@@ -103,6 +105,14 @@ TCA022
 TCA023
         [Template]    Delete comment
         340371066    Thêm mới bình \ luận
+
+TCA024
+     [Template]   Get customer products viewed from api
+     259596
+
+TCA025
+      [Template]    Create Order no account from API
+      SP12000155
 
 *** Keywords ***
 Delete comment
