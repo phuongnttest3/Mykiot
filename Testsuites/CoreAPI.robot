@@ -7,6 +7,7 @@ Resource          ../Core/API/api_core_menu.robot
 Resource          ../Core/API/api_core_customer.robot
 Resource          ../Core/API/api_core_page.robot
 Resource          ../Core/API/api_core_category.robot
+Resource          ../Core/API/api_core_order.robot
 Resource          ../Config/Env/envi.robot
 
 *** Test Cases ***
@@ -69,6 +70,10 @@ TCA015
 TCA016
      [Template]   Get customer products viewed from api
      259596
+
+TC0123
+    [Template]  Create Order no account from API
+    SP12000155
 
 
 
