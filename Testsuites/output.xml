@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.7.6 on win32)" generated="20210414 15:03:46.728" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.7.6 on win32)" generated="20210416 15:43:15.177" rpa="false">
 <suite id="s1" name="CoreAPI" source="C:\Users\quannt\Documents\GitHub\Mykiot\Testsuites\CoreAPI.robot">
 <kw name="init test core api" library="envi" type="setup">
 <kw name="Login customer get token from api" library="api_core_customer">
@@ -18,8 +18,8 @@
 <assign>
 <var>${heades1}</var>
 </assign>
-<msg timestamp="20210414 15:03:47.198" level="INFO">${heades1} = {'store-id': '259596', 'Content-Type': 'application/x-www-form-urlencoded'}</msg>
-<status status="PASS" starttime="20210414 15:03:47.197" endtime="20210414 15:03:47.198"></status>
+<msg timestamp="20210416 15:43:15.720" level="INFO">${heades1} = {'store-id': '259596', 'Content-Type': 'application/x-www-form-urlencoded'}</msg>
+<status status="PASS" starttime="20210416 15:43:15.720" endtime="20210416 15:43:15.720"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -32,8 +32,8 @@
 <assign>
 <var>${data}</var>
 </assign>
-<msg timestamp="20210414 15:03:47.198" level="INFO">${data} = {'id': '107151798064347196088', 'provider': 'google', 'name': 'Automation Test', 'email': 'testautomation113@gmail.com'}</msg>
-<status status="PASS" starttime="20210414 15:03:47.198" endtime="20210414 15:03:47.198"></status>
+<msg timestamp="20210416 15:43:15.721" level="INFO">${data} = {'id': '107151798064347196088', 'provider': 'google', 'name': 'Automation Test', 'email': 'testautomation113@gmail.com'}</msg>
+<status status="PASS" starttime="20210416 15:43:15.721" endtime="20210416 15:43:15.721"></status>
 </kw>
 <kw name="Create Session" library="RequestsLibrary">
 <doc>Create Session: create a HTTP session to a server</doc>
@@ -41,8 +41,8 @@
 <arg>lolo</arg>
 <arg>https://api-staging.citigo.dev:40001/api</arg>
 </arguments>
-<msg timestamp="20210414 15:03:47.198" level="INFO">Creating Session using : alias=lolo, url=https://api-staging.citigo.dev:40001/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20210414 15:03:47.198" endtime="20210414 15:03:47.199"></status>
+<msg timestamp="20210416 15:43:15.721" level="INFO">Creating Session using : alias=lolo, url=https://api-staging.citigo.dev:40001/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210416 15:43:15.721" endtime="20210416 15:43:15.721"></status>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
 <doc>Send a POST request on the session object found using the
@@ -56,27 +56,27 @@ given `alias`</doc>
 <assign>
 <var>${resp1}</var>
 </assign>
-<msg timestamp="20210414 15:03:47.296" level="INFO">POST Request : url=https://api-staging.citigo.dev:40001/api/v1/customers 
+<msg timestamp="20210416 15:43:15.807" level="INFO">POST Request : url=https://api-staging.citigo.dev:40001/api/v1/customers 
  path_url=/api/v1/customers 
  headers={'User-Agent': 'python-requests/2.20.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'store-id': '259596', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '97'} 
  body=id=107151798064347196088&amp;provider=google&amp;name=Automation+Test&amp;email=testautomation113%40gmail.com 
  </msg>
-<msg timestamp="20210414 15:03:47.296" level="INFO">POST Response : url=https://api-staging.citigo.dev:40001/api/v1/customers 
+<msg timestamp="20210416 15:43:15.808" level="INFO">POST Response : url=https://api-staging.citigo.dev:40001/api/v1/customers 
  status=200, reason=OK 
- body={"code":1,"status":"success","message":"Success","data":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODM4NzQyNywiZXhwIjoxNjE4NDczODI3LCJuYmYiOjE2MTgzODc0MjcsImp0aSI6Ikt0Y3Z2TnhXOEJvcGtpa2MiLCJzdWIiOjI2MSwicHJ2IjoiMWQwYTAyMGFjZjVjNGI2YzQ5Nzk4OWRmMWFiZjBmYmQ0ZThjOGQ2MyJ9.aWnuV94UYW8zwi5vIvUwUFFglQ-PMsOrCO0Bfjet7xA"} 
+ body={"code":1,"status":"success","message":"Success","data":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODU2MjU5NSwiZXhwIjoxNjE4NjQ4OTk1LCJuYmYiOjE2MTg1NjI1OTUsImp0aSI6ImFvQVRqVktGNjRwdnlvS04iLCJzdWIiOjI2MSwicHJ2IjoiMWQwYTAyMGFjZjVjNGI2YzQ5Nzk4OWRmMWFiZjBmYmQ0ZThjOGQ2MyJ9.kna4yQMsiPp2IxD0RWmggj6lUUJq7Rk87N27cT8p4X0"} 
  </msg>
-<msg timestamp="20210414 15:03:47.296" level="INFO">c:\users\quannt\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py:852: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg timestamp="20210416 15:43:15.808" level="INFO">c:\users\quannt\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py:852: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   InsecureRequestWarning)</msg>
-<msg timestamp="20210414 15:03:47.297" level="INFO">${resp1} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20210414 15:03:47.199" endtime="20210414 15:03:47.297"></status>
+<msg timestamp="20210416 15:43:15.808" level="INFO">${resp1} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210416 15:43:15.722" endtime="20210416 15:43:15.808"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${resp1.json()}</arg>
 </arguments>
-<msg timestamp="20210414 15:03:47.297" level="INFO">{'code': 1, 'status': 'success', 'message': 'Success', 'data': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODM4NzQyNywiZXhwIjoxNjE4NDczODI3LCJuYmYiOjE2MTgzODc0MjcsImp0aSI6Ikt0Y3Z2TnhXOEJvcGtpa2MiLCJzdWIiOjI2MSwicHJ2IjoiMWQwYTAyMGFjZjVjNGI2YzQ5Nzk4OWRmMWFiZjBmYmQ0ZThjOGQ2MyJ9.aWnuV94UYW8zwi5vIvUwUFFglQ-PMsOrCO0Bfjet7xA'}</msg>
-<status status="PASS" starttime="20210414 15:03:47.297" endtime="20210414 15:03:47.297"></status>
+<msg timestamp="20210416 15:43:15.809" level="INFO">{'code': 1, 'status': 'success', 'message': 'Success', 'data': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODU2MjU5NSwiZXhwIjoxNjE4NjQ4OTk1LCJuYmYiOjE2MTg1NjI1OTUsImp0aSI6ImFvQVRqVktGNjRwdnlvS04iLCJzdWIiOjI2MSwicHJ2IjoiMWQwYTAyMGFjZjVjNGI2YzQ5Nzk4OWRmMWFiZjBmYmQ0ZThjOGQ2MyJ9.kna4yQMsiPp2IxD0RWmggj6lUUJq7Rk87N27cT8p4X0'}</msg>
+<status status="PASS" starttime="20210416 15:43:15.808" endtime="20210416 15:43:15.809"></status>
 </kw>
 <kw name="Get Value From Json" library="JSONLibrary">
 <doc>Get Value From JSON using JSONPath</doc>
@@ -87,8 +87,8 @@ given `alias`</doc>
 <assign>
 <var>${token}</var>
 </assign>
-<msg timestamp="20210414 15:03:47.320" level="INFO">${token} = ['eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODM4NzQyNywiZXhwIjoxNjE4NDczODI3LCJuYmYiOjE2MTgzODc0MjcsImp0aSI6I...</msg>
-<status status="PASS" starttime="20210414 15:03:47.298" endtime="20210414 15:03:47.320"></status>
+<msg timestamp="20210416 15:43:15.830" level="INFO">${token} = ['eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODU2MjU5NSwiZXhwIjoxNjE4NjQ4OTk1LCJuYmYiOjE2MTg1NjI1OTUsImp0aSI6I...</msg>
+<status status="PASS" starttime="20210416 15:43:15.809" endtime="20210416 15:43:15.830"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <doc>Evaluates the given expression in Python and returns the result.</doc>
@@ -99,8 +99,8 @@ given `alias`</doc>
 <assign>
 <var>${token}</var>
 </assign>
-<msg timestamp="20210414 15:03:47.323" level="INFO">${token} = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODM4NzQyNywiZXhwIjoxNjE4NDczODI3LCJuYmYiOjE2MTgzODc0MjcsImp0aSI6Ikt...</msg>
-<status status="PASS" starttime="20210414 15:03:47.320" endtime="20210414 15:03:47.323"></status>
+<msg timestamp="20210416 15:43:15.833" level="INFO">${token} = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODU2MjU5NSwiZXhwIjoxNjE4NjQ4OTk1LCJuYmYiOjE2MTg1NjI1OTUsImp0aSI6ImF...</msg>
+<status status="PASS" starttime="20210416 15:43:15.830" endtime="20210416 15:43:15.833"></status>
 </kw>
 <kw name="Catenate" library="BuiltIn">
 <doc>Catenates the given items together and returns the resulted string.</doc>
@@ -111,16 +111,16 @@ given `alias`</doc>
 <assign>
 <var>${token}</var>
 </assign>
-<msg timestamp="20210414 15:03:47.323" level="INFO">${token} = Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODM4NzQyNywiZXhwIjoxNjE4NDczODI3LCJuYmYiOjE2MTgzODc0MjcsImp0...</msg>
-<status status="PASS" starttime="20210414 15:03:47.323" endtime="20210414 15:03:47.323"></status>
+<msg timestamp="20210416 15:43:15.833" level="INFO">${token} = Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODU2MjU5NSwiZXhwIjoxNjE4NjQ4OTk1LCJuYmYiOjE2MTg1NjI1OTUsImp0...</msg>
+<status status="PASS" starttime="20210416 15:43:15.833" endtime="20210416 15:43:15.833"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${token}</arg>
 </arguments>
-<msg timestamp="20210414 15:03:47.324" level="INFO">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODM4NzQyNywiZXhwIjoxNjE4NDczODI3LCJuYmYiOjE2MTgzODc0MjcsImp0aSI6Ikt0Y3Z2TnhXOEJvcGtpa2MiLCJzdWIiOjI2MSwicHJ2IjoiMWQwYTAyMGFjZjVjNGI2YzQ5Nzk4OWRmMWFiZjBmYmQ0ZThjOGQ2MyJ9.aWnuV94UYW8zwi5vIvUwUFFglQ-PMsOrCO0Bfjet7xA</msg>
-<status status="PASS" starttime="20210414 15:03:47.323" endtime="20210414 15:03:47.324"></status>
+<msg timestamp="20210416 15:43:15.834" level="INFO">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODU2MjU5NSwiZXhwIjoxNjE4NjQ4OTk1LCJuYmYiOjE2MTg1NjI1OTUsImp0aSI6ImFvQVRqVktGNjRwdnlvS04iLCJzdWIiOjI2MSwicHJ2IjoiMWQwYTAyMGFjZjVjNGI2YzQ5Nzk4OWRmMWFiZjBmYmQ0ZThjOGQ2MyJ9.kna4yQMsiPp2IxD0RWmggj6lUUJq7Rk87N27cT8p4X0</msg>
+<status status="PASS" starttime="20210416 15:43:15.834" endtime="20210416 15:43:15.834"></status>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <doc>Fails if objects are unequal after converting them to strings.</doc>
@@ -128,21 +128,21 @@ given `alias`</doc>
 <arg>${resp1.status_code}</arg>
 <arg>200</arg>
 </arguments>
-<msg timestamp="20210414 15:03:47.324" level="INFO">Argument types are:
+<msg timestamp="20210416 15:43:15.834" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;type 'unicode'&gt;</msg>
-<status status="PASS" starttime="20210414 15:03:47.324" endtime="20210414 15:03:47.324"></status>
+<status status="PASS" starttime="20210416 15:43:15.834" endtime="20210416 15:43:15.834"></status>
 </kw>
 <kw name="Return From Keyword" library="BuiltIn">
 <doc>Returns from the enclosing user keyword.</doc>
 <arguments>
 <arg>${token}</arg>
 </arguments>
-<msg timestamp="20210414 15:03:47.324" level="INFO">Returning from the enclosing user keyword.</msg>
-<status status="PASS" starttime="20210414 15:03:47.324" endtime="20210414 15:03:47.325"></status>
+<msg timestamp="20210416 15:43:15.835" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20210416 15:43:15.834" endtime="20210416 15:43:15.835"></status>
 </kw>
-<msg timestamp="20210414 15:03:47.325" level="INFO">${token_value} = Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODM4NzQyNywiZXhwIjoxNjE4NDczODI3LCJuYmYiOjE2MTgzODc0MjcsImp0...</msg>
-<status status="PASS" starttime="20210414 15:03:47.197" endtime="20210414 15:03:47.325"></status>
+<msg timestamp="20210416 15:43:15.835" level="INFO">${token_value} = Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODU2MjU5NSwiZXhwIjoxNjE4NjQ4OTk1LCJuYmYiOjE2MTg1NjI1OTUsImp0...</msg>
+<status status="PASS" starttime="20210416 15:43:15.719" endtime="20210416 15:43:15.835"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
@@ -150,8 +150,8 @@ given `alias`</doc>
 <arg>\${bearer_token}</arg>
 <arg>${token_value}</arg>
 </arguments>
-<msg timestamp="20210414 15:03:47.325" level="INFO">${bearer_token} = Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODM4NzQyNywiZXhwIjoxNjE4NDczODI3LCJuYmYiOjE2MTgzODc0MjcsImp0...</msg>
-<status status="PASS" starttime="20210414 15:03:47.325" endtime="20210414 15:03:47.325"></status>
+<msg timestamp="20210416 15:43:15.835" level="INFO">${bearer_token} = Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODU2MjU5NSwiZXhwIjoxNjE4NjQ4OTk1LCJuYmYiOjE2MTg1NjI1OTUsImp0...</msg>
+<status status="PASS" starttime="20210416 15:43:15.835" endtime="20210416 15:43:15.835"></status>
 </kw>
 <kw name="Append To Environment Variable" library="OperatingSystem">
 <doc>Appends given ``values`` to environment variable ``name``.</doc>
@@ -159,128 +159,230 @@ given `alias`</doc>
 <arg>PATH</arg>
 <arg>${EXECDIR}${/}Drivers</arg>
 </arguments>
-<msg timestamp="20210414 15:03:47.326" level="INFO">Environment variable 'PATH' set to value 'c:\users\quannt\appdata\local\programs\python\python37\lib\site-packages\pywin32_system32;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\quannt\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\quannt\PycharmProjects\Automationpython\venv\Scripts;C:\Program Files\Java\jdk1.8.0_211;C:\Users\quannt\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\quannt\AppData\Local\Programs\Python\Python37\;C:\Users\quannt\AppData\Local\Microsoft\WindowsApps;C:\Users\quannt\AppData\Local\GitHubDesktop\bin;;C:\Users\quannt\Documents\GitHub\Mykiot\Testsuites\Drivers'.</msg>
-<status status="PASS" starttime="20210414 15:03:47.326" endtime="20210414 15:03:47.326"></status>
+<msg timestamp="20210416 15:43:15.836" level="INFO">Environment variable 'PATH' set to value 'c:\users\quannt\appdata\local\programs\python\python37\lib\site-packages\pywin32_system32;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\quannt\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\quannt\PycharmProjects\Automationpython\venv\Scripts;C:\Program Files\Java\jdk1.8.0_211;C:\Users\quannt\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\quannt\AppData\Local\Programs\Python\Python37\;C:\Users\quannt\AppData\Local\Microsoft\WindowsApps;C:\Users\quannt\AppData\Local\GitHubDesktop\bin;;C:\Users\quannt\Documents\GitHub\Mykiot\Testsuites\Drivers'.</msg>
+<status status="PASS" starttime="20210416 15:43:15.836" endtime="20210416 15:43:15.836"></status>
 </kw>
 <kw name="Set Screenshot Directory" library="SeleniumLibrary">
 <doc>Sets the directory for captured screenshots.</doc>
 <arguments>
 <arg>${EXECDIR}${/}Out${/}Failures</arg>
 </arguments>
-<status status="PASS" starttime="20210414 15:03:47.326" endtime="20210414 15:03:47.326"></status>
+<status status="PASS" starttime="20210416 15:43:15.836" endtime="20210416 15:43:15.836"></status>
 </kw>
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
 <doc>Sets the delay that is waited after each Selenium command.</doc>
 <arguments>
 <arg>0.1s</arg>
 </arguments>
-<status status="PASS" starttime="20210414 15:03:47.326" endtime="20210414 15:03:47.327"></status>
+<status status="PASS" starttime="20210416 15:43:15.837" endtime="20210416 15:43:15.837"></status>
 </kw>
-<status status="PASS" starttime="20210414 15:03:47.196" endtime="20210414 15:03:47.327"></status>
+<status status="PASS" starttime="20210416 15:43:15.719" endtime="20210416 15:43:15.837"></status>
 </kw>
-<test id="s1-t1" name="TC0123">
-<kw name="Create Order no account from API" library="api_core_order">
+<test id="s1-t1" name="TCA012">
+<kw name="Detele customer carts from api" library="api_core_customer">
 <arguments>
-<arg>SP12000155</arg>
+<arg>259596</arg>
 </arguments>
-<kw name="Format String" library="StringFormat">
+<kw name="Get customer cart from api" library="api_core_customer">
 <arguments>
-<arg>{{ "code": "kiotviet", "products": [ {{ "product_id": 340369183, "quantity": 1, "product_name": "hai sanr", "product_sku": "{0}", "note": null, "stock": 1000, "attributes": [], "images": [], "combo": [], "unit": [], "tradeMarkName": "", "price": 320000 }} ], "delivery": {{ "cod": false, "name": "Lê Thị Hương (test 3)", "phone": "0967214074", "address": "1b yet kieu hoan kiem ha noi, Quận Hoàng Mai - Hà Nội", "branchAddress": "1b yet kieu hoan kiem ha noi, Quận Hoàng Mai - Hà Nội", "description": "" }}, "surcharges": [], "cart_token": "b6985f9e-deec-4da3-83eb-844cb5142f19" }}</arg>
-<arg>${product_sku}</arg>
+<arg>${store-id}</arg>
 </arguments>
 <assign>
-<var>${data}</var>
+<var>${product_id}</var>
 </assign>
-<msg timestamp="20210414 15:03:47.328" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
-<msg timestamp="20210414 15:03:47.329" level="INFO">${data} = { "code": "kiotviet", "products": [ { "product_id": 340369183, "quantity": 1, "product_name": "hai sanr", "product_sku": "SP12000155", "note": null, "stock": 1000, "attributes": [], "images": [], "com...</msg>
-<status status="PASS" starttime="20210414 15:03:47.328" endtime="20210414 15:03:47.329"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${data}</arg>
-</arguments>
-<msg timestamp="20210414 15:03:47.329" level="INFO">{ "code": "kiotviet", "products": [ { "product_id": 340369183, "quantity": 1, "product_name": "hai sanr", "product_sku": "SP12000155", "note": null, "stock": 1000, "attributes": [], "images": [], "combo": [], "unit": [], "tradeMarkName": "", "price": 320000 } ], "delivery": { "cod": false, "name": "Lê Thị Hương (test 3)", "phone": "0967214074", "address": "1b yet kieu hoan kiem ha noi, Quận Hoàng Mai - Hà Nội", "branchAddress": "1b yet kieu hoan kiem ha noi, Quận Hoàng Mai - Hà Nội", "description": "" }, "surcharges": [], "cart_token": "b6985f9e-deec-4da3-83eb-844cb5142f19" }</msg>
-<status status="PASS" starttime="20210414 15:03:47.329" endtime="20210414 15:03:47.329"></status>
-</kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <arguments>
-<arg>store-id=652920</arg>
-<arg>Content-Type=application/json;charset=utf-8</arg>
+<arg>store-id=${store-id}</arg>
+<arg>Content-Type=application/x-www-form-urlencoded</arg>
+<arg>Authorization=${bearer_token}</arg>
 </arguments>
 <assign>
-<var>${headers}</var>
+<var>${heades1}</var>
 </assign>
-<msg timestamp="20210414 15:03:47.330" level="INFO">${headers} = {'store-id': '652920', 'Content-Type': 'application/json;charset=utf-8'}</msg>
-<status status="PASS" starttime="20210414 15:03:47.329" endtime="20210414 15:03:47.330"></status>
+<msg timestamp="20210416 15:43:15.839" level="INFO">${heades1} = {'store-id': '259596', 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYX...</msg>
+<status status="PASS" starttime="20210416 15:43:15.838" endtime="20210416 15:43:15.839"></status>
 </kw>
 <kw name="Create Session" library="RequestsLibrary">
 <doc>Create Session: create a HTTP session to a server</doc>
 <arguments>
-<arg>ali</arg>
+<arg>lolo</arg>
 <arg>https://api-staging.citigo.dev:40001/api</arg>
-<arg>verify=True</arg>
 </arguments>
-<msg timestamp="20210414 15:03:47.330" level="INFO">Creating Session using : alias=ali, url=https://api-staging.citigo.dev:40001/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<status status="PASS" starttime="20210414 15:03:47.330" endtime="20210414 15:03:47.330"></status>
+<msg timestamp="20210416 15:43:15.839" level="INFO">Creating Session using : alias=lolo, url=https://api-staging.citigo.dev:40001/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210416 15:43:15.839" endtime="20210416 15:43:15.839"></status>
 </kw>
-<kw name="Post Request" library="RequestsLibrary">
-<doc>Send a POST request on the session object found using the
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
 given `alias`</doc>
 <arguments>
-<arg>ali</arg>
-<arg>/v1/customers/orders/create</arg>
-<arg>headers=${headers}</arg>
-<arg>data=${data}</arg>
+<arg>lolo</arg>
+<arg>v1/customers/carts</arg>
+<arg>headers=${heades1}</arg>
 </arguments>
 <assign>
-<var>${resp}</var>
+<var>${resp1}</var>
 </assign>
-<msg timestamp="20210414 15:03:47.662" level="INFO">POST Request : url=https://api-staging.citigo.dev:40001/api/v1/customers/orders/create 
- path_url=/api/v1/customers/orders/create 
- headers={'User-Agent': 'python-requests/2.20.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'store-id': '652920', 'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '599'} 
- body=b'{ "code": "kiotviet", "products": [ { "product_id": 340369183, "quantity": 1, "product_name": "hai sanr", "product_sku": "SP12000155", "note": null, "stock": 1000, "attributes": [], "images": [], "combo": [], "unit": [], "tradeMarkName": "", "price": 320000 } ], "delivery": { "cod": false, "name": "L\xc3\xaa Th\xe1\xbb\x8b H\xc6\xb0\xc6\xa1ng (test 3)", "phone": "0967214074", "address": "1b yet kieu hoan kiem ha noi, Qu\xe1\xba\xadn Ho\xc3\xa0ng Mai - H\xc3\xa0 N\xe1\xbb\x99i", "branchAddress": "1b yet kieu hoan kiem ha noi, Qu\xe1\xba\xadn Ho\xc3\xa0ng Mai - H\xc3\xa0 N\xe1\xbb\x99i", "description": "" }, "surcharges": [], "cart_token": "b6985f9e-deec-4da3-83eb-844cb5142f19" }' 
+<msg timestamp="20210416 15:43:15.933" level="INFO">GET Request : url=https://api-staging.citigo.dev:40001/api/v1/customers/carts 
+ path_url=/api/v1/customers/carts 
+ headers={'User-Agent': 'python-requests/2.20.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'store-id': '259596', 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODU2MjU5NSwiZXhwIjoxNjE4NjQ4OTk1LCJuYmYiOjE2MTg1NjI1OTUsImp0aSI6ImFvQVRqVktGNjRwdnlvS04iLCJzdWIiOjI2MSwicHJ2IjoiMWQwYTAyMGFjZjVjNGI2YzQ5Nzk4OWRmMWFiZjBmYmQ0ZThjOGQ2MyJ9.kna4yQMsiPp2IxD0RWmggj6lUUJq7Rk87N27cT8p4X0'} 
+ body=None 
  </msg>
-<msg timestamp="20210414 15:03:47.662" level="INFO">POST Response : url=https://api-staging.citigo.dev:40001/api/v1/customers/orders/create 
+<msg timestamp="20210416 15:43:15.933" level="INFO">GET Response : url=https://api-staging.citigo.dev:40001/api/v1/customers/carts 
  status=200, reason=OK 
- body={"code":1,"status":"success","message":"Success","data":{"responseStatus":{"errorCode":"KvValidateInvoiceException","message":"b\u00e1nh 9 b\u00e1nh 10 b\u00e1nh 10 b\u00e1nh 10 b\u00e1nh 10 b\u00e1nh 10 b\u00e1nh 10 b\u00e1nh 10 b\u00e1nh 10 b\u00e1nh 10 b\u00e1nh 10 b\u00e1nh 10: \u0110\u1eb7t h\u00e0ng qu\u00e1 s\u1ed1 l\u01b0\u1ee3ng cho ph\u00e9p","errors":[]}}} 
+ body={"code":1,"status":"success","message":"Success","data":{"total_products":1,"data":[{"product_id":340371043,"refer_id":3840887,"parentId":"","code":"SP001682","name":"\u00c1o d\u1ea1 nhung","fullName":"\u00c1o d\u1ea1 nhung","quantity":1,"categoryId":72820,"categoryName":"0. Nh\u1eadt","images":"","salePrice":-1,"regularPrice":200000,"weight":"","unit":"","slug":"ao-da-nhung","note":""}]}} 
  </msg>
-<msg timestamp="20210414 15:03:47.662" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20210414 15:03:47.330" endtime="20210414 15:03:47.662"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>${resp.status_code}</arg>
-<arg>200</arg>
-</arguments>
-<msg timestamp="20210414 15:03:47.663" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" starttime="20210414 15:03:47.662" endtime="20210414 15:03:47.663"></status>
+<msg timestamp="20210416 15:43:15.933" level="INFO">c:\users\quannt\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py:852: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20210416 15:43:15.934" level="INFO">${resp1} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210416 15:43:15.839" endtime="20210416 15:43:15.934"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>${resp.json()}</arg>
+<arg>${resp1.json()}</arg>
 </arguments>
-<msg timestamp="20210414 15:03:47.663" level="INFO">{'code': 1, 'status': 'success', 'message': 'Success', 'data': {'responseStatus': {'errorCode': 'KvValidateInvoiceException', 'message': 'bánh 9 bánh 10 bánh 10 bánh 10 bánh 10 bánh 10 bánh 10 bánh 10 bánh 10 bánh 10 bánh 10 bánh 10: Đặt hàng quá số lượng cho phép', 'errors': []}}}</msg>
-<status status="PASS" starttime="20210414 15:03:47.663" endtime="20210414 15:03:47.663"></status>
+<msg timestamp="20210416 15:43:15.934" level="INFO">{'code': 1, 'status': 'success', 'message': 'Success', 'data': {'total_products': 1, 'data': [{'product_id': 340371043, 'refer_id': 3840887, 'parentId': '', 'code': 'SP001682', 'name': 'Áo dạ nhung', 'fullName': 'Áo dạ nhung', 'quantity': 1, 'categoryId': 72820, 'categoryName': '0. Nhật', 'images': '', 'salePrice': -1, 'regularPrice': 200000, 'weight': '', 'unit': '', 'slug': 'ao-da-nhung', 'note': ''}]}}</msg>
+<status status="PASS" starttime="20210416 15:43:15.934" endtime="20210416 15:43:15.934"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp1.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210416 15:43:15.935" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210416 15:43:15.934" endtime="20210416 15:43:15.935"></status>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<doc>Get Value From JSON using JSONPath</doc>
+<arguments>
+<arg>${resp1.json()}</arg>
+<arg>$..data.data[0].product_id</arg>
+</arguments>
+<assign>
+<var>${product_id}</var>
+</assign>
+<msg timestamp="20210416 15:43:15.953" level="INFO">${product_id} = [340371043]</msg>
+<status status="PASS" starttime="20210416 15:43:15.935" endtime="20210416 15:43:15.953"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>$product_id[0] if $product_id else 0</arg>
+<arg>modules=random, sys</arg>
+</arguments>
+<assign>
+<var>${product_id}</var>
+</assign>
+<msg timestamp="20210416 15:43:15.954" level="INFO">${product_id} = 340371043</msg>
+<status status="PASS" starttime="20210416 15:43:15.954" endtime="20210416 15:43:15.954"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${product_id}</arg>
+</arguments>
+<msg timestamp="20210416 15:43:15.954" level="INFO">340371043</msg>
+<status status="PASS" starttime="20210416 15:43:15.954" endtime="20210416 15:43:15.954"></status>
 </kw>
 <kw name="Return From Keyword" library="BuiltIn">
 <doc>Returns from the enclosing user keyword.</doc>
 <arguments>
-<arg>${data}</arg>
+<arg>${product_id}</arg>
 </arguments>
-<msg timestamp="20210414 15:03:47.664" level="INFO">Returning from the enclosing user keyword.</msg>
-<status status="PASS" starttime="20210414 15:03:47.663" endtime="20210414 15:03:47.664"></status>
+<msg timestamp="20210416 15:43:15.955" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20210416 15:43:15.954" endtime="20210416 15:43:15.955"></status>
 </kw>
-<status status="PASS" starttime="20210414 15:03:47.327" endtime="20210414 15:03:47.664"></status>
+<msg timestamp="20210416 15:43:15.955" level="INFO">${product_id} = 340371043</msg>
+<status status="PASS" starttime="20210416 15:43:15.838" endtime="20210416 15:43:15.955"></status>
 </kw>
-<status status="PASS" starttime="20210414 15:03:47.327" endtime="20210414 15:03:47.665" critical="yes"></status>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>product_id=${product_id}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20210416 15:43:15.955" level="INFO">${data} = {'product_id': 340371043}</msg>
+<status status="PASS" starttime="20210416 15:43:15.955" endtime="20210416 15:43:15.955"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>store-id=${store-id}</arg>
+<arg>Content-Type=application/x-www-form-urlencoded</arg>
+<arg>Authorization=${bearer_token}</arg>
+</arguments>
+<assign>
+<var>${heades1}</var>
+</assign>
+<msg timestamp="20210416 15:43:15.956" level="INFO">${heades1} = {'store-id': '259596', 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYX...</msg>
+<status status="PASS" starttime="20210416 15:43:15.956" endtime="20210416 15:43:15.956"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>lolo</arg>
+<arg>https://api-staging.citigo.dev:40001/api</arg>
+<arg>headers=${heades1}</arg>
+</arguments>
+<msg timestamp="20210416 15:43:15.956" level="INFO">Creating Session using : alias=lolo, url=https://api-staging.citigo.dev:40001/api, headers={'store-id': '259596', 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODU2MjU5NSwiZXhwIjoxNjE4NjQ4OTk1LCJuYmYiOjE2MTg1NjI1OTUsImp0aSI6ImFvQVRqVktGNjRwdnlvS04iLCJzdWIiOjI2MSwicHJ2IjoiMWQwYTAyMGFjZjVjNGI2YzQ5Nzk4OWRmMWFiZjBmYmQ0ZThjOGQ2MyJ9.kna4yQMsiPp2IxD0RWmggj6lUUJq7Rk87N27cT8p4X0'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210416 15:43:15.956" endtime="20210416 15:43:15.957"></status>
+</kw>
+<kw name="Delete Request" library="RequestsLibrary">
+<doc>Send a DELETE request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>lolo</arg>
+<arg>v1/customers/carts</arg>
+<arg>headers=${heades1}</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${resp1}</var>
+</assign>
+<msg timestamp="20210416 15:43:16.056" level="INFO">DELETE Request : url=https://api-staging.citigo.dev:40001/api/v1/customers/carts 
+ path_url=/api/v1/customers/carts 
+ headers={'User-Agent': 'python-requests/2.20.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'store-id': '259596', 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1zdGFnaW5nLmNpdGlnby5kZXY6NDAwMDEvYXBpL3YxL2N1c3RvbWVycyIsImlhdCI6MTYxODU2MjU5NSwiZXhwIjoxNjE4NjQ4OTk1LCJuYmYiOjE2MTg1NjI1OTUsImp0aSI6ImFvQVRqVktGNjRwdnlvS04iLCJzdWIiOjI2MSwicHJ2IjoiMWQwYTAyMGFjZjVjNGI2YzQ5Nzk4OWRmMWFiZjBmYmQ0ZThjOGQ2MyJ9.kna4yQMsiPp2IxD0RWmggj6lUUJq7Rk87N27cT8p4X0', 'Content-Length': '20'} 
+ body=product_id=340371043 
+ </msg>
+<msg timestamp="20210416 15:43:16.056" level="INFO">DELETE Response : url=https://api-staging.citigo.dev:40001/api/v1/customers/carts 
+ status=200, reason=OK 
+ body={"code":1,"status":"success","message":"Successfully deleted cart","data":[]} 
+ </msg>
+<msg timestamp="20210416 15:43:16.056" level="INFO">c:\users\quannt\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py:852: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20210416 15:43:16.057" level="INFO">${resp1} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210416 15:43:15.957" endtime="20210416 15:43:16.057"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${resp1.json()}</arg>
+</arguments>
+<msg timestamp="20210416 15:43:16.057" level="INFO">{'code': 1, 'status': 'success', 'message': 'Successfully deleted cart', 'data': []}</msg>
+<status status="PASS" starttime="20210416 15:43:16.057" endtime="20210416 15:43:16.057"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp1.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20210416 15:43:16.058" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20210416 15:43:16.057" endtime="20210416 15:43:16.058"></status>
+</kw>
+<status status="PASS" starttime="20210416 15:43:15.838" endtime="20210416 15:43:16.058"></status>
+</kw>
+<status status="PASS" starttime="20210416 15:43:15.837" endtime="20210416 15:43:16.059" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20210414 15:03:46.730" endtime="20210414 15:03:47.666"></status>
+<status status="PASS" starttime="20210416 15:43:15.178" endtime="20210416 15:43:16.060"></status>
 </suite>
 <statistics>
 <total>
@@ -294,7 +396,6 @@ given `alias`</doc>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20210414 15:03:47.062" level="ERROR">Error in file 'C:\Users\quannt\Documents\GitHub\Mykiot\Config\Env\envi.robot' on line 2: Error in file 'C:\Users\quannt\Documents\GitHub\Mykiot\Core\API\api_access.robot' on line 89: Resource file with 'Test Cases' section is invalid.</msg>
-<msg timestamp="20210414 15:03:47.328" level="WARN">Keyword 'Format String' found both from a custom test library 'StringFormat' and a standard library 'String'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'StringFormat.Format String' or 'String.Format String'.</msg>
+<msg timestamp="20210416 15:43:15.517" level="ERROR">Error in file 'C:\Users\quannt\Documents\GitHub\Mykiot\Config\Env\envi.robot' on line 2: Error in file 'C:\Users\quannt\Documents\GitHub\Mykiot\Core\API\api_access.robot' on line 89: Resource file with 'Test Cases' section is invalid.</msg>
 </errors>
 </robot>

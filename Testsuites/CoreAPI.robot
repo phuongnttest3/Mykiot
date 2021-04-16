@@ -1,6 +1,12 @@
 *** Settings ***
 Suite Setup       init test core api
 Library           RequestsLibrary
+Library           RequestsLibrary
+Library           Collections
+Library           JSONLibrary
+Library           String
+Library           StringFormat
+Library           BuiltIn
 Resource          ../Core/API/api_core_product.robot
 Resource          ../Core/API/api_core_store.robot
 Resource          ../Core/API/api_core_menu.robot
@@ -58,7 +64,7 @@ TCA011
     259596
 
 TCA012
-    [Template]    detele customer cart from api
+    [Template]    Detele customer carts from api
     259596
 
 TCA013
@@ -66,7 +72,7 @@ TCA013
     phuongphuong
 
 TCA014
-    [Template]    get Customer favorite products from api
+    [Template]    Get customer favourite products from api
     259596
 
 TCA015
@@ -99,20 +105,31 @@ TCA021
 
 
 TCA022
-        [Template]    Update Comment Through API
-        340371066    617
+    [Template]    Update Comment Through API
+    340371066    617
 
 TCA023
-        [Template]    Delete comment
-        340371066    Thêm mới bình \ luận
+    [Template]    Delete comment
+    340371066    Thêm mới bình \ luận
 
 TCA024
      [Template]   Get customer products viewed from api
-     259596
+     259596   DHMK
 
 TCA025
       [Template]    Create Order no account from API
       SP12000155
+
+TCA026
+      [Template]    Create order customer from api
+      259596    SP000006
+
+TCA027
+      [Template]    Get customer orders detail from api
+      259596   DHMK
+
+
+
 
 *** Keywords ***
 Delete comment

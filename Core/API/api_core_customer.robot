@@ -73,7 +73,7 @@ update customer cart from api
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
 
-detele customer cart from api
+Detele customer carts from api
     [Arguments]    ${store-id}
     ${product_id}    Get customer cart from api    ${store-id}
     ${data}=    create dictionary    product_id=${product_id}
@@ -83,7 +83,7 @@ detele customer cart from api
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
 
-get Customer favorite products from api
+Get customer favourite products from api
     [Arguments]    ${store-id}
     ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
     create session    lolo    https://api-staging.citigo.dev:40001/api
@@ -111,7 +111,11 @@ Get customer order list
     ${get_raw_data}    Get Value From Json    ${resp1.json()}    $..data.total_orders
     ${result} =    Evaluate    ${get_raw_data}[0] if ${get_raw_data} else 0
     ${result} =    Evaluate    $result or 0
-    Return From Keyword    ${result}
+    ${get_order_id}    Get Value From Json    ${resp1.json()}    $..data.data[0].order_id
+    ${order_id} =    Evaluate    ${get_order_id}[0] if ${get_order_id} else 0
+    ${order_id} =    Evaluate     $order_id or 0
+    Return From Keyword    ${result}     ${order_id}
+
 Detele customer cart from api
     [Arguments]   ${store-id}
     ${product_id}      Get customer cart from api    ${store-id}
@@ -136,20 +140,31 @@ Get customer favorite products from api
     return from keyword  ${tensp}
 
 Get customer orders detail from api
-    [Arguments]   ${store-id}
-    ${order_id}  Get customer orders history from api   ${store-id}
+    [Arguments]   ${store-id}   ${order_code}
+    ${result}     ${order_id}  Get customer order list  ${order_code}
     ${heades1}=  create dictionary      store-id=${store-id}  Content-Type=application/x-www-form-urlencoded   Authorization=${bearer_token}
     ${params}=  create dictionary       order_id=${order_id}
     create session   lolo   https://api-staging.citigo.dev:40001/api
-    ${resp1}=  get request   lolo   v1/customers/orders/detail  headers=${heades1}  data= ${params}
+    ${resp1}=  get request   lolo   v1/customers/orders/detail  headers=${heades1}  params=${params}
     log  ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
 
 Get customer products viewed from api
-    [Arguments]   ${store-id}
-    ${order_id}  Get customer orders history from api   ${store-id}
+    [Arguments]   ${store-id}     ${order_code}
+    ${result}     ${order_id}  Get customer order list   ${order_code}
     ${heades1}=  create dictionary      store-id=${store-id}  Content-Type=application/x-www-form-urlencoded   Authorization=${bearer_token}
     create session   lolo   https://api-staging.citigo.dev:40001/api
     ${resp1}=  get request   lolo   v1/customers/viewed   headers=${heades1}
+    log  ${resp1.json()}
+    Should be equal as strings    ${resp1.status_code}    200
+
+Create order customer from api
+    [Arguments]     ${store-id}   ${product_sku}
+    ${data}     Format String   {{ "code": "kiotviet", "products": [ {{ "product_id": 340372566, "quantity": 1, "product_name": "Elevit bầu 100 viên", "product_sku": "{0}", "note": null, "stock": 1000, "attributes": [], "images": [], "combo": [], "unit": [], "tradeMarkName": "", "price": 320000 }} ], "delivery": {{ "cod": false, "name": "Lê Thị Hương (test 3)", "phone": "0967214074", "address": "123, Huyện Bến Cầu - Tây Ninh", "branchAddress": "123, Huyện Bến Cầu - Tây Ninh", "description": "" }}, "surcharges": [], "cart_token": "b6985f9e-deec-4da3-83eb-844cb5142f11" }}    ${product_sku}
+    ${data} =    Encode String To Bytes    ${data}    UTF-8
+    log   ${data}
+    ${heades1}=  create dictionary      store-id=${store-id}    Content-Type=application/json;charset=utf-8   Authorization=${bearer_token}
+    create session   lolo   https://api-staging.citigo.dev:40001/api     verify=True
+    ${resp1}=  post request   lolo   /v1/customers/orders/create   headers=${heades1}    data=${data}
     log  ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
