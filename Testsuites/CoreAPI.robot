@@ -61,11 +61,11 @@ TCA010
 
 TCA011
     [Template]    update customer cart from api
-    259596
+    340376672
 
 TCA012
     [Template]    Detele customer carts from api
-    259596
+    340376672
 
 TCA013
     [Template]    Update profile customer thr api
@@ -118,7 +118,7 @@ TCA024
 
 TCA025
       [Template]    Create Order no account from API
-      SP12000155
+      340369183
 
 TCA026
       [Template]    Create order customer from api
@@ -136,3 +136,6 @@ Delete comment
         [Arguments]    ${product_id}    ${content}
         ${comment_id}    Create comment through api    ${product_id}    ${content}
         Delete comment through api    ${product_id}    ${comment_id}
+add products cart from api
+      [Arguments]     ${product_id}
+      update customer cart from api   ${product_id}

@@ -6,6 +6,8 @@ Library           String
 Library           StringFormat
 Library           BuiltIn
 Library           RequestsLibrary
+Resource          /Testsuites/CoreAPI.robot
+
 
 *** Keywords ***
 Login customer get token from api
@@ -64,20 +66,21 @@ Get customer cart from api
     return from keyword    ${product_id}
 
 update customer cart from api
-    [Arguments]    ${store-id}
-    ${product_id}    Get customer cart from api    ${store-id}
-    ${data}=    create dictionary    product_id=${product_id}    quantity=150
-    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    [Arguments]    ${product_id}
+    # ${product_id}    Get customer cart from api    ${store-id}
+    ${data}=    create dictionary    product_id=${product_id}     quantity=150
+    ${heades1}=    create dictionary    store-id=259596    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
     create session    lolo    https://api-staging.citigo.dev:40001/api    headers=${heades1}
     ${resp1}=    post request    lolo    v1/customers/carts    headers=${heades1}    data=${data}
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
 
 Detele customer carts from api
-    [Arguments]    ${store-id}
-    ${product_id}    Get customer cart from api    ${store-id}
+    [Arguments]    ${product_id}
+    #${product_id}    Get customer cart from api    ${store-id}
+    add products cart from api    ${product_id}
     ${data}=    create dictionary    product_id=${product_id}
-    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=259596    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
     create session    lolo    https://api-staging.citigo.dev:40001/api    headers=${heades1}
     ${resp1}=    delete request    lolo    v1/customers/carts    headers=${heades1}    data=${data}
     log    ${resp1.json()}
