@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       init test env    prelivenew
+Suite Setup       init test env    stagingnew
 Suite Teardown
 Test Teardown     after test
 Library           SeleniumLibrary
@@ -17,6 +17,7 @@ Resource          ../Core/SearchResult_Page/Searchpage_locator.robot
 Resource          ../Core/OrderPage/Orderpage_Locator.robot
 Resource          ../Core/Homepage/Homepage_action.robot
 Resource          ../Core/Homepage/Homepage_locator.robot
+Resource          ../Core/API/api_access_myk.robot
 
 *** Test Cases ***
 TC019

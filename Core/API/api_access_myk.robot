@@ -7,8 +7,6 @@ Library           String
 Library           StringFormat
 Library           BuiltIn
 
-*** Test Cases ***
-
 *** Keywords ***
 get access token from api
     ${params}=    Create Dictionary    client_id=${client_id}    secret_key=${secret_key}    retailer_code=${retailer_code}    retailer_id=${retailer_id}

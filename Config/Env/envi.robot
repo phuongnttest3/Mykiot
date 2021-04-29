@@ -1,5 +1,4 @@
 *** Settings ***
-Resource          ../../Core/API/api_access.robot
 Library           StringFormat
 Library           SeleniumLibrary
 Library           Collections
