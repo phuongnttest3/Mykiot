@@ -18,7 +18,7 @@ fill env
     ${dic_clientid}    Create Dictionary    live=1f36fe67-a0f2-453b-bea5-9d778218279c    stagingnew=c8b67155-4f9a-4ebe-80ee-cac6e18e8d44    prelivenew=c8b67155-4f9a-4ebe-80ee-cac6e18e8d44
     ${dic_secretkey}    Create Dictionary    live=5F16AD6044795B917F2F9E640F572EF835B71254    stagingnew=42C30C4FD5382D0A8153DE25BC3C637751A58FEB    prelivenew=42C30C4FD5382D0A8153DE25BC3C637751A58FEB
     ${dic_retailercode}    Create Dictionary    live=testautomykiot    stagingnew=testautomykiot    prelivenew=testautomykiot
-    ${dic_retailerid}    Create Dictionary    live=737280    stagingnew=736403    prelivenew=736403
+    ${dic_retailerid}    Create Dictionary    live=737280    stagingnew=810060    prelivenew=810060
     ${dic_accessurl}    Create Dictionary    live=https://admin.mykiot.vn/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&retailer_code=testautomykiot&retailer_id=737280    stagingnew=https://admin-staging.citigo.dev:40001/connect?client_id=c8b67155-4f9a-4ebe-80ee-cac6e18e8d44&secret_key=42C30C4FD5382D0A8153DE25BC3C637751A58FEB&retailer_code=testautomykiot&retailer_id=810060    prelivenew=https://admin-prelive.citigo.dev:40003/connect?client_id=c8b67155-4f9a-4ebe-80ee-cac6e18e8d44&secret_key=42C30C4FD5382D0A8153DE25BC3C637751A58FEB&retailer_code=testautomykiot&retailer_id=810060
     ${dic_storefronturl}    Create Dictionary    live=https://mykiot.vn/testautomykiot    stagingnew=https://staging.citigo.dev:40001/testautomykiot    prelivenew=https://prelive.citigo.dev:40003/testautomykiot
     ${dict_kvurl}    Create Dictionary    live=https://testautomykiot.kiotviet.com/    stagingnew=https://testautomykiot.kvpos.com:59903/    prelivenew=https://testautomykiot.kvpos.com:59903/
@@ -32,6 +32,8 @@ fill env
     ${dic_google_pass}    Create Dictionary    live=test@123456    stagingnew=test@123456    prelivenew=test@123456
     ${dic_customer_code_google_account}    Create Dictionary    live=KH3546BAC40    stagingnew=KHCA279ECD4    prelivenew=KHCA279ECD4
     ${dic_webhook_url}    Create Dictionary    live=http://webhook.mykiot.vn    stagingnew=https://queue-staging.citigo.dev:40001    prelivenew=https://queue-prelive.citigo.dev:40003
+    ${dic_provider_id}    Create Dictionary    live=107151798064347196088    stagingnew=107151798064347196088    stagingnew=107151798064347196088
+    ${dic_coreapi_url}    Create Dictionary    live=Create Dictionary    stagingnew=https://api-staging.citigo.dev:40001/api    prelivenew=https://api-prelive.citigo.dev:40003/api
     ${api_url}    Get From Dictionary    ${dic_api_url}    ${env}
     ${url}    Get From Dictionary    ${dic_url}    ${env}
     ${client_id}    Get From Dictionary    ${dic_clientid}    ${env}
@@ -51,6 +53,8 @@ fill env
     ${google_pass}    Get From Dictionary    ${dic_google_pass}    ${env}
     ${customer_code_google_account}    Get From Dictionary    ${dic_customer_code_google_account}    ${env}
     ${webhook_url}    Get From Dictionary    ${dic_webhook_url}    ${env}
+    ${provider_id}    Get From Dictionary    ${dic_provider_id}    ${env}
+    ${coreapi_url}    Get From Dictionary    ${dic_coreapi_url}    ${env}
     Set Global Variable    \${api_url}    ${api_url}
     Set Global Variable    \${url}    ${url}
     Set Global Variable    \${client_id}    ${client_id}
@@ -70,6 +74,8 @@ fill env
     Set Global Variable    \${google_pass}    ${google_pass}
     Set Global Variable    \${customer_code_google_account}    ${customer_code_google_account}
     Set Global Variable    \${webhook_url}    ${webhook_url}
+    Set Global Variable    \${provider_id}    ${provider_id}
+    Set Global Variable    \${coreapi_url}    ${coreapi_url}
 
 init test env
     [Arguments]    ${env}
@@ -91,8 +97,9 @@ init test env sync
     Set Selenium Speed    0.1s
 
 init test core api
-    #fill env    ${env}
-    ${token_value}    Login customer get token from api    259596
+    [Arguments]    ${env}
+    fill env    ${env}
+    ${token_value}    Login customer get token from api    ${retailer_id}
     Set global variable    \${bearer_token}    ${token_value}
     Append To Environment Variable    PATH    ${EXECDIR}${/}Drivers
     Set Screenshot Directory    ${EXECDIR}${/}Out${/}Failures

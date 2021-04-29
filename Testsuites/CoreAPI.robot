@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       init test core api
+Suite Setup       init test core api    stagingnew
 Library           RequestsLibrary
 Library           RequestsLibrary
 Library           Collections
@@ -19,53 +19,53 @@ Resource          ../Core/API/api_core_comment.robot
 
 *** Test Cases ***
 TCA001
-    [Documentation]    Get Product list with category_id
+    [Documentation]    Get Product list
     [Template]    Get product list
-    72820
+    ${retailer_id}
 
 TCA002
-    [Template]    Get Product Detail
-    340372599
+    [Template]    Get product detail through product code
+    SP001456
 
 TCA003
     [Template]    Get data store from Api
-    longopss
+    ${retailer_code}
 
 TCA004
     [Template]    Get config store from Api
-    525011
+    ${retailer_id}
 
 TCA005
     [Template]    Get list menu from Api
-    525011
+    ${retailer_id}
 
 TCA006
     [Template]    Login customer get token from api
-    259596
+    ${retailer_id}
 
 TCA007
     [Template]    Get profile customer from api
-    259596
+    ${retailer_id}
 
 TCA008
     [Template]    Get data page from api
-    259596
+    ${retailer_id}
 
 TCA009
     [Template]    Get data category from api
-    259596
+    ${retailer_id}
 
 TCA010
     [Template]    Get customer cart from api
-    259596
+    ${retailer_id}
 
 TCA011
     [Template]    update customer cart from api
-    340376672
+    SP001452
 
 TCA012
     [Template]    Detele customer carts from api
-    340376672
+    SP001452
 
 TCA013
     [Template]    Update profile customer thr api
@@ -73,15 +73,15 @@ TCA013
 
 TCA014
     [Template]    Get customer favourite products from api
-    259596
+    ${retailer_id}
 
 TCA015
     [Template]    Get customer address from api
-    259596
+    ${retailer_id}
 
 TCA016
     [Template]    Update favourite product thr api
-    340372623
+    SP001449
 
 TCA017
     [Template]    Get customer order list
@@ -93,7 +93,7 @@ TCA018
 
 TCA019
     [Template]    get list comment of product
-    340371043
+    SP001448
 
 TCA020
     [Template]    get list comment of customer
@@ -101,41 +101,43 @@ TCA020
 
 TCA021
     [Template]    Create comment through api
-    340371066    Bình luận sản phẩm
-
+    SP001355     Bình luận sản phẩm
 
 TCA022
     [Template]    Update Comment Through API
-    340371066    617
+    SP000233
 
 TCA023
     [Template]    Delete comment
-    340371066    Thêm mới bình \ luận
+    SP000233    Thêm mới bình \ luận
 
 TCA024
-     [Template]   Get customer products viewed from api
-     259596   DHMK
+    [Template]    Get customer products viewed from api
+    DHMK
 
 TCA025
-      [Template]    Create Order no account from API
-      340369183
+    [Template]    Create Order no account from API
+    340369183
 
 TCA026
-      [Template]    Create order customer from api
-      259596    SP000006
+    [Template]    Create order customer from api
+    SP000006
 
 TCA027
-      [Template]    Get customer orders detail from api
-      259596   DHMK
-
-
-
+    [Template]    Get customer orders detail from api
+    DHMK
 
 *** Keywords ***
 Delete comment
-        [Arguments]    ${product_id}    ${content}
-        ${comment_id}    Create comment through api    ${product_id}    ${content}
-        Delete comment through api    ${product_id}    ${comment_id}
+    [Arguments]    ${product_code}    ${content}
+    ${comment_id}    Create comment through api    ${product_code}    ${content}
+    Delete comment through api    ${product_code}
+
 add products cart from api
-      [Arguments]     ${product_id}
-      update customer cart from api   ${product_id}
+    [Arguments]    ${product_id}
+    update customer cart from api    ${product_id}
+
+Get product detail through product code
+    [Arguments]    ${product_code}
+    ${product_id}    Get product id through product code    ${product_code}
+    Get product detail    ${product_id}
