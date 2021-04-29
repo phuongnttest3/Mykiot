@@ -25,7 +25,7 @@ Get list comment of customer
     ${param}=    create dictionary    keyword=${keyword}    limit=10
     ${heades1}=    create dictionary    store-id=${retailer_id}    Authorization=${bearer_token}
     create session    lolo    ${coreapi_url}
-    ${resp1}=    get request    lolo    /v1/comments/me    headers=${heades1}
+    ${resp1}=    get request    lolo    /v1/comments/me    headers=${heades1}    params=${param}
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
     Return from keyword    ${resp1.json()}
