@@ -25,7 +25,7 @@ fill env
     ${dict_username}    Create Dictionary    live=admin    stagingnew=admin    prelivenew=admin
     ${dict_password}    Create Dictionary    live=123    stagingnew=123    prelivenew=123
     ${dic_kv_apiurl}    Create Dictionary    live=https://testautomykiot.kiotviet.com/api    stagingnew=https://testautomykiot.kvpos.com:59903/api    prelivenew=https://testautomykiot.kvpos.com:59903/api
-    ${dic_branchid}    Create Dictionary    live=9113    stagingnew=9113    prelivenew=9113
+    ${dic_branchid}    Create Dictionary    live=9113    stagingnew=11749    prelivenew=11749
     ${dic_zone}    Create Dictionary    live=26    stagingnew=1    prelivenew=1
     ${dic_salekvapi}    Create Dictionary    live=https://sale.kiotapi.com/api    stagingnew=https://kvpos.com:59303/api    prelivenew=https://kvpos.com:59303/api
     ${dic_google_account}    Create Dictionary    live=testautomation113@gmail.com    stagingnew=testautomation113@gmail.com    prelivenew=testautomation113@gmail.com
