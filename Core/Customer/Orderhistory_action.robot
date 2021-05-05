@@ -25,6 +25,8 @@ Validate status orders in order history
     \    press keys   ${txt_searchorder}   ENTER
     \    ${tus}=  run keyword and return status      element should be visible    ${order_status}
     \    Exit For Loop If   '${tus}'=='True'
+    element should be visible    ${order_status}
+
 
 reload page order history
      reload page

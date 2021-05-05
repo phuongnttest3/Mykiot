@@ -1,6 +1,6 @@
 *** Settings ***
-Suite Setup       init test env sync    live
-Test Setup        before test    live
+Suite Setup       init test env sync    stagingnew
+Test Setup        before test    stagingnew
 Test Teardown     after test
 Library           SeleniumLibrary    #Test Teardown    after test
 Library           RequestsLibrary
@@ -25,6 +25,7 @@ Resource          ../Core/ProductCategoryList_Page/ProductCategoryList_action.ro
 Resource          ../Core/API-KV/api_hoadon.robot
 Resource          ../Core/API-KV/api_order_kv.robot
 Resource          ../Core/Customer/Orderhistory_action.robot
+Resource          CoreAPI.robot
 
 *** Test Cases ***
 ACC001
@@ -35,9 +36,10 @@ ACC002
     [Template]    Update profile
     nguyen van a    10/10/2000
 
-ACC004
-    [Template]    Click yeu thich san pham va kiem tra
-    1    2    3    4    5
+ACC003
+    [Template]    yeu thich san pham va kiem tra products favourite
+     810060    SP000233
+
 
 *** Keywords ***
 Dang nhap Account
@@ -59,36 +61,19 @@ Update profile
     Sendkey to element    ${txt_dateofbirth}    ${date_of_birth}
     Click to element    ${btn_luu}
 
-Click yeu thich san pham va kiem tra
-    [Arguments]    ${stt1}    ${stt2}    ${stt3}    ${stt4}    ${stt5}
+yeu thich san pham va kiem tra products favourite
+    [Arguments]     ${retailer_id}   ${product_code}
+    login customer get token from api  ${retailer_id}
     Dang nhap account    ${google_account}    ${google_pass}
-    ${statuss}=    run keyword and return status    wait until element is visible    ${btn_activeiconlove}    10s
-    run keyword if    '${statuss}'=='True'    Click off sp active icon love    ${stt1}    ${stt2}    ${stt3}    ${stt4}
-    ...    ${stt5}
-    ...    ELSE    Click on active sp icon love    ${stt1}    ${stt2}    ${stt3}    ${stt4}
-    ...    ${stt5}
+    sendkey to element  ${txt_timkiem}     ${product_code}
+    click element js  ${btn_timkiem}
+    click to element  ${link_sp}
+    click to element  ${icon_loveproduct_detail}
+    ${ten_sp}  get text  ${lbl_productname_detail}
+    ${tensp}   Get customer favorite products from api    ${retailer_id}
+    should be equal as strings   ${ten_sp}    ${tensp}
+    click to element  ${acc_infor}
+    click to element  ${link_favourite}
+    page should contain   ${tensp}
+    page should contain  ${ten_sp}
 
-Click on active sp icon love
-    [Arguments]    ${stt1}    ${stt2}    ${stt3}    ${stt4}    ${stt5}
-    : FOR    ${INDEX}    IN    ${stt1}    ${stt2}    ${stt3}    ${stt4}
-    ...    ${stt5}
-    \    ${btn_stticonlove}    format string    ${btn_iconlove}    ${INDEX}
-    \    ${text_stttensplove}    format string    ${txt_tensplove}    ${INDEX}
-    \    wait until element is visible    ${btn_stticonlove}    10s
-    \    scroll element into view    ${btn_stticonlove}
-    \    Click To Element    ${btn_stticonlove}
-    \    ${tensplove}    get text    ${text_stttensplove}
-    \    ${tensp}    Get customer favorite products from api    736403
-    \    should be equal as strings    ${tensp}    ${tensplove}
-    \    EXIT FOR LOOP IF    '${INDEX}'=='5'
-
-Click off sp active icon love
-    [Arguments]    ${stt1}    ${stt2}    ${stt3}    ${stt4}    ${stt5}
-    : FOR    ${INDEX}    IN    ${stt1}    ${stt2}    ${stt3}    ${stt4}
-    ...    ${stt5}
-    \    ${btn_stticonlove}    format string    ${btn_iconlove}    ${INDEX}
-    \    ${text_stttensplove}    format string    ${txt_tensplove}    ${INDEX}
-    \    wait until element is visible    ${btn_stticonlove}    10s
-    \    scroll element into view    ${btn_stticonlove}
-    \    Click To Element    ${btn_stticonlove}
-    \    EXIT FOR LOOP IF    '${INDEX}'=='5'

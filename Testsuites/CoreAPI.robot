@@ -117,11 +117,11 @@ TCA024
 
 TCA025
     [Template]    Create Order no account from API
-    340369183
+    SP000188
 
 TCA026
     [Template]    Create order customer from api
-    SP000006
+    SP000188
 
 TCA027
     [Template]    Get customer orders detail from api
@@ -141,3 +141,5 @@ Get product detail through product code
     [Arguments]    ${product_code}
     ${product_id}    Get product id through product code    ${product_code}
     Get product detail    ${product_id}
+
+

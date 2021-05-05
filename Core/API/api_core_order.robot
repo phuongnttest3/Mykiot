@@ -9,9 +9,9 @@ Library           BuiltIn
 
 *** Keywords ***
 Create Order no account from API
-    [Arguments]    ${product_id}
+    [Arguments]    ${product_code}
     ${cart_token}=    Generate Random String    10    [LOWER]
-    ${data}    Format String    {{ "code": "kiotviet", "products": [ {{ "product_id": {0}, "quantity": 1, "product_name": "hai sanr", "product_sku": "SP12000155", "note": null, "stock": 1000, "attributes": [], "images": [], "combo": [], "unit": [], "tradeMarkName": "", "price": 320000 }} ], "delivery": {{ "cod": false, "name": "Lê Thị Hương (test 3)", "phone": "0967214074", "address": "1b yet kieu hoan kiem ha noi, Quận Hoàng Mai - Hà Nội", "branchAddress": "1b yet kieu hoan kiem ha noi, Quận Hoàng Mai - Hà Nội", "description": "" }}, "surcharges": [], "cart_token": "{1}" }}    ${product_id}    ${cart_token}
+    ${data}    Format String     {{ "code": "kiotviet", "products": [ {{ "product_id": 5091,"quantity": 1, "product_name": "Vòng chống muỗi Nhật Bản", "product_sku": "{0}", "note": null, "stock": 1000, "attributes": [], "images": [], "combo": [], "unit": [], "tradeMarkName": "", "price": 290070 }} ], "delivery": {{ "cod": false, "name": "Test Automation", "phone": "0967214074", "address": "434 Trần Khát Chân, Quận Hoàn Kiếm - Hà Nội", "branchAddress": "434 Trần Khát Chân, Quận Hoàn Kiếm - Hà Nội", "description": "" }}, "surcharges": [], "cart_token": "{1}" }}   ${product_code}    ${cart_token}
     # ${data} =    Encode String To Bytes    ${data}    UTF-8
     log    ${data}
     ${headers}    Create Dictionary    store-id=${retailer_id}    Content-Type=application/json;charset=utf-8

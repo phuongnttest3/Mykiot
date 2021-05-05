@@ -137,7 +137,7 @@ Get customer favorite products from api
     ${resp1}=    get request    lolo    v1/customers/favorites    headers=${heades1}
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
-    ${tensp}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $.data.data[0].name
+    ${tensp}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $.data.data..name
     ${tensp}=    evaluate    $tensp[0]
     log    ${tensp}
     return from keyword    ${tensp}
@@ -163,7 +163,8 @@ Get customer products viewed from api
 
 Create order customer from api
     [Arguments]    ${product_sku}
-    ${data}    Format String    {{ "code": "kiotviet", "products": [ {{ "product_id": 340372566, "quantity": 1, "product_name": "Elevit bầu 100 viên", "product_sku": "{0}", "note": null, "stock": 1000, "attributes": [], "images": [], "combo": [], "unit": [], "tradeMarkName": "", "price": 320000 }} ], "delivery": {{ "cod": false, "name": "Lê Thị Hương (test 3)", "phone": "0967214074", "address": "123, Huyện Bến Cầu - Tây Ninh", "branchAddress": "123, Huyện Bến Cầu - Tây Ninh", "description": "" }}, "surcharges": [], "cart_token": "b6985f9e-deec-4da3-83eb-844cb5142f11" }}    ${product_sku}
+    ${cart_token}=    Generate Random String    10    [LOWER]
+    ${data}    Format String    {{ "code": "kiotviet", "products": [ {{ "product_id": 5091,"quantity": 1, "product_name": "Vòng chống muỗi Nhật Bản", "product_sku": "{0}", "note": null, "stock": 1000, "attributes": [], "images": [], "combo": [], "unit": [], "tradeMarkName": "", "price": 290070 }} ], "delivery": {{ "cod": false, "name": "Test Automation", "phone": "0967214074", "address": "434 Trần Khát Chân, Quận Hoàn Kiếm - Hà Nội", "branchAddress": "434 Trần Khát Chân, Quận Hoàn Kiếm - Hà Nội", "description": "" }}, "surcharges": [], "cart_token": "{1}" }}   ${product_sku}   ${cart_token}
     ${data} =    Encode String To Bytes    ${data}    UTF-8
     log    ${data}
     ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/json;charset=utf-8    Authorization=${bearer_token}
