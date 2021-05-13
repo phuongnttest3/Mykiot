@@ -22,7 +22,7 @@ fill env
     ${dic_storefronturl}    Create Dictionary    live=https://mykiot.vn/testautomykiot    stagingnew=https://staging.citigo.dev:40001/testautomykiot    prelivenew=https://prelive.citigo.dev:40003/testautomykiot
     ${dict_kvurl}    Create Dictionary    live=https://testautomykiot.kiotviet.com/    stagingnew=https://testautomykiot.kvpos.com:59903/    prelivenew=https://testautomykiot.kvpos.com:59903/
     ${dict_username}    Create Dictionary    live=admin    stagingnew=admin    prelivenew=admin
-    ${dict_password}    Create Dictionary    live=123    stagingnew=123    prelivenew=123
+    ${dict_password}    Create Dictionary    live=kiotviet123456    stagingnew=123    prelivenew=123
     ${dic_kv_apiurl}    Create Dictionary    live=https://testautomykiot.kiotviet.com/api    stagingnew=https://testautomykiot.kvpos.com:59903/api    prelivenew=https://testautomykiot.kvpos.com:59903/api
     ${dic_branchid}    Create Dictionary    live=9113    stagingnew=11749    prelivenew=11749
     ${dic_zone}    Create Dictionary    live=26    stagingnew=1    prelivenew=1

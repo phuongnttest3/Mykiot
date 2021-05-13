@@ -1,7 +1,7 @@
 *** Settings ***
-Suite Setup       init test env sync    stagingnew
-Test Setup        before test    stagingnew
-Test Teardown    after test
+Suite Setup       init test env sync    live
+Test Setup        before test    live
+Test Teardown     after test
 Library           SeleniumLibrary
 Library           RequestsLibrary
 Library           Collections
@@ -25,6 +25,8 @@ Resource          ../Core/ProductCategoryList_Page/ProductCategoryList_action.ro
 Resource          ../Core/API-KV/api_hoadon.robot
 Resource          ../Core/API-KV/api_order_kv.robot
 Resource          ../Core/Customer/Orderhistory_action.robot
+Resource          ../Core/Customer/Addresspage_action.robot
+
 
 *** Variables ***
 &{order_1}        SP000006=3    SP000007=4    SP000009=3
@@ -193,6 +195,7 @@ Them san pham noi bat vao cart thanh toan va nhan hang tai dia chi nguoi nhan kh
     sleep    2s
     Thanh toan nhan hang tai dia chi nguoi nhan khi dang nhap account    ${ten}    ${email}    ${sdt}    ${diachi}    ${ghichu}    ${thanhtien}
     ...    ${gia}
+    Xoa address
 
 Them san pham noi bat vao cart thanh toan tai dia chi nguoi nhan
     [Arguments]    ${ten}    ${sdt}    ${email}    ${diachi}    ${ghichu}    ${sl}

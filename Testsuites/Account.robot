@@ -6,6 +6,7 @@ Library           SeleniumLibrary    #Test Teardown    after test
 Library           RequestsLibrary
 Library           Collections
 Library           JSONLibrary
+Library           StringFormat
 Resource          ../Core/Common.robot
 Library           OperatingSystem
 Resource          ../Core/Homepage/Homepage_locator.robot
@@ -38,7 +39,11 @@ ACC002
 
 ACC003
     [Template]    yeu thich san pham va kiem tra products favourite
-     810060    SP000233
+    810060    SP000233
+
+ACC004
+    [Template]    Tao san pham và xem chi tiet kiem tra o products viewed
+    Hàng hóa test    Hàng Mỹ    135000    62000    17
 
 
 *** Keywords ***
@@ -53,27 +58,45 @@ Dang nhap Account
 
 Update profile
     [Arguments]    ${name}    ${date_of_birth}
+    ${name_1}=    Generate code automatically   ${name}
     Dang nhap account    ${google_account}    ${google_pass}
     Click to element    ${acc_infor}
     Click to element    ${link_profile}
-    Sendkey to element    ${txt_nameacc}    ${name}
+    Sendkey to element    ${txt_nameacc}    ${name_1}
     Click to element    ${radiobt_nu}
     Sendkey to element    ${txt_dateofbirth}    ${date_of_birth}
     Click to element    ${btn_luu}
 
 yeu thich san pham va kiem tra products favourite
-    [Arguments]     ${retailer_id}   ${product_code}
-    login customer get token from api  ${retailer_id}
+    [Arguments]    ${retailer_id}    ${product_code}
+    login customer get token from api    ${retailer_id}
     Dang nhap account    ${google_account}    ${google_pass}
-    sendkey to element  ${txt_timkiem}     ${product_code}
-    click element js  ${btn_timkiem}
-    click to element  ${link_sp}
-    click to element  ${icon_loveproduct_detail}
-    ${ten_sp}  get text  ${lbl_productname_detail}
-    ${tensp}   Get customer favorite products from api    ${retailer_id}
-    should be equal as strings   ${ten_sp}    ${tensp}
-    click to element  ${acc_infor}
-    click to element  ${link_favourite}
-    page should contain   ${tensp}
-    page should contain  ${ten_sp}
+    sendkey to element    ${txt_timkiem}    ${product_code}
+    click element js    ${btn_timkiem}
+    click to element    ${link_sp}
+    click to element    ${icon_loveproduct_detail}
+    ${ten_sp}    get text    ${lbl_productname_detail}
+    ${tensp}    Get customer favorite products from api    ${retailer_id}
+    should be equal as strings    ${ten_sp}    ${tensp}
+    click to element    ${acc_infor}
+    click to element    ${link_favourite}
+    ${length}=    get length    ${tensp}
+    : FOR    ${i}    IN RANGE    ${length}
+    \    ${name}    get from list    ${tensp}    ${i}
+    \    page should contain    ${name}
+    \    Exit For Loop If    '${i}'=='${length}'
 
+Tao san pham và xem chi tiet kiem tra o products viewed
+    [Arguments]    ${product_name}    ${category_name}    ${base_price}    ${cost}    ${stock}
+    ${product_code}    Generate code automatically    MYK
+    Add kv product thr api    ${product_code}    ${product_name}    ${category_name}    ${base_price}    ${cost}    ${stock}
+    sleep    59s
+    Dang nhap account    ${google_account}    ${google_pass}
+    sendkey to element    ${txt_timkiem}    ${product_code}
+    click element js    ${btn_timkiem}
+    click to element    ${link_sp}
+    #click to element    ${icon_loveproduct_detail}
+    ${ten_sp}    get text    ${lbl_productname_detail}
+    click to element    ${acc_infor}
+    click to element    ${link_productsviewed}
+    page should contain    ${ten_sp}

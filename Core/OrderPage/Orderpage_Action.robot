@@ -121,6 +121,7 @@ Thanh toan nhan hang tai dia chi nguoi nhan khi dang nhap account
     ${messege}    get text    ${btn_tieptucmuahang}
     Should be equal as strings    ${messege}    TIẾP TỤC MUA HÀNG
     click to element    ${btn_tieptucmuahang}
+
     return from keyword    ${ma_dh}
 
 Tao dia chi nhan va dat hang

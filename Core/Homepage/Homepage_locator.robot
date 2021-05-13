@@ -33,4 +33,5 @@ ${cart_button}   //div[@id='icon-cart']//button[@class='btn-circle']
 ${btn_xoacart}   //div[@class='kv-product-list-item product-item'][1]//div[@class='shopping-cart-remove-item']
 ${link_profile}  //div[@class='acc-infor__menu']//a[contains(@href,'customer/profile.html')]
 ${link_favourite}  //div[@class='acc-infor__menu']//a[contains(@href,'customer/favorite-product.html')]
+${link_productsviewed}   //div[@class='acc-infor__menu']//a[contains(@href,'customer/viewed-product.html')]
 

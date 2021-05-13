@@ -138,7 +138,8 @@ Get customer favorite products from api
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
     ${tensp}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $.data.data..name
-    ${tensp}=    evaluate    $tensp[0]
+   # ${tensp}=    evaluate    $tensp[0]
+    ${tensp}=     evaluate    $tensp
     log    ${tensp}
     return from keyword    ${tensp}
 

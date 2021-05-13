@@ -17,7 +17,7 @@ Validate status orders in order history
     press keys   ${txt_searchorder}   ENTER
     ${order_status}   format string   ${status_line1}  ${order_code}  ${status_order}
     [Timeout]    15 minutes
-     : FOR    ${time}    IN RANGE    20
+     : FOR    ${time}    IN RANGE    30
     \   page should contain  ${order_code}
     \   ${status}=   run keyword and return status   wait until element is visible     ${order_status}   30s
     \    run keyword if       '${Status}'=='False'    reload page order history
