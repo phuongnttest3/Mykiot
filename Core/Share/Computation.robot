@@ -8,14 +8,16 @@ Resource          Javascript.robot
 
 *** Keywords ***
 Click To Element
-    [Arguments]  ${locator}
-    wait until element is visible  ${locator}   5s
-    click element  ${locator}
+    [Arguments]    ${locator}
+    wait until element is visible    ${locator}    5s
+    click element    ${locator}
+
 Sendkey To Element
-    [Arguments]  ${locator}   ${value}
-    wait until element is visible  ${locator}   5s
-    press keys  ${locator}   CTRL+a+BACKSPACE
-    input text  ${locator}  ${value}
+    [Arguments]    ${locator}    ${value}
+    wait until element is visible    ${locator}    5s
+    press keys    ${locator}    CTRL+a+BACKSPACE
+    input text    ${locator}    ${value}
+
 Multiplication
     [Arguments]    ${num1}    ${num2}
     [Timeout]    15 seconds

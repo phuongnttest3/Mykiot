@@ -3,6 +3,7 @@ Suite Setup       init test env sync    live
 Test Setup        before test    live
 Test Teardown     after test
 Library           SeleniumLibrary
+Library           SeleniumLibrary    #Test Teardown    after test
 Library           RequestsLibrary
 Library           Collections
 Library           JSONLibrary
@@ -26,7 +27,6 @@ Resource          ../Core/API-KV/api_hoadon.robot
 Resource          ../Core/API-KV/api_order_kv.robot
 Resource          ../Core/Customer/Orderhistory_action.robot
 Resource          ../Core/Customer/Addresspage_action.robot
-
 
 *** Variables ***
 &{order_1}        SP000006=3    SP000007=4    SP000009=3

@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       init test env sync    stagingnew
+Suite Setup       init test env sync    live
 Library           JSONLibrary
 Library           RequestsLibrary
 Library           String
