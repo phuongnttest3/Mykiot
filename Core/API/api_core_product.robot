@@ -69,3 +69,30 @@ Get product main infor from product detail
     ${product_baseprice}    Get data from response json    ${resp.json()}    $.data.basePrice
     return from keyword    ${product_code}    ${product_name}    ${category_name}    ${stock}    ${product_baseprice}
     [Teardown]
+
+Get list product category from api
+    [Arguments]  ${category_id}   ${retailer_id}
+    ${headers}=   create dictionary  store-id=${retailer_id}
+    create session    ali    ${coreapi_url}     verify=True
+    ${uri}=  format string   /v1/products/category/{0}    ${category_id}
+    ${resp}=   get request   ali   ${uri}   ${headers}
+    log  ${resp.json()}
+    Should Be Equal As Strings    ${resp.status_code}    200
+    ${prod_name}=   JSONLibrary.Get Value From Json      ${resp.json()}   $.data.products..name
+    ${prod_name}=    Evaluate    $prod_name    modules=random, sys
+    log    ${prod_name}
+    ${category_namechild}=  JSONLibrary.Get Value From Json      ${resp.json()}   $.data.filter.categories..name
+    ${category_namechild}=    Evaluate    $category_namechild   modules=random, sys
+    log    ${category_namechild}
+    ${attribute_name}=  JSONLibrary.Get Value From Json      ${resp.json()}   $.data.filter..attributes.*
+    ${attribute_name}=    Evaluate   $attribute_name    modules=random, sys
+    # ${attribute_name1}=     Get Dictionary Items     ${attribute_name}
+    ${attribute_length}=   get length   ${attribute_name}
+    ${attribute_list} =   create list
+    : FOR  ${i}   IN RANGE   ${attribute_length}
+    \   ${attribute_name1}=    Evaluate    $attribute_name[${i}]
+    \   log   ${attribute_name1}
+    \    ${a}=   combine lists  ${attribute_list}   ${attribute_name1}
+    \    ${attribute_list} =  evaluate   $a
+    \    log     ${attribute_list}
+    return from keyword     ${prod_name}    ${category_namechild}    ${attribute_list}

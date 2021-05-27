@@ -27,6 +27,7 @@ Resource          ../Core/API-KV/api_hoadon.robot
 Resource          ../Core/API-KV/api_order_kv.robot
 Resource          ../Core/Customer/Orderhistory_action.robot
 Resource          CoreAPI.robot
+Resource          ../Core/CMS-Product/cms_locator.robot
 
 *** Test Cases ***
 ACC001

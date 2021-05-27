@@ -25,9 +25,16 @@ Add product and check detail
     [Template]    Add product and check detail
     Hoa cúc đại đóa    Hoa    100000    50000    120
 
-TCS002 - Quickcart
+TCS002
     [Template]    Add product to quickcart and validate
     PK023    3
+TCS003
+   [Template]   Get list product category api and check data
+    140    810032
+TCS004
+    [Template]   search result product and check data
+    hoa
+
 
 *** Keywords ***
 Add product and check detail
@@ -83,9 +90,60 @@ Add product to quickcart and validate
     ${product_code}    ${product_name}    ${category_name}    ${stock}    ${product_baseprice}    get product main infor from product detail    ${product_id}
     open browser    https://fe-staging.citigo.dev:40001    gc
     Maximize browser window
-    Dang nhap account    ${google_account}    ${google_pass}
+    Dang nhap account fe    ${google_account}    ${google_pass}
     wait until element is visible    ${btn_giohang}    5s
     click element    ${btn_giohang}
     ${productname_locator}    Format string    ${link_tensp_giohang}    ${product_name}
     Page should contain element    ${productname_locator}
     Delete product from customer cart through api    ${product_id}
+
+Get list product category api and check data
+    [Arguments]   ${category_id}    ${retailer_id}
+    ${product_name}  ${category_child}  ${attribute_name}   Get list product category from api   ${category_id}     ${retailer_id}
+    open browser  https://fe-staging.citigo.dev:40001/thuc-pham.c140.html    gc
+    maximize browser window
+    sleep  2s
+    Execute Javascript    window.location.reload(true);
+    sleep  5s
+    ${length_productname}=   get length    ${product_name}
+    ${length_category}=   get length     ${category_child}
+    ${length_attribute}=    get length     ${attribute_name}
+
+    #kiểm tra danh sach ten san pham hiển thị có ở page 1
+    :FOR  ${i}  IN RANGE   ${length_productname}
+    \  ${name}  get from list  ${product_name}  ${i}
+    \  page should contain  ${name}
+    \  exit for loop if  '${i}'=='${length_productname}'
+
+    # kiểm tra danh sach các category được hiển thị
+    :FOR  ${j}  IN RANGE   ${length_category}
+    \   ${category}  get from list  ${category_child}  ${j}
+    \   page should contain   ${category}
+    \  exit for loop if  '${j}'=='${length_category}'
+
+    # Kiểm tra các thuộc tính hiển thị ở page product listing
+    :FOR  ${x}  IN RANGE   ${length_attribute}
+    \   ${attribute}  get from list  ${attribute_name}  ${x}
+    \   page should contain   ${attribute}
+    \  exit for loop if  '${x}'=='${length_attribute}'
+
+
+search result product and check data
+   [Arguments]   ${key}
+    ${valjson}  Search product through api    ${key}
+    ${listname}    JSONLibrary.Get Value From Json     ${valjson}      $.data.products..name
+    ${listname}   evaluate     $listname
+    log    ${listname}
+    open browser  https://fe-staging.citigo.dev:40001/    gc
+    maximize browser window
+    sleep  2s
+    Execute Javascript    window.location.reload(true);
+    sleep  5s
+    sendkey to element   ${txt_searchfe}    ${key}
+    click element js    ${btn_searchfe}
+
+     ${length_listname}=   get length    ${listname}
+        :FOR  ${i}  IN RANGE   ${length_listname}
+    \  ${name}  get from list  ${listname}  ${i}
+    \  page should contain  ${name}
+    \  exit for loop if  '${i}'=='${length_listname}'

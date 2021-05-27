@@ -43,3 +43,4 @@ ${link_profile}    //div[@class='acc-infor__menu']//a[contains(@href,'customer/p
 ${btn_iconlove}    //div[@class='wrap-loop-category-home '][1]//div[contains(@class,'col-item col-item')][{0}]//div[@class='kv-product-list-item--content']//div[@class='kv-product-action']//div[contains(@class,'kv-product-favourite')]//i
 ${txt_tensplove}    //div[@class='wrap-loop-category-home '][1]//div[contains(@class,'col-item col-item')][{0}]//div[@class='kv-product-list-item--content']//div[@class='product-wrap']//h6
 ${btn_activeiconlove}    //div[@class='wrap-loop-category-home '][1]//div[contains(@class,'col-item col-item')][1]//div[@class='kv-product-list-item--content']//div[@class='kv-product-action']//div[contains(@class,'kv-product-favourite active')]//i
+

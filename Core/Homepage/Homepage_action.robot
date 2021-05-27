@@ -212,12 +212,13 @@ Cho sp vao gio hang
     Return from keyword    ${total}    ${price}
 
 kiem tra gio hang
-     ${Status}=    Run Keyword And Return Status    wait until element is visible    ${slhh_incart}   5s
-     Run Keyword If    '${Status}'=='False'    Xoa quickcart
+       ${status}=    Run Keyword And Return Status    wait until element is visible    ${slhh_incart}    5s
+       Run Keyword If    '${status}' == 'False'     Delete cart
 
-Xoa quickcart
-     click to element   ${cart_button}
-     :FOR  ${index}  IN RANGE   100
-     \  click to element   ${btn_xoacart}
-     \  ${stus}=    Run Keyword And Return Status    wait until element is visible    ${slhh_incart}   5s
-     \  exit for loop if     '${stus}'=='True'
+Delete cart
+    click to element    ${cart_button}
+    : FOR    ${index}    IN RANGE    100
+    \    click to element    ${btn_xoacart}
+    \    ${stus}=    Run Keyword And Return Status    wait until element is visible    ${slhh_incart}
+    \    exit for loop if    '${stus}'=='True'
+    Element Should Be Visible    ${slhh_incart}    5s

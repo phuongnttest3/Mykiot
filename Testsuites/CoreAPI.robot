@@ -127,6 +127,11 @@ TCA027
     [Template]    Get customer orders detail from api
     DHMK
 
+TCA028
+    [Template]    Get list product category from api
+    339  810060
+
+
 *** Keywords ***
 Delete comment
     [Arguments]    ${product_code}    ${content}

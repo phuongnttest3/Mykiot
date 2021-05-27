@@ -20,3 +20,4 @@ ${menu_thietlaptenmien}   //a[contains(text(),'Tên miền')]
 ${btn_viewstorefront}  //button[@id='btn-view-status-of-store']
 ${btn_view}  //a[contains(string(),'Xem trang')]
 
+${btn_sync}  //div[@class='kv-sync']//button[@class='btn btn-primary btn-sync']

@@ -81,9 +81,10 @@ Detele customer carts from api
     ${data}=    create dictionary    product_id=${product_id}
     ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    ${coreapi_url}    headers=${heades1}
-    ${resp1}=    delete request    lolo    v1/customers/carts    headers=${heades1}    data=${data}
+    ${resp1}=    post request    lolo    v1/customers/carts/delete/    headers=${heades1}    data=${data}
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
+
 
 Get customer favourite products from api
     [Arguments]    ${store-id}
@@ -119,15 +120,6 @@ Get customer order list
     ${order_id} =    Evaluate    $order_id or 0
     Return From Keyword    ${result}    ${order_id}
 
-Delete customer cart from api
-    [Arguments]    ${store-id}
-    ${product_id}    Get customer cart from api    ${store-id}
-    ${data}=    create dictionary    product_id=${product_id}
-    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
-    create session    lolo    https://api-staging.citigo.dev:40001/api    headers=${heades1}
-    ${resp1}=    delete request    lolo    v1/customers/carts    headers=${heades1}    data=${data}
-    log    ${resp1.json()}
-    Should be equal as strings    ${resp1.status_code}    200
 
 Get customer favorite products from api
     [Arguments]    ${store-id}
@@ -160,7 +152,11 @@ Get customer products viewed from api
     create session    lolo    ${coreapi_url}
     ${resp1}=    get request    lolo    v1/customers/viewed    headers=${heades1}
     log    ${resp1.json()}
+    ${name_viewed}=    JSONLibrary.Get Value From Json  ${resp1.json()}     $.data..name
+    ${name_viewed}=    evaluate   $name_viewed
+    log   ${name_viewed}
     Should be equal as strings    ${resp1.status_code}    200
+    return from keyword   ${name_viewed}
 
 Create order customer from api
     [Arguments]    ${product_sku}
