@@ -23,7 +23,7 @@ Get list comment of product
 Get list comment of customer
     [Arguments]    ${keyword}
     ${param}=    create dictionary    keyword=${keyword}    limit=10
-    ${heades1}=    create dictionary    store-id=${retailer_id}    Authorization=${mykiot_token}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Authorization=${bearer_token}
     create session    lolo    ${coreapi_url}
     ${resp1}=    get request    lolo    /v1/comments/me    headers=${heades1}    params=${param}
     log    ${resp1.json()}
@@ -33,7 +33,7 @@ Get list comment of customer
 Create comment through api
     [Arguments]    ${product_code}    ${content}
     ${product_id}    Get product id through product code    ${product_code}
-    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
     ${data}=    create dictionary    product_id=${product_id}    content=${content}
     create session    lolo    ${coreapi_url}
     ${resp1}=    post request    lolo    /v1/comments/create    headers=${heades1}    data=${data}
@@ -49,7 +49,7 @@ Update comment through api
     ${content}    format string    Sửa bình luận {0}    ${hex}
     ${product_id}    Get product id through product code    ${product_code}
     ${comment_id}    Get comment id through product code    ${product_code}
-    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
     ${data}=    create dictionary    product_id=${product_id}    content=${content}    comment_id=${comment_id}
     create session    lolo    ${coreapi_url}
     ${resp1}=    post request    lolo    /v1/comments/update    headers=${heades1}    data=${data}
@@ -63,7 +63,7 @@ Delete comment through api
     [Arguments]    ${product_code}
     ${product_id}    Get product id through product code    ${product_code}
     ${comment_id}    Get comment id through product code    ${product_code}
-    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
     ${data}=    create dictionary    product_id=${product_id}    comment_id=${comment_id}
     create session    lolo    ${coreapi_url}
     ${resp1}=    post request    lolo    /v1/comments/delete    headers=${heades1}    data=${data}

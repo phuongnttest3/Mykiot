@@ -26,7 +26,7 @@ Login customer get token from api
 
 Get profile customer from api
     [Arguments]    ${retailer_id}
-    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    ${coreapi_url}
     ${resp1}=    get request    lolo    /v1/customers/profile    headers=${heades1}
     log    ${resp1.json()}
@@ -38,7 +38,7 @@ Get profile customer from api
 
 Update profile customer thr api
     [Arguments]    ${name_update}
-    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     ${data}=    create dictionary    gender=2    name=${name_update}
     create session    lolo    ${coreapi_url}
     ${resp1}=    post request    lolo    /v1/customers/profile    headers=${heades1}    data=${data}
@@ -47,15 +47,15 @@ Update profile customer thr api
 
 Get customer address from api
     [Arguments]    ${store-id}
-    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
-    create session    lolo    https://api-staging.citigo.dev:40001/api
+    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
+    create session    lolo    ${coreapi_url}
     ${resp1}=    get request    lolo    v1/customers/address    headers=${heades1}
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
 
 Get customer cart from api
     [Arguments]    ${store-id}
-    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    ${coreapi_url}
     ${resp1}=    get request    lolo    v1/customers/carts    headers=${heades1}
     log    ${resp1.json()}
@@ -69,7 +69,7 @@ update customer cart from api
     [Arguments]    ${product_code}    ${quanlity}
     ${product_id}    Get product id through product code    ${product_code}
     ${data}=    create dictionary    product_id=${product_id}    quantity=${quanlity}
-    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    ${coreapi_url}    headers=${heades1}
     ${resp1}=    post request    lolo    v1/customers/carts    headers=${heades1}    data=${data}
     log    ${resp1.json()}
@@ -79,7 +79,7 @@ Detele customer carts from api
     [Arguments]    ${product_code}
     ${product_id}    Get product id through product code    ${product_code}
     ${data}=    create dictionary    product_id=${product_id}
-    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    ${coreapi_url}    headers=${heades1}
     ${resp1}=    delete request    lolo    v1/customers/carts    headers=${heades1}    data=${data}
     log    ${resp1.json()}
@@ -87,7 +87,7 @@ Detele customer carts from api
 
 Get customer favourite products from api
     [Arguments]    ${store-id}
-    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    ${coreapi_url}
     ${resp1}=    get request    lolo    v1/customers/favorites    headers=${heades1}
     log    ${resp1.json()}
@@ -96,7 +96,7 @@ Get customer favourite products from api
 Update favourite product thr api
     [Arguments]    ${product_code}
     ${product_id}    Get product id through product code    ${product_code}
-    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     ${data}=    create dictionary    product_id=${product_id}
     create session    lolo    ${coreapi_url}
     ${resp1}=    post request    lolo    /v1/customers/favorites    headers=${heades1}    data=${data}
@@ -105,7 +105,7 @@ Update favourite product thr api
 
 Get customer order list
     [Arguments]    ${order_code}
-    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     ${endpoint}=    Format string    /v1/customers/orders?keyword={0}    ${order_code}
     create session    lolo    ${coreapi_url}
     ${resp1}=    get request    lolo    ${endpoint}    headers=${heades1}
@@ -123,7 +123,7 @@ Delete customer cart from api
     [Arguments]    ${store-id}
     ${product_id}    Get customer cart from api    ${store-id}
     ${data}=    create dictionary    product_id=${product_id}
-    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    https://api-staging.citigo.dev:40001/api    headers=${heades1}
     ${resp1}=    delete request    lolo    v1/customers/carts    headers=${heades1}    data=${data}
     log    ${resp1.json()}
@@ -132,7 +132,7 @@ Delete customer cart from api
 Get customer favorite products from api
     [Arguments]    ${store-id}
     ${bearer_token}    Login customer get token from api    ${store-id}
-    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    https://api-staging.citigo.dev:40001/api
     ${resp1}=    get request    lolo    v1/customers/favorites    headers=${heades1}
     log    ${resp1.json()}
@@ -146,7 +146,7 @@ Get customer favorite products from api
 Get customer orders detail from api
     [Arguments]    ${order_code}
     ${result}    ${order_id}    Get customer order list    ${order_code}
-    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     ${params}=    create dictionary    order_id=${order_id}
     create session    lolo    ${coreapi_url}
     ${resp1}=    get request    lolo    v1/customers/orders/detail    headers=${heades1}    params=${params}
@@ -156,7 +156,7 @@ Get customer orders detail from api
 Get customer products viewed from api
     [Arguments]    ${order_code}
     ${result}    ${order_id}    Get customer order list    ${order_code}
-    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    ${coreapi_url}
     ${resp1}=    get request    lolo    v1/customers/viewed    headers=${heades1}
     log    ${resp1.json()}
@@ -168,7 +168,7 @@ Create order customer from api
     ${data}    Format String    {{ "code": "kiotviet", "products": [ {{ "product_id": 5091,"quantity": 1, "product_name": "Vòng chống muỗi Nhật Bản", "product_sku": "{0}", "note": null, "stock": 1000, "attributes": [], "images": [], "combo": [], "unit": [], "tradeMarkName": "", "price": 290070 }} ], "delivery": {{ "cod": false, "name": "Test Automation", "phone": "0967214074", "address": "434 Trần Khát Chân, Quận Hoàn Kiếm - Hà Nội", "branchAddress": "434 Trần Khát Chân, Quận Hoàn Kiếm - Hà Nội", "description": "" }}, "surcharges": [], "cart_token": "{1}" }}    ${product_sku}    ${cart_token}
     ${data} =    Encode String To Bytes    ${data}    UTF-8
     log    ${data}
-    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/json;charset=utf-8    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/json;charset=utf-8    Authorization=${mykiot_token}
     create session    lolo    ${coreapi_url}    verify=True
     ${resp1}=    post request    lolo    /v1/customers/orders/create    headers=${heades1}    data=${data}
     log    ${resp1.json()}
@@ -177,7 +177,7 @@ Create order customer from api
 Delete product from customer cart through api
     [Arguments]    ${product_id}
     ${data}=    create dictionary    product_id=${product_id}
-    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    ${coreapi_url}    headers=${heades1}
     ${resp1}=    post request    lolo    v1/customers/carts/delete    headers=${heades1}    data=${data}
     log    ${resp1.json()}

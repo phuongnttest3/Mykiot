@@ -99,7 +99,7 @@ init test core api
     [Arguments]    ${env}
     fill env    ${env}
     ${token_value}    Login customer get token from api    ${retailer_id}
-    Set global variable    \${bearer_token}    ${token_value}
+    Set global variable    \${mykiot_token}    ${token_value}
     Append To Environment Variable    PATH    ${EXECDIR}${/}Drivers
     Set Screenshot Directory    ${EXECDIR}${/}Out${/}Failures
     Set Selenium Speed    0.1s
@@ -110,8 +110,10 @@ init test storefront
     ${token_value}    ${resp.cookies}    Get BearerToken from api
     Set global variable    \${bearertoken}    ${token_value}
     Set global variable    \${resp.cookies}    ${resp.cookies}
-    ${token_value}    Login customer get token from api    ${retailer_id}
-    Set global variable    \${bearer_token}    ${token_value}
+    ${token_value1}    Login customer get token from api    ${retailer_id}
+    Set global variable    \${mykiot_token}    ${token_value1}
     Append To Environment Variable    PATH    ${EXECDIR}${/}Drivers
     Set Screenshot Directory    ${EXECDIR}${/}Out${/}Failures
     Set Selenium Speed    0.1s
+    log     ${bearertoken}
+    log    ${mykiot_token}
