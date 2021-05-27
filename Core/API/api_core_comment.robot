@@ -66,7 +66,7 @@ Delete comment through api
     ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
     ${data}=    create dictionary    product_id=${product_id}    comment_id=${comment_id}
     create session    lolo    ${coreapi_url}
-    ${resp1}=    delete request    lolo    /v1/comments/delete    headers=${heades1}    data=${data}
+    ${resp1}=    post request    lolo    /v1/comments/delete    headers=${heades1}    data=${data}
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
 

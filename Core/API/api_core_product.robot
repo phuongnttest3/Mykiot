@@ -50,7 +50,7 @@ Search product through api
 Get product id through product code
     [Arguments]    ${product_code}
     ${resp.json()}=    Search product through api    ${product_code}
-    ${product_id}=    JSONLibrary.Get Value From Json    ${resp.json()}    $.data.data[0].id
+    ${product_id}=    JSONLibrary.Get Value From Json    ${resp.json()}    $.data.products[0].id
     ${product_id}=    Evaluate    $product_id[0] if $product_id else 0    modules=random, sys
     log    ${product_id}
     return from keyword    ${product_id}

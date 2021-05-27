@@ -66,9 +66,9 @@ Get customer cart from api
     return from keyword    ${product_id}
 
 update customer cart from api
-    [Arguments]    ${product_code}
+    [Arguments]    ${product_code}    ${quanlity}
     ${product_id}    Get product id through product code    ${product_code}
-    ${data}=    create dictionary    product_id=${product_id}    quantity=150
+    ${data}=    create dictionary    product_id=${product_id}    quantity=${quanlity}
     ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
     create session    lolo    ${coreapi_url}    headers=${heades1}
     ${resp1}=    post request    lolo    v1/customers/carts    headers=${heades1}    data=${data}
@@ -119,7 +119,7 @@ Get customer order list
     ${order_id} =    Evaluate    $order_id or 0
     Return From Keyword    ${result}    ${order_id}
 
-Detele customer cart from api
+Delete customer cart from api
     [Arguments]    ${store-id}
     ${product_id}    Get customer cart from api    ${store-id}
     ${data}=    create dictionary    product_id=${product_id}
@@ -138,8 +138,8 @@ Get customer favorite products from api
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
     ${tensp}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $.data.data..name
-   # ${tensp}=    evaluate    $tensp[0]
-    ${tensp}=     evaluate    $tensp
+    # ${tensp}=    evaluate    $tensp[0]
+    ${tensp}=    evaluate    $tensp
     log    ${tensp}
     return from keyword    ${tensp}
 
@@ -165,11 +165,20 @@ Get customer products viewed from api
 Create order customer from api
     [Arguments]    ${product_sku}
     ${cart_token}=    Generate Random String    10    [LOWER]
-    ${data}    Format String    {{ "code": "kiotviet", "products": [ {{ "product_id": 5091,"quantity": 1, "product_name": "Vòng chống muỗi Nhật Bản", "product_sku": "{0}", "note": null, "stock": 1000, "attributes": [], "images": [], "combo": [], "unit": [], "tradeMarkName": "", "price": 290070 }} ], "delivery": {{ "cod": false, "name": "Test Automation", "phone": "0967214074", "address": "434 Trần Khát Chân, Quận Hoàn Kiếm - Hà Nội", "branchAddress": "434 Trần Khát Chân, Quận Hoàn Kiếm - Hà Nội", "description": "" }}, "surcharges": [], "cart_token": "{1}" }}   ${product_sku}   ${cart_token}
+    ${data}    Format String    {{ "code": "kiotviet", "products": [ {{ "product_id": 5091,"quantity": 1, "product_name": "Vòng chống muỗi Nhật Bản", "product_sku": "{0}", "note": null, "stock": 1000, "attributes": [], "images": [], "combo": [], "unit": [], "tradeMarkName": "", "price": 290070 }} ], "delivery": {{ "cod": false, "name": "Test Automation", "phone": "0967214074", "address": "434 Trần Khát Chân, Quận Hoàn Kiếm - Hà Nội", "branchAddress": "434 Trần Khát Chân, Quận Hoàn Kiếm - Hà Nội", "description": "" }}, "surcharges": [], "cart_token": "{1}" }}    ${product_sku}    ${cart_token}
     ${data} =    Encode String To Bytes    ${data}    UTF-8
     log    ${data}
     ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/json;charset=utf-8    Authorization=${bearer_token}
     create session    lolo    ${coreapi_url}    verify=True
     ${resp1}=    post request    lolo    /v1/customers/orders/create    headers=${heades1}    data=${data}
+    log    ${resp1.json()}
+    Should be equal as strings    ${resp1.status_code}    200
+
+Delete product from customer cart through api
+    [Arguments]    ${product_id}
+    ${data}=    create dictionary    product_id=${product_id}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${bearer_token}
+    create session    lolo    ${coreapi_url}    headers=${heades1}
+    ${resp1}=    post request    lolo    v1/customers/carts/delete    headers=${heades1}    data=${data}
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200

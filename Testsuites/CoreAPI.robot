@@ -61,7 +61,7 @@ TCA010
 
 TCA011
     [Template]    update customer cart from api
-    SP001452
+    SP001452    12
 
 TCA012
     [Template]    Detele customer carts from api
@@ -101,7 +101,7 @@ TCA020
 
 TCA021
     [Template]    Create comment through api
-    SP001355     Bình luận sản phẩm
+    SP001355    Bình luận sản phẩm
 
 TCA022
     [Template]    Update Comment Through API
@@ -134,12 +134,10 @@ Delete comment
     Delete comment through api    ${product_code}
 
 add products cart from api
-    [Arguments]    ${product_id}
-    update customer cart from api    ${product_id}
+    [Arguments]    ${product_code}    ${quantity}
+    update customer cart from api    ${product_code}    ${quantity}
 
 Get product detail through product code
     [Arguments]    ${product_code}
     ${product_id}    Get product id through product code    ${product_code}
     Get product detail    ${product_id}
-
-

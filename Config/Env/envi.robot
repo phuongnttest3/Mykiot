@@ -22,7 +22,7 @@ fill env
     ${dic_storefronturl}    Create Dictionary    live=https://mykiot.vn/testautomykiot    stagingnew=https://staging.citigo.dev:40001/testautomykiot    prelivenew=https://prelive.citigo.dev:40003/testautomykiot    stagingtest=https://staging.citigo.dev:40001/chuhueman
     ${dict_kvurl}    Create Dictionary    live=https://testautomykiot.kiotviet.com/    stagingnew=https://testautomykiot.kvpos.com:59903/    prelivenew=https://testautomykiot.kvpos.com:59903/    stagingtest=https://chuhueman.kvpos.com:59903/
     ${dict_username}    Create Dictionary    live=admin    stagingnew=admin    prelivenew=admin    stagingtest=admin
-    ${dict_password}    Create Dictionary    live=kiotviet123456    stagingnew=123    prelivenew=123    stagingtest=123
+    ${dict_password}    Create Dictionary    live=123    stagingnew=123    prelivenew=123    stagingtest=123
     ${dic_kv_apiurl}    Create Dictionary    live=https://testautomykiot.kiotviet.com/api    stagingnew=https://testautomykiot.kvpos.com:59903/api    prelivenew=https://testautomykiot.kvpos.com:59903/api    stagingtest=https://chuhueman.kvpos.com:59903/api
     ${dic_branchid}    Create Dictionary    live=9113    stagingnew=11749    prelivenew=11749    stagingtest=11737
     ${dic_zone}    Create Dictionary    live=26    stagingnew=1    prelivenew=1    stagingtest=1
@@ -98,6 +98,18 @@ init test env sync
 init test core api
     [Arguments]    ${env}
     fill env    ${env}
+    ${token_value}    Login customer get token from api    ${retailer_id}
+    Set global variable    \${bearer_token}    ${token_value}
+    Append To Environment Variable    PATH    ${EXECDIR}${/}Drivers
+    Set Screenshot Directory    ${EXECDIR}${/}Out${/}Failures
+    Set Selenium Speed    0.1s
+
+init test storefront
+    [Arguments]    ${env}
+    fill env    ${env}
+    ${token_value}    ${resp.cookies}    Get BearerToken from api
+    Set global variable    \${bearertoken}    ${token_value}
+    Set global variable    \${resp.cookies}    ${resp.cookies}
     ${token_value}    Login customer get token from api    ${retailer_id}
     Set global variable    \${bearer_token}    ${token_value}
     Append To Environment Variable    PATH    ${EXECDIR}${/}Drivers

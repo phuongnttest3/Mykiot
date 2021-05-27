@@ -5,7 +5,8 @@ Library           String
 Get stock of product in product detail
     [Arguments]    ${dec}
     ${dec}    Convert To String    ${dec}
-    ${dec}    Replace String    ${dec}    Sản phẩm có sẵn    ${EMPTY}
+    ${dec}    Fetch from left    ${dec}    ${SPACE}
+    #${dec}    Replace String    ${dec}    Sản phẩm có sẵn    ${EMPTY}
     ${dec}    Convert to number    ${dec}
     Return From Keyword    ${dec}
 

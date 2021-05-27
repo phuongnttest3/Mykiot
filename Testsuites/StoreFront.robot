@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       init test env sync    stagingtest
+Suite Setup       init test storefront    stagingtest
 Suite Teardown
 Test Teardown     after test
 Library           SeleniumLibrary
@@ -16,11 +16,18 @@ Resource          ../Config/Env/envi.robot
 Resource          ../Core/Product_Detail_Page_New/Product_Detail_locator.robot
 Resource          ../Core/Common.robot
 Resource          ../Core/Product_Detail_Page_New/Product_Detail_Action.robot
+Resource          ../Core/HomePage_New/Homepage_action.robot
+Resource          ../Core/Common_/Common_locator.robot
+Resource          ../Core/API/api_core_customer.robot
 
 *** Test Cases ***
 Add product and check detail
     [Template]    Add product and check detail
     Hoa cúc đại đóa    Hoa    100000    50000    120
+
+TCS002 - Quickcart
+    [Template]    Add product to quickcart and validate
+    PK023    3
 
 *** Keywords ***
 Add product and check detail
@@ -54,6 +61,7 @@ Add product and check detail
     Should be equal as numbers    ${baseprice_api}    ${baseprice_input}
     ${product_url}    Get url product detail    ${product_name}    ${product_id}
     go to    ${product_url}
+    go to    ${product_url}
     reload page
     ${product_code_locator}    Format string    ${lbl_productcode}    ${product_code}
     ${product_name_locator}    Format string    ${lbl_productname}    ${product_name}
@@ -67,3 +75,17 @@ Add product and check detail
     ${price_storefront}    Convert price to number    ${lbl_productprice}
     should be equal as numbers    ${price_storefront}    ${baseprice_input}
     Delete kv product thr API    ${product_code}
+
+Add product to quickcart and validate
+    [Arguments]    ${product_code}    ${quantity}
+    update customer cart from api    ${product_code}    ${quantity}
+    ${product_id}    Get product id through product code    ${product_code}
+    ${product_code}    ${product_name}    ${category_name}    ${stock}    ${product_baseprice}    get product main infor from product detail    ${product_id}
+    open browser    https://fe-staging.citigo.dev:40001    gc
+    Maximize browser window
+    Dang nhap account    ${google_account}    ${google_pass}
+    wait until element is visible    ${btn_giohang}    5s
+    click element    ${btn_giohang}
+    ${productname_locator}    Format string    ${link_tensp_giohang}    ${product_name}
+    Page should contain element    ${productname_locator}
+    Delete product from customer cart through api    ${product_id}
