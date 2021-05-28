@@ -60,14 +60,10 @@ Get customer cart from api
     ${resp1}=    get request    lolo    v1/customers/carts    headers=${heades1}
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
-    ${product_id}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $..data[0].id
+    ${product_id}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $..data.data[0].product_id
     ${product_id}=    evaluate    $product_id[0] if $product_id else 0    modules=random, sys
-    ${product_quantity}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $..data[0].quantity
-    ${product_quantity}=    evaluate    $product_quantity[0] if $product_quantity else 0    modules=random, sys
-    ${product_code}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $..data[0].code
-    ${product_code}=    evaluate    $product_code[0] if $product_code else 0    modules=random, sys
     log    ${product_id}
-    return from keyword    ${product_id}    ${product_quantity}    ${product_code}
+    return from keyword    ${product_id}
 
 update customer cart from api
     [Arguments]    ${product_code}    ${quanlity}
@@ -88,6 +84,7 @@ Detele customer carts from api
     ${resp1}=    post request    lolo    v1/customers/carts/delete    headers=${heades1}    data=${data}
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
+
 
 Get customer favourite products from api
     [Arguments]    ${store-id}
@@ -123,6 +120,7 @@ Get customer order list
     ${order_id} =    Evaluate    $order_id or 0
     Return From Keyword    ${result}    ${order_id}
 
+
 Get customer favorite products from api
     [Arguments]    ${store-id}
     ${bearer_token}    Login customer get token from api    ${store-id}
@@ -154,11 +152,11 @@ Get customer products viewed from api
     create session    lolo    ${coreapi_url}
     ${resp1}=    get request    lolo    v1/customers/viewed    headers=${heades1}
     log    ${resp1.json()}
-    ${name_viewed}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $.data..name
-    ${name_viewed}=    evaluate    $name_viewed
-    log    ${name_viewed}
+    ${name_viewed}=    JSONLibrary.Get Value From Json  ${resp1.json()}     $.data..name
+    ${name_viewed}=    evaluate   $name_viewed
+    log   ${name_viewed}
     Should be equal as strings    ${resp1.status_code}    200
-    return from keyword    ${name_viewed}
+    return from keyword   ${name_viewed}
 
 Create order customer from api
     [Arguments]    ${product_sku}

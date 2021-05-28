@@ -1,7 +1,7 @@
 *** Settings ***
 Suite Setup       init test storefront    stagingtest
 Suite Teardown
-#Test Teardown     after test
+Test Teardown     after test
 Library           SeleniumLibrary
 Library           RequestsLibrary
 Library           Collections
@@ -19,28 +19,35 @@ Resource          ../Core/Product_Detail_Page_New/Product_Detail_Action.robot
 Resource          ../Core/HomePage_New/Homepage_action.robot
 Resource          ../Core/Common_/Common_locator.robot
 Resource          ../Core/API/api_core_customer.robot
+Resource          ../Core/Common_/Common_action.robot
 Resource          ../Core/SearchResult_Page/Searchpage_locator.robot
 Resource          ../Core/SearchResult_Page/Searchpagenew_action.robot
 Resource          ../Core/CheckoutPage/Checkoutpage_action.robot
 
-
 *** Test Cases ***
-Add product and check detail
+TCS001
     [Template]    Add product and check detail
     Hoa cúc đại đóa    Hoa    100000    50000    120
 
 TCS002
-    [Template]    Add product to quickcart and validate
+    [Template]    Add product to quickcart through api and validate
     PK023    3
+
 TCS003
-   [Template]   Get list product category api and check data
+    [Template]    Get list product category api and check data
     140    810032
+
 TCS004
-    [Template]   search result product and check data
+    [Template]    search result product and check data
     hoa
+
 TCS005
-    [Template]  Add product to cart and check out
-     SP9555556987   3   1B Yết Kiêu, Phường Trần Hưng Đạo, Quận Hoàn Kiếm - Hà Nội
+    [Template]    Add product to cart and check out
+    SP9555556987    3    1B Yết Kiêu, Phường Trần Hưng Đạo, Quận Hoàn Kiếm - Hà Nội
+
+TCS006
+    [Template]    Add product to quickcart and validate through api
+    SP9555556916    33
 
 *** Keywords ***
 Add product and check detail
@@ -89,7 +96,7 @@ Add product and check detail
     should be equal as numbers    ${price_storefront}    ${baseprice_input}
     Delete kv product thr API    ${product_code}
 
-Add product to quickcart and validate
+Add product to quickcart through api and validate
     [Arguments]    ${product_code}    ${quantity}
     update customer cart from api    ${product_code}    ${quantity}
     ${product_id}    Get product id through product code    ${product_code}
@@ -104,64 +111,67 @@ Add product to quickcart and validate
     Delete product from customer cart through api    ${product_id}
 
 Get list product category api and check data
-    [Arguments]   ${category_id}    ${retailer_id}
-    ${product_name}  ${category_child}  ${attribute_name}   Get list product category from api   ${category_id}     ${retailer_id}
-    open browser  https://fe-staging.citigo.dev:40001/thuc-pham.c140.html    gc
+    [Arguments]    ${category_id}    ${retailer_id}
+    ${product_name}    ${category_child}    ${attribute_name}    Get list product category from api    ${category_id}    ${retailer_id}
+    open browser    https://fe-staging.citigo.dev:40001/thuc-pham.c140.html    gc
     maximize browser window
-    sleep  2s
+    sleep    2s
     Execute Javascript    window.location.reload(true);
-    sleep  5s
-    ${length_productname}=   get length    ${product_name}
-    ${length_category}=   get length     ${category_child}
-    ${length_attribute}=    get length     ${attribute_name}
-
+    sleep    5s
+    ${length_productname}=    get length    ${product_name}
+    ${length_category}=    get length    ${category_child}
+    ${length_attribute}=    get length    ${attribute_name}
     #kiểm tra danh sach ten san pham hiển thị có ở page 1
-    :FOR  ${i}  IN RANGE   ${length_productname}
-    \  ${name}  get from list  ${product_name}  ${i}
-    \  page should contain  ${name}
-    \  exit for loop if  '${i}'=='${length_productname}'
-
+    : FOR    ${i}    IN RANGE    ${length_productname}
+    \    ${name}    get from list    ${product_name}    ${i}
+    \    page should contain    ${name}
+    \    exit for loop if    '${i}'=='${length_productname}'
     # kiểm tra danh sach các category được hiển thị
-    :FOR  ${j}  IN RANGE   ${length_category}
-    \   ${category}  get from list  ${category_child}  ${j}
-    \   page should contain   ${category}
-    \  exit for loop if  '${j}'=='${length_category}'
-
+    : FOR    ${j}    IN RANGE    ${length_category}
+    \    ${category}    get from list    ${category_child}    ${j}
+    \    page should contain    ${category}
+    \    exit for loop if    '${j}'=='${length_category}'
     # Kiểm tra các thuộc tính hiển thị ở page product listing
-    :FOR  ${x}  IN RANGE   ${length_attribute}
-    \   ${attribute}  get from list  ${attribute_name}  ${x}
-    \   page should contain   ${attribute}
-    \  exit for loop if  '${x}'=='${length_attribute}'
+    : FOR    ${x}    IN RANGE    ${length_attribute}
+    \    ${attribute}    get from list    ${attribute_name}    ${x}
+    \    page should contain    ${attribute}
+    \    exit for loop if    '${x}'=='${length_attribute}'
 
-
-search result product and check data
-   [Arguments]   ${key}
-    ${valjson}  Search product through api    ${key}
-    ${listname}    JSONLibrary.Get Value From Json     ${valjson}      $.data.products..name
-    ${listname}   evaluate     $listname
+Search result product and check data
+    [Arguments]    ${key}
+    ${valjson}    Search product through api    ${key}
+    ${listname}    JSONLibrary.Get Value From Json    ${valjson}    $.data.products..name
+    ${listname}    evaluate    $listname
     log    ${listname}
-    open browser  https://fe-staging.citigo.dev:40001/    gc
+    open browser    https://fe-staging.citigo.dev:40001/    gc
     maximize browser window
-    sleep  2s
+    sleep    2s
     Execute Javascript    window.location.reload(true);
-    sleep  5s
-    sendkey to element   ${txt_searchfe}    ${key}
+    sleep    5s
+    sendkey to element    ${txt_searchfe}    ${key}
     click element js    ${btn_searchfe}
-
-     ${length_listname}=   get length    ${listname}
-        :FOR  ${i}  IN RANGE   ${length_listname}
-    \  ${name}  get from list  ${listname}  ${i}
-    \  page should contain  ${name}
-    \  exit for loop if  '${i}'=='${length_listname}'
+    ${length_listname}=    get length    ${listname}
+    : FOR    ${i}    IN RANGE    ${length_listname}
+    \    ${name}    get from list    ${listname}    ${i}
+    \    page should contain    ${name}
+    \    exit for loop if    '${i}'=='${length_listname}'
 
 Add product to cart and check out
-    [Arguments]   ${key}  ${sl}   ${brach_name}
-    open browser  https://fe-staging.citigo.dev:40001/    gc
+    [Arguments]    ${key}    ${sl}    ${brach_name}
+    open browser    https://fe-staging.citigo.dev:40001/    gc
     maximize browser window
-    sleep  5s
-    Dang nhap account fe     ${google_account}    ${google_pass}
-    ${tensp}   ${price}   ${total}     Them san pham tim kiem vao gio hang    ${key}   ${sl}
-    Thanh toan va nhan hang tai chi nhanh     ${tensp}    ${price}   ${total}   ${brach_name}
+    sleep    5s
+    Dang nhap account fe    ${google_account}    ${google_pass}
+    ${tensp}    ${price}    ${total}    Them san pham tim kiem vao gio hang    ${key}    ${sl}
+    Thanh toan va nhan hang tai chi nhanh    ${tensp}    ${price}    ${total}    ${brach_name}
 
-
-
+Add product to quickcart and validate through api
+    [Arguments]    ${product_code}    ${quantity}
+    open browser    https://fe-staging.citigo.dev:40001    gc
+    Maximize browser window
+    Dang nhap account fe    ${google_account}    ${google_pass}
+    Them san pham tim kiem vao gio hang    ${product_code}    ${quantity}
+    ${product_id}    ${product_quantity}    ${product_code_info}    Get customer cart from api    ${retailer_id}
+    should be equal as strings    ${product_quantity}    ${quantity}
+    should be equal as strings    ${product_code_info}    ${product_code}
+    Delete product from customer cart through api    ${product_id}
