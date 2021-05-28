@@ -160,10 +160,21 @@ Add product to cart and check out
     [Arguments]    ${key}    ${sl}    ${brach_name}
     open browser    https://fe-staging.citigo.dev:40001/    gc
     maximize browser window
-    sleep    5s
-    Dang nhap account fe    ${google_account}    ${google_pass}
-    ${tensp}    ${price}    ${total}    Them san pham tim kiem vao gio hang    ${key}    ${sl}
-    Thanh toan va nhan hang tai chi nhanh    ${tensp}    ${price}    ${total}    ${brach_name}
+    sleep  5s
+    Dang nhap account fe     ${google_account}    ${google_pass}
+    ${tensp}   ${price}   ${total}     Them san pham tim kiem vao gio hang    ${key}   ${sl}
+    ${order_code}   ${total_tt}  Thanh toan va nhan hang tai chi nhanh     ${tensp}    ${price}   ${total}   ${brach_name}
+    ${json}  Get customer orders detail from api      ${order_code}
+    ${namesp}=       JSONLibrary.Get Value From Json   ${json}   $.data.order..name
+    ${namesp}=    Evaluate    $namesp
+    log   ${namesp}
+    should be equal  ${namesp}   ${tensp}
+    ${total_thanhtien}=       JSONLibrary.Get Value From Json   ${json}   $.data.order.amount
+    ${total_thanhtien}=    Evaluate    $namesp
+    ${total_thanhtien}    remove string    ${total_thanhtien}    ,    đ    ${EMPTY}
+    ${total_thanhtien}    convert to number    ${total_thanhtien}
+    log   ${total_thanhtien}
+    should be equal as numbers  ${total_thanhtien}  ${total_tt}
 
 Add product to quickcart and validate through api
     [Arguments]    ${product_code}    ${quantity}

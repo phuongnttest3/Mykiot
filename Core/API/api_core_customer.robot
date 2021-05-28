@@ -146,6 +146,7 @@ Get customer orders detail from api
     ${resp1}=    get request    lolo    v1/customers/orders/detail    headers=${heades1}    params=${params}
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
+    return from keyword   ${resp1.json()}
 
 Get customer products viewed from api
     [Arguments]    ${order_code}
