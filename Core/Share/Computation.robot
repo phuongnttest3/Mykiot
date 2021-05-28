@@ -7,6 +7,12 @@ Library           SeleniumLibrary
 Resource          Javascript.robot
 
 *** Keywords ***
+Get Text Element
+    [Arguments]    ${locator}
+    wait until element is visible    ${locator}    5s
+    ${text}   get text   ${locator}
+    return from keyword   ${text}
+
 Click To Element
     [Arguments]    ${locator}
     wait until element is visible    ${locator}    5s

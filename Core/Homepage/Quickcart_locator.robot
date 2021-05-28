@@ -6,3 +6,12 @@ ${txt_soluong}    //div[@class='kv-product-cart']//div[@class='summary-content s
 ${btn_thuoctinh1}    //button[contains(text(),'{0}')]
 #${btn_thuoctinh2}    //ul[@class='item-variant'][1]//span[contains(@data-filter,'{0}')]
 ${btn_thuoctinh2}    //button[contains(text(),'{0}')]
+
+
+#locator fe moi
+${txt_sl}    //input[@class='form-control product-qty-input']
+${btn_muahang}  //button[@class='btn btn-secondary']
+${btn_addtocartfe}   //button[@class='btn btn-primary']
+${lbl_giasp1}    //div[@class='product-price']//p
+${lbl_tensp}    //h1[@class='product-name']
+${btn_closefe}   //button[@class='close']

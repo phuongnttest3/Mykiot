@@ -1,7 +1,7 @@
 *** Settings ***
 Suite Setup       init test storefront    stagingtest
 Suite Teardown
-Test Teardown     after test
+#Test Teardown     after test
 Library           SeleniumLibrary
 Library           RequestsLibrary
 Library           Collections
@@ -19,6 +19,10 @@ Resource          ../Core/Product_Detail_Page_New/Product_Detail_Action.robot
 Resource          ../Core/HomePage_New/Homepage_action.robot
 Resource          ../Core/Common_/Common_locator.robot
 Resource          ../Core/API/api_core_customer.robot
+Resource          ../Core/SearchResult_Page/Searchpage_locator.robot
+Resource          ../Core/SearchResult_Page/Searchpagenew_action.robot
+Resource          ../Core/CheckoutPage/Checkoutpage_action.robot
+
 
 *** Test Cases ***
 Add product and check detail
@@ -34,7 +38,9 @@ TCS003
 TCS004
     [Template]   search result product and check data
     hoa
-
+TCS005
+    [Template]  Add product to cart and check out
+     SP9555556987   3   1B Yết Kiêu, Phường Trần Hưng Đạo, Quận Hoàn Kiếm - Hà Nội
 
 *** Keywords ***
 Add product and check detail
@@ -147,3 +153,15 @@ search result product and check data
     \  ${name}  get from list  ${listname}  ${i}
     \  page should contain  ${name}
     \  exit for loop if  '${i}'=='${length_listname}'
+
+Add product to cart and check out
+    [Arguments]   ${key}  ${sl}   ${brach_name}
+    open browser  https://fe-staging.citigo.dev:40001/    gc
+    maximize browser window
+    sleep  5s
+    Dang nhap account fe     ${google_account}    ${google_pass}
+    ${tensp}   ${price}   ${total}     Them san pham tim kiem vao gio hang    ${key}   ${sl}
+    Thanh toan va nhan hang tai chi nhanh     ${tensp}    ${price}   ${total}   ${brach_name}
+
+
+

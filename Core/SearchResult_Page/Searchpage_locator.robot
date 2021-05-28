@@ -9,3 +9,5 @@ ${btn_xemthem}    //a[contains(@class,'btn-show-more read-more')]
 ${element_menucategory}    //div[@class='filter-options-item category']
 ${item_sidebar}    //div[@class='filter-options-item category']
 ${link_sp}        //*[@class='kv-product-name']//a
+${btn_icon_cart}  //button[@class='btn btn-cart hover-cart-btn btn-secondary']//i
+
