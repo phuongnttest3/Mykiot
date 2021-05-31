@@ -16,6 +16,7 @@ Resource          ../Core/OrderPage/Orderpage_Action.robot
 Resource          ../Core/Share/Javascript.robot
 Resource          ../Core/SearchResult_Page/Searchpage_locator.robot
 Resource          ../Core/Homepage/Homepage_action.robot
+Resource          ../Core/HomePage_New/Homepage_action.robot
 Resource          ../Core/Share/Computation.robot
 Resource          ../Core/Share/Dictionary.robot
 Resource          ../Core/SearchResult_Page/Searchpage_action.robot
@@ -101,3 +102,4 @@ Tao san pham và xem chi tiet kiem tra o products viewed
     click to element    ${acc_infor}
     click to element    ${link_productsviewed}
     page should contain    ${ten_sp}
+
