@@ -52,7 +52,8 @@ TCS006
 TCS007
     [Template]   Add product to cart and check out at address
     SP9555556987     3   Nguyen van 2   0972654546  1A yết kiêu   An Giang - Huyện Tri Tôn   Xã Vĩnh Phước
-
+TCS008
+    Xoa dia chi
 
 *** Keywords ***
 Add product and check detail
@@ -194,6 +195,12 @@ Add product to quickcart and validate through api
 
 Add product to cart and check out at address
     [Arguments]    ${key}    ${sl}    ${username}   ${phone}   ${diachi}  ${tinh_tp}  ${phuong_xa}
+    ${product_code}  Get customer cart
+    ${length_code}=   get length  ${product_code}
+    : FOR    ${i}   IN RANGE    ${length_code}
+     \  ${item_code}   get from list   ${product_code}   ${i}
+     \   Detele customer carts from api   ${item_code}
+     \   exit for loop if  '${i}'=='${length_code}'
     open browser    https://fe-staging.citigo.dev:40001/    gc
     maximize browser window
     sleep  5s
@@ -211,3 +218,15 @@ Add product to cart and check out at address
     ${total_thanhtien}    convert to number    ${total_thanhtien}
     log   ${total_thanhtien}
     should be equal as numbers  ${total_thanhtien}  ${total_tt}
+
+
+Get customer cart
+    ${heades1}=    create dictionary    store-id=810032  Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
+    create session    lolo    ${coreapi_url}
+    ${resp1}=    get request    lolo    v1/customers/carts    headers=${heades1}
+    log    ${resp1.json()}
+    Should be equal as strings    ${resp1.status_code}    200
+    ${product_code}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $..data..code
+    ${product_code}=    evaluate    $product_code    modules=random, sys
+    log    ${product_code}
+    return from keyword     ${product_code}

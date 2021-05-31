@@ -6,6 +6,8 @@ Resource          ../Share/Javascript.robot
 Resource          ../Share/Computation.robot
 Resource          ../Share/Dictionary.robot
 Resource          ../Customer/Profilepage_locator.robot
+Resource          ../Core/API/api_core_customer.robot
+
 
 *** Keywords ***
 Thanh toan va nhan hang tai chi nhanh
@@ -34,6 +36,7 @@ Thanh toan va nhan hang tai dia chi
    ${lbl_thanhtien}     Convert price to number   ${lbl_thanhtien}
    should be equal as numbers    ${lbl_thanhtien}   ${total}
    click to element  ${rb_nhantaidiachi}
+   Xoa dia chi
    Tao dia chi moi    ${username}   ${phone}   ${diachi}  ${tinh_tp}  ${phuong_xa}
    sleep  2s
    page should contain  ${phone}  5s
@@ -50,6 +53,16 @@ Chon chi nhanh nhan hang
    ${chinhanh}   format string    ${rb_chinhanh}    ${brach_name}
    click to element   ${chinhanh}
 
+Xoa dia chi
+   ${json}   Get customer address from api
+   ${list_id_address}=    JSONLibrary.Get Value From Json    ${json}   $.data[?(@.is_default==0)].id
+   ${list_id_address}=    Evaluate    $list_id_address   modules=random, sys
+   log  ${list_id_address}
+   ${lengt_id_address}  get length   ${list_id_address}
+   : FOR    ${i}    IN RANGE     ${lengt_id_address}
+   \   ${item_id_address}   get from list    ${list_id_address}   ${i}
+   \   Delete customer address from api  ${item_id_address}
+   \   exit for loop if   '${i}' == '{list_id_address}'
 
 Tao dia chi moi
     [Arguments]  ${username}   ${phone}   ${diachi}  ${tinh_tp}  ${phuong_xa}
