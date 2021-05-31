@@ -114,6 +114,6 @@ init test storefront
     Set global variable    \${mykiot_token}    ${token_value1}
     Append To Environment Variable    PATH    ${EXECDIR}${/}Drivers
     Set Screenshot Directory    ${EXECDIR}${/}Out${/}Failures
-    Set Selenium Speed    0.1s
+    Set Selenium Speed    0.5s
     log     ${bearertoken}
     log    ${mykiot_token}

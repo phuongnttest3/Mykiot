@@ -42,12 +42,17 @@ TCS004
     hoa
 
 TCS005
-    [Template]    Add product to cart and check out
+    [Template]    Add product to cart and check out at branch
     SP9555556987    3    1B Yết Kiêu, Phường Trần Hưng Đạo, Quận Hoàn Kiếm - Hà Nội
 
 TCS006
     [Template]    Add product to quickcart and validate through api
     SP9555556916    33
+
+TCS007
+    [Template]   Add product to cart and check out at address
+    SP9555556987     3   Nguyen van 2   0972654546  1A yết kiêu   An Giang - Huyện Tri Tôn   Xã Vĩnh Phước
+
 
 *** Keywords ***
 Add product and check detail
@@ -156,7 +161,7 @@ Search result product and check data
     \    page should contain    ${name}
     \    exit for loop if    '${i}'=='${length_listname}'
 
-Add product to cart and check out
+Add product to cart and check out at branch
     [Arguments]    ${key}    ${sl}    ${brach_name}
     open browser    https://fe-staging.citigo.dev:40001/    gc
     maximize browser window
@@ -166,11 +171,11 @@ Add product to cart and check out
     ${order_code}   ${total_tt}  Thanh toan va nhan hang tai chi nhanh     ${tensp}    ${price}   ${total}   ${brach_name}
     ${json}  Get customer orders detail from api      ${order_code}
     ${namesp}=       JSONLibrary.Get Value From Json   ${json}   $.data.order..name
-    ${namesp}=    Evaluate    $namesp
+    ${namesp}=    Evaluate    $namesp[0]
     log   ${namesp}
     should be equal  ${namesp}   ${tensp}
     ${total_thanhtien}=       JSONLibrary.Get Value From Json   ${json}   $.data.order.amount
-    ${total_thanhtien}=    Evaluate    $namesp
+    ${total_thanhtien}=    Evaluate    $total_thanhtien[0]
     ${total_thanhtien}    remove string    ${total_thanhtien}    ,    đ    ${EMPTY}
     ${total_thanhtien}    convert to number    ${total_thanhtien}
     log   ${total_thanhtien}
@@ -186,3 +191,23 @@ Add product to quickcart and validate through api
     should be equal as strings    ${product_quantity}    ${quantity}
     should be equal as strings    ${product_code_info}    ${product_code}
     Delete product from customer cart through api    ${product_id}
+
+Add product to cart and check out at address
+    [Arguments]    ${key}    ${sl}    ${username}   ${phone}   ${diachi}  ${tinh_tp}  ${phuong_xa}
+    open browser    https://fe-staging.citigo.dev:40001/    gc
+    maximize browser window
+    sleep  5s
+    Dang nhap account fe     ${google_account}    ${google_pass}
+    ${tensp}   ${price}   ${total}     Them san pham tim kiem vao gio hang    ${key}   ${sl}
+    ${order_code}   ${total_tt}  Thanh toan va nhan hang tai dia chi     ${tensp}    ${price}   ${total}   ${username}   ${phone}   ${diachi}  ${tinh_tp}  ${phuong_xa}
+    ${json}  Get customer orders detail from api      ${order_code}
+    ${namesp}=       JSONLibrary.Get Value From Json   ${json}   $.data.order..name
+    ${namesp}=    Evaluate    $namesp[0]
+    log   ${namesp}
+    should be equal  ${namesp}   ${tensp}
+    ${total_thanhtien}=       JSONLibrary.Get Value From Json   ${json}   $.data.order.amount
+    ${total_thanhtien}=    Evaluate    $total_thanhtien[0]
+    ${total_thanhtien}    remove string    ${total_thanhtien}    ,    đ    ${EMPTY}
+    ${total_thanhtien}    convert to number    ${total_thanhtien}
+    log   ${total_thanhtien}
+    should be equal as numbers  ${total_thanhtien}  ${total_tt}
