@@ -77,3 +77,22 @@ Get comment id through product code
     ${comment_id}=    Evaluate    $comment_id[0] if $comment_id else 0    modules=random, sys
     log    ${comment_id}
     return from keyword    ${comment_id}
+
+Delete comment through comment_id
+    [Arguments]    ${comment_id}    ${product_id}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
+    ${data}=    create dictionary    product_id=${product_id}    comment_id=${comment_id}
+    create session    lolo    ${coreapi_url}
+    ${resp1}=    post request    lolo    /v1/comments/delete    headers=${heades1}    data=${data}
+    log    ${resp1.json()}
+    Should be equal as strings    ${resp1.status_code}    200
+
+Get comment infor of customer
+    [Arguments]    ${keyword}
+    ${resp.json()}    Get list comment of customer    ${keyword}
+    ${content}=    JSONLibrary.Get Value From Json    ${resp.json()}    $.data.data[0].content
+    ${content}=    Evaluate    $content[0] if $content else 0    modules=random, sys
+    ${comment_id}=    JSONLibrary.Get Value From Json    ${resp.json()}    $.data.data[0].comment_id
+    ${comment_id}=    Evaluate    $comment_id[0] if $comment_id else 0    modules=random, sys
+    log    ${content}
+    return from keyword    ${content}    ${comment_id}

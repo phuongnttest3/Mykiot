@@ -6,7 +6,6 @@ Library           String
 Library           StringFormat
 Library           BuiltIn
 Library           RequestsLibrary
-Resource          /Testsuites/CoreAPI.robot
 Resource          api_core_product.robot
 
 *** Keywords ***

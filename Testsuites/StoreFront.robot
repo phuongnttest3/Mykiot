@@ -23,6 +23,9 @@ Resource          ../Core/Common_/Common_action.robot
 Resource          ../Core/SearchResult_Page/Searchpage_locator.robot
 Resource          ../Core/SearchResult_Page/Searchpagenew_action.robot
 Resource          ../Core/CheckoutPage/Checkoutpage_action.robot
+Resource          ../Core/API/api_core_comment.robot
+Resource          ../Core/Account_Page/Account_locator.robot
+Resource          ../Core/SearchResult_Page/Searchpagenew_locator.robot
 
 *** Test Cases ***
 TCS001
@@ -50,9 +53,16 @@ TCS006
     SP9555556916    33
 
 TCS007
-    [Template]   Add product to cart and check out at address
-    SP9555556987     3   Nguyen van 2   0972654546  1A yết kiêu   An Giang - Huyện Tri Tôn   Xã Vĩnh Phước
+    [Template]    Add product to cart and check out at address
+    SP9555556987    3    Nguyen van 2    0972654546    1A yết kiêu    An Giang - Huyện Tri Tôn    Xã Vĩnh Phước
 
+TCS008
+    [Template]    Add comment through api and validate UI
+    GB00012    Thỏ rất xinh
+
+TCS009
+    [Template]    Add comment UI and validate through api
+    HH07    Hoa rất đẹp
 
 *** Keywords ***
 Add product and check detail
@@ -165,21 +175,21 @@ Add product to cart and check out at branch
     [Arguments]    ${key}    ${sl}    ${brach_name}
     open browser    https://fe-staging.citigo.dev:40001/    gc
     maximize browser window
-    sleep  5s
-    Dang nhap account fe     ${google_account}    ${google_pass}
-    ${tensp}   ${price}   ${total}     Them san pham tim kiem vao gio hang    ${key}   ${sl}
-    ${order_code}   ${total_tt}  Thanh toan va nhan hang tai chi nhanh     ${tensp}    ${price}   ${total}   ${brach_name}
-    ${json}  Get customer orders detail from api      ${order_code}
-    ${namesp}=       JSONLibrary.Get Value From Json   ${json}   $.data.order..name
+    sleep    5s
+    Dang nhap account fe    ${google_account}    ${google_pass}
+    ${tensp}    ${price}    ${total}    Them san pham tim kiem vao gio hang    ${key}    ${sl}
+    ${order_code}    ${total_tt}    Thanh toan va nhan hang tai chi nhanh    ${tensp}    ${price}    ${total}    ${brach_name}
+    ${json}    Get customer orders detail from api    ${order_code}
+    ${namesp}=    JSONLibrary.Get Value From Json    ${json}    $.data.order..name
     ${namesp}=    Evaluate    $namesp[0]
-    log   ${namesp}
-    should be equal  ${namesp}   ${tensp}
-    ${total_thanhtien}=       JSONLibrary.Get Value From Json   ${json}   $.data.order.amount
+    log    ${namesp}
+    should be equal    ${namesp}    ${tensp}
+    ${total_thanhtien}=    JSONLibrary.Get Value From Json    ${json}    $.data.order.amount
     ${total_thanhtien}=    Evaluate    $total_thanhtien[0]
     ${total_thanhtien}    remove string    ${total_thanhtien}    ,    đ    ${EMPTY}
     ${total_thanhtien}    convert to number    ${total_thanhtien}
-    log   ${total_thanhtien}
-    should be equal as numbers  ${total_thanhtien}  ${total_tt}
+    log    ${total_thanhtien}
+    should be equal as numbers    ${total_thanhtien}    ${total_tt}
 
 Add product to quickcart and validate through api
     [Arguments]    ${product_code}    ${quantity}
@@ -193,21 +203,59 @@ Add product to quickcart and validate through api
     Delete product from customer cart through api    ${product_id}
 
 Add product to cart and check out at address
-    [Arguments]    ${key}    ${sl}    ${username}   ${phone}   ${diachi}  ${tinh_tp}  ${phuong_xa}
+    [Arguments]    ${key}    ${sl}    ${username}    ${phone}    ${diachi}    ${tinh_tp}
+    ...    ${phuong_xa}
     open browser    https://fe-staging.citigo.dev:40001/    gc
     maximize browser window
-    sleep  5s
-    Dang nhap account fe     ${google_account}    ${google_pass}
-    ${tensp}   ${price}   ${total}     Them san pham tim kiem vao gio hang    ${key}   ${sl}
-    ${order_code}   ${total_tt}  Thanh toan va nhan hang tai dia chi     ${tensp}    ${price}   ${total}   ${username}   ${phone}   ${diachi}  ${tinh_tp}  ${phuong_xa}
-    ${json}  Get customer orders detail from api      ${order_code}
-    ${namesp}=       JSONLibrary.Get Value From Json   ${json}   $.data.order..name
+    sleep    5s
+    Dang nhap account fe    ${google_account}    ${google_pass}
+    ${tensp}    ${price}    ${total}    Them san pham tim kiem vao gio hang    ${key}    ${sl}
+    ${order_code}    ${total_tt}    Thanh toan va nhan hang tai dia chi    ${tensp}    ${price}    ${total}    ${username}
+    ...    ${phone}    ${diachi}    ${tinh_tp}    ${phuong_xa}
+    ${json}    Get customer orders detail from api    ${order_code}
+    ${namesp}=    JSONLibrary.Get Value From Json    ${json}    $.data.order..name
     ${namesp}=    Evaluate    $namesp[0]
-    log   ${namesp}
-    should be equal  ${namesp}   ${tensp}
-    ${total_thanhtien}=       JSONLibrary.Get Value From Json   ${json}   $.data.order.amount
+    log    ${namesp}
+    should be equal    ${namesp}    ${tensp}
+    ${total_thanhtien}=    JSONLibrary.Get Value From Json    ${json}    $.data.order.amount
     ${total_thanhtien}=    Evaluate    $total_thanhtien[0]
     ${total_thanhtien}    remove string    ${total_thanhtien}    ,    đ    ${EMPTY}
     ${total_thanhtien}    convert to number    ${total_thanhtien}
-    log   ${total_thanhtien}
-    should be equal as numbers  ${total_thanhtien}  ${total_tt}
+    log    ${total_thanhtien}
+    should be equal as numbers    ${total_thanhtien}    ${total_tt}
+
+Add comment through api and validate UI
+    [Arguments]    ${product_code}    ${content}
+    ${hex} =    Generate Random String    6    [NUMBERS]abcdef
+    ${content_input}    format string    {0} {1}    ${content}    ${hex}
+    ${comment_id}    Create comment through api    ${product_code}    ${content_input}
+    open browser    ${storefront_url}    gc
+    Maximize browser window
+    Dang nhap account fe    ${google_account}    ${google_pass}
+    wait until element is visible    ${btn_taikhoan_sdn}
+    ${customercomment_url}    Format string    {0}/customer/comment.html    ${storefront_url}
+    go to    ${customercomment_url}
+    ${comment_locator}    Format string    ${lbl_comment_content}    ${content_input}    ${product_code}
+    sleep    5s
+    page should contain element    ${comment_locator}
+    ${product_id}    Get product_id through product_code    ${product_code}
+    Delete comment through comment_id    ${comment_id}    ${product_id}
+
+Add comment UI and validate through api
+    [Arguments]    ${product_code}    ${content}
+    ${product_id}    get product_id through product code    ${product_code}
+    ${product_code}    ${product_name}    ${category_name}    ${stock}    ${product_baseprice}    get product main infor from product detail    ${product_id}
+    ${hex} =    Generate Random String    6    [NUMBERS]abcdef
+    ${content_input}    format string    {0} {1}    ${content}    ${hex}
+    open browser    ${storefront_url}    gc
+    Maximize browser window
+    Dang nhap account fe    ${google_account}    ${google_pass}
+    Tim kiem san pham    ${product_code}
+    ${link_tensp_locator}    Format string    ${link_tensp_timkiem}    ${product_name}
+    click element    ${link_tensp_locator}
+    Wait until element is visible    ${txt_comment_sdn}
+    input text    ${txt_comment_sdn}    ${content_input}
+    click button    ${btn_comment_sdn}
+    ${comment_content}    ${comment_id}    Get comment infor of customer    ${product_code}
+    should be equal as strings    ${comment_content}    ${content_input}
+    Delete comment through comment_id    ${comment_id}    ${product_id}
