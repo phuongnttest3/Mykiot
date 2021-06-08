@@ -96,3 +96,4 @@ Get comment infor of customer
     ${comment_id}=    Evaluate    $comment_id[0] if $comment_id else 0    modules=random, sys
     log    ${content}
     return from keyword    ${content}    ${comment_id}
+

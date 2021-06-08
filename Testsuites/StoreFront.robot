@@ -63,6 +63,8 @@ TCS008
 TCS009
     [Template]    Add comment UI and validate through api
     HH07    Hoa rất đẹp
+TCS010
+    Get order detail api and check data
 
 *** Keywords ***
 Add product and check detail
@@ -278,3 +280,60 @@ Get customer cart
     ${product_code}=    evaluate    $product_code    modules=random, sys
     log    ${product_code}
     return from keyword     ${product_code}
+
+Get order detail api and check data
+    open browser    ${storefront_url}    gc
+    Maximize browser window
+    sleep    5s
+    Dang nhap account fe    ${google_account}    ${google_pass}
+    sleep  2s
+    click to element   ${acc_header_link}
+    click to element   ${order_history_link}
+    ${order_code}  get text  ${odercode_text}
+    click to element  ${odercode_text}
+    ${jsonvalue}    Get customer orders detail from api    ${order_code}
+    ${total_sl}=   JSONLibrary.Get Value From Json     ${jsonvalue}      $..data.order.quantity
+    ${total_sl}=    evaluate    ${total_sl}[0] if ${total_sl} else 0
+    log  ${total_sl}
+    ${total_sluong}    convert to number    ${total_sl}
+    ${quantity}=  Get text and convert to number   ${total_quantity}
+    should be equal as numbers    ${quantity}   ${total_sluong}
+
+    ${amount}=   JSONLibrary.Get Value From Json     ${jsonvalue}      $..data.order.amount
+    ${amount}=    Evaluate     $amount[0]
+    log  ${amount}
+    ${amount}    remove string    ${amount}    ,    đ    ${EMPTY}
+    ${amount}    convert to number    ${amount}
+    log    ${amount}
+    ${tongtien}=    convert price to number   ${total_tongtien}
+    should be equal as numbers   ${tongtien}   ${amount}
+
+    ${list_sp}=    JSONLibrary.Get Value From Json     ${jsonvalue}     $..data.order..name
+    ${list_sp}=    evaluate    $list_sp      modules=random, sys
+    log   ${list_sp}
+    ${count_listsp}=   get length   ${list_sp}
+    : FOR  ${i}  IN RANGE   ${count_listsp}
+    \  ${item}  get from list    ${list_sp}  ${i}
+    \  page should contain   ${item}
+    \  exit for loop if    '${i}'=='${count_listsp}'
+
+
+    ${list_info_customer}=    JSONLibrary.Get Value From Json     ${jsonvalue}     $..data.customer.*
+    ${list_info_customer}=    evaluate      $list_info_customer   modules=random, sys
+    log     ${list_info_customer}
+     ${lengt_list_customer}=  get length     ${list_info_customer}
+    : FOR  ${j}  IN RANGE     ${lengt_list_customer}
+    \  ${itemx}  get from list    ${list_info_customer}  ${j}
+    \  page should contain    ${itemx}
+    \  exit for loop if  '${j}'=='${lengt_list_customer}'
+
+    ${address_shipping}=    JSONLibrary.Get Value From Json     ${jsonvalue}   $..data.order.address
+    ${address_shipping}=      evaluate      $address_shipping[0]
+    log     ${address_shipping}
+    page should contain    ${address_shipping}
+
+    ${phone_shipping}=    JSONLibrary.Get Value From Json     ${jsonvalue}   $..data.order.phone
+    ${phone_shipping}=      evaluate      $phone_shipping[0]
+    log     ${phone_shipping}
+    page should contain    ${phone_shipping}
+

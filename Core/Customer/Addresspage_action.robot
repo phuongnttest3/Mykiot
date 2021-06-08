@@ -15,6 +15,7 @@ Xoa address
   \  ${status_delete}=   run keyword and return status    wait until element is visible    ${btn_delete}  5s
   \  run keyword if   '${status_delete}'=='True'    click to element     ${btn_delete}
   \  click to element   ${btn_popup_delete}
+  \  sleep   2s
   \  ${status_delete}=   run keyword and return status    wait until element is visible    ${btn_delete}  5s
   \  exit for loop if  '${status_delete}'=='False'
 

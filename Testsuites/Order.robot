@@ -177,6 +177,7 @@ Them san pham noi bat vao cart va thanh toan
 Tim kiem san pham thanh toan va nhan hang tai chi nhanh khi dang nhap account
     [Arguments]    ${product_code}    ${phone}    ${sl}    ${sl_lay}    ${status_order}
     Dang nhap account    ${google_account}    ${google_pass}
+    sleep    10s
     kiem tra gio hang
     Tim kiem san pham    ${product_code}
     ${thanhtien}    ${gia}    Them san pham tim kiem vao cart    ${product_code}    ${sl}
@@ -190,6 +191,7 @@ Them san pham noi bat vao cart thanh toan va nhan hang tai dia chi nguoi nhan kh
     [Arguments]    ${email}    ${pass}    ${ten}    ${sdt}    ${diachi}    ${ghichu}
     ...    ${sl}
     Dang nhap account    ${email}    ${pass}
+    sleep    10s
     kiem tra gio hang
     ${thanhtien}    ${gia}    Them san pham noi bat vao cart    ${sl}
     sleep    2s

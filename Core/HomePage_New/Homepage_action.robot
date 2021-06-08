@@ -9,7 +9,7 @@ Resource          Homepage_locator.robot
 Dang nhap account fe
     [Arguments]    ${email}    ${pass}
     click to element    ${btn_taikhoan}
-    sleep  5s
+    sleep  2s
     click to element    ${link_dangnhap}
     sendkey to element    ${txt_mailaccount}    ${email}
     click element js    ${btn_next}
