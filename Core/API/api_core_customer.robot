@@ -45,26 +45,26 @@ Update profile customer thr api
     Should be equal as strings    ${resp1.status_code}    200
 
 Get customer address from api
-   # [Arguments]    ${store-id}
-    ${heades1}=    create dictionary    store-id=${retailer_id}     Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
+    # [Arguments]    ${store-id}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    ${coreapi_url}
     ${resp1}=    get request    lolo    v1/customers/address    headers=${heades1}
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
-    return from keyword     ${resp1.json()}
+    return from keyword    ${resp1.json()}
 
 Delete customer address from api
     [Arguments]    ${id_address}
-    ${payload}=  create dictionary  id=${id_address}
-    ${heades1}=    create dictionary    store-id=${retailer_id}   Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
+    ${payload}=    create dictionary    id=${id_address}
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    ${coreapi_url}
-    ${resp1}=    post request    lolo    v1/customers/address/delete   headers=${heades1}  data=${payload}
+    ${resp1}=    post request    lolo    v1/customers/address/delete    headers=${heades1}    data=${payload}
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
 
 Get customer cart from api
     [Arguments]    ${store-id}
-    ${heades1}=    create dictionary    store-id=${store-id}  Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
+    ${heades1}=    create dictionary    store-id=${store-id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    ${coreapi_url}
     ${resp1}=    get request    lolo    v1/customers/carts    headers=${heades1}
     log    ${resp1.json()}
@@ -155,7 +155,7 @@ Get customer orders detail from api
     ${resp1}=    get request    lolo    v1/customers/orders/detail    headers=${heades1}    params=${params}
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
-    return from keyword   ${resp1.json()}
+    return from keyword    ${resp1.json()}
 
 Get customer products viewed from api
     [Arguments]    ${order_code}
@@ -190,3 +190,14 @@ Delete product from customer cart through api
     ${resp1}=    post request    lolo    v1/customers/carts/delete    headers=${heades1}    data=${data}
     log    ${resp1.json()}
     Should be equal as strings    ${resp1.status_code}    200
+
+Get customer cart
+    ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
+    create session    lolo    ${coreapi_url}
+    ${resp1}=    get request    lolo    v1/customers/carts    headers=${heades1}
+    log    ${resp1.json()}
+    Should be equal as strings    ${resp1.status_code}    200
+    ${product_code}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $..data..code
+    ${product_code}=    evaluate    $product_code    modules=random, sys
+    log    ${product_code}
+    return from keyword    ${product_code}
