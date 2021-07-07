@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       init test storefront    stagingtest
+Suite Setup       init test storefront    live
 Suite Teardown
 Test Teardown     after test
 Library           SeleniumLibrary
@@ -35,7 +35,7 @@ TCS001
 TCS002
     [Setup]    Clear customer cart
     [Template]    Add product to quickcart through api and validate
-    PK023    3
+    SP000373    3
 
 TCS003
     [Template]    Get list product category api and check data
@@ -65,6 +65,7 @@ TCS008
 TCS009
     [Template]    Add comment UI and validate through api
     HH07    Hoa rất đẹp
+
 TCS010
     Get order detail api and check data
 
@@ -100,8 +101,10 @@ Add product and check detail
     Should be equal as numbers    ${baseprice_api}    ${baseprice_input}
     ${product_url}    Get url product detail    ${product_name}    ${product_id}
     go to    ${product_url}
-    go to    ${product_url}
-    reload page
+    #Tim kiem san pham    ${product_code}
+    #${link_tensp_locator}    Format string    ${link_tensp_timkiem}    ${product_name}
+    #Wait until element is visible    ${link_tensp_locator}
+    #click element    ${link_tensp_locator}
     ${product_code_locator}    Format string    ${lbl_productcode}    ${product_code}
     ${product_name_locator}    Format string    ${lbl_productname}    ${product_name}
     ${product_categoryname_locator}    Format string    ${link_category_breadcrumb}    ${category_name}
@@ -120,7 +123,7 @@ Add product to quickcart through api and validate
     update customer cart from api    ${product_code}    ${quantity}
     ${product_id}    Get product id through product code    ${product_code}
     ${product_code}    ${product_name}    ${category_name}    ${stock}    ${product_baseprice}    get product main infor from product detail    ${product_id}
-    open browser    https://fe-staging.citigo.dev:40001    gc
+    open browser    ${storefront_url}    gc
     Maximize browser window
     Dang nhap account fe    ${google_account}    ${google_pass}
     wait until element is visible    ${btn_giohang}    5s
@@ -270,9 +273,8 @@ Add comment UI and validate through api
     should be equal as strings    ${comment_content}    ${content_input}
     Delete comment through comment_id    ${comment_id}    ${product_id}
 
-
 Get customer cart
-    ${heades1}=    create dictionary    store-id=810032  Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
+    ${heades1}=    create dictionary    store-id=810032    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    ${coreapi_url}
     ${resp1}=    get request    lolo    v1/customers/carts    headers=${heades1}
     log    ${resp1.json()}
@@ -280,60 +282,54 @@ Get customer cart
     ${product_code}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $..data..code
     ${product_code}=    evaluate    $product_code    modules=random, sys
     log    ${product_code}
-    return from keyword     ${product_code}
+    return from keyword    ${product_code}
 
 Get order detail api and check data
     open browser    ${storefront_url}    gc
     Maximize browser window
     sleep    5s
     Dang nhap account fe    ${google_account}    ${google_pass}
-    sleep  2s
-    click to element   ${acc_header_link}
-    click to element   ${order_history_link}
-    ${order_code}  get text  ${odercode_text}
-    click to element  ${odercode_text}
+    sleep    2s
+    click to element    ${acc_header_link}
+    click to element    ${order_history_link}
+    ${order_code}    get text    ${odercode_text}
+    click to element    ${odercode_text}
     ${jsonvalue}    Get customer orders detail from api    ${order_code}
-    ${total_sl}=   JSONLibrary.Get Value From Json     ${jsonvalue}      $..data.order.quantity
+    ${total_sl}=    JSONLibrary.Get Value From Json    ${jsonvalue}    $..data.order.quantity
     ${total_sl}=    evaluate    ${total_sl}[0] if ${total_sl} else 0
-    log  ${total_sl}
+    log    ${total_sl}
     ${total_sluong}    convert to number    ${total_sl}
-    ${quantity}=  Get text and convert to number   ${total_quantity}
-    should be equal as numbers    ${quantity}   ${total_sluong}
-
-    ${amount}=   JSONLibrary.Get Value From Json     ${jsonvalue}      $..data.order.amount
-    ${amount}=    Evaluate     $amount[0]
-    log  ${amount}
+    ${quantity}=    Get text and convert to number    ${total_quantity}
+    should be equal as numbers    ${quantity}    ${total_sluong}
+    ${amount}=    JSONLibrary.Get Value From Json    ${jsonvalue}    $..data.order.amount
+    ${amount}=    Evaluate    $amount[0]
+    log    ${amount}
     ${amount}    remove string    ${amount}    ,    đ    ${EMPTY}
     ${amount}    convert to number    ${amount}
     log    ${amount}
-    ${tongtien}=    convert price to number   ${total_tongtien}
-    should be equal as numbers   ${tongtien}   ${amount}
-
-    ${list_sp}=    JSONLibrary.Get Value From Json     ${jsonvalue}     $..data.order..name
-    ${list_sp}=    evaluate    $list_sp      modules=random, sys
-    log   ${list_sp}
-    ${count_listsp}=   get length   ${list_sp}
-    : FOR  ${i}  IN RANGE   ${count_listsp}
-    \  ${item}  get from list    ${list_sp}  ${i}
-    \  page should contain   ${item}
-    \  exit for loop if    '${i}'=='${count_listsp}'
-
-
-    ${list_info_customer}=    JSONLibrary.Get Value From Json     ${jsonvalue}     $..data.customer.*
-    ${list_info_customer}=    evaluate      $list_info_customer   modules=random, sys
-    log     ${list_info_customer}
-     ${lengt_list_customer}=  get length     ${list_info_customer}
-    : FOR  ${j}  IN RANGE     ${lengt_list_customer}
-    \  ${itemx}  get from list    ${list_info_customer}  ${j}
-    \  page should contain    ${itemx}
-    \  exit for loop if  '${j}'=='${lengt_list_customer}'
-
-    ${address_shipping}=    JSONLibrary.Get Value From Json     ${jsonvalue}   $..data.order.address
-    ${address_shipping}=      evaluate      $address_shipping[0]
-    log     ${address_shipping}
+    ${tongtien}=    convert price to number    ${total_tongtien}
+    should be equal as numbers    ${tongtien}    ${amount}
+    ${list_sp}=    JSONLibrary.Get Value From Json    ${jsonvalue}    $..data.order..name
+    ${list_sp}=    evaluate    $list_sp    modules=random, sys
+    log    ${list_sp}
+    ${count_listsp}=    get length    ${list_sp}
+    : FOR    ${i}    IN RANGE    ${count_listsp}
+    \    ${item}    get from list    ${list_sp}    ${i}
+    \    page should contain    ${item}
+    \    exit for loop if    '${i}'=='${count_listsp}'
+    ${list_info_customer}=    JSONLibrary.Get Value From Json    ${jsonvalue}    $..data.customer.*
+    ${list_info_customer}=    evaluate    $list_info_customer    modules=random, sys
+    log    ${list_info_customer}
+    ${lengt_list_customer}=    get length    ${list_info_customer}
+    : FOR    ${j}    IN RANGE    ${lengt_list_customer}
+    \    ${itemx}    get from list    ${list_info_customer}    ${j}
+    \    page should contain    ${itemx}
+    \    exit for loop if    '${j}'=='${lengt_list_customer}'
+    ${address_shipping}=    JSONLibrary.Get Value From Json    ${jsonvalue}    $..data.order.address
+    ${address_shipping}=    evaluate    $address_shipping[0]
+    log    ${address_shipping}
     page should contain    ${address_shipping}
-
-    ${phone_shipping}=    JSONLibrary.Get Value From Json     ${jsonvalue}   $..data.order.phone
-    ${phone_shipping}=      evaluate      $phone_shipping[0]
-    log     ${phone_shipping}
+    ${phone_shipping}=    JSONLibrary.Get Value From Json    ${jsonvalue}    $..data.order.phone
+    ${phone_shipping}=    evaluate    $phone_shipping[0]
+    log    ${phone_shipping}
     page should contain    ${phone_shipping}

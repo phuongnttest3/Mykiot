@@ -30,9 +30,9 @@ fill env
     ${dic_google_account}    Create Dictionary    live=testautomation113@gmail.com    stagingnew=testautomation113@gmail.com    prelivenew=testautomation113@gmail.com    stagingtest=testautomation113@gmail.com
     ${dic_google_pass}    Create Dictionary    live=test@123456    stagingnew=test@123456    prelivenew=test@123456    stagingtest=test@123456
     ${dic_customer_code_google_account}    Create Dictionary    live=KH3546BAC40    stagingnew=KHCA279ECD4    prelivenew=KHCA279ECD4    stagingtest=KHCA279ECD4
-    ${dic_webhook_url}    Create Dictionary    live=http://webhook.mykiot.vn    stagingnew=https://queue-staging.citigo.dev:40001    prelivenew=https://queue-prelive.citigo.dev:40003    stagingtest=https://queue-staging.citigo.dev:40001
+    ${dic_webhook_url}    Create Dictionary    live=https://webhook.mykiot.vn    stagingnew=https://queue-staging.citigo.dev:40001    prelivenew=https://queue-prelive.citigo.dev:40003    stagingtest=https://queue-staging.citigo.dev:40001
     ${dic_provider_id}    Create Dictionary    live=107151798064347196088    stagingnew=107151798064347196088    stagingnew=107151798064347196088    stagingtest=107151798064347196088
-    ${dic_coreapi_url}    Create Dictionary    live=Create Dictionary    stagingnew=https://api-staging.citigo.dev:40001/api    prelivenew=https://api-prelive.citigo.dev:40003/api    stagingtest=https://api-staging.citigo.dev:40001/api
+    ${dic_coreapi_url}    Create Dictionary    live= https://api.mykiot.vn/api    stagingnew=https://api-staging.citigo.dev:40001/api    prelivenew=https://api-prelive.citigo.dev:40003/api    stagingtest=https://api-staging.citigo.dev:40001/api
     ${api_url}    Get From Dictionary    ${dic_api_url}    ${env}
     ${url}    Get From Dictionary    ${dic_url}    ${env}
     ${client_id}    Get From Dictionary    ${dic_clientid}    ${env}

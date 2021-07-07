@@ -16,5 +16,5 @@ Get url product detail
     ${name1}    Replace String    ${name}    ${SPACE}    -
     ${word}    Catenate    SEPARATOR=    p    ${product_id}
     ${endpoint}    Catenate    SEPARATOR=.    ${name1}    ${word}    html
-    ${url_product_detail}=    Catenate    SEPARATOR=/    https://fe-staging.citigo.dev:40001    ${endpoint}
+    ${url_product_detail}=    Catenate    SEPARATOR=/    ${storefront_url}    ${endpoint}
     Return From Keyword    ${url_product_detail}

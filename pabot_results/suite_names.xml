@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.4 (Python 3.7.6 on win32)" generated="20210609 15:11:06.469">
+<suite id="s1" name="Testsuites" source="E:\Robot Framework\Mykiot_Git\Mykiot\testsuites">
+<suite id="s1-s1" name="Synchronization" source="E:\Robot Framework\Mykiot_Git\Mykiot\testsuites\Synchronization.robot">
+<kw name="init test env sync" library="envi" type="setup">
+<arguments>
+<arg>live</arg>
+</arguments>
+<kw name="No Operation" library="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="NOT_RUN" starttime="20210609 15:11:16.900" endtime="20210609 15:11:16.900"></status>
+</kw>
+<status status="PASS" starttime="20210609 15:11:16.900" endtime="20210609 15:11:16.901"></status>
+</kw>
+<test id="s1-s1-t1" name="STC001">
+<kw name="Check sync name, baseprice, stock of new product">
+<arguments>
+<arg>No Operation</arg>
+</arguments>
+<msg timestamp="20210609 15:11:16.901" level="FAIL">Keyword 'Check sync name, baseprice, stock of new product' expected 5 arguments, got 1.</msg>
+<status status="FAIL" starttime="20210609 15:11:16.901" endtime="20210609 15:11:16.901"></status>
+</kw>
+<kw name="Check sync name, baseprice, stock of new product">
+<arguments>
+<arg>No Operation</arg>
+</arguments>
+<msg timestamp="20210609 15:11:16.902" level="FAIL">Keyword 'Check sync name, baseprice, stock of new product' expected 5 arguments, got 1.</msg>
+<status status="FAIL" starttime="20210609 15:11:16.901" endtime="20210609 15:11:16.902"></status>
+</kw>
+<kw name="after test" library="Common" type="teardown">
+<kw name="No Operation" library="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="NOT_RUN" starttime="20210609 15:11:16.902" endtime="20210609 15:11:16.902"></status>
+</kw>
+<status status="PASS" starttime="20210609 15:11:16.902" endtime="20210609 15:11:16.902"></status>
+</kw>
+<tags>
+<tag>All</tag>
+<tag>sync</tag>
+<tag>test</tag>
+</tags>
+<status status="FAIL" starttime="20210609 15:11:16.901" endtime="20210609 15:11:16.902" critical="yes">Several failures occurred:
+
+1) Keyword 'Check sync name, baseprice, stock of new product' expected 5 arguments, got 1.
+
+2) Keyword 'Check sync name, baseprice, stock of new product' expected 5 arguments, got 1.</status>
+</test>
+<test id="s1-s1-t2" name="STC002">
+<kw name="Check sync update name, baseprice, stock">
+<arguments>
+<arg>No Operation</arg>
+</arguments>
+<msg timestamp="20210609 15:11:16.903" level="FAIL">Keyword 'Check sync update name, baseprice, stock' expected 4 arguments, got 1.</msg>
+<status status="FAIL" starttime="20210609 15:11:16.903" endtime="20210609 15:11:16.904"></status>
+</kw>
+<kw name="Check sync update name, baseprice, stock">
+<arguments>
+<arg>No Operation</arg>
+</arguments>
+<msg timestamp="20210609 15:11:16.904" level="FAIL">Keyword 'Check sync update name, baseprice, stock' expected 4 arguments, got 1.</msg>
+<status status="FAIL" starttime="20210609 15:11:16.904" endtime="20210609 15:11:16.904"></status>
+</kw>
+<kw name="after test" library="Common" type="teardown">
+<kw name="No Operation" library="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="NOT_RUN" starttime="20210609 15:11:16.904" endtime="20210609 15:11:16.904"></status>
+</kw>
+<status status="PASS" starttime="20210609 15:11:16.904" endtime="20210609 15:11:16.905"></status>
+</kw>
+<tags>
+<tag>all</tag>
+<tag>sync</tag>
+</tags>
+<status status="FAIL" starttime="20210609 15:11:16.903" endtime="20210609 15:11:16.905" critical="yes">Several failures occurred:
+
+1) Keyword 'Check sync update name, baseprice, stock' expected 4 arguments, got 1.
+
+2) Keyword 'Check sync update name, baseprice, stock' expected 4 arguments, got 1.</status>
+</test>
+<test id="s1-s1-t3" name="STC003">
+<kw name="Check sync update pricebook detail">
+<arguments>
+<arg>No Operation</arg>
+</arguments>
+<msg timestamp="20210609 15:11:16.905" level="FAIL">Keyword 'Check sync update pricebook detail' expected 3 arguments, got 1.</msg>
+<status status="FAIL" starttime="20210609 15:11:16.905" endtime="20210609 15:11:16.905"></status>
+</kw>
+<kw name="Check sync update pricebook detail">
+<arguments>
+<arg>No Operation</arg>
+</arguments>
+<msg timestamp="20210609 15:11:16.905" level="FAIL">Keyword 'Check sync update pricebook detail' expected 3 arguments, got 1.</msg>
+<status status="FAIL" starttime="20210609 15:11:16.905" endtime="20210609 15:11:16.906"></status>
+</kw>
+<kw name="after test" library="Common" type="teardown">
+<kw name="No Operation" library="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="NOT_RUN" starttime="20210609 15:11:16.906" endtime="20210609 15:11:16.906"></status>
+</kw>
+<status status="PASS" starttime="20210609 15:11:16.906" endtime="20210609 15:11:16.906"></status>
+</kw>
+<tags>
+<tag>All</tag>
+<tag>sync</tag>
+</tags>
+<status status="FAIL" starttime="20210609 15:11:16.905" endtime="20210609 15:11:16.906" critical="yes">Several failures occurred:
+
+1) Keyword 'Check sync update pricebook detail' expected 3 arguments, got 1.
+
+2) Keyword 'Check sync update pricebook detail' expected 3 arguments, got 1.</status>
+</test>
+<test id="s1-s1-t4" name="STC004">
+<kw name="Check sync remove and add product in pricebook">
+<arguments>
+<arg>No Operation</arg>
+</arguments>
+<msg timestamp="20210609 15:11:16.907" level="FAIL">Keyword 'Check sync remove and add product in pricebook' expected 2 arguments, got 1.</msg>
+<status status="FAIL" starttime="20210609 15:11:16.907" endtime="20210609 15:11:16.907"></status>
+</kw>
+<kw name="Check sync remove and add product in pricebook">
+<arguments>
+<arg>No Operation</arg>
+</arguments>
+<msg timestamp="20210609 15:11:16.908" level="FAIL">Keyword 'Check sync remove and add product in pricebook' expected 2 arguments, got 1.</msg>
+<status status="FAIL" starttime="20210609 15:11:16.907" endtime="20210609 15:11:16.908"></status>
+</kw>
+<kw name="after test" library="Common" type="teardown">
+<kw name="No Operation" library="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="NOT_RUN" starttime="20210609 15:11:16.908" endtime="20210609 15:11:16.908"></status>
+</kw>
+<status status="PASS" starttime="20210609 15:11:16.908" endtime="20210609 15:11:16.908"></status>
+</kw>
+<tags>
+<tag>all</tag>
+<tag>sync</tag>
+</tags>
+<status status="FAIL" starttime="20210609 15:11:16.907" endtime="20210609 15:11:16.909" critical="yes">Several failures occurred:
+
+1) Keyword 'Check sync remove and add product in pricebook' expected 2 arguments, got 1.
+
+2) Keyword 'Check sync remove and add product in pricebook' expected 2 arguments, got 1.</status>
+</test>
+<status status="FAIL" starttime="20210609 15:11:06.571" endtime="20210609 15:11:16.909"></status>
+</suite>
+<status status="FAIL" starttime="20210609 15:11:06.472" endtime="20210609 15:11:16.910"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="4">Critical Tests</stat>
+<stat pass="0" fail="4">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="4">All</stat>
+<stat pass="0" fail="4">sync</stat>
+<stat pass="0" fail="1">test</stat>
+</tag>
+<suite>
+<stat pass="0" fail="4" id="s1" name="Testsuites">Testsuites</stat>
+<stat pass="0" fail="4" id="s1-s1" name="Synchronization">Testsuites.Synchronization</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20210609 15:11:06.271" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\testsuites\Account.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:06.273" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\testsuites\Cms.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:06.276" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\testsuites\CoreAPI.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:06.299" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\testsuites\Order.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:06.314" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\testsuites\PageBuilder.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:06.361" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\testsuites\StoreFront.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:06.369" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\testsuites\Synchronization.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:08.728" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Config\Env\envi.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:10.786" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API-KV\api_access_kv.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:10.789" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API-KV\api_access_kv.robot': Setting variable '' failed: Invalid variable name ''.</msg>
+<msg timestamp="20210609 15:11:10.832" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API\api_core_customer.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:10.877" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API\api_core_product.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:10.920" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\Share\Computation.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:10.952" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\Share\Javascript.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:10.953" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\Share\Javascript.robot': Setting variable '' failed: Invalid variable name ''.</msg>
+<msg timestamp="20210609 15:11:10.969" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API-KV\api_hanghoa_kv.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:10.972" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API-KV\api_hanghoa_kv.robot': Setting variable '' failed: Invalid variable name ''.</msg>
+<msg timestamp="20210609 15:11:10.986" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API\api_access.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:10.986" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API-KV\api_hanghoa_kv.robot': Resource file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API\api_access.robot' contains a test case table which is not allowed.</msg>
+<msg timestamp="20210609 15:11:11.024" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API-KV\api_banggia.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:11.025" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API-KV\api_banggia.robot': Setting variable '' failed: Invalid variable name ''.</msg>
+<msg timestamp="20210609 15:11:11.037" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\CMS-Product\productlist_action.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:11.052" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API-KV\api_hoadon.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:11.053" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API-KV\api_hoadon.robot': Setting variable '' failed: Invalid variable name ''.</msg>
+<msg timestamp="20210609 15:11:11.056" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API\api_access.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:11.056" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API-KV\api_hoadon.robot': Resource file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\API\api_access.robot' contains a test case table which is not allowed.</msg>
+<msg timestamp="20210609 15:11:16.838" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\Share\Excel.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:16.876" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\Common.robot': Non-existing setting ''.</msg>
+<msg timestamp="20210609 15:11:16.878" level="ERROR">Error in file 'E:\Robot Framework\Mykiot_Git\Mykiot\Core\Common.robot': Setting variable '' failed: Invalid variable name ''.</msg>
+<msg timestamp="20210609 15:11:17.013" level="ERROR">Calling method '_close' of listener 'PabotLib' failed: RobotNotRunningError: Cannot access execution context</msg>
+</errors>
+</robot>

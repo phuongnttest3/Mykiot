@@ -45,6 +45,7 @@ Update profile customer thr api
     Should be equal as strings    ${resp1.status_code}    200
 
 Get customer address from api
+    [Arguments]    ${retailer_id}
     # [Arguments]    ${store-id}
     ${heades1}=    create dictionary    store-id=${retailer_id}    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
     create session    lolo    ${coreapi_url}

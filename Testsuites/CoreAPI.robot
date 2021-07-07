@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       init test core api    stagingnew
+Suite Setup       init test core api    live
 Library           RequestsLibrary
 Library           RequestsLibrary
 Library           Collections
@@ -129,8 +129,7 @@ TCA027
 
 TCA028
     [Template]    Get list product category from api
-    339  810060
-
+    339    810060
 
 *** Keywords ***
 Delete comment
