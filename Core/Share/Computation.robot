@@ -15,12 +15,12 @@ Get Text Element
 
 Click To Element
     [Arguments]    ${locator}
-    wait until element is visible    ${locator}    5s
+    wait until element is visible    ${locator}    10s
     click element    ${locator}
 
 Sendkey To Element
     [Arguments]    ${locator}    ${value}
-    wait until element is visible    ${locator}    5s
+    wait until element is visible    ${locator}    10s
     press keys    ${locator}    CTRL+a+BACKSPACE
     input text    ${locator}    ${value}
 
