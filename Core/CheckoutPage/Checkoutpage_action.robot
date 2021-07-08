@@ -75,5 +75,5 @@ Tao dia chi moi
     wait until element is visible  ${dropdown_phuong_xa}   5s
     sendkey to element   ${dropdown_phuong_xa}   ${phuong_xa}
     press keys   ${dropdown_phuong_xa}    ENTER
-    click to element  ${chbox_default_address}
+    click element js  ${chbox_default_address}
     click to element  ${btn_luu_address}

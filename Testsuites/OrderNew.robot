@@ -46,11 +46,11 @@ Search product add to cart and check out at branch with status order wait confir
 
 
 Search product add to cart and check out at address customer with status order processing
-    [Arguments]    ${key}     ${sl}   ${sl_lay}   ${status_donhang}    ${username}   ${sdt}   ${diachi}  ${tinh_tp}  ${phuong_xa}
+    [Arguments]    ${product_code}     ${sl}   ${sl_lay}   ${status_donhang}    ${username}   ${sdt}   ${diachi}  ${tinh_tp}  ${phuong_xa}
     open browser   ${storefront_url}   gc
     maximize browser window
     Dang nhap account fe    ${google_account}    ${google_pass}
-    ${tensp}    ${price}    ${total}   Them san pham tim kiem vao gio hang   ${key}    ${sl}
+    ${tensp}    ${price}    ${total}   Them san pham tim kiem vao gio hang   ${product_code}    ${sl}
     ${order_code}    ${total_tt}    Thanh toan va nhan hang tai dia chi    ${tensp}   ${price}    ${total}    ${username}   ${sdt}   ${diachi}  ${tinh_tp}  ${phuong_xa}
     ${order_id}    Get orderid    ${order_code}
     Create invoice of order incl one product frm api    ${product_code}    ${sl_lay}    ${customer_code_google_account}    10000    ${order_id}
