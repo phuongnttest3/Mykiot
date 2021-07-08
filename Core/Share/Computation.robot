@@ -15,7 +15,7 @@ Get Text Element
 
 Click To Element
     [Arguments]    ${locator}
-    wait until element is visible    ${locator}    10s
+    wait until element is visible    ${locator}    20s
     click element    ${locator}
 
 Sendkey To Element

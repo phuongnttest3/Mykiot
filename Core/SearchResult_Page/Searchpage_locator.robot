@@ -9,5 +9,8 @@ ${btn_xemthem}    //a[contains(@class,'btn-show-more read-more')]
 ${element_menucategory}    //div[@class='filter-options-item category']
 ${item_sidebar}    //div[@class='filter-options-item category']
 ${link_sp}        //*[@class='kv-product-name']//a
-${btn_icon_cart}  //button[@class='btn btn-cart hover-cart-btn btn-secondary']//i
 
+
+${btn_icon_cart}  //button[@class='btn-cart hover-cart-btn']//i[@class='far fa-shopping-bag']
+${item_size}     //div[@class='mk-product-item']
+${key_visible}   //div[@class='search-noti-content item-no-content']//span[contains(text(),'{0}')]

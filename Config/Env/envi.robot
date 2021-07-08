@@ -17,7 +17,7 @@ fill env
     ${dic_clientid}    Create Dictionary    live=1f36fe67-a0f2-453b-bea5-9d778218279c    stagingnew=c8b67155-4f9a-4ebe-80ee-cac6e18e8d44    prelivenew=c8b67155-4f9a-4ebe-80ee-cac6e18e8d44    stagingtest=e09f573d-0269-4f26-a4c5-7e0e6ed2bd59
     ${dic_secretkey}    Create Dictionary    live=5F16AD6044795B917F2F9E640F572EF835B71254    stagingnew=42C30C4FD5382D0A8153DE25BC3C637751A58FEB    prelivenew=42C30C4FD5382D0A8153DE25BC3C637751A58FEB    stagingtest=2520158086647B1F76396D0D0233A8FE5161D06A
     ${dic_retailercode}    Create Dictionary    live=testautomykiot    stagingnew=testautomykiot    prelivenew=testautomykiot    stagingtest=chuhueman
-    ${dic_retailerid}    Create Dictionary    live=737280    stagingnew=810060    prelivenew=810060    stagingtest=810032
+    ${dic_retailerid}    Create Dictionary    live=737280    stagingnew=810060    prelivenew=810060
     ${dic_accessurl}    Create Dictionary    live=https://admin.mykiot.vn/connect?client_id=1f36fe67-a0f2-453b-bea5-9d778218279c&secret_key=5F16AD6044795B917F2F9E640F572EF835B71254&retailer_code=testautomykiot&retailer_id=737280    stagingnew=https://admin-staging.citigo.dev:40001/connect?client_id=c8b67155-4f9a-4ebe-80ee-cac6e18e8d44&secret_key=42C30C4FD5382D0A8153DE25BC3C637751A58FEB&retailer_code=testautomykiot&retailer_id=810060    prelivenew=https://admin-prelive.citigo.dev:40003/connect?client_id=c8b67155-4f9a-4ebe-80ee-cac6e18e8d44&secret_key=42C30C4FD5382D0A8153DE25BC3C637751A58FEB&retailer_code=testautomykiot&retailer_id=810060    stagingtest=https://admin-staging.citigo.dev:40001/connect?client_id=e09f573d-0269-4f26-a4c5-7e0e6ed2bd59&secret_key=2520158086647B1F76396D0D0233A8FE5161D06A&retailer_code=chuhueman&retailer_id=810032
     ${dic_storefronturl}    Create Dictionary    live=https://mykiot.vn/testautomykiot    stagingnew=https://staging.citigo.dev:40001/testautomykiot    prelivenew=https://prelive.citigo.dev:40003/testautomykiot    stagingtest=https://fe-staging.citigo.dev:40001
     ${dict_kvurl}    Create Dictionary    live=https://testautomykiot.kiotviet.com/    stagingnew=https://testautomykiot.kvpos.com:59903/    prelivenew=https://testautomykiot.kvpos.com:59903/    stagingtest=https://chuhueman.kvpos.com:59903/
@@ -114,6 +114,7 @@ init test storefront
     Set global variable    \${mykiot_token}    ${token_value1}
     Append To Environment Variable    PATH    ${EXECDIR}${/}Drivers
     Set Screenshot Directory    ${EXECDIR}${/}Out${/}Failures
-    Set Selenium Speed    0.1s
+    set selenium implicit wait  30s
+    Set Selenium Speed    0.3s
     log    ${bearertoken}
     log    ${mykiot_token}

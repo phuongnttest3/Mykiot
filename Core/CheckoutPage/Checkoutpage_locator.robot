@@ -19,7 +19,7 @@ ${btn_address_setting}   //a[@class='btn-gray mt-2 mt-md-0 btn btn-sm']
 ${txt_name}    //div[@class='form-group'][1]//div[@class='account-my-info-item']//input
 ${txt_phone}  //div[@class='form-group'][2]//div[@class='account-my-info-item']//input
 ${txt_address}   //div[@class='form-group'][3]//div[@class='account-my-info-item']//input
-${dropdown_tinh_tp}    //div[@class='form-group'][4]//select
-${dropdown_phuong_xa}   //div[@class='form-group'][5]//select
-${chbox_default_address}  //div[@class='account-my-info-item']//label[@class='checkbox']
+${dropdown_tinh_tp}    //div[@class='modal-body']//div[@class='form-group'][4]//input
+${dropdown_phuong_xa}   //div[@class='modal-body']//div[@class='form-group'][5]//input
+${chbox_default_address}  //div[@class='account-my-info-item']//input[@type='checkbox']
 ${btn_luu_address}   //div[@class='account-my-info-action text-right']//button[@type='button']

@@ -9,7 +9,7 @@ ${btn_thuoctinh2}    //button[contains(text(),'{0}')]
 
 
 #locator fe moi
-${txt_sl}    //input[@class='form-control product-qty-input']
+${txt_sl}    //input[@class='mk-form-control product-qty-input']
 ${btn_muahang}  //button[@class='btn btn-secondary']
 ${btn_addtocartfe}   //button[@class='btn btn-primary']
 ${lbl_giasp1}    //div[@class='product-price']//p

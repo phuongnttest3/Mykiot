@@ -4,6 +4,16 @@ Resource          Common_locator.robot
 Resource          ../API/api_core_customer.robot
 
 *** Keywords ***
+Dang nhap account fe
+    [Arguments]    ${email}    ${pass}
+    click to element    ${infor_account}
+    sleep  2s
+    click to element    ${link_dangnhap}
+    sendkey to element    ${txt_mailaccount}    ${email}
+    click element js    ${btn_next}
+    sendkey to element    ${txt_passaccount}    ${pass}
+    click element js    ${btn_next}
+
 Tim kiem san pham
     [Arguments]    ${input_text}
     Wait until element is visible    ${txt_searchfe}

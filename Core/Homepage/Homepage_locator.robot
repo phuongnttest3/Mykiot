@@ -21,25 +21,6 @@ ${icon_view}      //li[@id='icon-view']
 ${link_danhmuc}    //div[@class='col-12 kv-category-list main'][1]//div[@id='kv-categories-loop'][1]//div//h3
 ${btn_addtocart_spmoi}    //div[@id='custom-layout-slider-1']//div[@class='swiper-slide swiper-slide-active']//i[@class='far fa-shopping-bag']
 ${ten_list_viewlove}    //div[@class='kv-product-list row row-eq-height']//div[@class='kv-product-list-item product-item']//div[@class='kv-product-list-item-top']//div[@class='kv-product-list-item--content']//div[@class='product-wrap']//div[@class='kv-product-name']
-${btn_taikhoan}    //button[contains(@class,'btn btn-circle')]
-${link_dangnhap}    //div[@class='acc-infor']//a[contains(string(),'Đăng nhập bằng Google')]
-${txt_mailaccount}    //input[@type="email"]
-${btn_next}       //button[@type='button']//span[contains(text(),'Tiếp theo')]
-${txt_passaccount}    //input[@type='password']
-${acc_infor}      //div[@id='acc-infor']//img
-${ordershistory_link}    //div[@class='acc-infor__menu']//a[contains(@href,'customer/order.html')]
-${slhh_incart}    //div[@id='icon-cart']//span[text()='0']
-${cart_button}    //div[@id='icon-cart']//button[@class='btn-circle']
-${btn_xoacart}    //div[@class='kv-product-list-item product-item'][1]//div[@class='shopping-cart-remove-item']
-${link_profile}    //div[@class='acc-infor__menu']//a[contains(@href,'customer/profile.html')]
-${link_favourite}    //div[@class='acc-infor__menu']//a[contains(@href,'customer/favorite-product.html')]
-${link_productsviewed}    //div[@class='acc-infor__menu']//a[contains(@href,'customer/viewed-product.html')]
-${acc_infor}      //div[@id='acc-infor']//img
-${ordershistory_link}    //div[@class='acc-infor__menu']//a[contains(@href,'customer/order.html')]
-${slhh_incart}    //div[@id='icon-cart']//span[text()='0']
-${cart_button}    //div[@id='icon-cart']//button[@class='btn-circle']
-${btn_xoacart}    //div[@class='kv-product-list-item product-item'][1]//div[@class='shopping-cart-remove-item']
-${link_profile}    //div[@class='acc-infor__menu']//a[contains(@href,'customer/profile.html')]
 ${btn_iconlove}    //div[@class='wrap-loop-category-home '][1]//div[contains(@class,'col-item col-item')][{0}]//div[@class='kv-product-list-item--content']//div[@class='kv-product-action']//div[contains(@class,'kv-product-favourite')]//i
 ${txt_tensplove}    //div[@class='wrap-loop-category-home '][1]//div[contains(@class,'col-item col-item')][{0}]//div[@class='kv-product-list-item--content']//div[@class='product-wrap']//h6
 ${btn_activeiconlove}    //div[@class='wrap-loop-category-home '][1]//div[contains(@class,'col-item col-item')][1]//div[@class='kv-product-list-item--content']//div[@class='kv-product-action']//div[contains(@class,'kv-product-favourite active')]//i

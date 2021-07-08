@@ -11,7 +11,7 @@ Resource          ../Core/API/api_core_customer.robot
 
 *** Keywords ***
 Thanh toan va nhan hang tai chi nhanh
-   [Arguments]   ${tensp}   ${price}    ${total}    ${brach_name}
+   [Arguments]   ${tensp}   ${price}    ${total}
    #wait until element is visible  ${title_checkout}   5s
    ${name}    get text element  ${lbl_name}
    should be equal as strings    ${name}   ${tensp}
@@ -19,7 +19,6 @@ Thanh toan va nhan hang tai chi nhanh
    should be equal as numbers   ${price}   ${giasp}
    ${lbl_thanhtien}     Convert price to number   ${lbl_thanhtien}
    should be equal as numbers    ${lbl_thanhtien}   ${total}
-   Chon chi nhanh nhan hang     ${brach_name}
    scroll element into view     ${total_thanhtoan}
    ${total_tt}    Convert price to number   ${total_thanhtoan}
    click to element   ${btn_dathang}
@@ -36,7 +35,6 @@ Thanh toan va nhan hang tai dia chi
    ${lbl_thanhtien}     Convert price to number   ${lbl_thanhtien}
    should be equal as numbers    ${lbl_thanhtien}   ${total}
    click to element  ${rb_nhantaidiachi}
-   Xoa dia chi
    Tao dia chi moi    ${username}   ${phone}   ${diachi}  ${tinh_tp}  ${phuong_xa}
    sleep  2s
    page should contain  ${phone}  5s
@@ -72,8 +70,10 @@ Tao dia chi moi
     sendkey to element   ${txt_phone}   ${phone}
     sendkey to element   ${txt_address}   ${diachi}
     wait until element is visible  ${dropdown_tinh_tp}   5s
-    select from list by label  ${dropdown_tinh_tp}    ${tinh_tp}
+    sendkey to element  ${dropdown_tinh_tp}    ${tinh_tp}
+    press keys    ${dropdown_tinh_tp}    ENTER
     wait until element is visible  ${dropdown_phuong_xa}   5s
-    select from list by label   ${dropdown_phuong_xa}   ${phuong_xa}
+    sendkey to element   ${dropdown_phuong_xa}   ${phuong_xa}
+    press keys   ${dropdown_phuong_xa}    ENTER
     click to element  ${chbox_default_address}
     click to element  ${btn_luu_address}
