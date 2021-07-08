@@ -39,7 +39,7 @@ TCS002
 
 TCS003
     [Template]    Get list product category api and check data
-    140    810032
+    140    ${retailer_id}
 
 TCS004
     [Template]    search result product and check data
@@ -47,7 +47,7 @@ TCS004
 
 TCS005
     [Template]    Add product to cart and check out at branch
-    SP9555556987    3    1B Yết Kiêu, Phường Trần Hưng Đạo, Quận Hoàn Kiếm - Hà Nội
+    	\ SP000065     3    1B Yết Kiêu, Phường Trần Hưng Đạo, Quận Hoàn Kiếm - Hà Nội
 
 TCS006
     [Setup]    Clear customer cart
@@ -135,7 +135,7 @@ Add product to quickcart through api and validate
 Get list product category api and check data
     [Arguments]    ${category_id}    ${retailer_id}
     ${product_name}    ${category_child}    ${attribute_name}    Get list product category from api    ${category_id}    ${retailer_id}
-    open browser    https://fe-staging.citigo.dev:40001/thuc-pham.c140.html    gc
+    open browser    ${storefront_url}    gc
     maximize browser window
     sleep    2s
     Execute Javascript    window.location.reload(true);
@@ -165,7 +165,7 @@ Search result product and check data
     ${listname}    JSONLibrary.Get Value From Json    ${valjson}    $.data.products..name
     ${listname}    evaluate    $listname
     log    ${listname}
-    open browser    https://fe-staging.citigo.dev:40001/    gc
+    open browser    ${storefront_url}    gc
     maximize browser window
     sleep    2s
     Execute Javascript    window.location.reload(true);
@@ -180,7 +180,7 @@ Search result product and check data
 
 Add product to cart and check out at branch
     [Arguments]    ${key}    ${sl}    ${brach_name}
-    open browser    https://fe-staging.citigo.dev:40001/    gc
+    open browser    ${storefront_url}    gc
     maximize browser window
     sleep    5s
     Dang nhap account fe    ${google_account}    ${google_pass}
