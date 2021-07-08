@@ -33,7 +33,7 @@ TCS001
     Hoa cúc đại đóa    Hoa    100000    50000    120
 
 TCS002
-    [Setup]    Clear customer cart
+    [Setup]    clear customer cart
     [Template]    Add product to quickcart through api and validate
     SP000373    3
 
@@ -46,25 +46,26 @@ TCS004
     hoa
 
 TCS005
+    [Setup]    Clear customer cart
     [Template]    Add product to cart and check out at branch
-    	\ SP000065     3    1B Yết Kiêu, Phường Trần Hưng Đạo, Quận Hoàn Kiếm - Hà Nội
+    SP000065    3
 
 TCS006
     [Setup]    Clear customer cart
     [Template]    Add product to quickcart and validate through api
-    SP9555556916    33
+    SP000090     33
 
 TCS007
     [Template]    Add product to cart and check out at address
-    SP9555556987    3    Nguyen van 2    0972654546    1A yết kiêu    An Giang - Huyện Tri Tôn    Xã Vĩnh Phước
+    SP000093     3    Nguyen van 2    0972654546    1A yết kiêu    An Giang - Huyện Tri Tôn    Xã Vĩnh Phước
 
 TCS008
     [Template]    Add comment through api and validate UI
-    GB00012    Thỏ rất xinh
+    SP000115    Thỏ rất xinh
 
 TCS009
     [Template]    Add comment UI and validate through api
-    HH07    Hoa rất đẹp
+    SP000099     Hoa rất đẹp
 
 TCS010
     Get order detail api and check data
@@ -179,13 +180,13 @@ Search result product and check data
     \    exit for loop if    '${i}'=='${length_listname}'
 
 Add product to cart and check out at branch
-    [Arguments]    ${key}    ${sl}    ${brach_name}
+    [Arguments]    ${key}    ${sl}
     open browser    ${storefront_url}    gc
     maximize browser window
     sleep    5s
     Dang nhap account fe    ${google_account}    ${google_pass}
     ${tensp}    ${price}    ${total}    Them san pham tim kiem vao gio hang    ${key}    ${sl}
-    ${order_code}    ${total_tt}    Thanh toan va nhan hang tai chi nhanh    ${tensp}    ${price}    ${total}    ${brach_name}
+    ${order_code}    ${total_tt}    Thanh toan va nhan hang tai chi nhanh    ${tensp}    ${price}    ${total}
     ${json}    Get customer orders detail from api    ${order_code}
     ${namesp}=    JSONLibrary.Get Value From Json    ${json}    $.data.order..name
     ${namesp}=    Evaluate    $namesp[0]
@@ -200,7 +201,7 @@ Add product to cart and check out at branch
 
 Add product to quickcart and validate through api
     [Arguments]    ${product_code}    ${quantity}
-    open browser    https://fe-staging.citigo.dev:40001    gc
+    open browser    ${storefront_url}    gc
     Maximize browser window
     Dang nhap account fe    ${google_account}    ${google_pass}
     Them san pham tim kiem vao gio hang    ${product_code}    ${quantity}
@@ -218,7 +219,7 @@ Add product to cart and check out at address
     \    ${item_code}    get from list    ${product_code}    ${i}
     \    Detele customer carts from api    ${item_code}
     \    exit for loop if    '${i}'=='${length_code}'
-    open browser    https://fe-staging.citigo.dev:40001/    gc
+    open browser    ${storefront_url}    gc
     maximize browser window
     sleep    5s
     Dang nhap account fe    ${google_account}    ${google_pass}
@@ -245,7 +246,7 @@ Add comment through api and validate UI
     open browser    ${storefront_url}    gc
     Maximize browser window
     Dang nhap account fe    ${google_account}    ${google_pass}
-    wait until element is visible    ${btn_taikhoan_sdn}
+    wait until element is visible    ${btn_user}
     ${customercomment_url}    Format string    {0}/customer/comment.html    ${storefront_url}
     go to    ${customercomment_url}
     ${comment_locator}    Format string    ${lbl_comment_content}    ${content_input}    ${product_code}
@@ -272,17 +273,6 @@ Add comment UI and validate through api
     ${comment_content}    ${comment_id}    Get comment infor of customer    ${product_code}
     should be equal as strings    ${comment_content}    ${content_input}
     Delete comment through comment_id    ${comment_id}    ${product_id}
-
-Get customer cart
-    ${heades1}=    create dictionary    store-id=810032    Content-Type=application/x-www-form-urlencoded    Authorization=${mykiot_token}
-    create session    lolo    ${coreapi_url}
-    ${resp1}=    get request    lolo    v1/customers/carts    headers=${heades1}
-    log    ${resp1.json()}
-    Should be equal as strings    ${resp1.status_code}    200
-    ${product_code}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $..data..code
-    ${product_code}=    evaluate    $product_code    modules=random, sys
-    log    ${product_code}
-    return from keyword    ${product_code}
 
 Get order detail api and check data
     open browser    ${storefront_url}    gc

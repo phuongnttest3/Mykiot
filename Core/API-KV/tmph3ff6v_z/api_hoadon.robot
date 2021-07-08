@@ -10,7 +10,7 @@ Resource          api_hanghoa_kv.robot
 Resource          ../Share/Computation.robot
 
 *** Variables ***
-${endpoint_khachhang}    /customers?format=json&Includes=TotalInvoiced&Includes=Location
+${endpoint_khachhang}    /customers?format=json&Includes=TotalInvoiced&Includes=Location&Includes=WardName&ForManageScreen=true
 ${endpoint_hoadon}    /invoices?format=json&Includes=BranchName&Includes=Branch&Includes=DeliveryInfoes&Includes=DeliveryPackages&Includes=TableAndRoom&Includes=Customer&Includes=Payments&Includes=SoldBy&Includes=User&Includes=InvoiceOrderSurcharges&Includes=Order&ForSummaryRow=true&Includes=SaleChannel&UsingStoreProcedure=false&%24inlinecount=allpages&%24top=100&ExpectedDeliveryFilterType=alltime&%24filter=(BranchId+eq+{0}+and+PurchaseDate+eq+%27year%27+and+(Status+eq+3+or+Status+eq+1+or+Status+eq+5+or+Status+eq+2))    # 0: branchid
 ${endpoint_delete_hd}    /invoices/{0}?CompareCode={1}&IsVoidPayment=true    #0: id hóa đơn - 1: mã hd
 
