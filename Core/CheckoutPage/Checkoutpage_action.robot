@@ -37,6 +37,7 @@ Thanh toan va nhan hang tai dia chi
     ${lbl_thanhtien}    Convert price to number    ${lbl_thanhtien}
     should be equal as numbers    ${lbl_thanhtien}    ${total}
     click to element    ${rb_nhantaidiachi}
+    Xoa dia chi
     Tao dia chi moi    ${username}    ${phone}    ${diachi}    ${tinh_tp}    ${phuong_xa}
     sleep    2s
     page should contain    ${phone}    5s

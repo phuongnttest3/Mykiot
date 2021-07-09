@@ -1,6 +1,6 @@
 *** Settings ***
 Suite Setup       init test storefront    live
-#Test Teardown     after test
+Test Teardown     after test
 Library           SeleniumLibrary
 Library           JSONLibrary
 Library           OperatingSystem
@@ -34,6 +34,17 @@ TC002
     [Template]    Search product add to cart and check out at address customer with status order processing
     SP001481     3    2   Đang xử lý     Nhat Minh    0972641413     1A yết kiêu   Bình Phước - Huyện Bù Đốp    Xã Tân Thành
 
+TC003
+    [Tags]    All    Order     Account
+    [Setup]    Clear customer cart
+    [Template]    Search product add to cart and check out at address customer with status order Finish
+
+TC004
+   [Tags]    All    Order     Account
+    [Setup]    Clear customer cart
+    [Template]    Search product add to cart and check out at address customer and cancel order at kv
+    SP001481    0972641413    3       Đã hủy
+
 *** Keywords ***
 Search product add to cart and check out at branch with status order wait confirm
     [Arguments]    ${key}   ${sdt}   ${sl}     ${status_donhang}
@@ -54,4 +65,25 @@ Search product add to cart and check out at address customer with status order p
     ${order_code}    ${total_tt}    Thanh toan va nhan hang tai dia chi    ${tensp}   ${price}    ${total}    ${username}   ${sdt}   ${diachi}  ${tinh_tp}  ${phuong_xa}
     ${order_id}    Get orderid    ${order_code}
     Create invoice of order incl one product frm api    ${product_code}    ${sl_lay}    ${customer_code_google_account}    10000    ${order_id}
+    Validate status orders in order history account   ${order_code}    ${total_tt}    ${status_donhang}
+
+Search product add to cart and check out at address customer with status order Finish
+    [Arguments]    ${product_code}     ${sl}   ${sl_lay}   ${status_donhang}    ${username}   ${sdt}   ${diachi}  ${tinh_tp}  ${phuong_xa}
+    open browser   ${storefront_url}   gc
+    maximize browser window
+    Dang nhap account fe    ${google_account}    ${google_pass}
+    ${tensp}    ${price}    ${total}   Them san pham tim kiem vao gio hang   ${product_code}    ${sl}
+    ${order_code}    ${total_tt}    Thanh toan va nhan hang tai dia chi    ${tensp}   ${price}    ${total}    ${username}   ${sdt}   ${diachi}  ${tinh_tp}  ${phuong_xa}
+    ${order_id}    Get orderid    ${order_code}
+    Create invoice of order incl one product frm api    ${product_code}    ${sl_lay}    ${customer_code_google_account}    10000    ${order_id}
+    Validate status orders in order history account   ${order_code}    ${total_tt}    ${status_donhang}
+
+Search product add to cart and check out at address customer and cancel order at kv
+    [Arguments]    ${key}   ${sdt}   ${sl}     ${status_donhang}
+    open browser   ${storefront_url}   gc
+    maximize browser window
+    Dang nhap account fe    ${google_account}    ${google_pass}
+    ${tensp}    ${price}    ${total}   Them san pham tim kiem vao gio hang   ${key}    ${sl}
+    ${order_code}    ${total_tt}    Thanh toan va nhan hang tai chi nhanh    ${tensp}    ${price}    ${total}
+    Delete order by order code    ${order_code}
     Validate status orders in order history account   ${order_code}    ${total_tt}    ${status_donhang}
