@@ -7,6 +7,7 @@ Library           RequestsLibrary
 Library           Collections
 Library           JSONLibrary
 Library           OperatingSystem
+Library           String
 Resource          ../Core/API/api_core_product.robot
 Resource          ../Core/API-KV/api_access_kv.robot
 Resource          ../Core/API-KV/api_hanghoa_kv.robot
@@ -17,6 +18,7 @@ Resource          ../Core/Product_Detail_Page_New/Product_Detail_locator.robot
 Resource          ../Core/Common.robot
 Resource          ../Core/Product_Detail_Page_New/Product_Detail_Action.robot
 Resource          ../Core/HomePage_New/Homepage_action.robot
+Resource          ../Core/HomePage_New/Homepage_locator.robot
 Resource          ../Core/Common_/Common_locator.robot
 Resource          ../Core/API/api_core_customer.robot
 Resource          ../Core/Common_/Common_action.robot
@@ -24,6 +26,7 @@ Resource          ../Core/SearchResult_Page/Searchpage_locator.robot
 Resource          ../Core/SearchResult_Page/Searchpagenew_action.robot
 Resource          ../Core/CheckoutPage/Checkoutpage_action.robot
 Resource          ../Core/API/api_core_comment.robot
+Resource          ../Core/API/api_core_category.robot
 Resource          ../Core/Account_Page/Account_locator.robot
 Resource          ../Core/SearchResult_Page/Searchpagenew_locator.robot
 
@@ -39,7 +42,7 @@ TCS002
 
 TCS003
     [Template]    Get list product category api and check data
-    140    ${retailer_id}
+    0. Nhật    ${retailer_id}
 
 TCS004
     [Template]    search result product and check data
@@ -134,13 +137,20 @@ Add product to quickcart through api and validate
     Delete product from customer cart through api    ${product_id}
 
 Get list product category api and check data
-    [Arguments]    ${category_id}    ${retailer_id}
+    [Arguments]   ${category_name}   ${retailer_id}
+    ${data_json}=   Get data category from api   ${retailer_id}
+    ${json_category}  format string    $.data[?(@.name =='{0}')].id    ${category_name}
+    ${category_id}=   JSONLibrary.Get Value From Json   ${data_json}   ${json_category}
+    ${category_id}=   evaluate   $category_id[0]
     ${product_name}    ${category_child}    ${attribute_name}    Get list product category from api    ${category_id}    ${retailer_id}
     open browser    ${storefront_url}    gc
     maximize browser window
     sleep    2s
     Execute Javascript    window.location.reload(true);
     sleep    5s
+    ${category_viewall}   format string   ${category_viewallxpath}    ${category_name}
+    click to element   ${category_viewall}
+    sleep  2s
     ${length_productname}=    get length    ${product_name}
     ${length_category}=    get length    ${category_child}
     ${length_attribute}=    get length    ${attribute_name}
@@ -157,6 +167,7 @@ Get list product category api and check data
     # Kiểm tra các thuộc tính hiển thị ở page product listing
     : FOR    ${x}    IN RANGE    ${length_attribute}
     \    ${attribute}    get from list    ${attribute_name}    ${x}
+    \     ${attribute}=  Convert To Upper Case   ${attribute}
     \    page should contain    ${attribute}
     \    exit for loop if    '${x}'=='${length_attribute}'
 

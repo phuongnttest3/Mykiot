@@ -14,6 +14,7 @@ Get data category from api
     create session    lolo    ${coreapi_url}
     ${resp1}=    get request    lolo    v1/categories    headers=${heades1}
     log    ${resp1.json()}
-    ${data}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $..data
-    Should be equal as strings    ${resp1.status_code}    200
-    log    ${data}
+   # ${data}=    JSONLibrary.Get Value From Json    ${resp1.json()}    $..data
+   # Should be equal as strings    ${resp1.status_code}    200
+  #  log    ${data}
+    return from keyword   ${resp1.json()}
