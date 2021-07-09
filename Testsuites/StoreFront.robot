@@ -138,11 +138,7 @@ Add product to quickcart through api and validate
 
 Get list product category api and check data
     [Arguments]   ${category_name}   ${retailer_id}
-    ${data_json}=   Get data category from api   ${retailer_id}
-    ${json_category}  format string    $.data[?(@.name =='{0}')].id    ${category_name}
-    ${category_id}=   JSONLibrary.Get Value From Json   ${data_json}   ${json_category}
-    ${category_id}=   evaluate   $category_id[0]
-    ${product_name}    ${category_child}    ${attribute_name}    Get list product category from api    ${category_id}    ${retailer_id}
+    ${product_name}    ${category_child}    ${attribute_name}    Get list product category from api    ${category_name}    ${retailer_id}
     open browser    ${storefront_url}    gc
     maximize browser window
     sleep    2s

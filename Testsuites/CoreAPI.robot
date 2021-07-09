@@ -129,7 +129,7 @@ TCA027
 
 TCA028
     [Template]    Get list product category from api
-    339    810060
+    0. Nhật    ${retailer_id}
 
 *** Keywords ***
 Delete comment

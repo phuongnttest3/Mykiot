@@ -71,9 +71,13 @@ Get product main infor from product detail
     [Teardown]
 
 Get list product category from api
-    [Arguments]  ${category_id}   ${retailer_id}
+    [Arguments]  ${category_name}   ${retailer_id}
     ${headers}=   create dictionary  store-id=${retailer_id}
     create session    ali    ${coreapi_url}     verify=True
+    ${data_json}=   Get data category from api   ${retailer_id}
+    ${json_category}  format string    $.data[?(@.name =='{0}')].id    ${category_name}
+    ${category_id}=   JSONLibrary.Get Value From Json   ${data_json}   ${json_category}
+    ${category_id}=   evaluate   $category_id[0]
     ${uri}=  format string   /v1/products/category/{0}    ${category_id}
     ${resp}=   get request   ali   ${uri}   ${headers}
     log  ${resp.json()}
